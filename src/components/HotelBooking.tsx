@@ -29,13 +29,13 @@ const HotelBooking = () => {
     },
     {
       id: 3,
-      name: "Hotel Galadari",
+      name: "Best Western Hotel Colombo",
       city: "Colombo",
       rating: 3,
       price: 80,
       image: "🏨",
       amenities: ["Wifi", "Restaurant", "Room Service"],
-      description: "Comfortable 3-star accommodation in central Colombo with harbor views."
+      description: "Comfortable 3-star accommodation in central Colombo with modern amenities."
     },
     
     // Anuradhapura Hotels
@@ -61,13 +61,13 @@ const HotelBooking = () => {
     },
     {
       id: 6,
-      name: "Heritage Hotel",
+      name: "Lilies Resort - Habarana",
       city: "Anuradhapura",
       rating: 3,
       price: 65,
       image: "🏛️",
-      amenities: ["Restaurant", "Cultural Tours", "Wifi"],
-      description: "Budget-friendly hotel near ancient ruins with guided tour services."
+      amenities: ["Pool", "Restaurant", "Cultural Tours", "Wifi"],
+      description: "Comfortable 3-star resort near ancient ruins with cultural tour services."
     },
 
     // Polonnaruwa Hotels
@@ -93,13 +93,13 @@ const HotelBooking = () => {
     },
     {
       id: 9,
-      name: "Polonnaruwa Rest House",
+      name: "Elephant Lake Habarana",
       city: "Polonnaruwa",
       rating: 3,
-      price: 45,
-      image: "🏡",
-      amenities: ["Restaurant", "Historical", "Basic Wifi"],
-      description: "Historic colonial-era rest house with simple but clean accommodations."
+      price: 70,
+      image: "🐘",
+      amenities: ["Lake View", "Restaurant", "Wildlife Tours", "Wifi"],
+      description: "Scenic 3-star hotel overlooking the lake with wildlife viewing opportunities."
     },
 
     // Kandy Hotels
@@ -125,13 +125,13 @@ const HotelBooking = () => {
     },
     {
       id: 12,
-      name: "Hotel Topaz",
+      name: "Swiss Residence Hotel Kandy",
       city: "Kandy",
       rating: 3,
       price: 60,
       image: "🏢",
-      amenities: ["Restaurant", "Wifi", "Room Service"],
-      description: "Budget-friendly hotel in Kandy city center with basic but comfortable rooms."
+      amenities: ["Restaurant", "Wifi", "Room Service", "City View"],
+      description: "Comfortable 3-star hotel in Kandy city center with Swiss hospitality standards."
     },
     
     // Dambulla Hotels
@@ -189,13 +189,13 @@ const HotelBooking = () => {
     },
     {
       id: 18,
-      name: "Hill Club",
+      name: "Fresco Water Villa Hotel Nuwara Eliya",
       city: "Nuwara Eliya",
       rating: 3,
       price: 85,
       image: "🏡",
-      amenities: ["Historical", "Restaurant", "Library"],
-      description: "Traditional gentleman's club offering authentic colonial experience."
+      amenities: ["Lake View", "Restaurant", "Garden", "Wifi"],
+      description: "Charming 3-star water villa hotel with scenic lake views and garden setting."
     },
 
     // Ella Hotels
@@ -221,13 +221,13 @@ const HotelBooking = () => {
     },
     {
       id: 21,
-      name: "Ella Mount Heaven",
+      name: "Hotel Alta Vista Ella",
       city: "Ella",
       rating: 3,
       price: 45,
       image: "🏡",
-      amenities: ["Mountain View", "Restaurant", "Basic Wifi"],
-      description: "Budget guesthouse with basic amenities and beautiful mountain views."
+      amenities: ["Mountain View", "Restaurant", "Basic Wifi", "Terrace"],
+      description: "Budget-friendly 3-star hotel with beautiful mountain views and terrace dining."
     },
 
     // Yala Hotels
@@ -253,13 +253,13 @@ const HotelBooking = () => {
     },
     {
       id: 24,
-      name: "Yala Safari Game Lodge",
+      name: "Hibiscus Garden Hotel Yala",
       city: "Yala",
       rating: 3,
       price: 80,
-      image: "🏕️",
-      amenities: ["Safari", "Restaurant", "Wildlife Tours"],
-      description: "Simple safari lodge offering authentic wilderness experience."
+      image: "🌺",
+      amenities: ["Safari", "Restaurant", "Wildlife Tours", "Garden"],
+      description: "Comfortable 3-star hotel with beautiful garden setting and safari access."
     },
     
     // Galle Hotels
@@ -327,13 +327,13 @@ const HotelBooking = () => {
     },
     {
       id: 31,
-      name: "Bentota Beach Hotel",
+      name: "Club Bentota Hotel Bentota",
       city: "Bentota",
       rating: 3,
       price: 70,
       image: "🏨",
-      amenities: ["Beach", "Pool", "Restaurant"],
-      description: "Comfortable beachfront hotel with direct beach access and pool."
+      amenities: ["Beach", "Pool", "Restaurant", "Water Sports"],
+      description: "Comfortable 3-star beachfront hotel with club facilities and water activities."
     },
 
     // Mirissa Hotels
@@ -449,6 +449,8 @@ const HotelBooking = () => {
       case 'whale watching': return <span className="text-sm">🐋</span>;
       case 'diving': return <span className="text-sm">🤿</span>;
       case 'surfing': return <span className="text-sm">🏄</span>;
+      case 'city view': return <span className="text-sm">🏙️</span>;
+      case 'terrace': return <span className="text-sm">🏗️</span>;
       default: return <Car className="w-4 h-4" />;
     }
   };
