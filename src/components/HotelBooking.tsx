@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Star, MapPin, Wifi, Car, Utensils, Waves } from 'lucide-react';
 
@@ -39,51 +38,105 @@ const HotelBooking = () => {
       description: "Comfortable 3-star accommodation in central Colombo with harbor views."
     },
     
-    // Galle Hotels
+    // Anuradhapura Hotels
     {
       id: 4,
-      name: "Jetwing Lighthouse",
-      city: "Galle",
+      name: "Ulagalla Resort",
+      city: "Anuradhapura",
       rating: 5,
-      price: 180,
-      image: "🏖️",
-      amenities: ["Beach", "Pool", "Spa", "Restaurant"],
-      description: "Iconic clifftop hotel designed by Geoffrey Bawa overlooking the ocean."
+      price: 280,
+      image: "🌿",
+      amenities: ["Nature", "Pool", "Spa", "Restaurant"],
+      description: "Luxury eco-resort set in 20 acres of paddy fields and gardens."
     },
     {
       id: 5,
-      name: "The Fortress Resort",
-      city: "Galle",
-      rating: 5,
-      price: 200,
-      image: "🏰",
-      amenities: ["Beach", "Pool", "Spa", "Golf"],
-      description: "Contemporary luxury resort with stunning ocean views and modern amenities."
+      name: "Palm Garden Village",
+      city: "Anuradhapura",
+      rating: 4,
+      price: 95,
+      image: "🏞️",
+      amenities: ["Pool", "Restaurant", "Cultural Tours", "Garden"],
+      description: "Charming 4-star resort with traditional architecture and modern comforts."
     },
     {
       id: 6,
-      name: "Amangalla",
-      city: "Galle",
-      rating: 4,
-      price: 140,
-      image: "🏛️",
-      amenities: ["Pool", "Spa", "Restaurant", "Historical"],
-      description: "Historic 4-star hotel within the UNESCO World Heritage Galle Fort."
-    },
-    {
-      id: 7,
-      name: "Fort Printers",
-      city: "Galle",
+      name: "Heritage Hotel",
+      city: "Anuradhapura",
       rating: 3,
-      price: 90,
-      image: "🏨",
-      amenities: ["Wifi", "Restaurant", "Historical"],
-      description: "Charming boutique hotel in a restored mansion within Galle Fort."
+      price: 65,
+      image: "🏛️",
+      amenities: ["Restaurant", "Cultural Tours", "Wifi"],
+      description: "Budget-friendly hotel near ancient ruins with guided tour services."
     },
 
-    // Dambulla Hotels
+    // Polonnaruwa Hotels
+    {
+      id: 7,
+      name: "Hotel Sudu Araliya",
+      city: "Polonnaruwa",
+      rating: 4,
+      price: 85,
+      image: "🏨",
+      amenities: ["Pool", "Restaurant", "Cultural Tours", "Wifi"],
+      description: "Comfortable 4-star hotel with easy access to ancient city ruins."
+    },
     {
       id: 8,
+      name: "The Village",
+      city: "Polonnaruwa",
+      rating: 3,
+      price: 55,
+      image: "🏘️",
+      amenities: ["Restaurant", "Cultural Tours", "Garden"],
+      description: "Traditional village-style accommodation with authentic Sri Lankan experience."
+    },
+    {
+      id: 9,
+      name: "Polonnaruwa Rest House",
+      city: "Polonnaruwa",
+      rating: 3,
+      price: 45,
+      image: "🏡",
+      amenities: ["Restaurant", "Historical", "Basic Wifi"],
+      description: "Historic colonial-era rest house with simple but clean accommodations."
+    },
+
+    // Kandy Hotels
+    {
+      id: 10,
+      name: "Earl's Regency Hotel",
+      city: "Kandy",
+      rating: 5,
+      price: 140,
+      image: "🏰",
+      amenities: ["Pool", "Spa", "Restaurant", "Cultural Shows"],
+      description: "Luxury hillside hotel with panoramic views of Kandy and cultural performances."
+    },
+    {
+      id: 11,
+      name: "Thilanka Hotel",
+      city: "Kandy",
+      rating: 4,
+      price: 90,
+      image: "🏨",
+      amenities: ["Pool", "Restaurant", "Cultural Tours", "Wifi"],
+      description: "Well-located 4-star hotel near Temple of the Tooth with modern amenities."
+    },
+    {
+      id: 12,
+      name: "Hotel Topaz",
+      city: "Kandy",
+      rating: 3,
+      price: 60,
+      image: "🏢",
+      amenities: ["Restaurant", "Wifi", "Room Service"],
+      description: "Budget-friendly hotel in Kandy city center with basic but comfortable rooms."
+    },
+    
+    // Dambulla Hotels
+    {
+      id: 13,
       name: "Heritage Kandalama",
       city: "Dambulla",
       rating: 5,
@@ -93,7 +146,7 @@ const HotelBooking = () => {
       description: "Eco-luxury resort built into a rock face overlooking Kandalama Lake."
     },
     {
-      id: 9,
+      id: 14,
       name: "Amaya Lake",
       city: "Dambulla",
       rating: 4,
@@ -103,7 +156,7 @@ const HotelBooking = () => {
       description: "4-star resort on the shores of Kandalama Lake with cultural tours."
     },
     {
-      id: 10,
+      id: 15,
       name: "Pelwehera Village Resort",
       city: "Dambulla",
       rating: 3,
@@ -115,7 +168,7 @@ const HotelBooking = () => {
 
     // Nuwara Eliya Hotels
     {
-      id: 11,
+      id: 16,
       name: "Tea Trails Bungalows",
       city: "Nuwara Eliya",
       rating: 5,
@@ -125,7 +178,7 @@ const HotelBooking = () => {
       description: "Colonial-era tea planter bungalows in the hill country."
     },
     {
-      id: 12,
+      id: 17,
       name: "Grand Hotel",
       city: "Nuwara Eliya",
       rating: 4,
@@ -135,7 +188,7 @@ const HotelBooking = () => {
       description: "Historic 4-star hotel with colonial charm and golf course access."
     },
     {
-      id: 13,
+      id: 18,
       name: "Hill Club",
       city: "Nuwara Eliya",
       rating: 3,
@@ -145,40 +198,211 @@ const HotelBooking = () => {
       description: "Traditional gentleman's club offering authentic colonial experience."
     },
 
-    // Tangalle Hotels
+    // Ella Hotels
     {
-      id: 14,
-      name: "Anantara Peace Haven",
-      city: "Tangalle",
+      id: 19,
+      name: "98 Acres Resort",
+      city: "Ella",
+      rating: 5,
+      price: 180,
+      image: "🏔️",
+      amenities: ["Nature", "Pool", "Spa", "Restaurant"],
+      description: "Luxury resort with stunning views of Ella Gap and surrounding mountains."
+    },
+    {
+      id: 20,
+      name: "Zion View Hotel",
+      city: "Ella",
+      rating: 4,
+      price: 75,
+      image: "🌄",
+      amenities: ["Mountain View", "Restaurant", "Hiking Tours"],
+      description: "Boutique hotel with panoramic mountain views and hiking trail access."
+    },
+    {
+      id: 21,
+      name: "Ella Mount Heaven",
+      city: "Ella",
+      rating: 3,
+      price: 45,
+      image: "🏡",
+      amenities: ["Mountain View", "Restaurant", "Basic Wifi"],
+      description: "Budget guesthouse with basic amenities and beautiful mountain views."
+    },
+
+    // Yala Hotels
+    {
+      id: 22,
+      name: "Cinnamon Wild Yala",
+      city: "Yala",
       rating: 5,
       price: 220,
+      image: "🐘",
+      amenities: ["Safari", "Pool", "Spa", "Restaurant"],
+      description: "Luxury tented safari resort on the edge of Yala National Park."
+    },
+    {
+      id: 23,
+      name: "Jetwing Yala",
+      city: "Yala",
+      rating: 4,
+      price: 150,
+      image: "🌿",
+      amenities: ["Safari", "Pool", "Restaurant", "Wildlife Tours"],
+      description: "Eco-friendly 4-star resort with direct access to national park."
+    },
+    {
+      id: 24,
+      name: "Yala Safari Game Lodge",
+      city: "Yala",
+      rating: 3,
+      price: 80,
+      image: "🏕️",
+      amenities: ["Safari", "Restaurant", "Wildlife Tours"],
+      description: "Simple safari lodge offering authentic wilderness experience."
+    },
+    
+    // Galle Hotels
+    {
+      id: 25,
+      name: "Jetwing Lighthouse",
+      city: "Galle",
+      rating: 5,
+      price: 180,
+      image: "🏖️",
+      amenities: ["Beach", "Pool", "Spa", "Restaurant"],
+      description: "Iconic clifftop hotel designed by Geoffrey Bawa overlooking the ocean."
+    },
+    {
+      id: 26,
+      name: "The Fortress Resort",
+      city: "Galle",
+      rating: 5,
+      price: 200,
+      image: "🏰",
+      amenities: ["Beach", "Pool", "Spa", "Golf"],
+      description: "Contemporary luxury resort with stunning ocean views and modern amenities."
+    },
+    {
+      id: 27,
+      name: "Amangalla",
+      city: "Galle",
+      rating: 4,
+      price: 140,
+      image: "🏛️",
+      amenities: ["Pool", "Spa", "Restaurant", "Historical"],
+      description: "Historic 4-star hotel within the UNESCO World Heritage Galle Fort."
+    },
+    {
+      id: 28,
+      name: "Fort Printers",
+      city: "Galle",
+      rating: 3,
+      price: 90,
+      image: "🏨",
+      amenities: ["Wifi", "Restaurant", "Historical"],
+      description: "Charming boutique hotel in a restored mansion within Galle Fort."
+    },
+
+    // Bentota Hotels
+    {
+      id: 29,
+      name: "Saman Villas",
+      city: "Bentota",
+      rating: 5,
+      price: 190,
       image: "🌺",
       amenities: ["Beach", "Pool", "Spa", "Restaurant"],
       description: "Luxury beachfront resort with private villas and pristine beach access."
     },
     {
-      id: 15,
-      name: "Shangri-La's Hambantota",
-      city: "Tangalle",
+      id: 30,
+      name: "Centara Ceysands Resort",
+      city: "Bentota",
       rating: 4,
-      price: 145,
+      price: 120,
       image: "🏖️",
-      amenities: ["Beach", "Pool", "Golf", "Restaurant"],
-      description: "4-star resort with championship golf course and elephant sanctuary visits."
+      amenities: ["Beach", "Pool", "Water Sports", "Restaurant"],
+      description: "4-star beachfront resort perfect for water sports and relaxation."
     },
     {
-      id: 16,
-      name: "Turtle Bay Eco Lodge",
-      city: "Tangalle",
+      id: 31,
+      name: "Bentota Beach Hotel",
+      city: "Bentota",
       rating: 3,
-      price: 75,
-      image: "🐢",
-      amenities: ["Beach", "Eco-friendly", "Restaurant"],
-      description: "Eco-friendly beachfront lodge perfect for turtle watching and surfing."
+      price: 70,
+      image: "🏨",
+      amenities: ["Beach", "Pool", "Restaurant"],
+      description: "Comfortable beachfront hotel with direct beach access and pool."
+    },
+
+    // Mirissa Hotels
+    {
+      id: 32,
+      name: "Cape Weligama",
+      city: "Mirissa",
+      rating: 5,
+      price: 240,
+      image: "🌊",
+      amenities: ["Beach", "Pool", "Spa", "Restaurant"],
+      description: "Ultra-luxury clifftop resort with infinity pools and ocean views."
+    },
+    {
+      id: 33,
+      name: "Mandara Resort",
+      city: "Mirissa",
+      rating: 4,
+      price: 110,
+      image: "🏖️",
+      amenities: ["Beach", "Pool", "Restaurant", "Whale Watching"],
+      description: "Beachfront 4-star resort with whale watching tours and water activities."
+    },
+    {
+      id: 34,
+      name: "Mirissa Beach Resort",
+      city: "Mirissa",
+      rating: 3,
+      price: 65,
+      image: "🏨",
+      amenities: ["Beach", "Restaurant", "Whale Watching"],
+      description: "Simple beachfront accommodation with easy access to whale watching tours."
+    },
+
+    // Hikkaduwa Hotels
+    {
+      id: 35,
+      name: "Coral Rock Hotel",
+      city: "Hikkaduwa",
+      rating: 4,
+      price: 100,
+      image: "🐠",
+      amenities: ["Beach", "Pool", "Diving", "Restaurant"],
+      description: "Beachfront 4-star hotel perfect for diving and snorkeling enthusiasts."
+    },
+    {
+      id: 36,
+      name: "Hikka Tranz",
+      city: "Hikkaduwa",
+      rating: 4,
+      price: 95,
+      image: "🏖️",
+      amenities: ["Beach", "Pool", "Water Sports", "Restaurant"],
+      description: "Modern beachfront resort with water sports and recreational facilities."
+    },
+    {
+      id: 37,
+      name: "Ocean Moon Hotel",
+      city: "Hikkaduwa",
+      rating: 3,
+      price: 50,
+      image: "🌙",
+      amenities: ["Beach", "Restaurant", "Surfing"],
+      description: "Budget-friendly beachfront hotel popular with surfers and backpackers."
     }
   ];
 
-  const cities = ['all', 'Colombo', 'Galle', 'Dambulla', 'Nuwara Eliya', 'Tangalle'];
+  const cities = ['all', 'Colombo', 'Anuradhapura', 'Polonnaruwa', 'Kandy', 'Dambulla', 'Nuwara Eliya', 'Ella', 'Yala', 'Galle', 'Bentota', 'Mirissa', 'Hikkaduwa'];
+  
   const budgetRanges = [
     { value: 'all', label: 'All Budgets' },
     { value: 'budget', label: 'Under $100' },
@@ -215,6 +439,16 @@ const HotelBooking = () => {
       case 'eco-friendly': return <span className="text-sm">♻️</span>;
       case 'gym': return <span className="text-sm">💪</span>;
       case 'room service': return <span className="text-sm">🛎️</span>;
+      case 'safari': return <span className="text-sm">🦁</span>;
+      case 'wildlife tours': return <span className="text-sm">🐘</span>;
+      case 'mountain view': return <span className="text-sm">🏔️</span>;
+      case 'hiking tours': return <span className="text-sm">🥾</span>;
+      case 'basic wifi': return <span className="text-sm">📶</span>;
+      case 'cultural shows': return <span className="text-sm">💃</span>;
+      case 'water sports': return <span className="text-sm">🏄</span>;
+      case 'whale watching': return <span className="text-sm">🐋</span>;
+      case 'diving': return <span className="text-sm">🤿</span>;
+      case 'surfing': return <span className="text-sm">🏄</span>;
       default: return <Car className="w-4 h-4" />;
     }
   };
