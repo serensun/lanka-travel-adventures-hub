@@ -7,6 +7,7 @@ const HotelBooking = () => {
   const [selectedBudget, setSelectedBudget] = useState('all');
 
   const hotels = [
+    // Colombo Hotels
     {
       id: 1,
       name: "Cinnamon Grand Colombo",
@@ -19,6 +20,28 @@ const HotelBooking = () => {
     },
     {
       id: 2,
+      name: "Hilton Colombo",
+      city: "Colombo",
+      rating: 4,
+      price: 120,
+      image: "🏢",
+      amenities: ["Wifi", "Pool", "Restaurant", "Gym"],
+      description: "Modern 4-star hotel with excellent business facilities and city views."
+    },
+    {
+      id: 3,
+      name: "Hotel Galadari",
+      city: "Colombo",
+      rating: 3,
+      price: 80,
+      image: "🏨",
+      amenities: ["Wifi", "Restaurant", "Room Service"],
+      description: "Comfortable 3-star accommodation in central Colombo with harbor views."
+    },
+    
+    // Galle Hotels
+    {
+      id: 4,
       name: "Jetwing Lighthouse",
       city: "Galle",
       rating: 5,
@@ -28,17 +51,7 @@ const HotelBooking = () => {
       description: "Iconic clifftop hotel designed by Geoffrey Bawa overlooking the ocean."
     },
     {
-      id: 3,
-      name: "Heritage Kandalama",
-      city: "Dambulla",
-      rating: 4,
-      price: 120,
-      image: "🌿",
-      amenities: ["Nature", "Pool", "Spa", "Restaurant"],
-      description: "Eco-luxury resort built into a rock face overlooking Kandalama Lake."
-    },
-    {
-      id: 4,
+      id: 5,
       name: "The Fortress Resort",
       city: "Galle",
       rating: 5,
@@ -48,7 +61,61 @@ const HotelBooking = () => {
       description: "Contemporary luxury resort with stunning ocean views and modern amenities."
     },
     {
-      id: 5,
+      id: 6,
+      name: "Amangalla",
+      city: "Galle",
+      rating: 4,
+      price: 140,
+      image: "🏛️",
+      amenities: ["Pool", "Spa", "Restaurant", "Historical"],
+      description: "Historic 4-star hotel within the UNESCO World Heritage Galle Fort."
+    },
+    {
+      id: 7,
+      name: "Fort Printers",
+      city: "Galle",
+      rating: 3,
+      price: 90,
+      image: "🏨",
+      amenities: ["Wifi", "Restaurant", "Historical"],
+      description: "Charming boutique hotel in a restored mansion within Galle Fort."
+    },
+
+    // Dambulla Hotels
+    {
+      id: 8,
+      name: "Heritage Kandalama",
+      city: "Dambulla",
+      rating: 5,
+      price: 160,
+      image: "🌿",
+      amenities: ["Nature", "Pool", "Spa", "Restaurant"],
+      description: "Eco-luxury resort built into a rock face overlooking Kandalama Lake."
+    },
+    {
+      id: 9,
+      name: "Amaya Lake",
+      city: "Dambulla",
+      rating: 4,
+      price: 110,
+      image: "🏞️",
+      amenities: ["Lake View", "Pool", "Restaurant", "Nature"],
+      description: "4-star resort on the shores of Kandalama Lake with cultural tours."
+    },
+    {
+      id: 10,
+      name: "Pelwehera Village Resort",
+      city: "Dambulla",
+      rating: 3,
+      price: 70,
+      image: "🏘️",
+      amenities: ["Pool", "Restaurant", "Cultural Tours"],
+      description: "Traditional village-style accommodation near ancient cave temples."
+    },
+
+    // Nuwara Eliya Hotels
+    {
+      id: 11,
       name: "Tea Trails Bungalows",
       city: "Nuwara Eliya",
       rating: 5,
@@ -58,7 +125,29 @@ const HotelBooking = () => {
       description: "Colonial-era tea planter bungalows in the hill country."
     },
     {
-      id: 6,
+      id: 12,
+      name: "Grand Hotel",
+      city: "Nuwara Eliya",
+      rating: 4,
+      price: 130,
+      image: "🏰",
+      amenities: ["Golf", "Restaurant", "Historical", "Garden"],
+      description: "Historic 4-star hotel with colonial charm and golf course access."
+    },
+    {
+      id: 13,
+      name: "Hill Club",
+      city: "Nuwara Eliya",
+      rating: 3,
+      price: 85,
+      image: "🏡",
+      amenities: ["Historical", "Restaurant", "Library"],
+      description: "Traditional gentleman's club offering authentic colonial experience."
+    },
+
+    // Tangalle Hotels
+    {
+      id: 14,
       name: "Anantara Peace Haven",
       city: "Tangalle",
       rating: 5,
@@ -66,6 +155,26 @@ const HotelBooking = () => {
       image: "🌺",
       amenities: ["Beach", "Pool", "Spa", "Restaurant"],
       description: "Luxury beachfront resort with private villas and pristine beach access."
+    },
+    {
+      id: 15,
+      name: "Shangri-La's Hambantota",
+      city: "Tangalle",
+      rating: 4,
+      price: 145,
+      image: "🏖️",
+      amenities: ["Beach", "Pool", "Golf", "Restaurant"],
+      description: "4-star resort with championship golf course and elephant sanctuary visits."
+    },
+    {
+      id: 16,
+      name: "Turtle Bay Eco Lodge",
+      city: "Tangalle",
+      rating: 3,
+      price: 75,
+      image: "🐢",
+      amenities: ["Beach", "Eco-friendly", "Restaurant"],
+      description: "Eco-friendly beachfront lodge perfect for turtle watching and surfing."
     }
   ];
 
@@ -98,6 +207,14 @@ const HotelBooking = () => {
       case 'golf': return <span className="text-sm">⛳</span>;
       case 'butler': return <span className="text-sm">🤵</span>;
       case 'tea tours': return <span className="text-sm">🍃</span>;
+      case 'historical': return <span className="text-sm">🏛️</span>;
+      case 'lake view': return <span className="text-sm">🏞️</span>;
+      case 'cultural tours': return <span className="text-sm">🎭</span>;
+      case 'garden': return <span className="text-sm">🌺</span>;
+      case 'library': return <span className="text-sm">📚</span>;
+      case 'eco-friendly': return <span className="text-sm">♻️</span>;
+      case 'gym': return <span className="text-sm">💪</span>;
+      case 'room service': return <span className="text-sm">🛎️</span>;
       default: return <Car className="w-4 h-4" />;
     }
   };
