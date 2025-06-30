@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { MapPin, Hotel, Camera, Calculator, Plane, Star } from 'lucide-react';
 import HotelBooking from '../components/HotelBooking';
 import SightseeingTours from '../components/SightseeingTours';
 import PlacesToVisit from '../components/PlacesToVisit';
-import TripCalculator from '../components/TripCalculator';
+import TourPackageSelector from '../components/TourPackageSelector';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -14,7 +13,7 @@ const Index = () => {
     { id: 'hotels', label: 'Hotels', icon: Hotel },
     { id: 'tours', label: 'Tours', icon: Camera },
     { id: 'places', label: 'Places', icon: MapPin },
-    { id: 'calculator', label: 'Calculator', icon: Calculator },
+    { id: 'packages', label: 'Packages', icon: Calculator },
   ];
 
   const renderActiveSection = () => {
@@ -25,8 +24,8 @@ const Index = () => {
         return <SightseeingTours />;
       case 'places':
         return <PlacesToVisit />;
-      case 'calculator':
-        return <TripCalculator />;
+      case 'packages':
+        return <TourPackageSelector />;
       default:
         return (
           <div className="space-y-8">
@@ -104,7 +103,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-600 via-green-500 to-orange-400">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-white mb-2">
             Sri Lanka Travel Planner
@@ -112,7 +110,6 @@ const Index = () => {
           <p className="text-blue-100 text-lg">Your gateway to paradise</p>
         </div>
 
-        {/* Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {navigationItems.map((item) => {
             const IconComponent = item.icon;
@@ -133,7 +130,6 @@ const Index = () => {
           })}
         </div>
 
-        {/* Main Content */}
         <div className="max-w-7xl mx-auto">
           {renderActiveSection()}
         </div>
