@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,6 +26,26 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
     numberOfTravelers: travelers,
     specialRequests: ''
   });
+
+  // Parse package type to get tour details
+  const getPackageDetails = () => {
+    if (packageType.includes('5-day')) {
+      const packageLevel = packageType.replace('5-day-', '');
+      return {
+        tourName: '5-Day Sri Lanka Cultural & Nature Tour',
+        duration: '5 days',
+        packageLevel: packageLevel.charAt(0).toUpperCase() + packageLevel.slice(1)
+      };
+    } else {
+      return {
+        tourName: '4-Day Sri Lanka Whirlwind Tour',
+        duration: '4 days',
+        packageLevel: packageType.charAt(0).toUpperCase() + packageType.slice(1)
+      };
+    }
+  };
+
+  const packageDetails = getPackageDetails();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,7 +113,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
     <Dialog>
       <DialogTrigger asChild>
         <Button className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-green-600 transition-all duration-300 transform hover:scale-105">
-          Book This 4-Day Adventure
+          Book This {packageDetails.duration.charAt(0).toUpperCase() + packageDetails.duration.slice(1)} Adventure
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -104,10 +123,12 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
           <h3 className="font-semibold text-blue-900 mb-2">Booking Summary</h3>
-          <div className="text-sm text-blue-800">
-            <p>Package: {packageType.charAt(0).toUpperCase() + packageType.slice(1)}</p>
-            <p>Travelers: {travelers} person{travelers > 1 ? 's' : ''}</p>
-            <p className="font-bold">Total Cost: ${totalCost.toLocaleString()}</p>
+          <div className="text-sm text-blue-800 space-y-1">
+            <p><strong>Tour:</strong> {packageDetails.tourName}</p>
+            <p><strong>Duration:</strong> {packageDetails.duration}</p>
+            <p><strong>Package Level:</strong> {packageDetails.packageLevel}</p>
+            <p><strong>Travelers:</strong> {travelers} person{travelers > 1 ? 's' : ''}</p>
+            <p className="font-bold text-lg"><strong>Total Cost:</strong> ${totalCost.toLocaleString()}</p>
           </div>
         </div>
 
