@@ -6,6 +6,8 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { User, Mail, Phone, Calendar, Users, MessageSquare } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface BookingFormProps {
   packageType: string;
@@ -14,6 +16,8 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -24,11 +28,59 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
     specialRequests: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Booking form submitted:', { ...formData, packageType, totalCost });
-    // Here you would typically send the data to your backend
-    alert('Thank you for your booking request! We will contact you shortly.');
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('booking_submissions')
+        .insert({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          preferred_date: formData.preferredDate,
+          number_of_travelers: formData.numberOfTravelers,
+          special_requests: formData.specialRequests,
+          package_type: packageType,
+          total_cost: totalCost
+        });
+
+      if (error) {
+        console.error('Error submitting booking:', error);
+        toast({
+          title: "Error",
+          description: "There was an error submitting your booking. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Booking Submitted Successfully!",
+          description: "Thank you for your booking request. We will contact you within 24 hours.",
+        });
+        
+        // Reset form
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          country: '',
+          preferredDate: '',
+          numberOfTravelers: travelers,
+          specialRequests: ''
+        });
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -73,6 +125,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 required
+                disabled={isSubmitting}
               />
             </div>
             
@@ -89,6 +142,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
                 onChange={handleChange}
                 placeholder="Enter your email"
                 required
+                disabled={isSubmitting}
               />
             </div>
           </div>
@@ -107,6 +161,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
                 onChange={handleChange}
                 placeholder="Enter your phone number"
                 required
+                disabled={isSubmitting}
               />
             </div>
             
@@ -122,6 +177,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
                 onChange={handleChange}
                 placeholder="Enter your country"
                 required
+                disabled={isSubmitting}
               />
             </div>
           </div>
@@ -139,6 +195,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
                 value={formData.preferredDate}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
               />
             </div>
             
@@ -156,6 +213,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
                 value={formData.numberOfTravelers}
                 onChange={handleChange}
                 readOnly
+                disabled={isSubmitting}
               />
             </div>
           </div>
@@ -172,6 +230,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
               onChange={handleChange}
               placeholder="Any special dietary requirements, accessibility needs, or other requests..."
               rows={3}
+              disabled={isSubmitting}
             />
           </div>
 
@@ -181,8 +240,12 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
             </p>
           </div>
 
-          <Button type="submit" className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600">
-            Submit Booking Request
+          <Button 
+            type="submit" 
+            className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
           </Button>
         </form>
       </DialogContent>

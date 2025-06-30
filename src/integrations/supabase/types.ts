@@ -9,7 +9,84 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      booking_submissions: {
+        Row: {
+          country: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          number_of_travelers: number
+          package_type: string
+          phone: string
+          preferred_date: string
+          special_requests: string | null
+          total_cost: number
+        }
+        Insert: {
+          country: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          number_of_travelers: number
+          package_type: string
+          phone: string
+          preferred_date: string
+          special_requests?: string | null
+          total_cost: number
+        }
+        Update: {
+          country?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          number_of_travelers?: number
+          package_type?: string
+          phone?: string
+          preferred_date?: string
+          special_requests?: string | null
+          total_cost?: number
+        }
+        Relationships: []
+      }
+      "client details": {
+        Row: {
+          comments: string | null
+          country: string | null
+          created_at: string
+          date_travel: string | null
+          Email: string | null
+          Full_name: string | null
+          id: number
+          num_travellers: number | null
+          phone: string | null
+        }
+        Insert: {
+          comments?: string | null
+          country?: string | null
+          created_at?: string
+          date_travel?: string | null
+          Email?: string | null
+          Full_name?: string | null
+          id?: number
+          num_travellers?: number | null
+          phone?: string | null
+        }
+        Update: {
+          comments?: string | null
+          country?: string | null
+          created_at?: string
+          date_travel?: string | null
+          Email?: string | null
+          Full_name?: string | null
+          id?: number
+          num_travellers?: number | null
+          phone?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
