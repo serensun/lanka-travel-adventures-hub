@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Check, X, Users, Calendar, MapPin, Camera } from 'lucide-react';
+import BookingForm from './BookingForm';
 
 const FourDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
@@ -263,9 +264,11 @@ const FourDayTourPackage = () => {
               </p>
             </div>
 
-            <button className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-green-600 transition-all duration-300 transform hover:scale-105">
-              Book This 4-Day Adventure
-            </button>
+            <BookingForm 
+              packageType={selectedPackage}
+              travelers={travelers}
+              totalCost={getTotalPrice()}
+            />
           </div>
         </div>
       </div>

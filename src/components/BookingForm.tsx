@@ -1,0 +1,193 @@
+
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { User, Mail, Phone, Calendar, Users, MessageSquare } from 'lucide-react';
+
+interface BookingFormProps {
+  packageType: string;
+  travelers: number;
+  totalCost: number;
+}
+
+const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    country: '',
+    preferredDate: '',
+    numberOfTravelers: travelers,
+    specialRequests: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Booking form submitted:', { ...formData, packageType, totalCost });
+    // Here you would typically send the data to your backend
+    alert('Thank you for your booking request! We will contact you shortly.');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-600 hover:to-green-600 transition-all duration-300 transform hover:scale-105">
+          Book This 4-Day Adventure
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-center">Complete Your Booking</DialogTitle>
+        </DialogHeader>
+        
+        <div className="bg-blue-50 p-4 rounded-lg mb-6">
+          <h3 className="font-semibold text-blue-900 mb-2">Booking Summary</h3>
+          <div className="text-sm text-blue-800">
+            <p>Package: {packageType.charAt(0).toUpperCase() + packageType.slice(1)}</p>
+            <p>Travelers: {travelers} person{travelers > 1 ? 's' : ''}</p>
+            <p className="font-bold">Total Cost: ${totalCost.toLocaleString()}</p>
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="fullName" className="flex items-center gap-2">
+                <User className="w-4 h-4" />
+                Full Name *
+              </Label>
+              <Input
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="email" className="flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                Email Address *
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                Phone Number *
+              </Label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="country" className="flex items-center gap-2">
+                <User className="w-4 h-4" />
+                Country *
+              </Label>
+              <Input
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleChange}
+                placeholder="Enter your country"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="preferredDate" className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                Preferred Travel Date *
+              </Label>
+              <Input
+                id="preferredDate"
+                name="preferredDate"
+                type="date"
+                value={formData.preferredDate}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="numberOfTravelers" className="flex items-center gap-2">
+                <Users className="w-4 h-4" />
+                Number of Travelers
+              </Label>
+              <Input
+                id="numberOfTravelers"
+                name="numberOfTravelers"
+                type="number"
+                min="1"
+                max="10"
+                value={formData.numberOfTravelers}
+                onChange={handleChange}
+                readOnly
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="specialRequests" className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4" />
+              Special Requests or Comments
+            </Label>
+            <Textarea
+              id="specialRequests"
+              name="specialRequests"
+              value={formData.specialRequests}
+              onChange={handleChange}
+              placeholder="Any special dietary requirements, accessibility needs, or other requests..."
+              rows={3}
+            />
+          </div>
+
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <p className="text-yellow-800 text-sm">
+              <strong>Note:</strong> This is a booking inquiry. Our team will contact you within 24 hours to confirm availability and finalize your booking details.
+            </p>
+          </div>
+
+          <Button type="submit" className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600">
+            Submit Booking Request
+          </Button>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default BookingForm;
