@@ -5,6 +5,7 @@ import SightseeingTours from '../components/SightseeingTours';
 import PlacesToVisit from '../components/PlacesToVisit';
 import TourPackageSelector from '../components/TourPackageSelector';
 import FourDayTourPackage from '../components/FourDayTourPackage';
+import FiveDayTourPackage from '../components/FiveDayTourPackage';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -12,6 +13,7 @@ const Index = () => {
   const navigationItems = [
     { id: 'overview', label: 'Overview', icon: Plane },
     { id: '4day-tour', label: '4-Day Tour', icon: Calendar },
+    { id: '5day-tour', label: '5-Day Tour', icon: Calendar },
     { id: 'hotels', label: 'Hotels', icon: Hotel },
     { id: 'tours', label: 'Tours', icon: Camera },
     { id: 'places', label: 'Places', icon: MapPin },
@@ -22,6 +24,8 @@ const Index = () => {
     switch (activeSection) {
       case '4day-tour':
         return <FourDayTourPackage />;
+      case '5day-tour':
+        return <FiveDayTourPackage />;
       case 'hotels':
         return <HotelBooking />;
       case 'tours':
