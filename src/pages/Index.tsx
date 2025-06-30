@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { MapPin, Hotel, Camera, Calculator, Plane, Star } from 'lucide-react';
+import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar } from 'lucide-react';
 import HotelBooking from '../components/HotelBooking';
 import SightseeingTours from '../components/SightseeingTours';
 import PlacesToVisit from '../components/PlacesToVisit';
 import TourPackageSelector from '../components/TourPackageSelector';
+import FourDayTourPackage from '../components/FourDayTourPackage';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('overview');
 
   const navigationItems = [
     { id: 'overview', label: 'Overview', icon: Plane },
+    { id: '4day-tour', label: '4-Day Tour', icon: Calendar },
     { id: 'hotels', label: 'Hotels', icon: Hotel },
     { id: 'tours', label: 'Tours', icon: Camera },
     { id: 'places', label: 'Places', icon: MapPin },
-    { id: 'packages', label: 'Packages', icon: Calculator },
+    { id: 'packages', label: 'Custom Packages', icon: Calculator },
   ];
 
   const renderActiveSection = () => {
     switch (activeSection) {
+      case '4day-tour':
+        return <FourDayTourPackage />;
       case 'hotels':
         return <HotelBooking />;
       case 'tours':
