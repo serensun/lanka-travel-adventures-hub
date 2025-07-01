@@ -63,19 +63,22 @@ const FiveDayTourPackage = () => {
 
   const imageGalleries = {
     cultural: [
-      { url: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800", caption: "Temple of the Tooth Relic" },
-      { url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800", caption: "Buddhist Ceremonies" },
-      { url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800", caption: "Cultural Heritage Sites" }
+      { url: "https://serendipitypvt.com/wp-content/uploads/2020/01/udawalawe-cover-photo.gif", caption: "Udawalawe National Park" },
+      { url: "https://serendipitypvt.com/wp-content/uploads/2022/09/temple-cover-photo-1.jpg", caption: "Sacred Temple Sites" },
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/24.avif", caption: "Cultural Heritage Sites" }
     ],
     nature: [
-      { url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800", caption: "Tea Plantations" },
-      { url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800", caption: "Hill Country Landscapes" },
-      { url: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800", caption: "Scenic Train Routes" }
+      { url: "https://serendipitypvt.com/wp-content/uploads/2020/01/anuradhapura-cover-photo.gif", caption: "Ancient Anuradhapura" },
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/123.avif", caption: "Hill Country Landscapes" },
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/11.avif", caption: "Scenic Tea Plantations" }
     ],
     beaches: [
-      { url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800", caption: "Galle Fort Views" },
-      { url: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800", caption: "Southern Beaches" },
-      { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800", caption: "Coastal Adventures" }
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/29.avif", caption: "Beautiful Coastlines" },
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/65.avif", caption: "Southern Beaches" },
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/22.avif", caption: "Coastal Adventures" }
+    ],
+    additional: [
+      { url: "https://serendipitypvt.com/wp-content/uploads/2025/05/147.avif", caption: "Scenic Landscapes" }
     ]
   };
 
@@ -93,7 +96,7 @@ const FiveDayTourPackage = () => {
 
       {/* Image Galleries */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">
-        {Object.entries(imageGalleries).map(([category, images]) => (
+        {Object.entries(imageGalleries).filter(([key]) => key !== 'additional').map(([category, images]) => (
           <div key={category} className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
             <h3 className="text-lg font-bold text-white mb-3 capitalize text-center">
               {category === 'cultural' ? 'Cultural Heritage' : category === 'nature' ? 'Natural Beauty' : 'Beach Paradise'}
@@ -120,6 +123,20 @@ const FiveDayTourPackage = () => {
             </Carousel>
           </div>
         ))}
+      </div>
+
+      {/* Additional scenic image */}
+      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+        <div className="relative">
+          <img 
+            src={imageGalleries.additional[0].url} 
+            alt={imageGalleries.additional[0].caption}
+            className="w-full h-64 object-cover rounded-lg"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 rounded-b-lg">
+            <p className="text-lg font-medium">{imageGalleries.additional[0].caption}</p>
+          </div>
+        </div>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">

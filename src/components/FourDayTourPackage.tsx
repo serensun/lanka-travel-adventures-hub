@@ -18,34 +18,44 @@ const FourDayTourPackage = () => {
 
   const tourImages = [
     {
-      url: 'https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=800&h=600',
+      url: 'https://serendipitypvt.com/wp-content/uploads/2020/11/155.png',
       alt: 'Sigiriya Rock Fortress',
       caption: 'Climb the iconic Sigiriya Rock Fortress'
     },
     {
-      url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600',
+      url: 'https://serendipitypvt.com/wp-content/uploads/2019/10/18.png',
       alt: 'Temple of the Sacred Tooth',
       caption: 'Visit the sacred Temple of the Tooth Relic in Kandy'
     },
     {
-      url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&h=600',
+      url: 'https://serendipitypvt.com/wp-content/uploads/2019/10/33.png',
       alt: 'Tea Plantation',
       caption: 'Explore lush tea plantations in the hill country'
     },
     {
-      url: 'https://images.unsplash.com/photo-1580500550469-8b22ad62f4f2?w=800&h=600',
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/03/67.png',
       alt: 'Nine Arches Bridge',
       caption: 'Marvel at the famous Nine Arches Bridge in Ella'
     },
     {
-      url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600',
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/03/27.png',
       alt: 'Galle Fort',
       caption: 'Discover the historic Galle Fort'
     },
     {
-      url: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&h=600',
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/75.avif',
       alt: 'Unawatuna Beach',
       caption: 'Relax on the golden sands of Unawatuna Beach'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/37.avif',
+      alt: 'Cultural Heritage',
+      caption: 'Experience Sri Lanka\'s rich cultural heritage'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/59.avif',
+      alt: 'Wildlife Safari',
+      caption: 'Encounter amazing wildlife on safari'
     }
   ];
 
