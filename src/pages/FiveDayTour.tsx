@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import FiveDayTourPackage from '../components/FiveDayTourPackage';
+import MainNavigation from '../components/MainNavigation';
 
 const FiveDayTour = () => {
   return (
@@ -22,15 +23,7 @@ const FiveDayTour = () => {
           <p className="text-blue-100 text-lg">Your gateway to paradise</p>
         </div>
 
-        <div className="flex justify-center mb-8">
-          <Link
-            to="/"
-            className="flex items-center space-x-2 px-6 py-3 rounded-full bg-white/20 text-white hover:bg-white/30 transition-all duration-300"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Back to Home</span>
-          </Link>
-        </div>
+        <MainNavigation />
 
         <div className="max-w-7xl mx-auto">
           <FiveDayTourPackage />
