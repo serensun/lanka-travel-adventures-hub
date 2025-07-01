@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import BookingForm from './BookingForm';
 
 const FourDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
   const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
 
   const packageRates = {
     standard: { double: 499, single: 899 },
@@ -248,6 +251,30 @@ const FourDayTourPackage = () => {
             </div>
           </div>
 
+          {/* Comments Section */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+              <MessageSquare className="w-5 h-5 mr-2" />
+              Comments & Special Requests
+            </h3>
+            <div className="space-y-4">
+              <Label htmlFor="comments" className="text-white font-medium">
+                Tell us about your preferences, dietary requirements, or any special requests:
+              </Label>
+              <Textarea
+                id="comments"
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+                placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
+                rows={4}
+                className="bg-white/20 text-white placeholder-white/60 border border-white/30 focus:ring-2 focus:ring-white/50 resize-none"
+              />
+              <p className="text-blue-100 text-sm">
+                This information will help us customize your tour experience to better suit your needs.
+              </p>
+            </div>
+          </div>
+
           {/* Inclusions & Exclusions */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
@@ -328,6 +355,7 @@ const FourDayTourPackage = () => {
               packageType={selectedPackage}
               travelers={travelers}
               totalCost={getTotalPrice()}
+              initialComments={comments}
             />
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,9 +13,10 @@ interface BookingFormProps {
   packageType: string;
   travelers: number;
   totalCost: number;
+  initialComments?: string;
 }
 
-const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) => {
+const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }: BookingFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -24,7 +26,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
     country: '',
     preferredDate: '',
     numberOfTravelers: travelers,
-    specialRequests: ''
+    specialRequests: initialComments
   });
 
   // Parse package type to get tour details
@@ -46,6 +48,14 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
   };
 
   const packageDetails = getPackageDetails();
+
+  // Update form data when initialComments changes
+  React.useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      specialRequests: initialComments
+    }));
+  }, [initialComments]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,7 +97,7 @@ const BookingForm = ({ packageType, travelers, totalCost }: BookingFormProps) =>
           country: '',
           preferredDate: '',
           numberOfTravelers: travelers,
-          specialRequests: ''
+          specialRequests: initialComments
         });
       }
     } catch (error) {
