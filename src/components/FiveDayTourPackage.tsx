@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, X, Users, Calendar, MapPin, Camera, AlertTriangle } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import BookingForm from './BookingForm';
 
 const FiveDayTourPackage = () => {
@@ -11,6 +12,49 @@ const FiveDayTourPackage = () => {
     comfort: { double: 750, single: 1099 },
     luxury: { double: 1190, single: 1500 }
   };
+
+  const tourImages = [
+    {
+      url: 'https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=800&h=600',
+      alt: 'Sigiriya Rock Fortress',
+      caption: 'Climb the majestic Sigiriya Rock Fortress with ancient frescoes'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600',
+      alt: 'Temple of the Sacred Tooth',
+      caption: 'Experience the sacred ceremony at Temple of the Tooth Relic'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=800&h=600',
+      alt: 'Dambulla Golden Temple',
+      caption: 'Discover the magnificent Dambulla Golden Temple caves'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&h=600',
+      alt: 'Tea Plantation',
+      caption: 'Tour authentic tea plantations and factories in Nuwara Eliya'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1580500550469-8b22ad62f4f2?w=800&h=600',
+      alt: 'Nine Arches Bridge',
+      caption: 'Walk across the iconic Nine Arches Bridge in Ella'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1571919743851-c8c19ff4d0c3?w=800&h=600',
+      alt: 'Pinnawala Elephant Orphanage',
+      caption: 'Meet rescued elephants at Pinnawala Elephant Orphanage'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600',
+      alt: 'Galle Fort',
+      caption: 'Explore the UNESCO World Heritage Galle Fort'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1583997052301-0042b33fc598?w=800&h=600',
+      alt: 'Hill Country Train',
+      caption: 'Journey through scenic landscapes on the hill country train'
+    }
+  ];
 
   const hotelsByPackage = {
     standard: {
@@ -164,6 +208,31 @@ const FiveDayTourPackage = () => {
           Experience the best of Sri Lanka's cultural triangle, hill country, and southern coast. 
           From ancient rock fortresses to pristine beaches, this comprehensive tour covers it all!
         </p>
+      </div>
+
+      {/* Image Gallery */}
+      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+        <h3 className="text-xl font-bold text-white mb-6 text-center">Tour Highlights</h3>
+        <Carousel className="w-full max-w-4xl mx-auto">
+          <CarouselContent>
+            {tourImages.map((image, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="relative group overflow-hidden rounded-lg">
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <p className="text-white text-sm p-4 font-medium">{image.caption}</p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
