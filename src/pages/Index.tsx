@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar, ChevronDown, Users, Phone, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import HotelBooking from '../components/HotelBooking';
-import SightseeingTours from '../components/SightseeingTours';
-import PlacesToVisit from '../components/PlacesToVisit';
 import TourPackageSelector from '../components/TourPackageSelector';
-import FourDayTourPackage from '../components/FourDayTourPackage';
-import FiveDayTourPackage from '../components/FiveDayTourPackage';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -20,22 +16,12 @@ const Index = () => {
   ];
 
   const tourPackageItems = [
-    { id: '4day-tour', label: '4-Day Tour', icon: Calendar },
-    { id: '5day-tour', label: '5-Day Tour', icon: Calendar },
+    { id: '4day-tour', label: '4-Day Tour', icon: Calendar, path: '/4-day-tour' },
+    { id: '5day-tour', label: '5-Day Tour', icon: Calendar, path: '/5-day-tour' },
   ];
 
   const renderActiveSection = () => {
     switch (activeSection) {
-      case '4day-tour':
-        return <FourDayTourPackage />;
-      case '5day-tour':
-        return <FiveDayTourPackage />;
-      case 'hotels':
-        return <HotelBooking />;
-      case 'tours':
-        return <SightseeingTours />;
-      case 'places':
-        return <PlacesToVisit />;
       case 'packages':
         return <TourPackageSelector />;
       case 'about':
@@ -395,13 +381,11 @@ the exchange rates applied to the holiday booking.
               {tourPackageItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
-                  <DropdownMenuItem
-                    key={item.id}
-                    onClick={() => setActiveSection(item.id)}
-                    className="flex items-center space-x-2 px-4 py-2 hover:bg-blue-50 cursor-pointer"
-                  >
-                    <IconComponent className="w-4 h-4" />
-                    <span>{item.label}</span>
+                  <DropdownMenuItem key={item.id} className="flex items-center space-x-2 px-4 py-2 hover:bg-blue-50 cursor-pointer">
+                    <Link to={item.path} className="flex items-center space-x-2 w-full">
+                      <IconComponent className="w-4 h-4" />
+                      <span>{item.label}</span>
+                    </Link>
                   </DropdownMenuItem>
                 );
               })}
