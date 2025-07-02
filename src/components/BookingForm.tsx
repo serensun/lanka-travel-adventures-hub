@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,10 +38,24 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
         duration: '5 days',
         packageLevel: packageLevel.charAt(0).toUpperCase() + packageLevel.slice(1)
       };
-    } else {
+    } else if (packageType.includes('4-day')) {
+      const packageLevel = packageType.replace('4-day-', '');
       return {
         tourName: '4-Day Sri Lanka Whirlwind Tour',
         duration: '4 days',
+        packageLevel: packageLevel.charAt(0).toUpperCase() + packageLevel.slice(1)
+      };
+    } else if (packageType.includes('2day')) {
+      const packageLevel = packageType.replace('2day-', '');
+      return {
+        tourName: 'Sri Lanka Green Bless 2-Day Tour',
+        duration: '2 days',
+        packageLevel: packageLevel.charAt(0).toUpperCase() + packageLevel.slice(1)
+      };
+    } else {
+      return {
+        tourName: 'Sri Lanka Tour',
+        duration: 'Multiple days',
         packageLevel: packageType.charAt(0).toUpperCase() + packageType.slice(1)
       };
     }
@@ -61,6 +76,8 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
     setIsSubmitting(true);
 
     try {
+      console.log('Starting booking submission process...');
+      
       // First, submit to the database
       const { error: dbError } = await supabase
         .from('booking_submissions')
@@ -77,7 +94,7 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
         });
 
       if (dbError) {
-        console.error('Error submitting booking:', dbError);
+        console.error('Database error:', dbError);
         toast({
           title: "Error",
           description: "There was an error submitting your booking. Please try again.",
@@ -86,27 +103,36 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
         return;
       }
 
+      console.log('Database submission successful, now sending email...');
+
       // Then send email notification
-      const { error: emailError } = await supabase.functions.invoke('send-booking-email', {
-        body: {
-          fullName: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          country: formData.country,
-          preferredDate: formData.preferredDate,
-          numberOfTravelers: formData.numberOfTravelers,
-          specialRequests: formData.specialRequests,
-          packageType: packageType,
-          totalCost: totalCost,
-          tourName: packageDetails.tourName,
-          duration: packageDetails.duration,
-          packageLevel: packageDetails.packageLevel
-        }
+      const emailPayload = {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        preferredDate: formData.preferredDate,
+        numberOfTravelers: formData.numberOfTravelers,
+        specialRequests: formData.specialRequests,
+        packageType: packageType,
+        totalCost: totalCost,
+        tourName: packageDetails.tourName,
+        duration: packageDetails.duration,
+        packageLevel: packageDetails.packageLevel
+      };
+
+      console.log('Email payload:', emailPayload);
+
+      const { data: emailData, error: emailError } = await supabase.functions.invoke('send-booking-email', {
+        body: emailPayload
       });
 
       if (emailError) {
-        console.error('Error sending email notification:', emailError);
+        console.error('Email function error:', emailError);
         // Don't show error to user as booking was saved successfully
+        console.log('Booking saved but email failed to send');
+      } else {
+        console.log('Email sent successfully:', emailData);
       }
 
       toast({

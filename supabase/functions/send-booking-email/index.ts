@@ -26,13 +26,17 @@ interface BookingEmailRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log('Email function called, method:', req.method);
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    console.log('Processing booking email request...');
     const bookingData: BookingEmailRequest = await req.json();
+    console.log('Received booking data:', bookingData);
 
     const emailContent = `
       <h2>New Booking Request Received</h2>
@@ -64,6 +68,8 @@ const handler = async (req: Request): Promise<Response> => {
       <p><em>This booking request was submitted through the website booking form.</em></p>
     `;
 
+    console.log('Sending email with Resend...');
+    
     const emailResponse = await resend.emails.send({
       from: "Sri Lanka Tours <onboarding@resend.dev>",
       to: ["seerendipitytourslk@gmail.com"],
