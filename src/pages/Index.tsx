@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar, ChevronDown, Users, Phone, FileText } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -331,7 +332,7 @@ the exchange rates applied to the holiday booking.
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-green-500 to-orange-400">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
@@ -341,10 +342,10 @@ the exchange rates applied to the holiday booking.
               className="h-20 object-contain"
             />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-2">
+          <h1 className="text-5xl font-bold text-blue-900 mb-2">
             Sri Lanka Travel Planner
           </h1>
-          <p className="text-blue-100 text-lg">Your gateway to paradise</p>
+          <p className="text-blue-700 text-lg">Your gateway to paradise</p>
         </div>
 
         <MainNavigation />
