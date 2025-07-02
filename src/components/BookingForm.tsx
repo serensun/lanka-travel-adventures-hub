@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -62,7 +61,8 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      // First, submit to the database
+      const { error: dbError } = await supabase
         .from('booking_submissions')
         .insert({
           full_name: formData.fullName,
@@ -76,30 +76,55 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
           total_cost: totalCost
         });
 
-      if (error) {
-        console.error('Error submitting booking:', error);
+      if (dbError) {
+        console.error('Error submitting booking:', dbError);
         toast({
           title: "Error",
           description: "There was an error submitting your booking. Please try again.",
           variant: "destructive",
         });
-      } else {
-        toast({
-          title: "Booking Submitted Successfully!",
-          description: "Thank you for your booking request. We will contact you within 24 hours.",
-        });
-        
-        // Reset form
-        setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          country: '',
-          preferredDate: '',
-          numberOfTravelers: travelers,
-          specialRequests: initialComments
-        });
+        return;
       }
+
+      // Then send email notification
+      const { error: emailError } = await supabase.functions.invoke('send-booking-email', {
+        body: {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          preferredDate: formData.preferredDate,
+          numberOfTravelers: formData.numberOfTravelers,
+          specialRequests: formData.specialRequests,
+          packageType: packageType,
+          totalCost: totalCost,
+          tourName: packageDetails.tourName,
+          duration: packageDetails.duration,
+          packageLevel: packageDetails.packageLevel
+        }
+      });
+
+      if (emailError) {
+        console.error('Error sending email notification:', emailError);
+        // Don't show error to user as booking was saved successfully
+      }
+
+      toast({
+        title: "Booking Submitted Successfully!",
+        description: "Thank you for your booking request. We will contact you within 24 hours.",
+      });
+      
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        country: '',
+        preferredDate: '',
+        numberOfTravelers: travelers,
+        specialRequests: initialComments
+      });
+
     } catch (error) {
       console.error('Unexpected error:', error);
       toast({
