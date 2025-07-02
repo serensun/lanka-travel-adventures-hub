@@ -40,7 +40,7 @@ const MainNavigation = () => {
             className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
               isActive(item.path)
                 ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white/80 text-blue-800 hover:bg-white border border-blue-200'
+                : 'bg-white/90 text-blue-800 hover:bg-white border border-blue-200 shadow-sm'
             }`}
           >
             <IconComponent className="w-5 h-5" />
@@ -50,7 +50,7 @@ const MainNavigation = () => {
       })}
       
       <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 bg-white/80 text-blue-800 hover:bg-white border border-blue-200">
+        <DropdownMenuTrigger className="flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 bg-white/90 text-blue-800 hover:bg-white border border-blue-200 shadow-sm">
           <Calendar className="w-5 h-5" />
           <span className="font-medium">Tour Packages</span>
           <ChevronDown className="w-4 h-4" />
@@ -60,7 +60,7 @@ const MainNavigation = () => {
             const IconComponent = item.icon;
             return (
               <DropdownMenuItem key={item.id} className="flex items-center space-x-2 px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                <Link to={item.path} className="flex items-center space-x-2 w-full">
+                <Link to={item.path} className="flex items-center space-x-2 w-full text-blue-800">
                   <IconComponent className="w-4 h-4" />
                   <span>{item.label}</span>
                 </Link>
