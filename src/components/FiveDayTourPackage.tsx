@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -85,10 +86,10 @@ const FiveDayTourPackage = () => {
   return (
     <div className="space-y-8">
       <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold text-white mb-4">
+        <h2 className="text-4xl font-bold text-blue-900 mb-4">
           5-Day Sri Lanka Cultural & Nature Tour
         </h2>
-        <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+        <p className="text-xl text-blue-700 max-w-3xl mx-auto">
           Experience the best of Sri Lanka's culture, nature, and beaches in this comprehensive 5-day journey 
           through the island's most iconic destinations.
         </p>
@@ -97,8 +98,8 @@ const FiveDayTourPackage = () => {
       {/* Image Galleries */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">
         {Object.entries(imageGalleries).filter(([key]) => key !== 'additional').map(([category, images]) => (
-          <div key={category} className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-            <h3 className="text-lg font-bold text-white mb-3 capitalize text-center">
+          <div key={category} className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-4 border border-blue-200">
+            <h3 className="text-lg font-bold text-blue-900 mb-3 capitalize text-center">
               {category === 'cultural' ? 'Cultural Heritage' : category === 'nature' ? 'Natural Beauty' : 'Beach Paradise'}
             </h3>
             <Carousel className="w-full">
@@ -126,7 +127,7 @@ const FiveDayTourPackage = () => {
       </div>
 
       {/* Additional scenic image */}
-      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+      <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
         <div className="relative">
           <img 
             src={imageGalleries.additional[0].url} 
@@ -142,24 +143,24 @@ const FiveDayTourPackage = () => {
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
           {/* Detailed Itinerary */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-2xl font-bold text-blue-900 mb-6 flex items-center">
               <Calendar className="w-6 h-6 mr-2" />
               5-Day Detailed Itinerary
             </h3>
             <div className="space-y-4">
               {itinerary.map((day) => (
-                <div key={day.day} className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-all duration-300">
+                <div key={day.day} className="bg-white/50 rounded-lg p-4 hover:bg-white/70 transition-all duration-300 border border-blue-200">
                   <div className="flex items-start space-x-4">
                     <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
                       {day.day}
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-white text-lg mb-2">{day.title}</h4>
-                      <p className="text-blue-100 mb-3">{day.description}</p>
+                      <h4 className="font-bold text-blue-900 text-lg mb-2">{day.title}</h4>
+                      <p className="text-blue-800 mb-3">{day.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {day.highlights.map((highlight, index) => (
-                          <span key={index} className="bg-blue-500/30 text-blue-100 px-3 py-1 rounded-full text-xs">
+                          <span key={index} className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-xs">
                             {highlight}
                           </span>
                         ))}
@@ -172,13 +173,13 @@ const FiveDayTourPackage = () => {
           </div>
 
           {/* Comments Section */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
               <MessageSquare className="w-5 h-5 mr-2" />
               Comments & Special Requests
             </h3>
             <div className="space-y-4">
-              <Label htmlFor="comments" className="text-white font-medium">
+              <Label htmlFor="comments" className="text-blue-900 font-medium">
                 Tell us about your preferences, dietary requirements, or any special requests:
               </Label>
               <Textarea
@@ -187,46 +188,46 @@ const FiveDayTourPackage = () => {
                 onChange={(e) => setComments(e.target.value)}
                 placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
                 rows={4}
-                className="bg-white/20 text-white placeholder-white/60 border border-white/30 focus:ring-2 focus:ring-white/50 resize-none"
+                className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
               />
-              <p className="text-blue-100 text-sm">
+              <p className="text-blue-700 text-sm">
                 This information will help us customize your tour experience to better suit your needs.
               </p>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <Check className="w-5 h-5 mr-2 text-green-400" />
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <Check className="w-5 h-5 mr-2 text-green-600" />
                 What's Included
               </h3>
-              <ul className="space-y-2 text-blue-100">
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />Accommodation (4 nights)</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />All meals (breakfast, lunch, dinner)</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />Private transportation</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />Professional tour guide</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />All entrance fees</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />Train tickets (where applicable)</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />Airport transfers</li>
-                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-400" />Cultural show tickets</li>
+              <ul className="space-y-2 text-blue-800">
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />Accommodation (4 nights)</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />All meals (breakfast, lunch, dinner)</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />Private transportation</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />Professional tour guide</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />All entrance fees</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />Train tickets (where applicable)</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />Airport transfers</li>
+                <li className="flex items-center"><Check className="w-4 h-4 mr-2 text-green-600" />Cultural show tickets</li>
               </ul>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <X className="w-5 h-5 mr-2 text-red-400" />
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <X className="w-5 h-5 mr-2 text-red-500" />
                 Not Included
               </h3>
-              <ul className="space-y-2 text-blue-100">
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />International flights</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Sri Lankan visa fees</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Travel insurance</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Personal expenses</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Alcoholic beverages</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Tips and gratuities</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Optional activities</li>
-                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-400" />Laundry services</li>
+              <ul className="space-y-2 text-blue-800">
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />International flights</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Sri Lankan visa fees</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Travel insurance</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Personal expenses</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Alcoholic beverages</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Tips and gratuities</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Optional activities</li>
+                <li className="flex items-center"><X className="w-4 h-4 mr-2 text-red-500" />Laundry services</li>
               </ul>
             </div>
           </div>
@@ -235,22 +236,22 @@ const FiveDayTourPackage = () => {
         {/* Pricing Sidebar */}
         <div className="space-y-6">
           {/* Package Selection */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">Choose Your Package</h3>
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4">Choose Your Package</h3>
             <div className="space-y-4">
               {['standard', 'deluxe', 'luxury'].map((pkg) => (
                 <div key={pkg} className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
                   selectedPackage === pkg 
-                    ? 'border-orange-400 bg-orange-400/20' 
-                    : 'border-white/30 hover:border-white/50'
+                    ? 'border-orange-400 bg-orange-100' 
+                    : 'border-blue-300 hover:border-blue-400 bg-white/50'
                 }`} onClick={() => setSelectedPackage(pkg)}>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-white capitalize">{pkg}</span>
-                    <span className="text-orange-300 font-bold">
+                    <span className="font-semibold text-blue-900 capitalize">{pkg}</span>
+                    <span className="text-orange-500 font-bold">
                       ${packageRates[pkg as keyof typeof packageRates].double}/person
                     </span>
                   </div>
-                  <p className="text-sm text-blue-100 mt-1">
+                  <p className="text-sm text-blue-700 mt-1">
                     {pkg === 'standard' && 'Comfortable 3-star hotels'}
                     {pkg === 'deluxe' && 'Premium 4-star hotels'}
                     {pkg === 'luxury' && 'Luxury 5-star resorts'}
@@ -261,43 +262,43 @@ const FiveDayTourPackage = () => {
           </div>
 
           {/* Travelers Selection */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
               <Users className="w-5 h-5 mr-2" />
               Number of Travelers
             </h3>
             <div className="flex items-center space-x-4">
               <button 
                 onClick={() => setTravelers(Math.max(1, travelers - 1))}
-                className="bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center"
+                className="bg-white/70 hover:bg-white/90 text-blue-900 w-10 h-10 rounded-full flex items-center justify-center border border-blue-300"
               >
                 -
               </button>
-              <span className="text-2xl font-bold text-white">{travelers}</span>
+              <span className="text-2xl font-bold text-blue-900">{travelers}</span>
               <button 
                 onClick={() => setTravelers(Math.min(10, travelers + 1))}
-                className="bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center"
+                className="bg-white/70 hover:bg-white/90 text-blue-900 w-10 h-10 rounded-full flex items-center justify-center border border-blue-300"
               >
                 +
               </button>
             </div>
-            <p className="text-blue-100 text-sm mt-2">Maximum 10 travelers per booking</p>
+            <p className="text-blue-700 text-sm mt-2">Maximum 10 travelers per booking</p>
           </div>
 
           {/* Price Summary */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">Price Summary</h3>
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4">Price Summary</h3>
             <div className="space-y-3">
-              <div className="flex justify-between text-blue-100">
+              <div className="flex justify-between text-blue-800">
                 <span>Package ({selectedPackage})</span>
                 <span>${packageRates[selectedPackage as keyof typeof packageRates].double}/person</span>
               </div>
-              <div className="flex justify-between text-blue-100">
+              <div className="flex justify-between text-blue-800">
                 <span>Travelers</span>
                 <span>{travelers} person{travelers > 1 ? 's' : ''}</span>
               </div>
-              <div className="border-t border-white/30 pt-3">
-                <div className="flex justify-between text-xl font-bold text-white">
+              <div className="border-t border-blue-300 pt-3">
+                <div className="flex justify-between text-xl font-bold text-blue-900">
                   <span>Total</span>
                   <span>${getTotalPrice().toLocaleString()}</span>
                 </div>
@@ -306,7 +307,7 @@ const FiveDayTourPackage = () => {
           </div>
 
           {/* Booking Button */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
             <BookingForm 
               packageType={`5-day-${selectedPackage}`}
               travelers={travelers}

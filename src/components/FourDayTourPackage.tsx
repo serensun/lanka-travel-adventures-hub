@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -134,28 +135,28 @@ const FourDayTourPackage = () => {
 
   const getPackageColor = (pkg: string) => {
     switch (pkg) {
-      case 'standard': return 'from-green-500 to-blue-500';
-      case 'comfort': return 'from-blue-500 to-purple-500';
-      case 'luxury': return 'from-purple-500 to-pink-500';
-      default: return 'from-gray-500 to-gray-600';
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
     }
   };
 
   return (
     <div className="space-y-8">
       <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold text-white mb-4">
+        <h2 className="text-4xl font-bold text-blue-900 mb-4">
           4-Day Sri Lanka Whirlwind Tour
         </h2>
-        <p className="text-xl text-blue-100 max-w-4xl mx-auto">
+        <p className="text-xl text-blue-700 max-w-4xl mx-auto">
           Experience the mystique of the Cultural Triangle, climb Sigiriya rock, witness majestic Asian elephants at Minneriya, 
           savour lush tea gardens, and unwind on golden sands of Unawatuna Beach. Your perfect Insta-worthy adventure awaits!
         </p>
       </div>
 
       {/* Image Gallery */}
-      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-        <h3 className="text-xl font-bold text-white mb-6 text-center">Tour Highlights</h3>
+      <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+        <h3 className="text-xl font-bold text-blue-900 mb-6 text-center">Tour Highlights</h3>
         <Carousel className="w-full max-w-4xl mx-auto">
           <CarouselContent>
             {tourImages.map((image, index) => (
@@ -182,22 +183,22 @@ const FourDayTourPackage = () => {
         {/* Tour Details */}
         <div className="lg:col-span-2 space-y-6">
           {/* Itinerary */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-6">4-Day Itinerary</h3>
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-6">4-Day Itinerary</h3>
             <div className="space-y-6">
               {itinerary.map((day) => (
-                <div key={day.day} className="border-l-4 border-orange-300 pl-6">
+                <div key={day.day} className="border-l-4 border-orange-400 pl-6">
                   <div className="flex items-center space-x-3 mb-3">
-                    <div className="bg-orange-300 text-blue-900 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                    <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
                       {day.day}
                     </div>
-                    <h4 className="text-white font-semibold text-lg">{day.title}</h4>
+                    <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
                   </div>
                   <ul className="space-y-2">
                     {day.activities.map((activity, index) => (
                       <li key={index} className="flex items-start space-x-2">
-                        <MapPin className="w-4 h-4 text-orange-300 mt-0.5 flex-shrink-0" />
-                        <span className="text-blue-100 text-sm">{activity}</span>
+                        <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-blue-800 text-sm">{activity}</span>
                       </li>
                     ))}
                   </ul>
@@ -207,8 +208,8 @@ const FourDayTourPackage = () => {
           </div>
 
           {/* Package Selection */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">Select Package Type</h3>
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
             <div className="grid md:grid-cols-3 gap-4">
               {Object.entries(packageRates).map(([pkg, rates]) => (
                 <button
@@ -217,7 +218,7 @@ const FourDayTourPackage = () => {
                   className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
                     selectedPackage === pkg
                       ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
-                      : 'bg-white/20 text-white hover:bg-white/30'
+                      : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
                   }`}
                 >
                   <div className="font-semibold capitalize mb-2">{pkg} Package</div>
@@ -231,14 +232,14 @@ const FourDayTourPackage = () => {
           </div>
 
           {/* Travelers */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
               <Users className="w-5 h-5 mr-2" />
               Number of Travelers (1-10)
             </h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <label htmlFor="travelers" className="text-white font-medium">
+                <label htmlFor="travelers" className="text-blue-900 font-medium">
                   Travelers:
                 </label>
                 <input
@@ -248,10 +249,10 @@ const FourDayTourPackage = () => {
                   max="10"
                   value={travelers}
                   onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
-                  className="bg-white/20 text-white placeholder-white/60 border border-white/30 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 w-20 text-center"
+                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
                 />
               </div>
-              <div className="text-blue-100 text-sm">
+              <div className="text-blue-700 text-sm">
                 {travelers === 1 ? (
                   <p>Single traveler rate applies</p>
                 ) : (
@@ -262,13 +263,13 @@ const FourDayTourPackage = () => {
           </div>
 
           {/* Comments Section */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
               <MessageSquare className="w-5 h-5 mr-2" />
               Comments & Special Requests
             </h3>
             <div className="space-y-4">
-              <Label htmlFor="comments" className="text-white font-medium">
+              <Label htmlFor="comments" className="text-blue-900 font-medium">
                 Tell us about your preferences, dietary requirements, or any special requests:
               </Label>
               <Textarea
@@ -277,9 +278,9 @@ const FourDayTourPackage = () => {
                 onChange={(e) => setComments(e.target.value)}
                 placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
                 rows={4}
-                className="bg-white/20 text-white placeholder-white/60 border border-white/30 focus:ring-2 focus:ring-white/50 resize-none"
+                className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
               />
-              <p className="text-blue-100 text-sm">
+              <p className="text-blue-700 text-sm">
                 This information will help us customize your tour experience to better suit your needs.
               </p>
             </div>
@@ -287,31 +288,31 @@ const FourDayTourPackage = () => {
 
           {/* Inclusions & Exclusions */}
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <Check className="w-5 h-5 mr-2 text-green-400" />
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <Check className="w-5 h-5 mr-2 text-green-600" />
                 Inclusions
               </h3>
               <ul className="space-y-2">
                 {inclusions.map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
-                    <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-blue-100 text-sm">{item}</span>
+                    <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-blue-800 text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                <X className="w-5 h-5 mr-2 text-red-400" />
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <X className="w-5 h-5 mr-2 text-red-500" />
                 Exclusions
               </h3>
               <ul className="space-y-2">
                 {exclusions.map((item, index) => (
                   <li key={index} className="flex items-start space-x-2">
-                    <X className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-blue-100 text-sm">{item}</span>
+                    <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-blue-800 text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -320,37 +321,37 @@ const FourDayTourPackage = () => {
         </div>
 
         {/* Booking Summary */}
-        <div className="bg-white rounded-xl shadow-lg p-6 h-fit">
+        <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
           <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
             <Camera className="w-5 h-5 mr-2" />
             Book Your Adventure
           </h3>
 
           <div className="space-y-4">
-            <div className="bg-gray-50 p-4 rounded-lg">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-gray-600">Duration</span>
-                <span className="font-semibold flex items-center">
+                <span className="text-blue-700">Duration</span>
+                <span className="font-semibold flex items-center text-blue-900">
                   <Calendar className="w-4 h-4 mr-1" />
                   4 days
                 </span>
               </div>
               <div className="flex justify-between items-center mb-2">
-                <span className="text-gray-600">Travelers</span>
-                <span className="font-semibold">{travelers} person{travelers > 1 ? 's' : ''}</span>
+                <span className="text-blue-700">Travelers</span>
+                <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Package</span>
-                <span className="font-semibold capitalize">{selectedPackage}</span>
+                <span className="text-blue-700">Package</span>
+                <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
               </div>
             </div>
 
-            <div className="border-t border-gray-200 pt-4">
+            <div className="border-t border-blue-200 pt-4">
               <div className="flex justify-between items-center text-xl font-bold">
                 <span className="text-gray-800">Total Cost</span>
                 <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
               </div>
-              <p className="text-gray-500 text-sm mt-1">
+              <p className="text-blue-600 text-sm mt-1">
                 {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
               </p>
             </div>
