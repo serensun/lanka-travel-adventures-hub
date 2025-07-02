@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FourDayTour from "./pages/FourDayTour";
 import FiveDayTour from "./pages/FiveDayTour";
+import TwoDayTour from "./pages/TwoDayTour";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/2-day-tour" element={<TwoDayTour />} />
           <Route path="/4-day-tour" element={<FourDayTour />} />
           <Route path="/5-day-tour" element={<FiveDayTour />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

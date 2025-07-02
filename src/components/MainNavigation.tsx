@@ -17,6 +17,7 @@ const MainNavigation = () => {
   ];
 
   const tourPackageItems = [
+    { id: '2day-tour', label: '2-Day Green Bless Tour', icon: Calendar, path: '/2-day-tour' },
     { id: '4day-tour', label: '4-Day Tour', icon: Calendar, path: '/4-day-tour' },
     { id: '5day-tour', label: '5-Day Tour', icon: Calendar, path: '/5-day-tour' },
   ];
