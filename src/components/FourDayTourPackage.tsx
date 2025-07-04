@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import BookingForm from './BookingForm';
@@ -182,29 +182,53 @@ const FourDayTourPackage = () => {
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Tour Details */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Itinerary */}
+          {/* Itinerary with Tabs */}
           <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
             <h3 className="text-xl font-bold text-blue-900 mb-6">4-Day Itinerary</h3>
-            <div className="space-y-6">
-              {itinerary.map((day) => (
-                <div key={day.day} className="border-l-4 border-orange-400 pl-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
-                      {day.day}
+            
+            <Tabs defaultValue="overview" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="detailed">Detailed Day-by-Day</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="overview" className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  {itinerary.map((day) => (
+                    <div key={day.day} className="bg-white/60 rounded-lg p-4 border border-blue-100">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <div className="bg-orange-400 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs">
+                          {day.day}
+                        </div>
+                        <h4 className="text-blue-900 font-medium text-sm">{day.title}</h4>
+                      </div>
+                      <p className="text-blue-700 text-xs">{day.activities.length} activities planned</p>
                     </div>
-                    <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
-                  </div>
-                  <ul className="space-y-2">
-                    {day.activities.map((activity, index) => (
-                      <li key={index} className="flex items-start space-x-2">
-                        <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-blue-800 text-sm">{activity}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </TabsContent>
+              
+              <TabsContent value="detailed" className="space-y-6">
+                {itinerary.map((day) => (
+                  <div key={day.day} className="border-l-4 border-orange-400 pl-6">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                        {day.day}
+                      </div>
+                      <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {day.activities.map((activity, index) => (
+                        <li key={index} className="flex items-start space-x-2">
+                          <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-blue-800 text-sm">{activity}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </TabsContent>
+            </Tabs>
           </div>
 
           {/* Package Selection */}
