@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, TreePine, Binoculars, Mountain, Train, Car } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -42,6 +41,61 @@ const TenDayTourPackage = () => {
       url: 'https://serendipitypvt.com/wp-content/uploads/2025/02/1-1.png',
       alt: 'Galle Fort',
       caption: 'Explore the historic UNESCO World Heritage Galle Fort'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/59-1.avif',
+      alt: 'Sri Lankan Adventure',
+      caption: 'Discover the natural beauty and cultural richness of Sri Lanka'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/58-1.avif',
+      alt: 'Mountain Landscapes',
+      caption: 'Marvel at the breathtaking mountain vistas and tea plantations'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/52.avif',
+      alt: 'Cultural Heritage',
+      caption: 'Immerse yourself in Sri Lanka\'s rich cultural heritage'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/51.avif',
+      alt: 'Ancient Temples',
+      caption: 'Visit magnificent ancient temples and archaeological sites'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/48.avif',
+      alt: 'Wildlife Safari',
+      caption: 'Experience thrilling wildlife encounters in national parks'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/23.avif',
+      alt: 'Beach Paradise',
+      caption: 'Relax on pristine beaches along the southern coastline'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/22-1.avif',
+      alt: 'Hill Country',
+      caption: 'Journey through the scenic hill country and tea estates'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/18-1.avif',
+      alt: 'Local Culture',
+      caption: 'Experience authentic Sri Lankan culture and traditions'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/10-2.avif',
+      alt: 'Natural Wonders',
+      caption: 'Explore stunning waterfalls and natural landscapes'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/17.avif',
+      alt: 'Adventure Activities',
+      caption: 'Enjoy exciting adventures and outdoor activities'
+    },
+    {
+      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/96.avif',
+      alt: 'Scenic Views',
+      caption: 'Capture unforgettable moments with spectacular scenic views'
     }
   ];
 
