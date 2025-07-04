@@ -44,24 +44,9 @@ const TenDayTourPackage = () => {
       caption: 'Explore the historic UNESCO World Heritage Galle Fort'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/59-1.avif',
-      alt: 'Sri Lankan Adventure',
-      caption: 'Discover the natural beauty and cultural richness of Sri Lanka'
-    },
-    {
       url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/58-1.avif',
       alt: 'Mountain Landscapes',
       caption: 'Marvel at the breathtaking mountain vistas and tea plantations'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/52.avif',
-      alt: 'Cultural Heritage',
-      caption: 'Immerse yourself in Sri Lanka\'s rich cultural heritage'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/51.avif',
-      alt: 'Ancient Temples',
-      caption: 'Visit magnificent ancient temples and archaeological sites'
     },
     {
       url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/48.avif',
@@ -102,7 +87,7 @@ const TenDayTourPackage = () => {
 
   const highlights = [
     "Witness Sri Lanka's Cultural Triangle and its 5 most important historical cities",
-    "See leopards, elephants, crocodiles and many more on wildlife safaris",
+    "See leopards, elephants, crocodiles and many more on wildlife safaris", 
     "Get into the popular hill country train of Sri Lanka and enjoy mountain scenery",
     "Explore the pristine beaches on the west coast and south coast",
     "Spend a day in the heritage city of Kandy; take leisurely stroll around Kandy Lake"
@@ -148,7 +133,7 @@ const TenDayTourPackage = () => {
 
   const hotels = {
     standard: '3-star hotels',
-    comfort: '4-star hotels',
+    comfort: '4-star hotels', 
     luxury: '5-star hotels'
   };
 
