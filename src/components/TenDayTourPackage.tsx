@@ -19,31 +19,6 @@ const TenDayTourPackage = () => {
 
   const tourImages = [
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2024/07/sigiriya-rock-sri-lanka.jpg',
-      alt: 'Sigiriya Rock Fortress',
-      caption: 'Climb the ancient Sigiriya Rock Fortress, the "Eighth Wonder of the World"'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/22-768x548.avif',
-      alt: 'Yala Safari',
-      caption: 'Spot leopards and elephants on exciting safaris at Yala National Park'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2024/03/kandy-temple-tooth-relic.jpg',
-      alt: 'Temple of the Tooth Relic',
-      caption: 'Visit the sacred Temple of the Tooth Relic in Kandy'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2024/09/ella-nine-arch-bridge.jpg',
-      alt: 'Nine Arch Bridge Ella',
-      caption: 'Experience the scenic hill country train ride to Ella'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/02/1-1.png',
-      alt: 'Galle Fort',
-      caption: 'Explore the historic UNESCO World Heritage Galle Fort'
-    },
-    {
       url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/58-1.avif',
       alt: 'Mountain Landscapes',
       caption: 'Marvel at the breathtaking mountain vistas and tea plantations'
