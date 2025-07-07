@@ -9,10 +9,8 @@ const MainNavigation = () => {
   const location = useLocation();
 
   const navigationItems = [
-    { id: 'overview', label: 'Overview', icon: Plane, path: '/' },
     { id: 'about', label: 'About Us', icon: Users, path: '/?section=about' },
     { id: 'contact', label: 'Contact Us', icon: Phone, path: '/?section=contact' },
-    { id: 'packages', label: 'Custom Packages', icon: Calculator, path: '/?section=packages' },
     { id: 'terms', label: 'Terms & Conditions', icon: FileText, path: '/?section=terms' },
   ];
 
