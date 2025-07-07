@@ -9,7 +9,7 @@ const MainNavigation = () => {
   const location = useLocation();
 
   const navigationItems = [
-    { id: 'about', label: 'About Us', icon: Users, path: '/?section=about' },
+    { id: 'about', label: 'About Us', icon: Users, path: 'https://serendipitypvt.com/about-serendipity-tours-private-limited/' },
     { id: 'contact', label: 'Contact Us', icon: Phone, path: '/?section=contact' },
     { id: 'terms', label: 'Terms & Conditions', icon: FileText, path: '/?section=terms' },
   ];
@@ -32,6 +32,23 @@ const MainNavigation = () => {
     <div className="flex flex-wrap justify-center gap-4 mb-8">
       {navigationItems.map((item) => {
         const IconComponent = item.icon;
+        const isExternalLink = item.path.startsWith('http');
+        
+        if (isExternalLink) {
+          return (
+            <a
+              key={item.id}
+              href={item.path}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 bg-white/90 text-blue-800 hover:bg-white border border-blue-200 shadow-sm"
+            >
+              <IconComponent className="w-5 h-5" />
+              <span className="font-medium">{item.label}</span>
+            </a>
+          );
+        }
+        
         return (
           <Link
             key={item.id}
