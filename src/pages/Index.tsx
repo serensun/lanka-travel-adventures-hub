@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import TourPackageSelector from '../components/TourPackageSelector';
 import MainNavigation from '../components/MainNavigation';
+import sanjeewaImage from '../assets/sanjeewa.jpg';
 const Index = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -60,10 +61,14 @@ const Index = () => {
           {/* Section 2: We are here to help you */}
           <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold text-blue-900 mb-6">We are here to help you</h2>
-            <div className="space-y-4 text-blue-800 leading-relaxed">
+            <div className="flex items-start space-x-6">
+              <img 
+                src={sanjeewaImage} 
+                alt="Sanjeewa - Travel Expert" 
+                className="w-24 h-24 rounded-full object-cover flex-shrink-0"
+              />
+              <div className="space-y-4 text-blue-800 leading-relaxed">
               <p>image https://serendipitypvt.com/wp-content/uploads/2022/08/sanjeewa.jpg.webp
-
-
 At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.</p>
               <div className="bg-blue-50 rounded-lg p-4 mt-6">
                 <h3 className="font-semibold text-blue-900 mb-3 flex items-center">
@@ -75,6 +80,7 @@ At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversa
                   <p><strong>Saturday:</strong> 9am - 6pm</p>
                   <p><strong>Sunday:</strong> 11am - 4pm</p>
                 </div>
+              </div>
               </div>
             </div>
           </div>
