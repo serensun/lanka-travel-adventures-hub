@@ -259,72 +259,116 @@ the exchange rates applied to the holiday booking.
       default:
         return (
           <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-blue-900 mb-4">
-                Discover the Pearl of the Indian Ocean
-              </h2>
-              <p className="text-xl text-blue-700 max-w-3xl mx-auto">
-                Plan your perfect Sri Lankan adventure with our comprehensive travel planner. 
-                From pristine beaches to ancient temples, we'll help you create unforgettable memories.
-              </p>
-            </div>
-            
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: "Luxury Hotels",
-                  description: "5-star resorts and boutique accommodations",
-                  price: "From $80/night",
-                  image: "🏨"
-                },
-                {
-                  title: "Cultural Tours",
-                  description: "Ancient temples and heritage sites",
-                  price: "From $45/person",
-                  image: "🏛️"
-                },
-                {
-                  title: "Beach Adventures",
-                  description: "Pristine coastlines and water sports",
-                  price: "From $25/person",
-                  image: "🏖️"
-                },
-                {
-                  title: "Wildlife Safaris",
-                  description: "National parks and elephant sanctuaries",
-                  price: "From $65/person",
-                  image: "🐘"
-                }
-              ].map((item, index) => (
-                <div key={index} className="bg-white/90 backdrop-blur-sm rounded-xl p-6 hover:bg-white/95 transition-all duration-300 hover:transform hover:scale-105 shadow-lg">
-                  <div className="text-4xl mb-4">{item.image}</div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-2">{item.title}</h3>
-                  <p className="text-blue-700 text-sm mb-3">{item.description}</p>
-                  <div className="text-orange-600 font-semibold">{item.price}</div>
-                </div>
-              ))}
+            {/* Introduction Section */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
+              <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Discover Sri Lanka</h2>
+              <div className="space-y-6 text-blue-700 leading-relaxed">
+                <p>
+                  Perhaps Sri Lanka is most popular for its beach resorts that line its extensive coast, but Sri Lanka is also a cultural melting pot with many ethnic groups and religions. There are ancient rock temples and fortresses, ruins of ancient and sacred cities, and remnants of a colonial age. And if that's not quite enough to tempt you, the island possesses a naturally spectacular interior that's home to green-capped mountains, cascading waterfalls, rolling tea plantations, and wildlife-rich parks and reserves where elephants, leopards, crocodiles, and sloth bears roam free.
+                </p>
+                <p>
+                  Make your Sri Lanka trips at your own pace with Serendipity Tours Private Limited; in fact, Sri Lanka holidays take on a slower pace. Time takes on a different meaning for Sri Lanka; it may take a little longer to get from A to B, but that only adds to its charm. It gives you more time to take in your surroundings and discover the country from a local's perspective as your guide proudly regales you with tales of their homeland.
+                </p>
+                <p>
+                  Whether you're seeking a beach escape or a bespoke Sri Lanka tour, talk to us and we'll help create the right Sri Lanka holiday for you.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 text-center shadow-lg">
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">Why Choose Sri Lanka?</h3>
-              <div className="grid md:grid-cols-3 gap-6 text-left">
-                <div className="space-y-2">
-                  <Star className="w-6 h-6 text-orange-600" />
-                  <h4 className="font-semibold text-blue-900">Rich Culture</h4>
-                  <p className="text-blue-700 text-sm">2,500 years of history with ancient temples and traditions</p>
-                </div>
-                <div className="space-y-2">
-                  <Star className="w-6 h-6 text-orange-600" />
-                  <h4 className="font-semibold text-blue-900">Natural Beauty</h4>
-                  <p className="text-blue-700 text-sm">From tea plantations to pristine beaches and wildlife</p>
-                </div>
-                <div className="space-y-2">
-                  <Star className="w-6 h-6 text-orange-600" />
-                  <h4 className="font-semibold text-blue-900">Affordable Luxury</h4>
-                  <p className="text-blue-700 text-sm">World-class experiences at incredible value</p>
+            {/* We are here to help you Section */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
+              <h2 className="text-3xl font-bold text-blue-900 mb-6">We are here to help you</h2>
+              <div className="space-y-6 text-blue-700 leading-relaxed">
+                <p>
+                  At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.
+                </p>
+                
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Office Hours</h3>
+                  <div className="space-y-2 text-blue-700">
+                    <p><strong>Monday to Friday:</strong> 9am - 8pm</p>
+                    <p><strong>Saturday:</strong> 9am - 6pm</p>
+                    <p><strong>Sunday:</strong> 11am - 4pm</p>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Why Book With Us Section */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
+              <h2 className="text-3xl font-bold text-blue-900 mb-6">Why Book With Us?</h2>
+              <div className="space-y-6">
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Best price guaranteed</h3>
+                  <p className="text-blue-700">
+                    Serendipity Tours Private Limited is a truly local company with its head office in Panadura, Colombo. As a local company, we offer you the best for all tour packages offered by us.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Flexible payment methods</h3>
+                  <p className="text-blue-700">
+                    We accept credit card payments, bank transfers and payments on arrival. Please choose the most convenient payment method for you, and we are ready to work with you.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">We are paper-free</h3>
+                  <p className="text-blue-700">
+                    We are completely dependent on a digital system, eliminating the need for paper-based documents, statements, and other materials, opting for online versions instead.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">Help the poor</h3>
+                  <p className="text-blue-700">
+                    With every booking you make, Serendipity Tours helps needy people with part of its profit.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">No hidden fees or commissions</h3>
+                  <p className="text-blue-700">
+                    We do not add hefty commissions and hidden fees as you reach the latter stage of the online booking. All our trips include all taxes, service charges and supplement charges.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="bg-gradient-to-br from-blue-100 to-orange-100 rounded-xl p-8 shadow-lg text-center">
+              <h2 className="text-3xl font-bold text-blue-900 mb-4">Ready to Explore Sri Lanka?</h2>
+              <p className="text-blue-700 mb-6 text-lg">
+                Discover the Pearl of the Indian Ocean with our expertly crafted tour packages
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white/80 rounded-lg p-6 text-center">
+                  <MapPin className="mx-auto mb-4 text-blue-600" size={48} />
+                  <h3 className="text-xl font-bold text-blue-900 mb-2">Amazing Destinations</h3>
+                  <p className="text-blue-700">Explore ancient cities, pristine beaches, and lush tea plantations</p>
+                </div>
+                
+                <div className="bg-white/80 rounded-lg p-6 text-center">
+                  <Hotel className="mx-auto mb-4 text-orange-600" size={48} />
+                  <h3 className="text-xl font-bold text-blue-900 mb-2">Luxury Accommodation</h3>
+                  <p className="text-blue-700">Stay in hand-picked hotels and resorts for the ultimate comfort</p>
+                </div>
+                
+                <div className="bg-white/80 rounded-lg p-6 text-center">
+                  <Camera className="mx-auto mb-4 text-green-600" size={48} />
+                  <h3 className="text-xl font-bold text-blue-900 mb-2">Unforgettable Experiences</h3>
+                  <p className="text-blue-700">Create memories that will last a lifetime</p>
+                </div>
+              </div>
+              
+              <Link
+                to="/?section=packages"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors shadow-lg"
+              >
+                <Calendar className="mr-2" size={20} />
+                Explore Tour Packages
+              </Link>
             </div>
           </div>
         );
