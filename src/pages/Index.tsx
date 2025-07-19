@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar, ChevronDown, Users, Phone, FileText, Mail, MessageCircle, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -9,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import TourPackageSelector from '../components/TourPackageSelector';
 import MainNavigation from '../components/MainNavigation';
-
 const Index = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -17,42 +15,26 @@ const Index = () => {
     enquiryMessage: '',
     agreeToTerms: false
   });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-orange-50">
+  return <div className="min-h-screen bg-gradient-to-br from-blue-50 to-orange-50">
       <MainNavigation />
       
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-orange-600 py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Discover Sri Lanka
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Experience the pearl of the Indian Ocean with Serendipity Tours
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/packages" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-              Explore Packages
-            </Link>
-            <Link to="/contact" className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-semibold backdrop-blur-sm border border-white/20 transition-colors">
-              Plan Your Trip
-            </Link>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Main Content Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
@@ -79,9 +61,10 @@ const Index = () => {
           <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold text-blue-900 mb-6">We are here to help you</h2>
             <div className="space-y-4 text-blue-800 leading-relaxed">
-              <p>
-                At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.
-              </p>
+              <p>image https://serendipitypvt.com/wp-content/uploads/2022/08/sanjeewa.jpg.webp
+
+
+At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.</p>
               <div className="bg-blue-50 rounded-lg p-4 mt-6">
                 <h3 className="font-semibold text-blue-900 mb-3 flex items-center">
                   <Clock className="w-5 h-5 mr-2" />
@@ -104,9 +87,7 @@ const Index = () => {
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-orange-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
               </div>
               <p className="text-blue-700 mb-4">"Absolutely amazing experience! The tour was perfectly organized and our guide was incredibly knowledgeable about Sri Lankan culture and history."</p>
@@ -116,9 +97,7 @@ const Index = () => {
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-orange-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
               </div>
               <p className="text-blue-700 mb-4">"Serendipity Tours made our honeymoon unforgettable. From the pristine beaches to the ancient temples, every moment was magical."</p>
@@ -128,9 +107,7 @@ const Index = () => {
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-orange-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
               </div>
               <p className="text-blue-700 mb-4">"Professional service and great value for money. The wildlife safari exceeded our expectations. Highly recommended!"</p>
@@ -140,9 +117,7 @@ const Index = () => {
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-orange-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
               </div>
               <p className="text-blue-700 mb-4">"The cultural tour was enlightening and the accommodations were excellent. Thank you for an incredible Sri Lankan adventure!"</p>
@@ -152,9 +127,7 @@ const Index = () => {
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <div className="flex text-orange-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
               </div>
               <p className="text-blue-700 mb-4">"Best travel experience we've ever had! The attention to detail and personalized service made all the difference."</p>
@@ -204,66 +177,34 @@ const Index = () => {
                 <label htmlFor="fullName" className="block text-sm font-medium text-blue-900 mb-2">
                   Full Name *
                 </label>
-                <Input
-                  id="fullName"
-                  name="fullName"
-                  type="text"
-                  required
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className="w-full"
-                  placeholder="Enter your full name"
-                />
+                <Input id="fullName" name="fullName" type="text" required value={formData.fullName} onChange={handleInputChange} className="w-full" placeholder="Enter your full name" />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-blue-900 mb-2">
                   Email *
                 </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full"
-                  placeholder="Enter your email address"
-                />
+                <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} className="w-full" placeholder="Enter your email address" />
               </div>
               
               <div>
                 <label htmlFor="enquiryMessage" className="block text-sm font-medium text-blue-900 mb-2">
                   Enquiry Message
                 </label>
-                <Textarea
-                  id="enquiryMessage"
-                  name="enquiryMessage"
-                  value={formData.enquiryMessage}
-                  onChange={handleInputChange}
-                  className="w-full min-h-[120px]"
-                  placeholder="Tell us about your travel plans and preferences..."
-                />
+                <Textarea id="enquiryMessage" name="enquiryMessage" value={formData.enquiryMessage} onChange={handleInputChange} className="w-full min-h-[120px]" placeholder="Tell us about your travel plans and preferences..." />
               </div>
               
               <div className="flex items-start space-x-2">
-                <Checkbox
-                  id="agreeToTerms"
-                  checked={formData.agreeToTerms}
-                  onCheckedChange={(checked) => 
-                    setFormData(prev => ({ ...prev, agreeToTerms: checked as boolean }))
-                  }
-                />
+                <Checkbox id="agreeToTerms" checked={formData.agreeToTerms} onCheckedChange={checked => setFormData(prev => ({
+                ...prev,
+                agreeToTerms: checked as boolean
+              }))} />
                 <label htmlFor="agreeToTerms" className="text-sm text-blue-700">
                   By contacting us, you agree to our Terms and Conditions
                 </label>
               </div>
               
-              <Button
-                type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white"
-                disabled={!formData.agreeToTerms}
-              >
+              <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white" disabled={!formData.agreeToTerms}>
                 Send Enquiry
               </Button>
             </form>
@@ -276,8 +217,6 @@ const Index = () => {
           <TourPackageSelector />
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
