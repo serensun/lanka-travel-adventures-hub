@@ -69,7 +69,7 @@ const Index = () => {
               />
               <div className="space-y-4 text-blue-800 leading-relaxed">
               <p>image https://serendipitypvt.com/wp-content/uploads/2022/08/sanjeewa.jpg.webp
-At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.</p>
+
               <div className="bg-blue-50 rounded-lg p-4 mt-6">
                 <h3 className="font-semibold text-blue-900 mb-3 flex items-center">
                   <Clock className="w-5 h-5 mr-2" />
