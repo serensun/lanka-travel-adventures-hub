@@ -79,27 +79,6 @@ const MainNavigation = () => {
                 </Link>
               );
             })}
-            
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 text-blue-800 hover:bg-blue-50">
-                <Calendar className="w-4 h-4" />
-                <span className="font-medium">Tour Packages</span>
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white shadow-lg border-0 z-50">
-                {tourPackageItems.map((item) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <DropdownMenuItem key={item.id} className="flex items-center space-x-2 px-4 py-2 hover:bg-blue-50 cursor-pointer">
-                      <Link to={item.path} className="flex items-center space-x-2 w-full text-blue-800">
-                        <IconComponent className="w-4 h-4" />
-                        <span>{item.label}</span>
-                      </Link>
-                    </DropdownMenuItem>
-                  );
-                })}
-              </DropdownMenuContent>
-            </DropdownMenu>
           </nav>
           
           {/* Mobile Menu Button - You can expand this later for mobile responsiveness */}
