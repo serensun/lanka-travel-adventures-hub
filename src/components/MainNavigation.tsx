@@ -2,19 +2,22 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Plane, Users, Phone, Calculator, FileText, Calendar, ChevronDown, MapPin, Home } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import LanguageSelector from './LanguageSelector';
 import headerLogo from '../assets/header-logo.avif';
 
 const MainNavigation = () => {
   const [activeSection, setActiveSection] = useState('overview');
   const location = useLocation();
+  const { t } = useTranslation();
 
   const navigationItems = [
-    { id: 'home', label: 'Home', icon: Home, path: '/' },
-    { id: 'itinerary', label: 'Tour Packages', icon: MapPin, path: '/itinerary' },
-    { id: 'about', label: 'About Us', icon: Users, path: 'https://serendipitypvt.com/about-serendipity-tours-private-limited/' },
-    { id: 'contact', label: 'Contact Us', icon: Phone, path: '/?section=contact' },
-    { id: 'terms', label: 'Terms & Conditions', icon: FileText, path: '/?section=terms' },
+    { id: 'home', label: t('navigation.home'), icon: Home, path: '/' },
+    { id: 'itinerary', label: t('navigation.tourPackages'), icon: MapPin, path: '/itinerary' },
+    { id: 'about', label: t('navigation.aboutUs'), icon: Users, path: 'https://serendipitypvt.com/about-serendipity-tours-private-limited/' },
+    { id: 'contact', label: t('navigation.contactUs'), icon: Phone, path: '/?section=contact' },
+    { id: 'terms', label: t('navigation.termsConditions'), icon: FileText, path: '/?section=terms' },
   ];
 
   const tourPackageItems = [
@@ -81,6 +84,9 @@ const MainNavigation = () => {
                 </Link>
               );
             })}
+            
+            {/* Language Selector */}
+            <LanguageSelector />
           </nav>
           
           {/* Mobile Menu Button - You can expand this later for mobile responsiveness */}

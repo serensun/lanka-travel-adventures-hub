@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "home": "Home",
+    "tourPackages": "Tour Packages",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "termsConditions": "Terms & Conditions",
+    "itinerary": "Itinerary"
+  },
+  "common": {
+    "bookNow": "Book Now",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "viewDetails": "View Details",
+    "freeCancellation": "Free cancellation",
+    "reserveNowPayLater": "Reserve now & pay later",
+    "duration": "Duration",
+    "liveGuide": "Live tour guide",
+    "smallGroup": "Small group",
+    "pickupIncluded": "Pickup included",
+    "highlights": "Highlights",
+    "itinerary": "Itinerary",
+    "includes": "Includes",
+    "excludes": "Excludes",
+    "rates": "Rates",
+    "importantInfo": "Important information",
+    "whatToBring": "What to bring",
+    "knowBeforeGo": "Know before you go",
+    "standardPackage": "Standard package",
+    "comfortPackage": "Comfort package",
+    "luxuryPackage": "Luxury package",
+    "singleRate": "single rate",
+    "twinSharingDouble": "twin sharing double",
+    "perPerson": "p.p",
+    "gallery": "Gallery",
+    "day": "Day",
+    "days": "days"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All rights reserved"
+  },
+  "homepage": {
+    "heroTitle": "Discover Sri Lanka's Hidden Treasures",
+    "heroSubtitle": "Experience authentic Sri Lankan culture, pristine beaches, and ancient wonders with our carefully crafted tour packages",
+    "featuredTours": "Featured Tours",
+    "whyChooseUs": "Why Choose Us",
+    "testimonials": "What Our Guests Say"
+  },
+  "tours": {
+    "2dayTour": {
+      "title": "2-Day Green Bless Tour",
+      "description": "A perfect introduction to Sri Lanka's natural beauty and cultural heritage"
+    },
+    "4dayTour": {
+      "title": "Sri Lanka Rare 4-Day Tour",
+      "description": "Explore ancient cities and cultural treasures in this comprehensive 4-day journey"
+    },
+    "newFourDayTour": {
+      "title": "Sri Lanka 4-Day Private Tour With 18 Amazing Places",
+      "description": "Experience the best of Sri Lanka with visits to 18 incredible destinations"
+    },
+    "5dayTour": {
+      "title": "5-Day Sri Lanka Cultural & Nature Tour",
+      "description": "Perfect blend of cultural exploration and natural wonders"
+    },
+    "6dayTour": {
+      "title": "All-Inclusive Sri Lanka 6-day Private Tour",
+      "description": "Experience the best of Sri Lanka in just 6 days with this perfectly balanced itinerary"
+    },
+    "7dayTour": {
+      "title": "7-day Sri Lanka tour: Beaten path Sri Lanka",
+      "description": "From the Cultural Triangle's archaeological marvels to Yala's wildlife wonders"
+    },
+    "10dayTour": {
+      "title": "Sri Lanka Private 10-Day Round Tour",
+      "description": "The ultimate Sri Lankan adventure covering every corner of the island"
+    }
+  }
+}

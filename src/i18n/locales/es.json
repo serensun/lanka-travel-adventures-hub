@@ -1,0 +1,82 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "tourPackages": "Paquetes de Tours",
+    "aboutUs": "Sobre Nosotros",
+    "contactUs": "Contáctanos",
+    "termsConditions": "Términos y Condiciones",
+    "itinerary": "Itinerario"
+  },
+  "common": {
+    "bookNow": "Reservar Ahora",
+    "learnMore": "Saber Más",
+    "readMore": "Leer Más",
+    "viewDetails": "Ver Detalles",
+    "freeCancellation": "Cancelación gratuita",
+    "reserveNowPayLater": "Reserva ahora y paga después",
+    "duration": "Duración",
+    "liveGuide": "Guía en vivo",
+    "smallGroup": "Grupo pequeño",
+    "pickupIncluded": "Recogida incluida",
+    "highlights": "Aspectos destacados",
+    "itinerary": "Itinerario",
+    "includes": "Incluye",
+    "excludes": "Excluye",
+    "rates": "Tarifas",
+    "importantInfo": "Información importante",
+    "whatToBring": "Qué llevar",
+    "knowBeforeGo": "Saber antes de ir",
+    "standardPackage": "Paquete estándar",
+    "comfortPackage": "Paquete confort",
+    "luxuryPackage": "Paquete de lujo",
+    "singleRate": "tarifa individual",
+    "twinSharingDouble": "doble compartida",
+    "perPerson": "p.p.",
+    "gallery": "Galería",
+    "day": "Día",
+    "days": "días"
+  },
+  "footer": {
+    "quickLinks": "Enlaces Rápidos",
+    "contactInfo": "Información de Contacto",
+    "followUs": "Síguenos",
+    "allRightsReserved": "Todos los derechos reservados"
+  },
+  "homepage": {
+    "heroTitle": "Descubre los Tesoros Ocultos de Sri Lanka",
+    "heroSubtitle": "Experimenta la auténtica cultura de Sri Lanka, playas prístinas y maravillas antiguas con nuestros paquetes turísticos cuidadosamente elaborados",
+    "featuredTours": "Tours Destacados",
+    "whyChooseUs": "Por Qué Elegirnos",
+    "testimonials": "Lo Que Dicen Nuestros Huéspedes"
+  },
+  "tours": {
+    "2dayTour": {
+      "title": "Tour Green Bless de 2 Días",
+      "description": "Una introducción perfecta a la belleza natural y el patrimonio cultural de Sri Lanka"
+    },
+    "4dayTour": {
+      "title": "Tour Raro de Sri Lanka de 4 Días",
+      "description": "Explora ciudades antiguas y tesoros culturales en este viaje integral de 4 días"
+    },
+    "newFourDayTour": {
+      "title": "Tour Privado de Sri Lanka de 4 Días con 18 Lugares Increíbles",
+      "description": "Experimenta lo mejor de Sri Lanka con visitas a 18 destinos increíbles"
+    },
+    "5dayTour": {
+      "title": "Tour Cultural y Natural de Sri Lanka de 5 Días",
+      "description": "Mezcla perfecta de exploración cultural y maravillas naturales"
+    },
+    "6dayTour": {
+      "title": "Tour Privado Todo Incluido de Sri Lanka de 6 Días",
+      "description": "Experimenta lo mejor de Sri Lanka en solo 6 días con este itinerario perfectamente equilibrado"
+    },
+    "7dayTour": {
+      "title": "Tour de Sri Lanka de 7 días: Senderos menos transitados de Sri Lanka",
+      "description": "Desde las maravillas arqueológicas del Triángulo Cultural hasta las maravillas de la vida silvestre de Yala"
+    },
+    "10dayTour": {
+      "title": "Tour Circular Privado de Sri Lanka de 10 Días",
+      "description": "La aventura definitiva de Sri Lanka que cubre cada rincón de la isla"
+    }
+  }
+}
