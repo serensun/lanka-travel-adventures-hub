@@ -16,6 +16,7 @@ import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
 import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
+import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -130,6 +131,18 @@ const Itinerary = () => {
       highlights: ['UNESCO Treasures', 'Sigiriya Rock Fortress', 'Sacred Kandy', 'Dambulla Cave Temple'],
       activities: ['Cultural', 'Heritage', 'Sightseeing'],
       destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Dambulla']
+    },
+    {
+      id: '7day-tour',
+      title: '7-day Sri Lanka tour: Beaten path Sri Lanka',
+      description: 'From the Cultural Triangle\'s archaeological marvels to Yala\'s wildlife wonders, this tour showcases Sri Lanka\'s diversity.',
+      duration: 7,
+      price: 'From $749',
+      image: sriLanka7DayHero,
+      path: '/beaten-path-sri-lanka-7-day-tour',
+      highlights: ['5 UNESCO World Heritage Sites', 'Wildlife safaris in Yala National Park', 'Scenic train through tea country', 'Ancient cities & cultural experiences', 'Beach relaxation on southern coast'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Bentota', 'Colombo']
     }
   ];
 
