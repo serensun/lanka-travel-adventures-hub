@@ -16,6 +16,7 @@ import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
 import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
+import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 
 const Itinerary = () => {
@@ -131,6 +132,18 @@ const Itinerary = () => {
       highlights: ['UNESCO Treasures', 'Sigiriya Rock Fortress', 'Sacred Kandy', 'Dambulla Cave Temple'],
       activities: ['Cultural', 'Heritage', 'Sightseeing'],
       destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Dambulla']
+    },
+    {
+      id: '6day-tour',
+      title: 'All-Inclusive Sri Lanka 6-day Private Tour',
+      description: 'Experience the best of Sri Lanka in just 6 days with this perfectly balanced itinerary combining thrilling wildlife encounters, ancient cultural treasures, and tropical beach relaxation.',
+      duration: 6,
+      price: 'From $599',
+      image: sriLanka6DayHero,
+      path: '/6-day-sri-lanka-tour',
+      highlights: ['Yala National Park Safari', 'Cultural Triangle Exploration', 'West Coast Beach Escape', 'Tea Country & Botanic Gardens'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle', 'Bentota']
     },
     {
       id: '7day-tour',
