@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, Star, Clock, CreditCard, Shield, ZoomIn } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, Star, Clock, CreditCard, Shield, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -21,6 +21,7 @@ const FourDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
   const [travelers, setTravelers] = useState(2);
   const [comments, setComments] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const packageRates = {
     standard: { double: 399, single: 699 },
@@ -28,7 +29,7 @@ const FourDayTourPackage = () => {
     luxury: { double: 699, single: 999 }
   };
 
-  const tourImages = [
+  const galleryImages = [
     {
       url: tourGallery1,
       alt: 'Sri Lanka Wildlife Safari',
@@ -221,34 +222,60 @@ const FourDayTourPackage = () => {
         <h3 className="text-xl font-bold text-blue-900 mb-6 text-center">Tour Gallery</h3>
         <Carousel className="w-full max-w-4xl mx-auto">
           <CarouselContent>
-            {tourImages.map((image, index) => (
+            {galleryImages.map((image, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <div className="relative group overflow-hidden rounded-lg cursor-pointer">
-                      <img
-                        src={image.url}
-                        alt={image.alt}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-125"
-                      />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <ZoomIn className="h-8 w-8 text-white mb-16" />
-                      </div>
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <p className="text-white text-sm p-4 font-medium">{image.caption}</p>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl w-full max-h-[90vh] p-2">
-                    <div className="relative">
-                      <img 
-                        src={image.url} 
-                        alt={`${image.alt} - Enlarged view`}
-                        className="w-full h-auto object-contain max-h-[80vh] rounded-lg"
-                      />
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                 <Dialog>
+                   <DialogTrigger asChild>
+                     <div 
+                       className="relative group overflow-hidden rounded-lg cursor-pointer"
+                       onClick={() => setCurrentImageIndex(index)}
+                     >
+                       <img
+                         src={image.url}
+                         alt={image.alt}
+                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-125"
+                       />
+                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                         <ZoomIn className="h-8 w-8 text-white mb-16" />
+                       </div>
+                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                         <p className="text-white text-sm p-4 font-medium">{image.caption}</p>
+                       </div>
+                     </div>
+                   </DialogTrigger>
+                   <DialogContent className="max-w-4xl w-full max-h-[90vh] p-2">
+                     <div className="relative">
+                       <img 
+                         src={galleryImages[currentImageIndex].url} 
+                         alt={galleryImages[currentImageIndex].alt}
+                         className="w-full h-auto object-contain max-h-[80vh] rounded-lg"
+                       />
+                       
+                       {/* Previous Arrow */}
+                       <button
+                         onClick={() => setCurrentImageIndex(prev => prev > 0 ? prev - 1 : galleryImages.length - 1)}
+                         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                         aria-label="Previous image"
+                       >
+                         <ChevronLeft className="h-6 w-6" />
+                       </button>
+                       
+                       {/* Next Arrow */}
+                       <button
+                         onClick={() => setCurrentImageIndex(prev => prev < galleryImages.length - 1 ? prev + 1 : 0)}
+                         className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                         aria-label="Next image"
+                       >
+                         <ChevronRight className="h-6 w-6" />
+                       </button>
+                       
+                       {/* Image Counter */}
+                       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                         {currentImageIndex + 1} / {galleryImages.length}
+                       </div>
+                     </div>
+                   </DialogContent>
+                 </Dialog>
               </CarouselItem>
             ))}
           </CarouselContent>

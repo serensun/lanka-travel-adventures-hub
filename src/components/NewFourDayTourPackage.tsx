@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn } from "lucide-react";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
 
@@ -20,6 +20,8 @@ import gallery11 from "@/assets/new-tour-gallery-11.avif";
 import gallery12 from "@/assets/new-tour-gallery-12.avif";
 
 const NewFourDayTourPackage = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   const galleryImages = [
     gallery1, gallery2, gallery3, gallery4, gallery5, 
     gallery6, gallery7, gallery8, gallery9, gallery10,
@@ -84,7 +86,10 @@ const NewFourDayTourPackage = () => {
               {galleryImages.map((image, index) => (
                 <Dialog key={index}>
                   <DialogTrigger asChild>
-                    <div className="flex-none w-80 aspect-video overflow-hidden rounded-lg shadow-lg snap-start cursor-pointer group relative">
+                    <div 
+                      className="flex-none w-80 aspect-video overflow-hidden rounded-lg shadow-lg snap-start cursor-pointer group relative"
+                      onClick={() => setCurrentImageIndex(index)}
+                    >
                       <img 
                         src={image} 
                         alt={`Tour gallery ${index + 1}`}
@@ -98,10 +103,33 @@ const NewFourDayTourPackage = () => {
                   <DialogContent className="max-w-4xl w-full max-h-[90vh] p-2">
                     <div className="relative">
                       <img 
-                        src={image} 
-                        alt={`Tour gallery ${index + 1} - Enlarged view`}
+                        src={galleryImages[currentImageIndex]} 
+                        alt={`Tour gallery ${currentImageIndex + 1} - Enlarged view`}
                         className="w-full h-auto object-contain max-h-[80vh] rounded-lg"
                       />
+                      
+                      {/* Previous Arrow */}
+                      <button
+                        onClick={() => setCurrentImageIndex(prev => prev > 0 ? prev - 1 : galleryImages.length - 1)}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="h-6 w-6" />
+                      </button>
+                      
+                      {/* Next Arrow */}
+                      <button
+                        onClick={() => setCurrentImageIndex(prev => prev < galleryImages.length - 1 ? prev + 1 : 0)}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="h-6 w-6" />
+                      </button>
+                      
+                      {/* Image Counter */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                        {currentImageIndex + 1} / {galleryImages.length}
+                      </div>
                     </div>
                   </DialogContent>
                 </Dialog>
