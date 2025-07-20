@@ -3,7 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Car, MapPin } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
 
@@ -63,6 +64,14 @@ const FiveDayTourPackage = () => {
   const galleryImages = [
     gallery1, gallery2, gallery3, gallery4, gallery5, 
     gallery6, gallery7, gallery8, gallery9
+  ];
+
+  const itinerary = [
+    { day: 1, title: 'Arrival & Colombo Discovery', activities: ['Arrive in Colombo', 'Visit Gangaramaya Temple', 'Independence Square', 'Galle Face Green'] },
+    { day: 2, title: 'Colombo - Kandy', activities: ['Travel to Kandy', 'Temple of the Tooth', 'Kandy Lake', 'Cultural show'] },
+    { day: 3, title: 'Kandy - Nuwara Eliya', activities: ['Drive to hill country', 'Tea plantation visit', 'Gregory Lake', 'City tour'] },
+    { day: 4, title: 'Nuwara Eliya - Ella - Yala', activities: ['Travel to Ella', 'Nine Arch Bridge', 'Drive to Yala', 'Evening safari'] },
+    { day: 5, title: 'Yala - Galle - Colombo', activities: ['Morning safari', 'Drive to Galle', 'Galle Fort tour', 'Return to Colombo'] }
   ];
 
   const highlights = [
@@ -234,68 +243,57 @@ const FiveDayTourPackage = () => {
               </CardContent>
             </Card>
 
-            {/* Itinerary */}
-            <Card className="mb-8">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle>Itinerary</CardTitle>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowExpandedItinerary(!showExpandedItinerary)}
-                    className="flex items-center gap-2"
-                  >
-                    {showExpandedItinerary ? (
-                      <>
-                        <ChevronUp className="h-4 w-4" />
-                        Short View
-                      </>
-                    ) : (
-                      <>
-                        <ChevronDown className="h-4 w-4" />
-                        Detailed View
-                      </>
-                    )}
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-16">Day</TableHead>
-                      <TableHead>Title</TableHead>
-                      <TableHead className="w-24">Duration</TableHead>
-                      <TableHead>Key Highlights</TableHead>
-                      {showExpandedItinerary && <TableHead>Full Description</TableHead>}
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {itineraryData.map((day) => (
-                      <TableRow key={day.day} className="hover:bg-muted/50">
-                        <TableCell className="font-semibold text-primary">
-                          {day.day}
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          {day.title}
-                        </TableCell>
-                        <TableCell>
-                          <Badge variant="outline">{day.time}</Badge>
-                        </TableCell>
-                        <TableCell className="text-sm text-muted-foreground">
-                          {day.highlights}
-                        </TableCell>
-                        {showExpandedItinerary && (
-                          <TableCell className="text-sm">
-                            {day.description}
-                          </TableCell>
-                        )}
-                      </TableRow>
+            {/* Itinerary with Tabs */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center">
+                <Car className="w-5 h-5 mr-2 text-orange-500" />
+                5-Day Detailed Itinerary
+              </h3>
+              
+              <Tabs defaultValue="overview" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="overview">Overview</TabsTrigger>
+                  <TabsTrigger value="detailed">Detailed Day-by-Day</TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="overview" className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {itinerary.map((day) => (
+                      <div key={day.day} className="bg-white/60 rounded-lg p-4 border border-blue-100">
+                        <div className="flex items-center space-x-3 mb-2">
+                          <div className="bg-orange-400 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs">
+                            {day.day}
+                          </div>
+                          <h4 className="text-blue-900 font-medium text-sm">{day.title}</h4>
+                        </div>
+                        <p className="text-blue-700 text-xs">{day.activities.length} activities planned</p>
+                      </div>
                     ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="detailed" className="space-y-6">
+                  {itinerary.map((day) => (
+                    <div key={day.day} className="border-l-4 border-orange-400 pl-6">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                          {day.day}
+                        </div>
+                        <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {day.activities.map((activity, index) => (
+                          <li key={index} className="flex items-start space-x-2">
+                            <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-blue-800 text-sm">{activity}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </TabsContent>
+              </Tabs>
+            </div>
 
             {/* Includes & Excludes */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
