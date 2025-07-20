@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn } from "lucide-react";
+import { useState } from "react";
 import BookingForm from "./BookingForm";
 
 // Gallery images
@@ -80,13 +82,29 @@ const NewFourDayTourPackage = () => {
           <div className="relative">
             <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
               {galleryImages.map((image, index) => (
-                <div key={index} className="flex-none w-80 aspect-video overflow-hidden rounded-lg shadow-lg snap-start">
-                  <img 
-                    src={image} 
-                    alt={`Tour gallery ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <div className="flex-none w-80 aspect-video overflow-hidden rounded-lg shadow-lg snap-start cursor-pointer group relative">
+                      <img 
+                        src={image} 
+                        alt={`Tour gallery ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ZoomIn className="h-8 w-8 text-white" />
+                      </div>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl w-full max-h-[90vh] p-2">
+                    <div className="relative">
+                      <img 
+                        src={image} 
+                        alt={`Tour gallery ${index + 1} - Enlarged view`}
+                        className="w-full h-auto object-contain max-h-[80vh] rounded-lg"
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               ))}
             </div>
             <div className="text-center mt-4 text-sm text-muted-foreground">
