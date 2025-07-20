@@ -6,10 +6,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 import TourPackageSelector from '../components/TourPackageSelector';
 import sanjeewaImage from '../assets/sanjeewa.jpg';
 
 const Index = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,10 +29,61 @@ const Index = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    
+    if (!formData.agreeToTerms) {
+      toast({
+        title: "Terms Required",
+        description: "Please agree to the terms and conditions to proceed.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      console.log('Sending enquiry:', formData);
+      
+      // Call the edge function to send email
+      const { data, error } = await supabase.functions.invoke('send-enquiry-email', {
+        body: {
+          fullName: formData.fullName,
+          email: formData.email,
+          enquiryMessage: formData.enquiryMessage,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Enquiry sent successfully:', data);
+      
+      toast({
+        title: "Enquiry Sent Successfully!",
+        description: "Thank you for your interest. We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        enquiryMessage: '',
+        agreeToTerms: false
+      });
+
+    } catch (error: any) {
+      console.error('Error sending enquiry:', error);
+      toast({
+        title: "Error Sending Enquiry",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -238,9 +293,9 @@ const Index = () => {
             <Button
               type="submit"
               className="w-full bg-orange-500 hover:bg-orange-600 text-white"
-              disabled={!formData.agreeToTerms}
+              disabled={!formData.agreeToTerms || isSubmitting}
             >
-              Send Enquiry
+              {isSubmitting ? 'Sending...' : 'Send Enquiry'}
             </Button>
           </form>
         </div>
