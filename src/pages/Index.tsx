@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import TourPackageSelector from '../components/TourPackageSelector';
 import MainNavigation from '../components/MainNavigation';
 import sanjeewaImage from '../assets/sanjeewa.jpg';
+
 const Index = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -16,22 +17,23 @@ const Index = () => {
     enquiryMessage: '',
     agreeToTerms: false
   });
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', formData);
   };
-  return <div className="min-h-screen bg-gradient-to-br from-blue-50 to-orange-50">
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-orange-50">
       <MainNavigation />
       
       {/* Hero Section */}
@@ -68,19 +70,21 @@ const Index = () => {
                 className="w-24 h-24 rounded-full object-cover flex-shrink-0"
               />
               <div className="space-y-4 text-blue-800 leading-relaxed">
-              <p>image https://serendipitypvt.com/wp-content/uploads/2022/08/sanjeewa.jpg.webp
-
-              <div className="bg-blue-50 rounded-lg p-4 mt-6">
-                <h3 className="font-semibold text-blue-900 mb-3 flex items-center">
-                  <Clock className="w-5 h-5 mr-2" />
-                  Operating Hours
-                </h3>
-                <div className="space-y-2 text-sm text-blue-700">
-                  <p><strong>Monday to Friday:</strong> 9am - 8pm</p>
-                  <p><strong>Saturday:</strong> 9am - 6pm</p>
-                  <p><strong>Sunday:</strong> 11am - 4pm</p>
+                <p>
+                  At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.
+                </p>
+              
+                <div className="bg-blue-50 rounded-lg p-4 mt-6">
+                  <h3 className="font-semibold text-blue-900 mb-3 flex items-center">
+                    <Clock className="w-5 h-5 mr-2" />
+                    Operating Hours
+                  </h3>
+                  <div className="space-y-2 text-sm text-blue-700">
+                    <p><strong>Monday to Friday:</strong> 9am - 8pm</p>
+                    <p><strong>Saturday:</strong> 9am - 6pm</p>
+                    <p><strong>Sunday:</strong> 11am - 4pm</p>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
@@ -183,34 +187,67 @@ const Index = () => {
                 <label htmlFor="fullName" className="block text-sm font-medium text-blue-900 mb-2">
                   Full Name *
                 </label>
-                <Input id="fullName" name="fullName" type="text" required value={formData.fullName} onChange={handleInputChange} className="w-full" placeholder="Enter your full name" />
+                <Input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  required
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  className="w-full"
+                  placeholder="Enter your full name"
+                />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-blue-900 mb-2">
                   Email *
                 </label>
-                <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} className="w-full" placeholder="Enter your email address" />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full"
+                  placeholder="Enter your email address"
+                />
               </div>
               
               <div>
                 <label htmlFor="enquiryMessage" className="block text-sm font-medium text-blue-900 mb-2">
                   Enquiry Message
                 </label>
-                <Textarea id="enquiryMessage" name="enquiryMessage" value={formData.enquiryMessage} onChange={handleInputChange} className="w-full min-h-[120px]" placeholder="Tell us about your travel plans and preferences..." />
+                <Textarea
+                  id="enquiryMessage"
+                  name="enquiryMessage"
+                  value={formData.enquiryMessage}
+                  onChange={handleInputChange}
+                  className="w-full min-h-[120px]"
+                  placeholder="Tell us about your travel plans and preferences..."
+                />
               </div>
               
               <div className="flex items-start space-x-2">
-                <Checkbox id="agreeToTerms" checked={formData.agreeToTerms} onCheckedChange={checked => setFormData(prev => ({
-                ...prev,
-                agreeToTerms: checked as boolean
-              }))} />
+                <Checkbox
+                  id="agreeToTerms"
+                  checked={formData.agreeToTerms}
+                  onCheckedChange={(checked) => setFormData(prev => ({
+                    ...prev,
+                    agreeToTerms: checked as boolean
+                  }))}
+                />
                 <label htmlFor="agreeToTerms" className="text-sm text-blue-700">
                   By contacting us, you agree to our Terms and Conditions
                 </label>
               </div>
               
-              <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white" disabled={!formData.agreeToTerms}>
+              <Button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white"
+                disabled={!formData.agreeToTerms}
+              >
                 Send Enquiry
               </Button>
             </form>
@@ -223,6 +260,8 @@ const Index = () => {
           <TourPackageSelector />
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
