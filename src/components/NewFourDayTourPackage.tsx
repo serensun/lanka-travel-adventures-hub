@@ -77,16 +77,21 @@ const NewFourDayTourPackage = () => {
         {/* Gallery Section */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="aspect-video overflow-hidden rounded-lg shadow-lg">
-                <img 
-                  src={image} 
-                  alt={`Tour gallery ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-            ))}
+          <div className="relative">
+            <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
+              {galleryImages.map((image, index) => (
+                <div key={index} className="flex-none w-80 aspect-video overflow-hidden rounded-lg shadow-lg snap-start">
+                  <img 
+                    src={image} 
+                    alt={`Tour gallery ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-4 text-sm text-muted-foreground">
+              Scroll horizontally to view more images
+            </div>
           </div>
         </div>
 
