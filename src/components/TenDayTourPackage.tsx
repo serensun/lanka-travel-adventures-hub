@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, TreePine, Binoculars, Mountain, Train, Car } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, TreePine, Binoculars, Mountain, Train, Car, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import BookingForm from './BookingForm';
 
 const TenDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
   const [travelers, setTravelers] = useState(2);
   const [comments, setComments] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const packageRates = {
     standard: { double: 850, single: 1349 },
@@ -231,6 +234,19 @@ const TenDayTourPackage = () => {
     }
   };
 
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsDialogOpen(true);
+  };
+
+  const navigateImage = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') {
+      setCurrentImageIndex((prev) => (prev === 0 ? tourImages.length - 1 : prev - 1));
+    } else {
+      setCurrentImageIndex((prev) => (prev === tourImages.length - 1 ? 0 : prev + 1));
+    }
+  };
+
   return (
     <div className="space-y-8">
       <div className="text-center space-y-4">
@@ -249,13 +265,16 @@ const TenDayTourPackage = () => {
           <CarouselContent>
             {tourImages.map((image, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="relative group overflow-hidden rounded-lg">
+                <div className="relative group overflow-hidden rounded-lg cursor-pointer" onClick={() => handleImageClick(index)}>
                   <img
                     src={image.url}
                     alt={image.alt}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-125"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <ZoomIn className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="text-white text-sm p-4 font-medium">{image.caption}</p>
                   </div>
                 </div>
@@ -549,6 +568,46 @@ const TenDayTourPackage = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-4xl w-full p-0">
+          <div className="relative">
+            <img
+              src={tourImages[currentImageIndex]?.url}
+              alt={tourImages[currentImageIndex]?.alt}
+              className="w-full h-[70vh] object-contain bg-black"
+            />
+            
+            {/* Navigation arrows */}
+            <button
+              onClick={() => navigateImage('prev')}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            
+            <button
+              onClick={() => navigateImage('next')}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+            
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+              {currentImageIndex + 1} / {tourImages.length}
+            </div>
+            
+            {/* Caption */}
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <p className="text-white text-sm bg-black/50 p-2 rounded">
+                {tourImages[currentImageIndex]?.caption}
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

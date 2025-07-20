@@ -1,15 +1,19 @@
 
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import BookingForm from './BookingForm';
 
 const FiveDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
   const [travelers, setTravelers] = useState(2);
   const [comments, setComments] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [allImages, setAllImages] = useState<{url: string, caption: string}[]>([]);
 
   const packageRates = {
     standard: { double: 699, single: 1299 },
@@ -27,6 +31,27 @@ const FiveDayTourPackage = () => {
 
   const getTotalPrice = () => {
     return calculatePrice(selectedPackage, travelers);
+  };
+
+  // Flatten all images for the modal navigation
+  React.useEffect(() => {
+    const flattenedImages = Object.values(imageGalleries).flat();
+    setAllImages(flattenedImages);
+  }, []);
+
+  const handleImageClick = (categoryImages: {url: string, caption: string}[], imageIndex: number) => {
+    const flattenedImages = Object.values(imageGalleries).flat();
+    const globalIndex = flattenedImages.findIndex(img => img.url === categoryImages[imageIndex].url);
+    setCurrentImageIndex(globalIndex);
+    setIsDialogOpen(true);
+  };
+
+  const navigateImage = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') {
+      setCurrentImageIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
+    } else {
+      setCurrentImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+    }
   };
 
   const itinerary = [
@@ -106,12 +131,15 @@ const FiveDayTourPackage = () => {
               <CarouselContent>
                 {images.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="relative">
+                    <div className="relative group cursor-pointer" onClick={() => handleImageClick(images, index)}>
                       <img 
                         src={image.url} 
                         alt={image.caption}
-                        className="w-full h-48 object-cover rounded-lg"
+                        className="w-full h-48 object-cover rounded-lg transition-transform duration-500 group-hover:scale-125"
                       />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                        <ZoomIn className="w-8 h-8 text-white" />
+                      </div>
                       <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-2 rounded-b-lg">
                         <p className="text-sm font-medium">{image.caption}</p>
                       </div>
@@ -128,12 +156,15 @@ const FiveDayTourPackage = () => {
 
       {/* Additional scenic image */}
       <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
-        <div className="relative">
+        <div className="relative group cursor-pointer" onClick={() => handleImageClick(imageGalleries.additional, 0)}>
           <img 
             src={imageGalleries.additional[0].url} 
             alt={imageGalleries.additional[0].caption}
-            className="w-full h-64 object-cover rounded-lg"
+            className="w-full h-64 object-cover rounded-lg transition-transform duration-500 group-hover:scale-125"
           />
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+            <ZoomIn className="w-8 h-8 text-white" />
+          </div>
           <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 rounded-b-lg">
             <p className="text-lg font-medium">{imageGalleries.additional[0].caption}</p>
           </div>
@@ -317,6 +348,46 @@ const FiveDayTourPackage = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-4xl w-full p-0">
+          <div className="relative">
+            <img
+              src={allImages[currentImageIndex]?.url}
+              alt={allImages[currentImageIndex]?.caption}
+              className="w-full h-[70vh] object-contain bg-black"
+            />
+            
+            {/* Navigation arrows */}
+            <button
+              onClick={() => navigateImage('prev')}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            
+            <button
+              onClick={() => navigateImage('next')}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+            
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+              {currentImageIndex + 1} / {allImages.length}
+            </div>
+            
+            {/* Caption */}
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <p className="text-white text-sm bg-black/50 p-2 rounded">
+                {allImages[currentImageIndex]?.caption}
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
