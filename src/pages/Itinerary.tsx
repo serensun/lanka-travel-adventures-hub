@@ -55,6 +55,18 @@ const Itinerary = () => {
       destinations: ['Colombo', 'Kandy', 'Nuwara Eliya', 'Ella']
     },
     {
+      id: '4day-kandy-tour',
+      title: '4-Day Sri Lanka Full Circle Private Tour To Colombo',
+      description: 'Why take weeks when you can see it all in just 4 action-packed days? This carefully crafted itinerary delivers Sri Lanka\'s greatest hits - from ancient kingdoms and wildlife safaris to beach bliss and cultural treasures.',
+      duration: 4,
+      price: 'From $499',
+      image: newTourGallery5,
+      path: '/kandy-4-day-sri-lanka-full-circle-private-tour-to-colombo',
+      highlights: ['Ancient Wonders', 'Hill Country Train', 'Wildlife Safari', 'Coastal Charms'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Beach', 'Sightseeing'],
+      destinations: ['Kandy', 'Sigiriya', 'Dambulla', 'Nuwara Eliya', 'Ella', 'Yala', 'Galle', 'Colombo']
+    },
+    {
       id: '5day-tour',
       title: '5-Day Sri Lanka Cultural & Nature Tour',
       description: 'Perfect blend of cultural exploration and nature discovery across Sri Lanka\'s most iconic destinations.',
