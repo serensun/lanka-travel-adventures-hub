@@ -99,7 +99,7 @@ const handler = async (req: Request): Promise<Response> => {
     
     const emailResponse = await resend.emails.send({
       from: "Sri Lanka Tours <onboarding@resend.dev>",
-      to: ["seerendipitytourslk@gmail.com"],
+      to: ["reservations@serendipitypvt.com"],
       subject: `Booking Summary Report - ${bookings.length} Total Bookings`,
       html: emailContent,
     });
