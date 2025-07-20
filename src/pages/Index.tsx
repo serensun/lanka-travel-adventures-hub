@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar, ChevronDown, Users, Phone, FileText, Mail, MessageCircle, Clock } from 'lucide-react';
+import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar, ChevronDown, Users, Phone, FileText, Mail, MessageCircle, Clock, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import TourPackageSelector from '../components/TourPackageSelector';
 import sanjeewaImage from '../assets/sanjeewa.jpg';
+import tourGallery1 from '../assets/tour-gallery-1.avif';
+import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
+import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-hero.avif';
 
 const Index = () => {
   const { toast } = useToast();
@@ -85,6 +89,40 @@ const Index = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Featured tour packages (3 random ones)
+  const featuredTourPackages = [
+    {
+      id: '2day-cultural-triangle',
+      title: 'Private 2-Day Cultural Triangle + Wildlife Tour',
+      description: 'Awaken Your Spirit: 2-Day Sacred Journey Through Sri Lanka\'s Cultural Heart with UNESCO World Heritage sites.',
+      duration: 2,
+      price: 'From $299',
+      image: culturalTriangleWildlifeHero,
+      path: '/Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka',
+      highlights: ['UNESCO World Heritage Sites', 'Wildlife Safari', 'Buddhist Temples']
+    },
+    {
+      id: '4day-kandy-tour', 
+      title: '4-Day Sri Lanka Full Circle Private Tour',
+      description: 'Why take weeks when you can see it all in just 4 action-packed days? Ancient kingdoms, wildlife safaris, beach bliss and cultural treasures.',
+      duration: 4,
+      price: 'From $499',
+      image: newTourGallery5,
+      path: '/kandy-4-day-sri-lanka-full-circle-private-tour-to-colombo',
+      highlights: ['Ancient Wonders', 'Hill Country Train', 'Wildlife Safari', 'Coastal Charms']
+    },
+    {
+      id: '2day-tour',
+      title: '2-Day Green Bless Tour',
+      description: 'Experience the natural beauty of Sri Lanka with visits to Sigiriya Rock Fortress and Dambulla Cave Temple.',
+      duration: 2,
+      price: 'From $180',
+      image: tourGallery1,
+      path: '/2-day-tour',
+      highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Cultural Triangle']
+    }
+  ];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
@@ -301,10 +339,77 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Tour Packages Section */}
+      {/* Featured Tour Packages Section */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">Our Tour Packages</h2>
-        <TourPackageSelector />
+        <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">Featured Tour Packages</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {featuredTourPackages.map((tour) => (
+            <Card key={tour.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+              <div className="relative">
+                <img
+                  src={tour.image}
+                  alt={tour.title}
+                  className="w-full h-48 object-cover"
+                />
+                <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
+                  <Calendar className="w-3 h-3 mr-1" />
+                  {tour.duration} {tour.duration === 1 ? 'Day' : 'Days'}
+                </Badge>
+              </div>
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center text-green-600 font-semibold">
+                    <DollarSign className="w-4 h-4 mr-1" />
+                    {tour.price}
+                  </div>
+                </div>
+                <CardTitle className="text-xl text-gray-900 leading-tight">
+                  {tour.title}
+                </CardTitle>
+                <CardDescription className="text-gray-600 text-sm line-clamp-3">
+                  {tour.description}
+                </CardDescription>
+              </CardHeader>
+              
+              <CardContent className="pt-0">
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-1">
+                    {tour.highlights.slice(0, 2).map((highlight, index) => (
+                      <Badge key={index} variant="secondary" className="bg-blue-50 text-blue-700 text-xs">
+                        {highlight}
+                      </Badge>
+                    ))}
+                    {tour.highlights.length > 2 && (
+                      <Badge variant="secondary" className="bg-blue-50 text-blue-700 text-xs">
+                        +{tour.highlights.length - 2} more
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-gray-600 text-sm">
+                    <Users className="w-4 h-4 mr-1" />
+                    <span>Private Tour</span>
+                  </div>
+                  <Link to={tour.path}>
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                      View Details
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="text-center mt-8">
+          <Link to="/itinerary">
+            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+              View All Tour Packages
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
