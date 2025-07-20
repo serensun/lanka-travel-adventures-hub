@@ -10,7 +10,6 @@ const MainNavigation = () => {
   const location = useLocation();
 
   const navigationItems = [
-    { id: 'itinerary', label: 'Tour Packages', icon: MapPin, path: '/itinerary' },
     { id: 'about', label: 'About Us', icon: Users, path: 'https://serendipitypvt.com/about-serendipity-tours-private-limited/' },
     { id: 'contact', label: 'Contact Us', icon: Phone, path: '/?section=contact' },
     { id: 'terms', label: 'Terms & Conditions', icon: FileText, path: '/?section=terms' },
