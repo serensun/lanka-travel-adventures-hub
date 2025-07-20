@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, Star, Clock, CreditCard, Shield } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, Star, Clock, CreditCard, Shield, ZoomIn } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -222,16 +223,32 @@ const FourDayTourPackage = () => {
           <CarouselContent>
             {tourImages.map((image, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="relative group overflow-hidden rounded-lg">
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <p className="text-white text-sm p-4 font-medium">{image.caption}</p>
-                  </div>
-                </div>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="relative group overflow-hidden rounded-lg cursor-pointer">
+                      <img
+                        src={image.url}
+                        alt={image.alt}
+                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <ZoomIn className="h-8 w-8 text-white mb-16" />
+                      </div>
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <p className="text-white text-sm p-4 font-medium">{image.caption}</p>
+                      </div>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl w-full max-h-[90vh] p-2">
+                    <div className="relative">
+                      <img 
+                        src={image.url} 
+                        alt={`${image.alt} - Enlarged view`}
+                        className="w-full h-auto object-contain max-h-[80vh] rounded-lg"
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </CarouselItem>
             ))}
           </CarouselContent>
