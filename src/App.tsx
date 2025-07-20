@@ -24,7 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/2-day-tour" element={<TwoDayTour />} />
-            <Route path="/4-day-tour" element={<FourDayTour />} />
+            <Route path="/sri-lanka-rare-4-day-tour" element={<FourDayTour />} />
             <Route path="/5-day-tour" element={<FiveDayTour />} />
             <Route path="/10-day-tour" element={<TenDayTour />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

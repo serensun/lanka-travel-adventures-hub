@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, Star, Clock, CreditCard, Shield } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
 import BookingForm from './BookingForm';
+import tourGallery1 from '@/assets/tour-gallery-1.avif';
+import tourGallery2 from '@/assets/tour-gallery-2.avif';
+import tourGallery3 from '@/assets/tour-gallery-3.avif';
+import tourGallery4 from '@/assets/tour-gallery-4.avif';
+import tourGallery5 from '@/assets/tour-gallery-5.avif';
+import tourGallery6 from '@/assets/tour-gallery-6.avif';
+import tourGallery7 from '@/assets/tour-gallery-7.avif';
+import tourGallery8 from '@/assets/tour-gallery-8.avif';
+import tourGallery9 from '@/assets/tour-gallery-9.avif';
 
 const FourDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
@@ -12,115 +22,139 @@ const FourDayTourPackage = () => {
   const [comments, setComments] = useState('');
 
   const packageRates = {
-    standard: { double: 499, single: 899 },
-    comfort: { double: 690, single: 999 },
-    luxury: { double: 750, single: 1300 }
+    standard: { double: 399, single: 699 },
+    comfort: { double: 599, single: 799 },
+    luxury: { double: 699, single: 999 }
   };
 
   const tourImages = [
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2020/11/155.png',
-      alt: 'Sigiriya Rock Fortress',
-      caption: 'Climb the iconic Sigiriya Rock Fortress'
+      url: tourGallery1,
+      alt: 'Sri Lanka Wildlife Safari',
+      caption: 'See the fascinating wildlife on a Yala safari'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2019/10/18.png',
+      url: tourGallery2,
+      alt: 'Scenic Mountains and Tea Gardens',
+      caption: 'Visit scenic mountains and tea gardens'
+    },
+    {
+      url: tourGallery3,
+      alt: 'Hill Country Train Journey',
+      caption: 'Experience one of the most scenic train trips in the world'
+    },
+    {
+      url: tourGallery4,
       alt: 'Temple of the Sacred Tooth',
-      caption: 'Visit the sacred Temple of the Tooth Relic in Kandy'
+      caption: 'Visit the tooth relic temple and downtown Kandy'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2019/10/33.png',
-      alt: 'Tea Plantation',
-      caption: 'Explore lush tea plantations in the hill country'
+      url: tourGallery5,
+      alt: 'Ella Hill Country',
+      caption: 'Enjoy the beautiful settings in the hill country resort of Ella'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/03/67.png',
-      alt: 'Nine Arches Bridge',
-      caption: 'Marvel at the famous Nine Arches Bridge in Ella'
+      url: tourGallery6,
+      alt: 'Nuwara Eliya Tea Country',
+      caption: 'Experience the beautiful hill country and Nuwara Eliya'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/03/27.png',
-      alt: 'Galle Fort',
-      caption: 'Discover the historic Galle Fort'
+      url: tourGallery7,
+      alt: 'Waterfalls and Nature',
+      caption: 'Visit waterfalls and scenic natural landscapes'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/75.avif',
-      alt: 'Unawatuna Beach',
-      caption: 'Relax on the golden sands of Unawatuna Beach'
+      url: tourGallery8,
+      alt: 'Beaches and Coastal Areas',
+      caption: 'Explore beautiful beaches and coastal cities'
     },
     {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/37.avif',
-      alt: 'Cultural Heritage',
-      caption: 'Experience Sri Lanka\'s rich cultural heritage'
-    },
-    {
-      url: 'https://serendipitypvt.com/wp-content/uploads/2025/05/59.avif',
-      alt: 'Wildlife Safari',
-      caption: 'Encounter amazing wildlife on safari'
+      url: tourGallery9,
+      alt: 'Villages and Culture',
+      caption: 'Experience local villages and rich cultural heritage'
     }
   ];
 
+  const highlights = [
+    'See the fascinating wildlife on a Yala safari',
+    'Visit waterfalls, scenic mountains, tea garden, beaches, cities and villages',
+    'Experience one of the most scenic train trips in the world',
+    'Visit the tooth relic temple and downtown Kandy',
+    'Enjoy the beautiful settings in the hill country resort of Ella and Nuwara Eliya'
+  ];
+
   const inclusions = [
-    'Hotel pickup and drop-off',
-    'Air-conditioned transportation',
-    '3-nights of accommodation in standard hotels',
+    '3-nights accommodation in standard hotels',
     '3 breakfasts',
-    '3 Dinners',
-    'Tea factory visit',
-    'Waterfall visit',
-    'All inclusive hill country train trip',
-    'Fuel surcharge',
-    'Airport/departure tax',
-    'Parking fees'
+    'Entire ground transportation, transfers and sightseeing tours',
+    'Local tour guide',
+    'Entrance fees to spice/herbal garden',
+    '4-wheel-drive jeep for Yala safari',
+    'Guided walking tour of Galle fort',
+    'Guided tour of Tea garden and Tea factory',
+    'Entrance fees to the Mask Museum',
+    'Guided sightseeing tour of Ella',
+    'All-inclusive hill country train trip',
+    'Bentota river safari',
+    'All taxes'
   ];
 
   const exclusions = [
-    'Meals and beverages (unless specified)',
-    'Gratuities (optional)',
-    'Personal expenses',
-    'Entrance tickets to attractions (around US$ 200 P.P)'
+    'Entrance fees to Yala national park, Tooth relic temple, and the Royal botanical garden, rainforest',
+    'Tips and gratuities',
+    'Lunch and dinner',
+    'Drinks'
   ];
 
   const itinerary = [
     {
       day: 1,
-      title: 'Discover the Cultural Triangle',
+      title: 'Colombo / Galle, Bentota / Yala',
       activities: [
-        'Visit Dambulla Cave Temple',
-        'Explore ancient city of Polonnaruwa',
-        'Minneriya National Park safari'
+        'Meet and greet your guide and leave for the hotel in Yala',
+        'En route, stop at Bentota River',
+        'Visit Galle Fort',
+        'Stop at Hikkaduwa Beach',
+        'Visit Mask museum',
+        'Visit Mirissa Beach',
+        'Check-in at the hotel in Yala and enjoy leisure'
       ]
     },
     {
       day: 2,
-      title: 'Explore Sigiriya, Kandy and the Hill Country',
+      title: 'Yala / Ella',
       activities: [
-        'Climb Sigiriya Rock (1,200 steps)',
-        'Visit Temple of the Sacred Tooth Relic',
-        'Stroll around Kandy Lake',
-        'Tour Peradeniya Botanical Gardens'
+        'Early morning Yala National Park Safari',
+        'Continue to the hotel in Ella',
+        'En-route stops at Ella Mini-Adams Peak',
+        'Visit Ravana Falls',
+        'See Nine Arch Bridge',
+        'Check-in the hotel in Ella and leisure'
       ]
     },
     {
       day: 3,
-      title: 'Waterfall, Rivers, Tea Gardens and Hill Country Wonders',
+      title: 'Ella / Nuwara Eliya / Kandy',
       activities: [
-        'Visit Ramboda Falls and Ambuluwawa Tower',
-        'Tea plantation and factory tour',
-        'Explore Nuwara Eliya ("Little England")',
-        'Hill country train journey',
-        'Visit Nine Arches Bridge in Ella',
-        'See Ravana Falls'
+        'Early morning hill country blue train from Ella railway station',
+        'Train journey from Ella to Nuwara Eliya (2 hours - one of the most scenic in the world)',
+        'Continue journey to Kandy via Nuwara Eliya',
+        'En-route stop at downtown Nuwara Eliya',
+        'Visit tea factory and garden',
+        'See Ramboda waterfall',
+        'Check-in the hotel in Kandy and leisure'
       ]
     },
     {
       day: 4,
-      title: 'Unwind on the South Coast',
+      title: 'Kandy / Colombo',
       activities: [
-        'Early afternoon safari',
-        'Visit historic Galle Fort (UNESCO site)',
-        'Relax at Unawatuna Beach',
-        'Optional coral reef exploration at Hikkaduwa'
+        'After breakfast, Kandy city tour',
+        'Visit the tooth relic temple',
+        'Explore the Royal Botanical Garden',
+        'Tour downtown Kandy',
+        'Continue journey to Colombo',
+        'En route, stop at the spice/herbal garden'
       ]
     }
   ];
@@ -146,17 +180,44 @@ const FourDayTourPackage = () => {
     <div className="space-y-8">
       <div className="text-center space-y-4">
         <h2 className="text-4xl font-bold text-blue-900 mb-4">
-          4-Day Sri Lanka Whirlwind Tour
+          4-Day Sri Lanka Tour with Adventure, Nature, Wildlife, History and Culture
         </h2>
         <p className="text-xl text-blue-700 max-w-4xl mx-auto">
-          Experience the mystique of the Cultural Triangle, climb Sigiriya rock, witness majestic Asian elephants at Minneriya, 
-          savour lush tea gardens, and unwind on golden sands of Unawatuna Beach. Your perfect Insta-worthy adventure awaits!
+          See beautiful hill-country scenery, enjoy train trip, go on a safari, go boating and take a rainforest tour.
         </p>
+        
+        {/* Tour Features */}
+        <div className="flex flex-wrap justify-center gap-4 mt-6">
+          <Badge variant="secondary" className="flex items-center gap-2">
+            <Shield className="w-4 h-4" />
+            Free cancellation
+          </Badge>
+          <Badge variant="secondary" className="flex items-center gap-2">
+            <CreditCard className="w-4 h-4" />
+            Reserve now & pay later
+          </Badge>
+          <Badge variant="secondary" className="flex items-center gap-2">
+            <Clock className="w-4 h-4" />
+            Duration: 4 days
+          </Badge>
+          <Badge variant="secondary" className="flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            Small group: Private tour
+          </Badge>
+        </div>
+        
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 max-w-2xl mx-auto">
+          <p className="text-yellow-800 text-sm">
+            <strong>Free cancellation:</strong> Cancel up to 24-hours in advance for a full refund<br/>
+            <strong>Reserve now & pay later:</strong> Keep your travel plans flexible — book your spot and pay nothing today.<br/>
+            <strong>Live tour guide:</strong> English, Italian, French
+          </p>
+        </div>
       </div>
 
       {/* Image Gallery */}
       <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
-        <h3 className="text-xl font-bold text-blue-900 mb-6 text-center">Tour Highlights</h3>
+        <h3 className="text-xl font-bold text-blue-900 mb-6 text-center">Tour Gallery</h3>
         <Carousel className="w-full max-w-4xl mx-auto">
           <CarouselContent>
             {tourImages.map((image, index) => (
@@ -177,6 +238,22 @@ const FourDayTourPackage = () => {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
+      </div>
+
+      {/* Highlights Section */}
+      <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+        <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center">
+          <Star className="w-5 h-5 mr-2 text-yellow-500" />
+          Tour Highlights
+        </h3>
+        <ul className="space-y-3">
+          {highlights.map((highlight, index) => (
+            <li key={index} className="flex items-start space-x-3">
+              <Star className="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0" />
+              <span className="text-blue-800">{highlight}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
@@ -315,7 +392,7 @@ const FourDayTourPackage = () => {
             <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
               <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
                 <Check className="w-5 h-5 mr-2 text-green-600" />
-                Inclusions
+                Includes
               </h3>
               <ul className="space-y-2">
                 {inclusions.map((item, index) => (
@@ -330,7 +407,7 @@ const FourDayTourPackage = () => {
             <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
               <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
                 <X className="w-5 h-5 mr-2 text-red-500" />
-                Exclusions
+                Excludes
               </h3>
               <ul className="space-y-2">
                 {exclusions.map((item, index) => (
@@ -377,12 +454,6 @@ const FourDayTourPackage = () => {
               </div>
               <p className="text-blue-600 text-sm mt-1">
                 {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
-              </p>
-            </div>
-
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-              <p className="text-yellow-800 text-sm">
-                <strong>Note:</strong> Entrance tickets to attractions (around US$ 200 per person) are not included.
               </p>
             </div>
 
