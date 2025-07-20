@@ -15,6 +15,7 @@ import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-h
 import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
 import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
+import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -117,6 +118,18 @@ const Itinerary = () => {
       activities: ['Cultural', 'Wildlife', 'Spiritual', 'Heritage'],
       destinations: ['Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Minneriya'],
       path: '/Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka'
+    },
+    {
+      id: '3day-cultural-triangle',
+      title: 'All-Inclusive Cultural Triangle Private Tour: Sri Lanka 3-day Tour',
+      description: 'Embark on an unforgettable journey through Sri Lanka\'s legendary Cultural Triangle, packed into three exhilarating days of discovery!',
+      duration: 3,
+      price: 'From $399',
+      image: sriLanka3DayHero,
+      path: '/sri-lanka-cultural-triangle-mini-tour',
+      highlights: ['UNESCO Treasures', 'Sigiriya Rock Fortress', 'Sacred Kandy', 'Dambulla Cave Temple'],
+      activities: ['Cultural', 'Heritage', 'Sightseeing'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Dambulla']
     }
   ];
 
