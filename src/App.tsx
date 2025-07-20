@@ -12,6 +12,7 @@ import FiveDayTour from "./pages/FiveDayTour";
 import TwoDayTour from "./pages/TwoDayTour";
 import TenDayTour from "./pages/TenDayTour";
 import NewFourDayTour from "./pages/NewFourDayTour";
+import Itinerary from "./pages/Itinerary";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/itinerary" element={<Itinerary />} />
             <Route path="/2-day-tour" element={<TwoDayTour />} />
             <Route path="/sri-lanka-rare-4-day-tour" element={<FourDayTour />} />
             <Route path="/colombo-sri-lanka-4-day-private-tour-with-18-amazing-places" element={<NewFourDayTour />} />

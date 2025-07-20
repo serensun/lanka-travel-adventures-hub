@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Plane, Users, Phone, Calculator, FileText, Calendar, ChevronDown } from 'lucide-react';
+import { Plane, Users, Phone, Calculator, FileText, Calendar, ChevronDown, MapPin } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import headerLogo from '../assets/header-logo.avif';
 
@@ -10,6 +10,7 @@ const MainNavigation = () => {
   const location = useLocation();
 
   const navigationItems = [
+    { id: 'itinerary', label: 'Tour Packages', icon: MapPin, path: '/itinerary' },
     { id: 'about', label: 'About Us', icon: Users, path: 'https://serendipitypvt.com/about-serendipity-tours-private-limited/' },
     { id: 'contact', label: 'Contact Us', icon: Phone, path: '/?section=contact' },
     { id: 'terms', label: 'Terms & Conditions', icon: FileText, path: '/?section=terms' },
