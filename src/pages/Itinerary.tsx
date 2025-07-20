@@ -14,6 +14,7 @@ import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
 import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-hero.avif';
 import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
+import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -92,6 +93,18 @@ const Itinerary = () => {
       highlights: ['Complete Island Tour', 'All Major Attractions', 'Cultural Immersion'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
       destinations: ['Colombo', 'Kandy', 'Sigiriya', 'Ella', 'Yala', 'Galle', 'Bentota']
+    },
+    {
+      id: '8day-tour',
+      title: 'Sri Lanka Private 8-day Tour; Transport, Guide, Hotels, Food',
+      description: 'Explore ancient wonders of Sri Lanka\'s Cultural Triangle with your personal guide. Marvel at misty mountain vistas, untouched golden beaches, and cascading waterfalls.',
+      duration: 8,
+      price: 'From $750',
+      image: sriLanka8DayHero,
+      path: '/sri-lanka-private-8-day-tour-transport-guide-hotels-food',
+      highlights: ['Cultural Triangle', 'Sigiriya Rock Fortress', 'Yala Safari', 'Hill Country Train'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Kandy', 'Ella', 'Yala']
     },
     {
       id: '2day-cultural-triangle',
