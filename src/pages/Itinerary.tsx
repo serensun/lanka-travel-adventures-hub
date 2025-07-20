@@ -11,6 +11,7 @@ import tourGallery2 from '../assets/tour-gallery-2.avif';
 import tourGallery3 from '../assets/tour-gallery-3.avif';
 import newTourGallery1 from '../assets/new-tour-gallery-1.avif';
 import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
+import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -96,7 +97,7 @@ const Itinerary = () => {
       description: 'Awaken Your Spirit: 2-Day Sacred Journey Through Sri Lanka\'s Cultural Heart with UNESCO World Heritage sites.',
       duration: 2,
       price: 'From $299',
-      image: tourGallery1,
+      image: culturalTriangleWildlifeHero,
       highlights: ['UNESCO World Heritage Sites', 'Cultural Triangle', 'Wildlife Safari', 'Buddhist Temples'],
       activities: ['Cultural', 'Wildlife', 'Spiritual', 'Heritage'],
       destinations: ['Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Minneriya'],
