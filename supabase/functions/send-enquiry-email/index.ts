@@ -29,7 +29,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email to reservations@serendipitypvt.com
     const emailResponse = await resend.emails.send({
       from: "Sri Lanka Tours <reservations@serendipitypvt.com>",
-      to: ["reservations@serendipitypvt.com"],
+      to: ["reservations@serendipitypvt.com", "enquiries@serendipitypvt.com"],
       subject: `New Enquiry from ${fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

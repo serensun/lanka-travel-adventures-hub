@@ -72,7 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
     
     const emailResponse = await resend.emails.send({
       from: "Sri Lanka Tours <reservations@serendipitypvt.com>",
-      to: ["admin@seerendipitytours.com"],
+      to: ["admin@seerendipitytours.com", "enquiries@serendipitypvt.com"],
       subject: `New Booking Request - ${bookingData.tourName}`,
       html: emailContent,
     });
