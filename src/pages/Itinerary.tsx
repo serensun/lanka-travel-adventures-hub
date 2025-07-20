@@ -97,6 +97,7 @@ const Itinerary = () => {
       duration: 2,
       price: 'From $299',
       image: tourGallery1,
+      highlights: ['UNESCO World Heritage Sites', 'Cultural Triangle', 'Wildlife Safari', 'Buddhist Temples'],
       activities: ['Cultural', 'Wildlife', 'Spiritual', 'Heritage'],
       destinations: ['Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Minneriya'],
       path: '/Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka'
