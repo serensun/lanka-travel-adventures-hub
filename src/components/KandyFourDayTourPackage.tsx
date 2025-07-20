@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Calendar, Clock, Users, MapPin, Shield, ChevronLeft, ChevronRight, Star, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import { Calendar, Clock, Users, MapPin, Shield, ChevronLeft, ChevronRight, Star, CheckCircle, XCircle, AlertTriangle, Car, Check, X, MessageSquare } from 'lucide-react';
 import BookingForm from './BookingForm';
 
 // Import existing gallery images as placeholders
@@ -39,6 +39,7 @@ const KandyFourDayTourPackage = () => {
       title: "Ancient Wonders & Royal Cities",
       description: "Morning arrival & transfer to Kandy",
       activities: [
+        "Morning arrival & transfer to Kandy",
         "Explore the magnificent Dambulla Cave Temple (1st century BC)",
         "Conquer the legendary Sigiriya Rock Fortress - a 5th century royal citadel",
         "Overnight in Kandy - Sri Lanka's cultural capital"
@@ -80,6 +81,12 @@ const KandyFourDayTourPackage = () => {
       ]
     }
   ];
+
+  const itinerary = itineraryData.map((day, index) => ({
+    day: index + 1,
+    title: day.title,
+    activities: day.activities
+  }));
 
   const highlights = [
     "Explore dozens of iconic destinations across the island",
@@ -265,118 +272,105 @@ const KandyFourDayTourPackage = () => {
             </Card>
 
             {/* Itinerary */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Detailed Itinerary</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="overview" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="overview">Overview</TabsTrigger>
-                    <TabsTrigger value="detailed">Day by Day</TabsTrigger>
-                  </TabsList>
-                  
-                  <TabsContent value="overview" className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {itineraryData.map((day, index) => (
-                        <Card key={index} className="border-l-4 border-l-primary">
-                          <CardContent className="p-4">
-                            <h4 className="font-semibold text-primary">{day.day}</h4>
-                            <h5 className="font-medium">{day.title}</h5>
-                            <p className="text-sm text-muted-foreground mt-1">{day.description}</p>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </TabsContent>
-                  
-                  <TabsContent value="detailed" className="space-y-6">
-                    {itineraryData.map((day, index) => (
-                      <Card key={index}>
-                        <CardContent className="p-6">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
-                              {index + 1}
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-lg">{day.title}</h4>
-                              <p className="text-muted-foreground">{day.description}</p>
-                            </div>
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center">
+                <Car className="w-5 h-5 mr-2 text-orange-500" />
+                4-Day Detailed Itinerary
+              </h3>
+              
+              <Tabs defaultValue="overview" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="overview">Overview</TabsTrigger>
+                  <TabsTrigger value="detailed">Detailed Day-by-Day</TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="overview" className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {itinerary.map((day) => (
+                      <div key={day.day} className="bg-white/60 rounded-lg p-4 border border-blue-100">
+                        <div className="flex items-center space-x-3 mb-2">
+                          <div className="bg-orange-400 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs">
+                            {day.day}
                           </div>
-                          <ul className="space-y-2">
-                            {day.activities.map((activity, actIndex) => (
-                              <li key={actIndex} className="flex items-start gap-2">
-                                <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                                <span className="text-sm">{activity}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </CardContent>
-                      </Card>
+                          <h4 className="text-blue-900 font-medium text-sm">{day.title}</h4>
+                        </div>
+                        <p className="text-blue-700 text-xs">{day.activities.length} activities planned</p>
+                      </div>
                     ))}
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="detailed" className="space-y-6">
+                  {itinerary.map((day) => (
+                    <div key={day.day} className="border-l-4 border-orange-400 pl-6">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                          {day.day}
+                        </div>
+                        <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {day.activities.map((activity, index) => (
+                          <li key={index} className="flex items-start space-x-2">
+                            <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-blue-800 text-sm">{activity}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </TabsContent>
+              </Tabs>
+            </div>
 
             {/* Includes & Excludes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-green-600">
-                    <CheckCircle className="w-5 h-5" />
-                    Includes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {includes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm">
-                        <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+                <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                  <Check className="w-5 h-5 mr-2 text-green-600" />
+                  Includes
+                </h3>
+                <ul className="space-y-2">
+                  {includes.map((item, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-blue-800 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-red-600">
-                    <XCircle className="w-5 h-5" />
-                    Excludes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {excludes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm">
-                        <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+                <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                  <X className="w-5 h-5 mr-2 text-red-500" />
+                  Excludes
+                </h3>
+                <ul className="space-y-2">
+                  {excludes.map((item, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-blue-800 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Important Information */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <AlertTriangle className="w-5 h-5 text-orange-500" />
-                  Important Information
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <AlertTriangle className="w-5 h-5 mr-2 text-orange-500" />
+                Important Information
+              </h3>
+              <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold mb-2">What to bring:</h4>
-                  <p className="text-sm text-muted-foreground">Comfortable shoes, Hat, Camera, Sunscreen, Water</p>
+                  <h4 className="font-semibold mb-2 text-blue-900">What to bring:</h4>
+                  <p className="text-sm text-blue-800">Comfortable shoes, Hat, Camera, Sunscreen, Water</p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold mb-2">Know before you go:</h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
+                  <h4 className="font-semibold mb-2 text-blue-900">Know before you go:</h4>
+                  <ul className="space-y-1 text-sm text-blue-800">
                     <li>• Wear comfortable walking shoes as there is a moderate amount of walking involved</li>
                     <li>• It is recommended to bring a hat, sunscreen, and a camera</li>
                     <li>• Smoking and consuming food and drinks are not allowed inside the historical sites</li>
@@ -387,8 +381,8 @@ const KandyFourDayTourPackage = () => {
                     <li>• We do try our best to reserve seats for you in the hill country train, but there are instances that we may not be able to get a seat for you due to high demand; however, we purchase the second-class tickets for you.</li>
                   </ul>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           {/* Booking Section */}
