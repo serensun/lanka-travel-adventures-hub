@@ -20,7 +20,6 @@ const MainNavigation = () => {
     { id: '4day-tour', label: 'Sri Lanka Rare 4-Day Tour', icon: Calendar, path: '/sri-lanka-rare-4-day-tour' },
     { id: '4day-new-tour', label: 'Sri Lanka 4-Day Private Tour With 18 Amazing Places', icon: Calendar, path: '/colombo-sri-lanka-4-day-private-tour-with-18-amazing-places' },
     { id: '5day-tour', label: '5-Day Sri Lanka Cultural & Nature Tour', icon: Calendar, path: '/5-Day-Sri-Lanka-Cultural-Nature-Tour' },
-    { id: '10day-tour', label: '10-Day Round Tour', icon: Calendar, path: '/10-day-tour' },
   ];
 
   const isActive = (path: string) => {
