@@ -1,7 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
 
@@ -21,6 +23,8 @@ import gallery12 from "@/assets/new-tour-gallery-12.avif";
 
 const NewFourDayTourPackage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
+  
   
   const galleryImages = [
     gallery1, gallery2, gallery3, gallery4, gallery5, 
@@ -28,11 +32,48 @@ const NewFourDayTourPackage = () => {
     gallery11, gallery12
   ];
 
+  const itineraryData = [
+    { 
+      day: 1, 
+      title: "Ancient Marvels & Wild Encounters", 
+      time: "Full Day",
+      highlights: "Dambulla Cave Temple, Polonnaruwa, Minneriya National Park",
+      description: "Begin in Colombo, then journey to the Dambulla Cave Temple, a stunning complex of Buddhist art and history. Step back in time at Polonnaruwa, exploring its grand ruins, temples, and royal gardens. Witness the 'Great Elephant Gathering' at Minneriya National Park, where herds roam freely."
+    },
+    { 
+      day: 2, 
+      title: "Sigiriya's Majesty & Kandy's Spirit", 
+      time: "Full Day",
+      highlights: "Sigiriya Rock Fortress, Temple of the Tooth, Peradeniya Gardens",
+      description: "Conquer the legendary Sigiriya Rock Fortress—climb 1,200 steps for panoramic views! Discover Kandy, home to the sacred Temple of the Tooth Relic, a spiritual treasure. Stroll around Kandy Lake and lose yourself in the exotic beauty of Peradeniya Botanical Gardens."
+    },
+    { 
+      day: 3, 
+      title: "Waterfalls, Tea Trails & Hill Country Magic", 
+      time: "Full Day",
+      highlights: "Ramboda Falls, Tea Plantation, Nuwara Eliya, Train to Ella",
+      description: "Chase waterfalls at Ramboda Falls and soak in views from Ambuluwawa Tower. Tour a tea plantation, sip world-famous Ceylon tea, and learn how it's made. Explore Nuwara Eliya, 'Little England,' with its colonial charm and misty landscapes. Hop on a scenic train ride to Ella, passing emerald hills and lush valleys. Visit the iconic Nine Arches Bridge and cool off at Ravana Falls."
+    },
+    { 
+      day: 4, 
+      title: "Safari Thrills & Beach Bliss", 
+      time: "Full Day",
+      highlights: "Yala National Park Safari, Galle Fort, Unawatuna Beach",
+      description: "Embark on a wildlife safari in Yala National Park, spotting leopards, elephants, and more! Wander through Galle Fort, a UNESCO-listed Dutch-colonial gem. Unwind on Unawatuna Beach—golden sands, turquoise waves, and pure relaxation. Snorkel in Hikkaduwa among vibrant coral reefs (optional)."
+    }
+  ];
+
   const highlights = [
     "Discover the legendary Sigiriya Rock Fortress and hike to its summit for breathtaking views.",
     "Explore the sacred Temple of the Tooth Relic and wander through the lush Peradeniya Botanical Gardens.",
     "Spot majestic leopards and elephants on an exciting Yala National Park safari.",
     "Enjoy a scenic train ride from Nanu Oya to Ella and marvel at the iconic Nine Arch Bridge"
+  ];
+
+  const rates = [
+    { type: "Standard package", twin: 399, single: 699 },
+    { type: "Comfort package", twin: 599, single: 799 },
+    { type: "Luxury package", twin: 699, single: 999 }
   ];
 
   const includes = [
@@ -54,12 +95,6 @@ const NewFourDayTourPackage = () => {
     "Gratuities (optional)",
     "Personal expenses",
     "Entrance tickets to attractions (around US$ 200 P.P)"
-  ];
-
-  const rates = [
-    { type: "Standard package", twin: 399, single: 699 },
-    { type: "Comfort package", twin: 599, single: 799 },
-    { type: "Luxury package", twin: 699, single: 999 }
   ];
 
   return (
@@ -198,42 +233,63 @@ const NewFourDayTourPackage = () => {
             {/* Itinerary */}
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle>Itinerary</CardTitle>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Itinerary</CardTitle>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowExpandedItinerary(!showExpandedItinerary)}
+                    className="flex items-center gap-2"
+                  >
+                    {showExpandedItinerary ? (
+                      <>
+                        <ChevronUp className="h-4 w-4" />
+                        Short View
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="h-4 w-4" />
+                        Detailed View
+                      </>
+                    )}
+                  </Button>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 1: Ancient Marvels & Wild Encounters</h3>
-                  <p className="text-muted-foreground">
-                    Begin in Colombo, then journey to the Dambulla Cave Temple, a stunning complex of Buddhist art and history. 
-                    Step back in time at Polonnaruwa, exploring its grand ruins, temples, and royal gardens. Witness the 
-                    "Great Elephant Gathering" at Minneriya National Park, where herds roam freely.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 2: Sigiriya's Majesty & Kandy's Spirit</h3>
-                  <p className="text-muted-foreground">
-                    Conquer the legendary Sigiriya Rock Fortress—climb 1,200 steps for panoramic views! Discover Kandy, 
-                    home to the sacred Temple of the Tooth Relic, a spiritual treasure. Stroll around Kandy Lake and lose 
-                    yourself in the exotic beauty of Peradeniya Botanical Gardens.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 3: Waterfalls, Tea Trails & Hill Country Magic</h3>
-                  <p className="text-muted-foreground">
-                    Chase waterfalls at Ramboda Falls and soak in views from Ambuluwawa Tower. Tour a tea plantation, 
-                    sip world-famous Ceylon tea, and learn how it's made. Explore Nuwara Eliya, "Little England," with 
-                    its colonial charm and misty landscapes. Hop on a scenic train ride to Ella, passing emerald hills 
-                    and lush valleys. Visit the iconic Nine Arches Bridge and cool off at Ravana Falls.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 4: Safari Thrills & Beach Bliss</h3>
-                  <p className="text-muted-foreground">
-                    Embark on a wildlife safari in Yala National Park, spotting leopards, elephants, and more! Wander 
-                    through Galle Fort, a UNESCO-listed Dutch-colonial gem. Unwind on Unawatuna Beach—golden sands, 
-                    turquoise waves, and pure relaxation. Snorkel in Hikkaduwa among vibrant coral reefs (optional).
-                  </p>
-                </div>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-16">Day</TableHead>
+                      <TableHead>Title</TableHead>
+                      <TableHead className="w-24">Duration</TableHead>
+                      <TableHead>Key Highlights</TableHead>
+                      {showExpandedItinerary && <TableHead>Full Description</TableHead>}
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {itineraryData.map((day) => (
+                      <TableRow key={day.day} className="hover:bg-muted/50">
+                        <TableCell className="font-semibold text-primary">
+                          {day.day}
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          {day.title}
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline">{day.time}</Badge>
+                        </TableCell>
+                        <TableCell className="text-sm text-muted-foreground">
+                          {day.highlights}
+                        </TableCell>
+                        {showExpandedItinerary && (
+                          <TableCell className="text-sm">
+                            {day.description}
+                          </TableCell>
+                        )}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               </CardContent>
             </Card>
 

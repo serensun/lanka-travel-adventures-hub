@@ -1,7 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
 
@@ -17,7 +19,46 @@ import gallery8 from "@/assets/tour-gallery-8.avif";
 import gallery9 from "@/assets/tour-gallery-9.avif";
 
 const FiveDayTourPackage = () => {
+  const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const itineraryData = [
+    { 
+      day: 1, 
+      title: "Arrival & Colombo Discovery", 
+      time: "Full Day",
+      highlights: "Gangaramaya Temple, Independence Square, Galle Face Green",
+      description: "Arrive in Colombo and begin your Sri Lankan adventure with a comprehensive city tour. Visit the sacred Gangaramaya Temple, explore Independence Square, and enjoy the coastal breeze at Galle Face Green. Immerse yourself in the vibrant local culture and history."
+    },
+    { 
+      day: 2, 
+      title: "Kandy's Cultural Treasures", 
+      time: "Full Day",
+      highlights: "Temple of the Tooth, Botanical Gardens, Cultural Show",
+      description: "Journey to the ancient kingdom of Kandy and visit the sacred Temple of the Tooth Relic, one of Buddhism's most important sites. Explore the beautiful Royal Botanical Gardens in Peradeniya and enjoy a traditional cultural show featuring Kandyan dance performances."
+    },
+    { 
+      day: 3, 
+      title: "Hill Country & Tea Heritage", 
+      time: "Full Day",
+      highlights: "Nuwara Eliya, Tea Plantation, Little England",
+      description: "Experience the scenic beauty of Sri Lanka's hill country as you travel to Nuwara Eliya, known as 'Little England.' Visit a working tea plantation, learn about Ceylon tea production, and enjoy the cool mountain climate while exploring colonial-era architecture."
+    },
+    { 
+      day: 4, 
+      title: "Historic Galle & Coastal Beauty", 
+      time: "Full Day",
+      highlights: "Galle Fort, Dutch Architecture, Southern Beaches",
+      description: "Explore the UNESCO World Heritage Site of Galle Fort, a remarkable example of Dutch colonial architecture. Walk along the ancient ramparts, visit local boutiques, and enjoy the stunning coastal views. Relax on beautiful southern beaches."
+    },
+    { 
+      day: 5, 
+      title: "Final Explorations & Departure", 
+      time: "Half Day",
+      highlights: "Shopping, Souvenir Hunting, Airport Transfer",
+      description: "Enjoy your final morning in Sri Lanka with some last-minute shopping for souvenirs and local crafts. Visit any remaining attractions based on your interests before your comfortable airport transfer for departure."
+    }
+  ];
   
   const galleryImages = [
     gallery1, gallery2, gallery3, gallery4, gallery5, 
@@ -196,49 +237,63 @@ const FiveDayTourPackage = () => {
             {/* Itinerary */}
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle>Itinerary</CardTitle>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Itinerary</CardTitle>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowExpandedItinerary(!showExpandedItinerary)}
+                    className="flex items-center gap-2"
+                  >
+                    {showExpandedItinerary ? (
+                      <>
+                        <ChevronUp className="h-4 w-4" />
+                        Short View
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="h-4 w-4" />
+                        Detailed View
+                      </>
+                    )}
+                  </Button>
+                </div>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 1: Arrival & Colombo Discovery</h3>
-                  <p className="text-muted-foreground">
-                    Arrive in Colombo and begin your Sri Lankan adventure with a comprehensive city tour. 
-                    Visit the sacred Gangaramaya Temple, explore Independence Square, and enjoy the coastal 
-                    breeze at Galle Face Green. Immerse yourself in the vibrant local culture and history.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 2: Kandy's Cultural Treasures</h3>
-                  <p className="text-muted-foreground">
-                    Journey to the ancient kingdom of Kandy and visit the sacred Temple of the Tooth Relic, 
-                    one of Buddhism's most important sites. Explore the beautiful Royal Botanical Gardens 
-                    in Peradeniya and enjoy a traditional cultural show featuring Kandyan dance performances.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 3: Hill Country & Tea Heritage</h3>
-                  <p className="text-muted-foreground">
-                    Experience the scenic beauty of Sri Lanka's hill country as you travel to Nuwara Eliya, 
-                    known as "Little England." Visit a working tea plantation, learn about Ceylon tea production, 
-                    and enjoy the cool mountain climate while exploring colonial-era architecture.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 4: Historic Galle & Coastal Beauty</h3>
-                  <p className="text-muted-foreground">
-                    Explore the UNESCO World Heritage Site of Galle Fort, a remarkable example of Dutch 
-                    colonial architecture. Walk along the ancient ramparts, visit local boutiques, and 
-                    enjoy the stunning coastal views. Relax on beautiful southern beaches.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">Day 5: Final Explorations & Departure</h3>
-                  <p className="text-muted-foreground">
-                    Enjoy your final morning in Sri Lanka with some last-minute shopping for souvenirs 
-                    and local crafts. Visit any remaining attractions based on your interests before 
-                    your comfortable airport transfer for departure.
-                  </p>
-                </div>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-16">Day</TableHead>
+                      <TableHead>Title</TableHead>
+                      <TableHead className="w-24">Duration</TableHead>
+                      <TableHead>Key Highlights</TableHead>
+                      {showExpandedItinerary && <TableHead>Full Description</TableHead>}
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {itineraryData.map((day) => (
+                      <TableRow key={day.day} className="hover:bg-muted/50">
+                        <TableCell className="font-semibold text-primary">
+                          {day.day}
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          {day.title}
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline">{day.time}</Badge>
+                        </TableCell>
+                        <TableCell className="text-sm text-muted-foreground">
+                          {day.highlights}
+                        </TableCell>
+                        {showExpandedItinerary && (
+                          <TableCell className="text-sm">
+                            {day.description}
+                          </TableCell>
+                        )}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               </CardContent>
             </Card>
 

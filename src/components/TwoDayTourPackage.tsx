@@ -1,7 +1,10 @@
 
 import React, { useState } from 'react';
-import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, TreePine, Binoculars, Mountain, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { Check, X, Users, Calendar, MapPin, Camera, MessageSquare, TreePine, Binoculars, Mountain, ChevronLeft, ChevronRight, ZoomIn, ChevronDown, ChevronUp } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -13,6 +16,7 @@ const TwoDayTourPackage = () => {
   const [comments, setComments] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
 
   const packageRates = {
     standard: { double: 350, single: 590 },
@@ -94,6 +98,23 @@ const TwoDayTourPackage = () => {
     comfort: 'Chaarya Resort',
     luxury: 'Jetwing Yala'
   };
+
+  const itineraryData = [
+    { 
+      day: 1, 
+      title: "Colombo - Sinharaja - Udawalawe - Yala", 
+      time: "Full Day",
+      highlights: "Sinharaja Rainforest Trek, Udawalawe Safari, Wildlife Spotting",
+      description: "Meet and greet by your guide and drive to Sinharaja rainforest. Enjoy a 3-hour guided jungle trek with nature guide to learn about hundreds of tropical fauna and flora. Drive to Udawalawe National Park for safari in 4-wheel drive jeep to see wild elephants, crocodiles, buffaloes, and jackals. Drive to Tissamharama/Yala for dinner and overnight stay."
+    },
+    { 
+      day: 2, 
+      title: "Yala - Mirissa - Galle - Colombo", 
+      time: "Full Day",
+      highlights: "Yala Safari, Coastal Beaches, Galle Fort Tour",
+      description: "Early morning Yala National Park safari (4 hours) to spot leopards, black panthers, crocodiles, elephants, and monkeys. Drive to Galle Fort via southern coastal belt with stops at pristine beaches along the way. Guided walking tour of ancient Galle Fort to learn about important monuments and history. Return to Colombo hotel."
+    }
+  ];
 
   const itinerary = [
     {
@@ -214,27 +235,61 @@ const TwoDayTourPackage = () => {
 
           {/* Itinerary */}
           <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
-            <h3 className="text-xl font-bold text-blue-900 mb-6">2-Day Itinerary</h3>
-            <div className="space-y-6">
-              {itinerary.map((day) => (
-                <div key={day.day} className="border-l-4 border-orange-400 pl-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
-                      {day.day}
-                    </div>
-                    <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
-                  </div>
-                  <ul className="space-y-2">
-                    {day.activities.map((activity, index) => (
-                      <li key={index} className="flex items-start space-x-2">
-                        <MapPin className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-blue-800 text-sm">{activity}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-blue-900">2-Day Itinerary</h3>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowExpandedItinerary(!showExpandedItinerary)}
+                className="flex items-center gap-2"
+              >
+                {showExpandedItinerary ? (
+                  <>
+                    <ChevronUp className="h-4 w-4" />
+                    Short View
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown className="h-4 w-4" />
+                    Detailed View
+                  </>
+                )}
+              </Button>
             </div>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-16">Day</TableHead>
+                  <TableHead>Title</TableHead>
+                  <TableHead className="w-24">Duration</TableHead>
+                  <TableHead>Key Highlights</TableHead>
+                  {showExpandedItinerary && <TableHead>Full Description</TableHead>}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {itineraryData.map((day) => (
+                  <TableRow key={day.day} className="hover:bg-muted/50">
+                    <TableCell className="font-semibold text-primary">
+                      {day.day}
+                    </TableCell>
+                    <TableCell className="font-medium">
+                      {day.title}
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline">{day.time}</Badge>
+                    </TableCell>
+                    <TableCell className="text-sm text-muted-foreground">
+                      {day.highlights}
+                    </TableCell>
+                    {showExpandedItinerary && (
+                      <TableCell className="text-sm">
+                        {day.description}
+                      </TableCell>
+                    )}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
 
           {/* Package Selection */}
