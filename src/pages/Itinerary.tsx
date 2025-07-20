@@ -89,6 +89,17 @@ const Itinerary = () => {
       highlights: ['Complete Island Tour', 'All Major Attractions', 'Cultural Immersion'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
       destinations: ['Colombo', 'Kandy', 'Sigiriya', 'Ella', 'Yala', 'Galle', 'Bentota']
+    },
+    {
+      id: '2day-cultural-triangle',
+      title: 'Private 2-Day Cultural Triangle + Wildlife Tour of Sri Lanka',
+      description: 'Awaken Your Spirit: 2-Day Sacred Journey Through Sri Lanka\'s Cultural Heart with UNESCO World Heritage sites.',
+      duration: 2,
+      price: 'From $299',
+      image: tourGallery1,
+      activities: ['Cultural', 'Wildlife', 'Spiritual', 'Heritage'],
+      destinations: ['Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Minneriya'],
+      path: '/Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka'
     }
   ];
 

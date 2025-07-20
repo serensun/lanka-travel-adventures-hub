@@ -13,6 +13,7 @@ import TwoDayTour from "./pages/TwoDayTour";
 import TenDayTour from "./pages/TenDayTour";
 import NewFourDayTour from "./pages/NewFourDayTour";
 import KandyFourDayTour from "./pages/KandyFourDayTour";
+import TwoDayCulturalTour from "./pages/TwoDayCulturalTour";
 import Itinerary from "./pages/Itinerary";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/sri-lanka-rare-4-day-tour" element={<FourDayTour />} />
             <Route path="/colombo-sri-lanka-4-day-private-tour-with-18-amazing-places" element={<NewFourDayTour />} />
             <Route path="/kandy-4-day-sri-lanka-full-circle-private-tour-to-colombo" element={<KandyFourDayTour />} />
+            <Route path="/Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka" element={<TwoDayCulturalTour />} />
             <Route path="/5-Day-Sri-Lanka-Cultural-Nature-Tour" element={<FiveDayTour />} />
             <Route path="/Sri-Lanka-Private-10-Day-Round-Tour" element={<TenDayTour />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
