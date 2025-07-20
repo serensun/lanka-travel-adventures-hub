@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import TourPackageSelector from '../components/TourPackageSelector';
 import MainNavigation from '../components/MainNavigation';
+import Footer from '../components/Footer';
 import sanjeewaImage from '../assets/sanjeewa.jpg';
 
 const Index = () => {
@@ -257,6 +258,8 @@ const Index = () => {
           <TourPackageSelector />
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
