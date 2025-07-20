@@ -13,7 +13,7 @@ import newTourGallery1 from '../assets/new-tour-gallery-1.avif';
 import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
 import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-hero.avif';
 import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
-import sriLanka18PlacesHero from '../assets/sri-lanka-18-places-hero.avif';
+import sriLanka18PlacesMain from '../assets/sri-lanka-18-places-main.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -51,7 +51,7 @@ const Itinerary = () => {
       description: 'An intensive 4-day journey covering 18 spectacular destinations across Sri Lanka.',
       duration: 4,
       price: 'From $400',
-      image: sriLanka18PlacesHero,
+      image: sriLanka18PlacesMain,
       path: '/colombo-sri-lanka-4-day-private-tour-with-18-amazing-places',
       highlights: ['18 Amazing Places', 'Private Tour', 'Comprehensive Experience'],
       activities: ['Cultural', 'Sightseeing', 'Adventure'],
