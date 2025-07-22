@@ -20,6 +20,7 @@ import EightDayTour from "./pages/EightDayTour";
 import ThreeDayTour from "./pages/ThreeDayTour";
 import SevenDayTour from "./pages/SevenDayTour";
 import SixDayTour from "./pages/SixDayTour";
+import ElevenDayTour from "./pages/ElevenDayTour";
 import Itinerary from "./pages/Itinerary";
 import { supportedLanguages } from './i18n/config';
 
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/sri-lanka-cultural-triangle-mini-tour" element={<LanguageWrapper><ThreeDayTour /></LanguageWrapper>} />
             <Route path="/beaten-path-sri-lanka-7-day-tour" element={<LanguageWrapper><SevenDayTour /></LanguageWrapper>} />
             <Route path="/6-day-sri-lanka-tour" element={<LanguageWrapper><SixDayTour /></LanguageWrapper>} />
+            <Route path="/Sri-Lanka-11-days-tour" element={<LanguageWrapper><ElevenDayTour /></LanguageWrapper>} />
             
             {/* Language-specific routes */}
             <Route path="/:lang" element={<LanguageWrapper><Index /></LanguageWrapper>} />
@@ -85,6 +87,7 @@ const App = () => (
             <Route path="/:lang/sri-lanka-cultural-triangle-mini-tour" element={<LanguageWrapper><ThreeDayTour /></LanguageWrapper>} />
             <Route path="/:lang/beaten-path-sri-lanka-7-day-tour" element={<LanguageWrapper><SevenDayTour /></LanguageWrapper>} />
             <Route path="/:lang/6-day-sri-lanka-tour" element={<LanguageWrapper><SixDayTour /></LanguageWrapper>} />
+            <Route path="/:lang/Sri-Lanka-11-days-tour" element={<LanguageWrapper><ElevenDayTour /></LanguageWrapper>} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

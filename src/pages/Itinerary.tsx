@@ -18,6 +18,7 @@ import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
 import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
+import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -156,6 +157,18 @@ const Itinerary = () => {
       highlights: ['5 UNESCO World Heritage Sites', 'Wildlife safaris in Yala National Park', 'Scenic train through tea country', 'Ancient cities & cultural experiences', 'Beach relaxation on southern coast'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
       destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Bentota', 'Colombo']
+    },
+    {
+      id: '11day-tour',
+      title: 'Sri Lanka 11-days tour, Insight Into Sri Lanka',
+      description: 'Discover Sri Lanka (11-day tour) offers a leisurely journey through the island\'s top attractions, including ancient sites in the Cultural Triangle, scenic hill country, wildlife reserves in the south, beautiful west coast beaches, and much more.',
+      duration: 11,
+      price: 'From $875',
+      image: sriLanka11DayHero,
+      path: '/Sri-Lanka-11-days-tour',
+      highlights: ['Cultural Triangle', 'Scenic Train Adventure', 'Wildlife Safari in Yala', 'Southern Coast Beaches', 'West Coast Relaxation', 'Nature & Leisure Strolls'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach', 'Sightseeing'],
+      destinations: ['Negombo', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Unawatuna', 'Galle', 'Colombo']
     }
   ];
 
