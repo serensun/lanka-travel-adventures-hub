@@ -132,8 +132,8 @@ const ElevenDayTourPackage = () => {
   ];
 
   const rates = [
-    { type: "Standard package", twin: 875, single: 1350 },
-    { type: "Comfort package", twin: 1290, single: 1885 }
+    { type: "Standard package", twin: 1075, single: 1550 },
+    { type: "Comfort package", twin: 1390, single: 1985 }
   ];
 
   const includes = [
