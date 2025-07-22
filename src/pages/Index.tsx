@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Hotel, Camera, Calculator, Plane, Star, Calendar, ChevronDown, Users, Phone, FileText, Mail, MessageCircle, Clock, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,6 +17,7 @@ import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
 import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-hero.avif';
 
 const Index = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -38,8 +40,8 @@ const Index = () => {
     
     if (!formData.agreeToTerms) {
       toast({
-        title: "Terms Required",
-        description: "Please agree to the terms and conditions to proceed.",
+        title: t('toast.termsRequired'),
+        description: t('toast.termsRequiredDescription'),
         variant: "destructive",
       });
       return;
@@ -66,8 +68,8 @@ const Index = () => {
       console.log('Enquiry sent successfully:', data);
       
       toast({
-        title: "Enquiry Sent Successfully!",
-        description: "Thank you for your interest. We'll get back to you within 24 hours.",
+        title: t('toast.enquirySentSuccess'),
+        description: t('toast.enquirySentSuccessDescription'),
       });
 
       // Reset form
@@ -81,8 +83,8 @@ const Index = () => {
     } catch (error: any) {
       console.error('Error sending enquiry:', error);
       toast({
-        title: "Error Sending Enquiry",
-        description: "Please try again or contact us directly.",
+        title: t('toast.errorSendingEnquiry'),
+        description: t('toast.errorSendingEnquiryDescription'),
         variant: "destructive",
       });
     } finally {
@@ -131,23 +133,23 @@ const Index = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Section 1: About Serendipity Tours */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">About Serendipity Tours</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-6">{t('homepage.aboutSerendipity')}</h2>
           <div className="space-y-4 text-blue-800 leading-relaxed">
             <p>
-              Perhaps Sri Lanka is most popular for its beach resorts that line its extensive coast, but Sri Lanka is also a cultural melting pot with many ethnic groups and religions. There are ancient rock temples and fortresses, ruins of ancient and sacred cities, and remnants of a colonial age. And if that's not quite enough to tempt you, the island possesses a naturally spectacular interior that's home to green-capped mountains, cascading waterfalls, rolling tea plantations, and wildlife-rich parks and reserves where elephants, leopards, crocodiles, and sloth bears roam free.
+              {t('homepage.aboutDescription1')}
             </p>
             <p>
-              Make your Sri Lanka trips at your own pace with Serendipity Tours Private Limited; in fact, Sri Lanka holidays take on a slower pace. Time takes on a different meaning for Sri Lanka; it may take a little longer to get from A to B, but that only adds to its charm. It gives you more time to take in your surroundings and discover the country from a local's perspective as your guide proudly regales you with tales of their homeland.
+              {t('homepage.aboutDescription2')}
             </p>
             <p>
-              Whether you're seeking a beach escape or a bespoke Sri Lanka tour, talk to us and we'll help create the right Sri Lanka holiday for you.
+              {t('homepage.aboutDescription3')}
             </p>
           </div>
         </div>
 
         {/* Section 2: We are here to help you */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">We are here to help you</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-6">{t('homepage.weAreHereToHelp')}</h2>
           <div className="flex items-start space-x-6">
             <img 
               src={sanjeewaImage} 
@@ -156,18 +158,18 @@ const Index = () => {
             />
             <div className="space-y-4 text-blue-800 leading-relaxed">
               <p>
-                At Serendipity Tours Private Limited, your Sri Lanka trip begins with a conversation with one of our local travel experts. Our specialists are ready to share their expertise and create holiday that's tailored to you.
+                {t('homepage.helpDescription')}
               </p>
             
               <div className="bg-blue-50 rounded-lg p-4 mt-6">
                 <h3 className="font-semibold text-blue-900 mb-3 flex items-center">
                   <Clock className="w-5 h-5 mr-2" />
-                  Operating Hours
+                  {t('homepage.operatingHours')}
                 </h3>
                 <div className="space-y-2 text-sm text-blue-700">
-                  <p><strong>Monday to Friday:</strong> 9am - 8pm</p>
-                  <p><strong>Saturday:</strong> 9am - 6pm</p>
-                  <p><strong>Sunday:</strong> 11am - 4pm</p>
+                  <p><strong>{t('homepage.mondayToFriday')}</strong> {t('homepage.operatingHoursWeekdays')}</p>
+                  <p><strong>{t('homepage.saturday')}</strong> {t('homepage.operatingHoursSaturday')}</p>
+                  <p><strong>{t('homepage.sunday')}</strong> {t('homepage.operatingHoursSunday')}</p>
                 </div>
               </div>
             </div>
@@ -177,7 +179,7 @@ const Index = () => {
 
       {/* Section 3: Customer Reviews */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">What Our Customers Say</h2>
+        <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">{t('homepage.customerReviews')}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-blue-50 rounded-lg p-6">
             <div className="flex items-center mb-4">
@@ -185,8 +187,8 @@ const Index = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
             </div>
-            <p className="text-blue-700 mb-4">"Absolutely amazing experience! The tour was perfectly organized and our guide was incredibly knowledgeable about Sri Lankan culture and history."</p>
-            <p className="font-semibold text-blue-900">- Sarah Johnson, UK</p>
+            <p className="text-blue-700 mb-4">"{t('reviews.review1')}"</p>
+            <p className="font-semibold text-blue-900">- {t('reviews.customer1')}</p>
           </div>
           
           <div className="bg-blue-50 rounded-lg p-6">
@@ -195,8 +197,8 @@ const Index = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
             </div>
-            <p className="text-blue-700 mb-4">"Serendipity Tours made our honeymoon unforgettable. From the pristine beaches to the ancient temples, every moment was magical."</p>
-            <p className="font-semibold text-blue-900">- Michael & Emma Chen, Australia</p>
+            <p className="text-blue-700 mb-4">"{t('reviews.review2')}"</p>
+            <p className="font-semibold text-blue-900">- {t('reviews.customer2')}</p>
           </div>
           
           <div className="bg-blue-50 rounded-lg p-6">
@@ -205,8 +207,8 @@ const Index = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
             </div>
-            <p className="text-blue-700 mb-4">"Professional service and great value for money. The wildlife safari exceeded our expectations. Highly recommended!"</p>
-            <p className="font-semibold text-blue-900">- David Martinez, Spain</p>
+            <p className="text-blue-700 mb-4">"{t('reviews.review3')}"</p>
+            <p className="font-semibold text-blue-900">- {t('reviews.customer3')}</p>
           </div>
           
           <div className="bg-blue-50 rounded-lg p-6">
@@ -215,8 +217,8 @@ const Index = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
             </div>
-            <p className="text-blue-700 mb-4">"The cultural tour was enlightening and the accommodations were excellent. Thank you for an incredible Sri Lankan adventure!"</p>
-            <p className="font-semibold text-blue-900">- Lisa Thompson, Canada</p>
+            <p className="text-blue-700 mb-4">"{t('reviews.review4')}"</p>
+            <p className="font-semibold text-blue-900">- {t('reviews.customer4')}</p>
           </div>
           
           <div className="bg-blue-50 rounded-lg p-6">
@@ -225,8 +227,8 @@ const Index = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
             </div>
-            <p className="text-blue-700 mb-4">"Best travel experience we've ever had! The attention to detail and personalized service made all the difference."</p>
-            <p className="font-semibold text-blue-900">- Robert & Maria Fischer, Germany</p>
+            <p className="text-blue-700 mb-4">"{t('reviews.review5')}"</p>
+            <p className="font-semibold text-blue-900">- {t('reviews.customer5')}</p>
           </div>
         </div>
       </div>
@@ -235,42 +237,42 @@ const Index = () => {
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Section 4: Why Book With Us */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">Why Book With Us?</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-6">{t('homepage.whyBookWithUs')}</h2>
           <div className="space-y-6">
             <div className="bg-blue-50 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Best price guaranteed</h3>
-              <p className="text-blue-700 text-sm">Serendipity Tours Private Limited is a truly local company with its head office in Panadura, Colombo. As a local company, we offer you the best for all tour packages offered by us.</p>
+              <h3 className="font-semibold text-blue-900 mb-2">{t('homepage.bestPriceGuaranteed')}</h3>
+              <p className="text-blue-700 text-sm">{t('homepage.bestPriceDescription')}</p>
             </div>
             
             <div className="bg-blue-50 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Flexible payment methods</h3>
-              <p className="text-blue-700 text-sm">We accept credit card payments, bank transfers and payments on arrival. Please choose the most convenient payment method for you, and we are ready to work with you.</p>
+              <h3 className="font-semibold text-blue-900 mb-2">{t('homepage.flexiblePayment')}</h3>
+              <p className="text-blue-700 text-sm">{t('homepage.flexiblePaymentDescription')}</p>
             </div>
             
             <div className="bg-blue-50 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">We are paper-free</h3>
-              <p className="text-blue-700 text-sm">We are completely dependent on a digital system, eliminating the need for paper-based documents, statements, and other materials, opting for online versions instead.</p>
+              <h3 className="font-semibold text-blue-900 mb-2">{t('homepage.paperFree')}</h3>
+              <p className="text-blue-700 text-sm">{t('homepage.paperFreeDescription')}</p>
             </div>
             
             <div className="bg-blue-50 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Help the poor</h3>
-              <p className="text-blue-700 text-sm">With every booking you make, Serendipity Tours helps needy people with part of its profit.</p>
+              <h3 className="font-semibold text-blue-900 mb-2">{t('homepage.helpThePoor')}</h3>
+              <p className="text-blue-700 text-sm">{t('homepage.helpThePoorDescription')}</p>
             </div>
             
             <div className="bg-blue-50 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">No hidden fees or commissions</h3>
-              <p className="text-blue-700 text-sm">We do not add hefty commissions and hidden fees as you reach the latter stage of the online booking. All our trips include all taxes, service charges and supplement charges.</p>
+              <h3 className="font-semibold text-blue-900 mb-2">{t('homepage.noHiddenFees')}</h3>
+              <p className="text-blue-700 text-sm">{t('homepage.noHiddenFeesDescription')}</p>
             </div>
           </div>
         </div>
 
         {/* Section 5: Contact Form */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">Plan Your Trip</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-6">{t('homepage.planYourTrip')}</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-blue-900 mb-2">
-                Full Name *
+                {t('homepage.fullName')} *
               </label>
               <Input
                 id="fullName"
@@ -280,13 +282,13 @@ const Index = () => {
                 value={formData.fullName}
                 onChange={handleInputChange}
                 className="w-full"
-                placeholder="Enter your full name"
+                placeholder={t('homepage.fullNamePlaceholder')}
               />
             </div>
             
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-blue-900 mb-2">
-                Email *
+                {t('homepage.email')} *
               </label>
               <Input
                 id="email"
@@ -296,13 +298,13 @@ const Index = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full"
-                placeholder="Enter your email address"
+                placeholder={t('homepage.emailPlaceholder')}
               />
             </div>
             
             <div>
               <label htmlFor="enquiryMessage" className="block text-sm font-medium text-blue-900 mb-2">
-                Enquiry Message
+                {t('homepage.enquiryMessage')}
               </label>
               <Textarea
                 id="enquiryMessage"
@@ -310,7 +312,7 @@ const Index = () => {
                 value={formData.enquiryMessage}
                 onChange={handleInputChange}
                 className="w-full min-h-[120px]"
-                placeholder="Tell us about your travel plans and preferences..."
+                placeholder={t('homepage.enquiryPlaceholder')}
               />
             </div>
             
@@ -324,7 +326,7 @@ const Index = () => {
                 }))}
               />
               <label htmlFor="agreeToTerms" className="text-sm text-blue-700">
-                By contacting us, you agree to our Terms and Conditions
+                {t('homepage.agreeToTerms')}
               </label>
             </div>
             
@@ -333,7 +335,7 @@ const Index = () => {
               className="w-full bg-orange-500 hover:bg-orange-600 text-white"
               disabled={!formData.agreeToTerms || isSubmitting}
             >
-              {isSubmitting ? 'Sending...' : 'Send Enquiry'}
+              {isSubmitting ? t('common.sending') : t('common.sendEnquiry')}
             </Button>
           </form>
         </div>
@@ -341,7 +343,7 @@ const Index = () => {
 
       {/* Featured Tour Packages Section */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">Featured Tour Packages</h2>
+        <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">{t('homepage.featuredTourPackages')}</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {featuredTourPackages.map((tour) => (
             <Card key={tour.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
@@ -353,14 +355,14 @@ const Index = () => {
                 />
                 <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
                   <Calendar className="w-3 h-3 mr-1" />
-                  {tour.duration} {tour.duration === 1 ? 'Day' : 'Days'}
+                  {tour.duration} {tour.duration === 1 ? t('common.day') : t('common.days')}
                 </Badge>
               </div>
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center text-green-600 font-semibold">
                     <DollarSign className="w-4 h-4 mr-1" />
-                    {tour.price}
+                    {t('homepage.from')} {tour.price.replace('From ', '')}
                   </div>
                 </div>
                 <CardTitle className="text-xl text-gray-900 leading-tight">
@@ -394,7 +396,7 @@ const Index = () => {
                   </div>
                   <Link to={tour.path}>
                     <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-                      View Details
+                      {t('common.viewDetails')}
                     </Button>
                   </Link>
                 </div>

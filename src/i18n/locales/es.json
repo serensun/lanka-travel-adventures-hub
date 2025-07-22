@@ -1,6 +1,124 @@
 {
   "navigation": {
     "home": "Inicio",
+    "tourPackages": "Paquetes Turísticos",
+    "aboutUs": "Acerca de Nosotros",
+    "contactUs": "Contáctanos",
+    "termsConditions": "Términos y Condiciones",
+    "itinerary": "Itinerario"
+  },
+  "common": {
+    "bookNow": "Reservar Ahora",
+    "learnMore": "Saber Más",
+    "readMore": "Leer Más",
+    "viewDetails": "Ver Detalles",
+    "freeCancellation": "Cancelación gratuita",
+    "reserveNowPayLater": "Reserva ahora y paga después",
+    "duration": "Duración",
+    "liveGuide": "Guía turístico en vivo",
+    "smallGroup": "Grupo pequeño",
+    "pickupIncluded": "Recogida incluida",
+    "highlights": "Puntos destacados",
+    "itinerary": "Itinerario",
+    "includes": "Incluye",
+    "excludes": "Excluye",
+    "rates": "Tarifas",
+    "importantInfo": "Información importante",
+    "whatToBring": "Qué traer",
+    "knowBeforeGo": "Saber antes de ir",
+    "standardPackage": "Paquete estándar",
+    "comfortPackage": "Paquete de confort",
+    "luxuryPackage": "Paquete de lujo",
+    "singleRate": "tarifa individual",
+    "twinSharingDouble": "doble compartido",
+    "perPerson": "p.p",
+    "gallery": "Galería",
+    "day": "Día",
+    "days": "días",
+    "sending": "Enviando...",
+    "sendEnquiry": "Enviar Consulta"
+  },
+  "footer": {
+    "quickLinks": "Enlaces Rápidos",
+    "contactInfo": "Información de Contacto",
+    "followUs": "Síguenos",
+    "allRightsReserved": "Todos los derechos reservados"
+  },
+  "homepage": {
+    "heroTitle": "Descubre los Tesoros Ocultos de Sri Lanka",
+    "heroSubtitle": "Experimenta la auténtica cultura de Sri Lanka, playas vírgenes y maravillas antiguas con nuestros paquetes turísticos cuidadosamente elaborados",
+    "featuredTours": "Tours Destacados",
+    "whyChooseUs": "¿Por Qué Elegirnos?",
+    "testimonials": "Lo Que Dicen Nuestros Huéspedes",
+    "aboutSerendipity": "Acerca de Serendipity Tours",
+    "aboutDescription1": "Quizás Sri Lanka sea más popular por sus resorts de playa que bordean su extensa costa, pero Sri Lanka también es un crisol cultural con muchos grupos étnicos y religiones. Hay antiguos templos de roca y fortalezas, ruinas de ciudades antiguas y sagradas, y restos de una era colonial. Y si eso no es suficiente para tentarte, la isla posee un interior naturalmente espectacular que alberga montañas de cumbres verdes, cascadas en cascada, plantaciones de té ondulantes y parques y reservas ricos en vida silvestre donde elefantes, leopardos, cocodrilos y osos perezosos vagan libres.",
+    "aboutDescription2": "Haz tus viajes a Sri Lanka a tu propio ritmo con Serendipity Tours Private Limited; de hecho, las vacaciones en Sri Lanka adoptan un ritmo más lento. El tiempo adquiere un significado diferente para Sri Lanka; puede tomar un poco más de tiempo llegar de A a B, pero eso solo se suma a su encanto. Te da más tiempo para absorber tu entorno y descubrir el país desde la perspectiva de un local mientras tu guía te deleita orgullosamente con historias de su tierra natal.",
+    "aboutDescription3": "Ya sea que busques un escape a la playa o un tour personalizado de Sri Lanka, habla con nosotros y te ayudaremos a crear las vacaciones perfectas en Sri Lanka para ti.",
+    "weAreHereToHelp": "Estamos aquí para ayudarte",
+    "helpDescription": "En Serendipity Tours Private Limited, tu viaje a Sri Lanka comienza con una conversación con uno de nuestros expertos locales en viajes. Nuestros especialistas están listos para compartir su experiencia y crear unas vacaciones que estén hechas a tu medida.",
+    "operatingHours": "Horarios de Operación",
+    "mondayToFriday": "Lunes a Viernes:",
+    "saturday": "Sábado:",
+    "sunday": "Domingo:",
+    "operatingHoursWeekdays": "9am - 8pm",
+    "operatingHoursSaturday": "9am - 6pm",
+    "operatingHoursSunday": "11am - 4pm",
+    "customerReviews": "Lo Que Dicen Nuestros Clientes",
+    "whyBookWithUs": "¿Por Qué Reservar Con Nosotros?",
+    "bestPriceGuaranteed": "Mejor precio garantizado",
+    "bestPriceDescription": "Serendipity Tours Private Limited es una empresa verdaderamente local con su oficina principal en Panadura, Colombo. Como empresa local, te ofrecemos lo mejor para todos los paquetes turísticos que ofrecemos.",
+    "flexiblePayment": "Métodos de pago flexibles",
+    "flexiblePaymentDescription": "Aceptamos pagos con tarjeta de crédito, transferencias bancarias y pagos a la llegada. Por favor elige el método de pago más conveniente para ti, y estamos listos para trabajar contigo.",
+    "paperFree": "Somos libres de papel",
+    "paperFreeDescription": "Dependemos completamente de un sistema digital, eliminando la necesidad de documentos basados en papel, declaraciones y otros materiales, optando por versiones en línea en su lugar.",
+    "helpThePoor": "Ayudar a los pobres",
+    "helpThePoorDescription": "Con cada reserva que hagas, Serendipity Tours ayuda a personas necesitadas con parte de sus ganancias.",
+    "noHiddenFees": "Sin tarifas ocultas o comisiones",
+    "noHiddenFeesDescription": "No agregamos comisiones elevadas y tarifas ocultas cuando llegas a las etapas posteriores de la reserva en línea. Todos nuestros viajes incluyen todos los impuestos, cargos por servicio y cargos suplementarios.",
+    "planYourTrip": "Planifica Tu Viaje",
+    "fullName": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "enquiryMessage": "Mensaje de Consulta",
+    "fullNamePlaceholder": "Ingresa tu nombre completo",
+    "emailPlaceholder": "Ingresa tu dirección de correo electrónico",
+    "enquiryPlaceholder": "Cuéntanos sobre tus planes de viaje y preferencias...",
+    "agreeToTerms": "Al contactarnos, aceptas nuestros Términos y Condiciones",
+    "featuredTourPackages": "Paquetes Turísticos Destacados",
+    "from": "Desde"
+  },
+  "tours": {
+    "2dayTour": {
+      "title": "Tour Green Bless de 2 Días",
+      "description": "Una introducción perfecta a la belleza natural y el patrimonio cultural de Sri Lanka"
+    },
+    "4dayTour": {
+      "title": "Tour Raro de Sri Lanka de 4 Días",
+      "description": "Explora ciudades antiguas y tesoros culturales en este viaje integral de 4 días"
+    },
+    "newFourDayTour": {
+      "title": "Tour Privado de Sri Lanka de 4 Días con 18 Lugares Increíbles",
+      "description": "Experimenta lo mejor de Sri Lanka con visitas a 18 destinos increíbles"
+    },
+    "5dayTour": {
+      "title": "Tour Cultural y de Naturaleza de Sri Lanka de 5 Días",
+      "description": "Mezcla perfecta de exploración cultural y maravillas naturales"
+    },
+    "6dayTour": {
+      "title": "Tour Privado Todo Incluido de Sri Lanka de 6 Días",
+      "description": "Experimenta lo mejor de Sri Lanka en solo 6 días con este itinerario perfectamente equilibrado"
+    },
+    "7dayTour": {
+      "title": "Tour de Sri Lanka de 7 días: Senderos Menos Transitados de Sri Lanka",
+      "description": "Desde las maravillas arqueológicas del Triángulo Cultural hasta las maravillas de la vida silvestre de Yala"
+    },
+    "10dayTour": {
+      "title": "Tour Circular Privado de Sri Lanka de 10 Días",
+      "description": "La aventura definitiva de Sri Lanka que cubre cada rincón de la isla"
+    }
+  }
+}
+  "navigation": {
+    "home": "Inicio",
     "tourPackages": "Paquetes de Tours",
     "aboutUs": "Sobre Nosotros",
     "contactUs": "Contáctanos",
