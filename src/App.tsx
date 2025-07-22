@@ -22,6 +22,7 @@ import SevenDayTour from "./pages/SevenDayTour";
 import SixDayTour from "./pages/SixDayTour";
 import ElevenDayTour from "./pages/ElevenDayTour";
 import Itinerary from "./pages/Itinerary";
+import Contact from "./pages/Contact";
 import { supportedLanguages } from './i18n/config';
 
 const queryClient = new QueryClient();
@@ -72,6 +73,7 @@ const App = () => (
             <Route path="/beaten-path-sri-lanka-7-day-tour" element={<LanguageWrapper><SevenDayTour /></LanguageWrapper>} />
             <Route path="/6-day-sri-lanka-tour" element={<LanguageWrapper><SixDayTour /></LanguageWrapper>} />
             <Route path="/Sri-Lanka-11-days-tour" element={<LanguageWrapper><ElevenDayTour /></LanguageWrapper>} />
+            <Route path="/contact" element={<LanguageWrapper><Contact /></LanguageWrapper>} />
             
             {/* Language-specific routes */}
             <Route path="/:lang" element={<LanguageWrapper><Index /></LanguageWrapper>} />
@@ -88,6 +90,7 @@ const App = () => (
             <Route path="/:lang/beaten-path-sri-lanka-7-day-tour" element={<LanguageWrapper><SevenDayTour /></LanguageWrapper>} />
             <Route path="/:lang/6-day-sri-lanka-tour" element={<LanguageWrapper><SixDayTour /></LanguageWrapper>} />
             <Route path="/:lang/Sri-Lanka-11-days-tour" element={<LanguageWrapper><ElevenDayTour /></LanguageWrapper>} />
+            <Route path="/:lang/contact" element={<LanguageWrapper><Contact /></LanguageWrapper>} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

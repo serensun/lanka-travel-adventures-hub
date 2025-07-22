@@ -12,6 +12,7 @@ const corsHeaders = {
 interface EnquiryEmailRequest {
   fullName: string;
   email: string;
+  contactNumber?: string;
   enquiryMessage: string;
 }
 
@@ -22,9 +23,9 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { fullName, email, enquiryMessage }: EnquiryEmailRequest = await req.json();
+    const { fullName, email, contactNumber, enquiryMessage }: EnquiryEmailRequest = await req.json();
 
-    console.log("Received enquiry from:", { fullName, email });
+    console.log("Received enquiry from:", { fullName, email, contactNumber });
 
     // Send email to reservations@serendipitypvt.com
     const emailResponse = await resend.emails.send({
@@ -43,6 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
               <h2 style="color: #1e40af; margin: 0 0 15px; font-size: 20px;">Customer Information</h2>
               <p style="margin: 8px 0; color: #374151;"><strong>Name:</strong> ${fullName}</p>
               <p style="margin: 8px 0; color: #374151;"><strong>Email:</strong> ${email}</p>
+              ${contactNumber ? `<p style="margin: 8px 0; color: #374151;"><strong>Contact Number:</strong> ${contactNumber}</p>` : ''}
             </div>
             
             <div style="margin-bottom: 25px;">
