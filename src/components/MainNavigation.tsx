@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Plane, Users, Phone, Calculator, FileText, Calendar, ChevronDown, MapPin, Home } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import LanguageSelector from './LanguageSelector';
+
 import headerLogo from '../assets/header-logo.avif';
 
 const MainNavigation = () => {
@@ -85,8 +85,6 @@ const MainNavigation = () => {
               );
             })}
             
-            {/* Language Selector */}
-            <LanguageSelector />
           </nav>
           
           {/* Mobile Menu Button - You can expand this later for mobile responsiveness */}
