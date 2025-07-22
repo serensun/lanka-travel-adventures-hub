@@ -95,8 +95,7 @@ const ThreeDayTourPackage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
-      <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
@@ -397,7 +396,6 @@ const ThreeDayTourPackage = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
