@@ -78,5 +78,31 @@
       "title": "Tour Circolare Privato dello Sri Lanka di 10 Giorni",
       "description": "L'avventura definitiva dello Sri Lanka che copre ogni angolo dell'isola"
     }
+  },
+  "reviews": {
+    "review1": "Il servizio di Seerendipity Tours è impeccabile. Le guide sono competenti e amichevoli, e l'itinerario è perfettamente pianificato. Consiglio vivamente!",
+    "review2": "Un viaggio indimenticabile attraverso le bellezze naturali e culturali dello Sri Lanka. L'organizzazione è stata perfetta dall'inizio alla fine.",
+    "review3": "La professionalità e l'attenzione ai dettagli di Seerendipity Tours hanno reso il nostro viaggio in Sri Lanka un'esperienza straordinaria.",
+    "customer1": "Marco Rossi",
+    "customer2": "Giulia Bianchi",
+    "customer3": "Alessandro Verdi"
+  },
+  "tourCustomizer": {
+    "title": "Personalizza la tua Avventura in Sri Lanka",
+    "subtitle": "Crea il tuo pacchetto turistico perfetto per lo Sri Lanka",
+    "tripDuration": "Durata del Viaggio",
+    "numberOfTravelers": "Numero di Viaggiatori",
+    "packageType": "Tipo di Pacchetto",
+    "selectDestinations": "Seleziona Destinazioni",
+    "selectActivities": "Seleziona Attività",
+    "tourSummary": "Riassunto del Tour"
+  },
+  "toast": {
+    "termsRequired": "Termini Richiesti",
+    "termsRequiredDescription": "Si prega di accettare i termini e le condizioni per procedere.",
+    "enquirySentSuccess": "Richiesta Inviata con Successo!",
+    "enquirySentSuccessDescription": "Grazie per il tuo interesse. Ti contatteremo entro 24 ore.",
+    "errorSendingEnquiry": "Errore nell'Invio della Richiesta",
+    "errorSendingEnquiryDescription": "Riprova o contattaci direttamente."
   }
 }

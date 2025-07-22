@@ -18,7 +18,7 @@ const LanguageSelector = () => {
     const currentPath = window.location.pathname;
     const pathWithoutLang = currentPath.replace(/^\/[a-z]{2}(\/|$)/, '/');
     const newPath = language === 'en' ? pathWithoutLang : `/${language}${pathWithoutLang}`;
-    window.history.pushState({}, '', newPath);
+    window.location.href = newPath; // Use location.href for proper navigation
   };
 
   return (

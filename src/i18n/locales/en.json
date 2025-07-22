@@ -152,6 +152,16 @@
     "persons": "persons",
     "person": "person"
   },
+  "tourCustomizer": {
+    "title": "Customize Your Sri Lanka Adventure",
+    "subtitle": "Create your perfect Sri Lankan tour package",
+    "tripDuration": "Trip Duration",
+    "numberOfTravelers": "Number of Travelers",
+    "packageType": "Package Type",
+    "selectDestinations": "Select Destinations",
+    "selectActivities": "Select Activities",
+    "tourSummary": "Tour Summary"
+  },
   "toast": {
     "termsRequired": "Terms Required",
     "termsRequiredDescription": "Please agree to the terms and conditions to proceed.",

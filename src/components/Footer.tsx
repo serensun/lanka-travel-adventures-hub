@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import secureTransactions from '../assets/secure-transactions.webp';
 import bestPriceGuaranteed from '../assets/best-price-guaranteed.webp';
 import safeTravelBwttc from '../assets/safe-travel-bwttc.webp';
@@ -7,6 +8,8 @@ import googleTrust from '../assets/google-trust.webp';
 import safeCheckout from '../assets/safe-checkout.webp';
 
 const Footer = () => {
+  const { t } = useTranslation();
+  
   const trustBadges = [
     {
       image: secureTransactions,
@@ -72,7 +75,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-blue-700 text-center">
           <p className="text-blue-200 text-sm">
-            © 2024 Serendipity Tours Private Limited. All rights reserved.
+            © 2024 Serendipity Tours Private Limited. {t('footer.allRightsReserved')}
           </p>
         </div>
       </div>

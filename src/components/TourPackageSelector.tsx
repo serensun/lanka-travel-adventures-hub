@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Clock, Users, Hotel, DollarSign, CheckCircle2 } from 'lucide-react';
 
 const TourPackageSelector = () => {
+  const { t } = useTranslation();
   const [selectedDuration, setSelectedDuration] = useState(7);
   const [selectedPackage, setSelectedPackage] = useState('standard');
   const [travelers, setTravelers] = useState(2);
@@ -180,8 +182,8 @@ const TourPackageSelector = () => {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">Customize Your Sri Lanka Adventure</h2>
-        <p className="text-blue-100">Create your perfect Sri Lankan tour package</p>
+        <h2 className="text-3xl font-bold text-white mb-4">{t('tourCustomizer.title')}</h2>
+        <p className="text-blue-100">{t('tourCustomizer.subtitle')}</p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
@@ -191,7 +193,7 @@ const TourPackageSelector = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
               <Clock className="w-5 h-5 mr-2" />
-              Trip Duration
+              {t('tourCustomizer.tripDuration')}
             </h3>
             <div className="flex items-center space-x-4">
               <button
@@ -222,7 +224,7 @@ const TourPackageSelector = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
               <Users className="w-5 h-5 mr-2" />
-              Number of Travelers
+              {t('tourCustomizer.numberOfTravelers')}
             </h3>
             <div className="flex space-x-4">
               <button
@@ -252,7 +254,7 @@ const TourPackageSelector = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
               <Hotel className="w-5 h-5 mr-2" />
-              Package Type
+              {t('tourCustomizer.packageType')}
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               {Object.entries(packagePrices).map(([pkg, prices]) => (
@@ -284,7 +286,7 @@ const TourPackageSelector = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
               <MapPin className="w-5 h-5 mr-2" />
-              Select Destinations
+              {t('tourCustomizer.selectDestinations')}
             </h3>
             <div className="grid md:grid-cols-2 gap-3">
               {destinations.map((dest) => (
@@ -308,7 +310,7 @@ const TourPackageSelector = () => {
 
           {/* Activities */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">Select Activities</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('tourCustomizer.selectActivities')}</h3>
             <div className="space-y-4">
               {destinations
                 .filter(dest => selectedDestinations.includes(dest.name))
@@ -338,7 +340,7 @@ const TourPackageSelector = () => {
         <div className="bg-white rounded-xl shadow-lg p-6 h-fit">
           <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
             <DollarSign className="w-5 h-5 mr-2" />
-            Tour Summary
+            {t('tourCustomizer.tourSummary')}
           </h3>
 
           <div className="space-y-4">
