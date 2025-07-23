@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import { 
   Calendar, 
   Users, 
@@ -10,8 +12,10 @@ import {
   CheckCircle, 
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  MessageSquare
 } from "lucide-react";
+import BookingForm from "./BookingForm";
 import heroImage from "@/assets/sri-lanka-7-day-hero.avif";
 import gallery1 from "@/assets/sri-lanka-7-day-1.avif";
 import gallery2 from "@/assets/sri-lanka-7-day-2.avif";
@@ -21,6 +25,9 @@ import gallery5 from "@/assets/sri-lanka-7-day-5.avif";
 import gallery6 from "@/assets/sri-lanka-7-day-6.avif";
 
 const SevenDayTourPackage = () => {
+  const [selectedPackage, setSelectedPackage] = useState('standard');
+  const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
@@ -32,6 +39,29 @@ const SevenDayTourPackage = () => {
     { src: gallery5, alt: "Sri Lanka 7-day tour gallery 5" },
     { src: gallery6, alt: "Sri Lanka 7-day tour gallery 6" },
   ];
+
+  const packageRates = {
+    standard: { double: 699, single: 999 },
+    comfort: { double: 875, single: 1200 },
+    luxury: { double: 1290, single: 1790 }
+  };
+
+  const getTotalPrice = () => {
+    if (travelers === 1) {
+      return packageRates[selectedPackage].single;
+    } else {
+      return packageRates[selectedPackage].double * travelers;
+    }
+  };
+
+  const getPackageColor = (pkg: string) => {
+    switch (pkg) {
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
+    }
+  };
 
   const visibleImages = galleryImages.slice(0, 3);
 
@@ -281,72 +311,130 @@ const SevenDayTourPackage = () => {
             </div>
           </div>
 
-          {/* Right Column - Booking Widget */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4">Book This Tour</h3>
-                      <div className="space-y-4">
-                        <div>
-                          <Badge variant="secondary" className="mb-2">Standard Package</Badge>
-                          <div className="text-3xl font-bold">$749 <span className="text-base text-muted-foreground">per person</span></div>
-                          <div className="text-sm text-muted-foreground">Twin sharing double</div>
-                          <div className="text-sm text-muted-foreground">Single rate: $999</div>
-                        </div>
-                        
-                        <div>
-                          <Badge variant="outline" className="mb-2">Comfort Package</Badge>
-                          <div className="text-2xl font-bold">$875 <span className="text-base text-muted-foreground">per person</span></div>
-                          <div className="text-sm text-muted-foreground">Twin sharing double</div>
-                          <div className="text-sm text-muted-foreground">Single rate: $1200</div>
-                        </div>
-
-                        <div>
-                          <Badge variant="default" className="mb-2">Luxury Package</Badge>
-                          <div className="text-2xl font-bold">$1290 <span className="text-base text-muted-foreground">per person</span></div>
-                          <div className="text-sm text-muted-foreground">Twin sharing double</div>
-                          <div className="text-sm text-muted-foreground">Single rate: $1790</div>
-                        </div>
-                      </div>
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Package Selection */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {Object.entries(packageRates).map(([pkg, rates]) => (
+                  <button
+                    key={pkg}
+                    onClick={() => setSelectedPackage(pkg)}
+                    className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
+                      selectedPackage === pkg
+                        ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
+                        : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
+                    }`}
+                  >
+                    <div className="font-semibold capitalize mb-2">{pkg} Package</div>
+                    <div className="text-sm">
+                      <div>${rates.double} p.p (twin sharing)</div>
+                      <div>${rates.single} (single rate)</div>
                     </div>
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                    <Button className="w-full" size="lg">
-                      Book Now
-                    </Button>
+            {/* Travelers */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <Users className="w-5 h-5 mr-2" />
+                Number of Travelers (1-10)
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <label htmlFor="travelers" className="text-blue-900 font-medium">
+                    Travelers:
+                  </label>
+                  <input
+                    id="travelers"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value={travelers}
+                    onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
+                    className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
+                  />
+                </div>
+                <div className="text-blue-700 text-sm">
+                  {travelers === 1 ? (
+                    <p>Single traveler rate applies</p>
+                  ) : (
+                    <p>Twin sharing rate: ${packageRates[selectedPackage].double} per person</p>
+                  )}
+                </div>
+              </div>
+            </div>
 
-                    <div className="space-y-3 text-sm">
-                      <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-green-600" />
-                        <span>Free cancellation up to 24 hours</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="h-4 w-4 text-primary" />
-                        <span>Reserve now & pay later</span>
-                      </div>
-                    </div>
+            {/* Comments Section */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <MessageSquare className="w-5 h-5 mr-2" />
+                Comments & Special Requests
+              </h3>
+              <div className="space-y-4">
+                <Label htmlFor="comments" className="text-blue-900 font-medium">
+                  Tell us about your preferences, dietary requirements, or any special requests:
+                </Label>
+                <Textarea
+                  id="comments"
+                  value={comments}
+                  onChange={(e) => setComments(e.target.value)}
+                  placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
+                  rows={4}
+                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
+                />
+                <p className="text-blue-700 text-sm">
+                  This information will help us customize your tour experience to better suit your needs.
+                </p>
+              </div>
+            </div>
 
-                    <div className="border-t pt-4">
-                      <h4 className="font-semibold mb-2">What to bring:</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Comfortable shoes, Hat, Camera, Sunscreen, Water
-                      </p>
-                    </div>
+            {/* Booking Summary */}
+            <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <Car className="w-5 h-5 mr-2" />
+                Book Your Adventure
+              </h3>
 
-                    <div className="border-t pt-4">
-                      <h4 className="font-semibold mb-2">Important Notes:</h4>
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                        <li>• Moderate walking involved</li>
-                        <li>• Children under 8 not recommended</li>
-                        <li>• Weather dependent activities</li>
-                        <li>• Be ready 15 minutes before pickup</li>
-                      </ul>
-                    </div>
+              <div className="space-y-4">
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-blue-700">Duration</span>
+                    <span className="font-semibold flex items-center text-blue-900">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      7 days
+                    </span>
                   </div>
-                </CardContent>
-              </Card>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-blue-700">Travelers</span>
+                    <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-700">Package</span>
+                    <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
+                  </div>
+                </div>
+
+                <div className="border-t border-blue-200 pt-4">
+                  <div className="flex justify-between items-center text-xl font-bold">
+                    <span className="text-gray-800">Total Cost</span>
+                    <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
+                  </div>
+                  <p className="text-blue-600 text-sm mt-1">
+                    {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
+                  </p>
+                </div>
+
+                <BookingForm 
+                  packageType={`7-day-beaten-path-${selectedPackage}`}
+                  travelers={travelers}
+                  totalCost={getTotalPrice()}
+                  initialComments={comments}
+                />
+              </div>
             </div>
           </div>
         </div>
