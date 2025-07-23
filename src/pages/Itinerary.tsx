@@ -169,6 +169,18 @@ const Itinerary = () => {
       highlights: ['Cultural Triangle', 'Scenic Train Adventure', 'Wildlife Safari in Yala', 'Southern Coast Beaches', 'West Coast Relaxation', 'Nature & Leisure Strolls'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach', 'Sightseeing'],
       destinations: ['Negombo', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Unawatuna', 'Galle', 'Colombo']
+    },
+    {
+      id: 'cocktail-tour',
+      title: 'Sri Lanka 6-days tour, Sri Lanka cocktail tour with a mix of history and culture of Sri Lanka',
+      description: 'Discover echoes of Sri Lanka\'s sacred history, from the towering rock fortress of Sigiriya to the ancient ruins of Anuradhapura. On this 6-day journey, uncover breathtaking blends of nature and human ingenuity as you explore vibrant cities, lush jungles, and mysterious caves.',
+      duration: 6,
+      price: 'From $690',
+      image: newTourGallery1,
+      path: '/Sri-Lanka-cocktail-tour',
+      highlights: ['Ancient Wonders', 'Sigiriya Rock Fortress', 'Cultural Heart of Kandy', 'Spice Gardens & Wildlife'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
+      destinations: ['Sigiriya', 'Anuradhapura', 'Polonnaruwa', 'Kandy', 'Colombo']
     }
   ];
 
