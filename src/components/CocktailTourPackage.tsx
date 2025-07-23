@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Car, MapPin, Camera, MessageSquare } from "lucide-react";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Car, MapPin, Camera, MessageSquare, Check, X } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
@@ -328,198 +328,165 @@ const CocktailTourPackage = () => {
               </Tabs>
             </div>
 
-            {/* Includes & Excludes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-green-600">
-                    <CheckCircle className="h-6 w-6" />
-                    Includes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {includes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-600 mt-1 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-red-600">
-                    <XCircle className="h-6 w-6" />
-                    Excludes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {excludes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <XCircle className="h-4 w-4 text-red-600 mt-1 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+          {/* Package Selection */}
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              {Object.entries(packageRates).map(([pkg, rates]) => (
+                <button
+                  key={pkg}
+                  onClick={() => setSelectedPackage(pkg)}
+                  className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
+                    selectedPackage === pkg
+                      ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
+                      : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
+                  }`}
+                >
+                  <div className="font-semibold capitalize mb-2">{pkg} Package</div>
+                  <div className="text-sm">
+                    <div>${rates.double} p.p (twin sharing)</div>
+                    <div>${rates.single} (single rate)</div>
+                  </div>
+                </button>
+              ))}
             </div>
-
-            {/* Important Information */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <AlertCircle className="h-6 w-6 text-amber-600" />
-                  Important Information
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">What to bring:</h4>
-                  <p className="text-sm text-muted-foreground">Comfortable shoes, Hat, Camera, Sunscreen, Water</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Know before you go:</h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• Wear comfortable walking shoes as there is a moderate amount of walking involved</li>
-                    <li>• It is recommended to bring a hat, sunscreen, and a camera</li>
-                    <li>• Smoking and consuming food and drinks are not allowed inside the historical sites</li>
-                    <li>• Please be ready at your hotel lobby 15 minutes before the pickup time</li>
-                    <li>• Children under 8 years are not recommended to participate in this tour</li>
-                    <li>• Wheelchair and stroller access is not available</li>
-                    <li>• In case of bad weather, some outdoor activities may be cancelled</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
-          {/* Booking Summary Sidebar */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-8">
-              <CardHeader>
-                <CardTitle className="text-xl">Select Package Type</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {/* Package Selection */}
-                <div className="grid md:grid-cols-3 gap-4">
-                  {Object.entries(packageRates).map(([pkg, rates]) => (
-                    <Button
-                      key={pkg}
-                      variant={selectedPackage === pkg ? "default" : "outline"}
-                      className={`h-auto flex-col p-4 ${
-                        selectedPackage === pkg 
-                          ? `bg-gradient-to-br ${getPackageColor(pkg)} text-white border-transparent` 
-                          : 'hover:bg-muted'
-                      }`}
-                      onClick={() => setSelectedPackage(pkg)}
-                    >
-                      <div className="text-sm font-medium capitalize mb-1">{pkg}</div>
-                      <div className="text-xs opacity-90">
-                        Twin: ${rates.double} pp
-                      </div>
-                      <div className="text-xs opacity-90">
-                        Single: ${rates.single}
-                      </div>
-                    </Button>
-                  ))}
-                </div>
+          {/* Travelers */}
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+              <Users className="w-5 h-5 mr-2" />
+              Number of Travelers (1-10)
+            </h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-4">
+                <label htmlFor="travelers" className="text-blue-900 font-medium">
+                  Travelers:
+                </label>
+                <input
+                  id="travelers"
+                  type="number"
+                  min="1"
+                  max="10"
+                  value={travelers}
+                  onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
+                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
+                />
+              </div>
+              <div className="text-blue-700 text-sm">
+                {travelers === 1 ? (
+                  <p>Single traveler rate applies</p>
+                ) : (
+                  <p>Twin sharing rate: ${packageRates[selectedPackage].double} per person</p>
+                )}
+              </div>
+            </div>
+          </div>
 
-                {/* Travelers */}
-                <div className="space-y-2">
-                  <Label htmlFor="travelers" className="text-sm font-medium">Number of Travelers</Label>
-                  <div className="flex items-center space-x-3">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setTravelers(Math.max(1, travelers - 1))}
-                      disabled={travelers <= 1}
-                    >
-                      -
-                    </Button>
-                    <span className="px-4 py-2 bg-muted rounded-md min-w-[3rem] text-center">{travelers}</span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setTravelers(travelers + 1)}
-                    >
-                      +
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Comments */}
-                <div className="space-y-2">
-                  <Label htmlFor="comments" className="text-sm font-medium flex items-center gap-2">
-                    <MessageSquare className="h-4 w-4" />
-                    Special Requests or Comments
-                  </Label>
-                  <Textarea
-                    id="comments"
-                    placeholder="Any special requirements or questions..."
-                    value={comments}
-                    onChange={(e) => setComments(e.target.value)}
-                    className="min-h-[80px]"
-                  />
-                </div>
-
-                {/* Booking Summary */}
-                <div className="border-t pt-4 space-y-3">
-                  <h3 className="font-semibold">Booking Summary</h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
-                        Duration:
-                      </span>
-                      <span>6 days</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="flex items-center gap-2">
-                        <Users className="h-4 w-4" />
-                        Travelers:
-                      </span>
-                      <span>{travelers}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="flex items-center gap-2">
-                        <Badge variant="secondary" className="text-xs capitalize">
-                          {selectedPackage}
-                        </Badge>
-                        Package:
-                      </span>
-                      <span>
-                        ${travelers === 1 
-                          ? packageRates[selectedPackage].single 
-                          : packageRates[selectedPackage].double} 
-                        {travelers > 1 && " pp"}
-                      </span>
-                    </div>
-                    <div className="flex justify-between font-semibold text-base pt-2 border-t">
-                      <span>Total Cost:</span>
-                      <span className="text-primary">${getTotalPrice()}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Booking Form */}
-            <div className="mt-6">
-              <BookingForm 
-                packageType={selectedPackage}
-                travelers={travelers}
-                totalCost={getTotalPrice()}
-                initialComments={comments}
+          {/* Comments Section */}
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+              <MessageSquare className="w-5 h-5 mr-2" />
+              Comments & Special Requests
+            </h3>
+            <div className="space-y-4">
+              <Label htmlFor="comments" className="text-blue-900 font-medium">
+                Tell us about your preferences, dietary requirements, or any special requests:
+              </Label>
+              <Textarea
+                id="comments"
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+                placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
+                rows={4}
+                className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
               />
+              <p className="text-blue-700 text-sm">
+                This information will help us customize your tour experience to better suit your needs.
+              </p>
+            </div>
+          </div>
+
+          {/* Inclusions & Exclusions */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <Check className="w-5 h-5 mr-2 text-green-600" />
+                Includes
+              </h3>
+              <ul className="space-y-2">
+                {includes.map((item, index) => (
+                  <li key={index} className="flex items-start space-x-2">
+                    <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-blue-800 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <X className="w-5 h-5 mr-2 text-red-500" />
+                Excludes
+              </h3>
+              <ul className="space-y-2">
+                {excludes.map((item, index) => (
+                  <li key={index} className="flex items-start space-x-2">
+                    <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-blue-800 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
+
+        {/* Booking Summary */}
+        <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
+          <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+            <Camera className="w-5 h-5 mr-2" />
+            Book Your Adventure
+          </h3>
+
+          <div className="space-y-4">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-blue-700">Duration</span>
+                <span className="font-semibold flex items-center text-blue-900">
+                  <Calendar className="w-4 h-4 mr-1" />
+                  6 days
+                </span>
+              </div>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-blue-700">Travelers</span>
+                <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-blue-700">Package</span>
+                <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
+              </div>
+            </div>
+
+            <div className="border-t border-blue-200 pt-4">
+              <div className="flex justify-between items-center text-xl font-bold">
+                <span className="text-gray-800">Total Cost</span>
+                <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
+              </div>
+              <p className="text-blue-600 text-sm mt-1">
+                {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
+              </p>
+            </div>
+
+            <BookingForm 
+              packageType={`6-day-cocktail-tour-${selectedPackage}`}
+              travelers={travelers}
+              totalCost={getTotalPrice()}
+              initialComments={comments}
+            />
+          </div>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
