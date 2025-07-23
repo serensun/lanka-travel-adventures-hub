@@ -1,17 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import MainNavigation from './MainNavigation';
 import Footer from './Footer';
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-orange-50">
       <MainNavigation />
       <main>
-        {children}
+        <Outlet />
       </main>
       <Footer />
     </div>

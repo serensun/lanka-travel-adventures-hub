@@ -9,7 +9,6 @@ import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Phone, Mail, MapPin, Globe, MessageSquare } from 'lucide-react';
-import Layout from '@/components/Layout';
 
 const contactSchema = z.object({
   fullName: z.string().min(1, 'Name is required'),
@@ -66,8 +65,7 @@ const Contact = () => {
   };
 
   return (
-    <Layout>
-      <div className="py-12">
+    <div className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Header */}
@@ -224,8 +222,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+    </div>
   );
 };
 
