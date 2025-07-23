@@ -3,7 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Car, MapPin } from "lucide-react";
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Car, MapPin, Camera, MessageSquare } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
@@ -19,6 +21,9 @@ import gallery7 from "@/assets/tour-gallery-7.avif";
 import gallery8 from "@/assets/tour-gallery-8.avif";
 
 const TwoDayTourPackage = () => {
+  const [selectedPackage, setSelectedPackage] = useState('standard');
+  const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
   
@@ -57,11 +62,28 @@ const TwoDayTourPackage = () => {
     "Enjoy the vibrant flavours of Sri Lankan cuisine at a neighborhood eatery."
   ];
 
-  const rates = [
-    { type: "Standard package", twin: 299, single: 499 },
-    { type: "Comfort package", twin: 399, single: 599 },
-    { type: "Luxury package", twin: 499, single: 699 }
-  ];
+  const packageRates = {
+    standard: { double: 299, single: 499 },
+    comfort: { double: 399, single: 599 },
+    luxury: { double: 499, single: 699 }
+  };
+
+  const getTotalPrice = () => {
+    if (travelers === 1) {
+      return packageRates[selectedPackage].single;
+    } else {
+      return packageRates[selectedPackage].double * travelers;
+    }
+  };
+
+  const getPackageColor = (pkg: string) => {
+    switch (pkg) {
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
+    }
+  };
 
   const includes = [
     "Pick up and drop off from the hotel located in the west coast",
@@ -431,11 +453,11 @@ const TwoDayTourPackage = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {rates.map((rate, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{rate.type}</TableCell>
-                        <TableCell>${rate.twin}</TableCell>
-                        <TableCell>${rate.single}</TableCell>
+                    {Object.entries(packageRates).map(([pkg, rates]) => (
+                      <TableRow key={pkg}>
+                        <TableCell className="font-medium capitalize">{pkg} Package</TableCell>
+                        <TableCell>${rates.double}</TableCell>
+                        <TableCell>${rates.single}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

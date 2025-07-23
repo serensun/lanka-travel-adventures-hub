@@ -19,6 +19,9 @@ import gallery7 from "@/assets/sri-lanka-11-day-6.avif";
 import gallery8 from "@/assets/sri-lanka-11-day-7.avif";
 
 const ElevenDayTourPackage = () => {
+  const [selectedPackage, setSelectedPackage] = useState('standard');
+  const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
   
@@ -131,10 +134,28 @@ const ElevenDayTourPackage = () => {
     "West Coast Relaxation: Unwind on palm-fringed beaches along Sri Lanka's picturesque west coast."
   ];
 
-  const rates = [
-    { type: "Standard package", twin: 1075, single: 1550 },
-    { type: "Comfort package", twin: 1390, single: 1985 }
-  ];
+  const packageRates = {
+    standard: { double: 1075, single: 1550 },
+    comfort: { double: 1390, single: 1985 },
+    luxury: { double: 1699, single: 2299 }
+  };
+
+  const getTotalPrice = () => {
+    if (travelers === 1) {
+      return packageRates[selectedPackage].single;
+    } else {
+      return packageRates[selectedPackage].double * travelers;
+    }
+  };
+
+  const getPackageColor = (pkg: string) => {
+    switch (pkg) {
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
+    }
+  };
 
   const includes = [
     "10 nights of accommodation in standard tourist hotels",
@@ -444,11 +465,11 @@ const ElevenDayTourPackage = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {rates.map((rate, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{rate.type}</TableCell>
-                        <TableCell>${rate.twin}</TableCell>
-                        <TableCell>${rate.single}</TableCell>
+                    {Object.entries(packageRates).map(([pkg, rates]) => (
+                      <TableRow key={pkg}>
+                        <TableCell className="font-medium capitalize">{pkg} Package</TableCell>
+                        <TableCell>${rates.double}</TableCell>
+                        <TableCell>${rates.single}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -460,7 +481,7 @@ const ElevenDayTourPackage = () => {
             <BookingForm 
               packageType="Sri Lanka 11-days tour, Insight Into Sri Lanka"
               travelers={2}
-              totalCost={rates[0].twin * 2}
+              totalCost={packageRates.standard.double * 2}
               initialComments=""
             />
           </div>

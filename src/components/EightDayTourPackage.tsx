@@ -3,7 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, Car, MapPin } from "lucide-react";
+import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, Car, MapPin, Camera, MessageSquare } from "lucide-react";
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
@@ -15,6 +17,9 @@ import gallery3 from "@/assets/sri-lanka-8-day-3.avif";
 import heroImage from "@/assets/sri-lanka-8-day-hero.avif";
 
 const EightDayTourPackage = () => {
+  const [selectedPackage, setSelectedPackage] = useState('standard');
+  const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const galleryImages = [
@@ -98,11 +103,28 @@ const EightDayTourPackage = () => {
     "Complete your journey with a scenic train ride through tea-clad hills to Ella, showcasing the island's stunning diversity from mountains to golden coasts."
   ];
 
-  const rates = [
-    { type: "Standard package", twin: 750, single: 1200 },
-    { type: "Comfort package", twin: 950, single: 1599 },
-    { type: "Luxury package", twin: 1399, single: 1799 }
-  ];
+  const packageRates = {
+    standard: { double: 750, single: 1200 },
+    comfort: { double: 950, single: 1599 },
+    luxury: { double: 1399, single: 1799 }
+  };
+
+  const getTotalPrice = () => {
+    if (travelers === 1) {
+      return packageRates[selectedPackage].single;
+    } else {
+      return packageRates[selectedPackage].double * travelers;
+    }
+  };
+
+  const getPackageColor = (pkg: string) => {
+    switch (pkg) {
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
+    }
+  };
 
   const includes = [
     "8 days accommodation in chosen category of hotels",
@@ -409,11 +431,11 @@ const EightDayTourPackage = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {rates.map((rate, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{rate.type}</TableCell>
-                        <TableCell>${rate.twin} p.p</TableCell>
-                        <TableCell>${rate.single}</TableCell>
+                    {Object.entries(packageRates).map(([pkg, rates]) => (
+                      <TableRow key={pkg}>
+                        <TableCell className="font-medium capitalize">{pkg} Package</TableCell>
+                        <TableCell>${rates.double} p.p</TableCell>
+                        <TableCell>${rates.single}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -421,12 +443,129 @@ const EightDayTourPackage = () => {
               </CardContent>
             </Card>
 
-            {/* Booking Form */}
-            <BookingForm 
-              packageType="8-day-standard"
-              travelers={2}
-              totalCost={750}
-            />
+            {/* Package Selection */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-6">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
+              <div className="grid md:grid-cols-1 gap-4">
+                {Object.entries(packageRates).map(([pkg, rates]) => (
+                  <button
+                    key={pkg}
+                    onClick={() => setSelectedPackage(pkg)}
+                    className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
+                      selectedPackage === pkg
+                        ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
+                        : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
+                    }`}
+                  >
+                    <div className="font-semibold capitalize mb-2">{pkg} Package</div>
+                    <div className="text-sm">
+                      <div>${rates.double} p.p (twin sharing)</div>
+                      <div>${rates.single} (single rate)</div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Travelers */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-6">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <Users className="w-5 h-5 mr-2" />
+                Number of Travelers (1-10)
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <label htmlFor="travelers" className="text-blue-900 font-medium">
+                    Travelers:
+                  </label>
+                  <input
+                    id="travelers"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value={travelers}
+                    onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
+                    className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
+                  />
+                </div>
+                <div className="text-blue-700 text-sm">
+                  {travelers === 1 ? (
+                    <p>Single traveler rate applies</p>
+                  ) : (
+                    <p>Twin sharing rate: ${packageRates[selectedPackage].double} per person</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Comments Section */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-6">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <MessageSquare className="w-5 h-5 mr-2" />
+                Comments & Special Requests
+              </h3>
+              <div className="space-y-4">
+                <Label htmlFor="comments" className="text-blue-900 font-medium">
+                  Tell us about your preferences, dietary requirements, or any special requests:
+                </Label>
+                <Textarea
+                  id="comments"
+                  value={comments}
+                  onChange={(e) => setComments(e.target.value)}
+                  placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
+                  rows={4}
+                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
+                />
+                <p className="text-blue-700 text-sm">
+                  This information will help us customize your tour experience to better suit your needs.
+                </p>
+              </div>
+            </div>
+
+            {/* Booking Summary */}
+            <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <Camera className="w-5 h-5 mr-2" />
+                Book Your Adventure
+              </h3>
+
+              <div className="space-y-4">
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-blue-700">Duration</span>
+                    <span className="font-semibold flex items-center text-blue-900">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      8 days
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-blue-700">Travelers</span>
+                    <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-700">Package</span>
+                    <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
+                  </div>
+                </div>
+
+                <div className="border-t border-blue-200 pt-4">
+                  <div className="flex justify-between items-center text-xl font-bold">
+                    <span className="text-gray-800">Total Cost</span>
+                    <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
+                  </div>
+                  <p className="text-blue-600 text-sm mt-1">
+                    {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
+                  </p>
+                </div>
+
+                <BookingForm 
+                  packageType={`8-day-sri-lanka-tour-${selectedPackage}`}
+                  travelers={travelers}
+                  totalCost={getTotalPrice()}
+                  initialComments={comments}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

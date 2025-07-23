@@ -20,6 +20,9 @@ import gallery8 from "@/assets/tour-gallery-8.avif";
 import gallery9 from "@/assets/tour-gallery-9.avif";
 
 const FiveDayTourPackage = () => {
+  const [selectedPackage, setSelectedPackage] = useState('standard');
+  const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
   const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -104,11 +107,28 @@ const FiveDayTourPackage = () => {
     "Travel insurance"
   ];
 
-  const rates = [
-    { type: "Standard package", twin: 699, single: 1299 },
-    { type: "Comfort package", twin: 899, single: 1699 },
-    { type: "Luxury package", twin: 1299, single: 2499 }
-  ];
+  const packageRates = {
+    standard: { double: 699, single: 1299 },
+    comfort: { double: 899, single: 1699 },
+    luxury: { double: 1299, single: 2499 }
+  };
+
+  const getTotalPrice = () => {
+    if (travelers === 1) {
+      return packageRates[selectedPackage].single;
+    } else {
+      return packageRates[selectedPackage].double * travelers;
+    }
+  };
+
+  const getPackageColor = (pkg: string) => {
+    switch (pkg) {
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted">
@@ -374,17 +394,17 @@ const FiveDayTourPackage = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {rates.map((rate, index) => (
-                    <div key={index} className="p-4 border rounded-lg">
-                      <h4 className="font-semibold mb-2">{rate.type}</h4>
+                  {Object.entries(packageRates).map(([pkg, rates]) => (
+                    <div key={pkg} className="p-4 border rounded-lg">
+                      <h4 className="font-semibold mb-2 capitalize">{pkg} Package</h4>
                       <div className="space-y-1">
                         <div className="flex justify-between">
                           <span>Twin sharing:</span>
-                          <Badge variant="outline">${rate.twin} p.p</Badge>
+                          <Badge variant="outline">${rates.double} p.p</Badge>
                         </div>
                         <div className="flex justify-between">
                           <span>Single rate:</span>
-                          <Badge variant="outline">${rate.single}</Badge>
+                          <Badge variant="outline">${rates.single}</Badge>
                         </div>
                       </div>
                     </div>

@@ -19,6 +19,9 @@ import gallery7 from '@/assets/new-tour-gallery-7.avif';
 import gallery8 from '@/assets/new-tour-gallery-8.avif';
 
 const KandyFourDayTourPackage = () => {
+  const [selectedPackage, setSelectedPackage] = useState('standard');
+  const [travelers, setTravelers] = useState(2);
+  const [comments, setComments] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
 
@@ -96,11 +99,28 @@ const KandyFourDayTourPackage = () => {
     "Uncover ancient wonders - from Sigiriya's rock fortress to Dambulla's cave temples and Kandy's sacred"
   ];
 
-  const rates = [
-    { package: 'Standard', twin: 499, single: 699 },
-    { package: 'Comfort', twin: 599, single: 799 },
-    { package: 'Luxury', twin: 699, single: 999 }
-  ];
+  const packageRates = {
+    standard: { double: 499, single: 699 },
+    comfort: { double: 599, single: 799 },
+    luxury: { double: 699, single: 999 }
+  };
+
+  const getTotalPrice = () => {
+    if (travelers === 1) {
+      return packageRates[selectedPackage].single;
+    } else {
+      return packageRates[selectedPackage].double * travelers;
+    }
+  };
+
+  const getPackageColor = (pkg: string) => {
+    switch (pkg) {
+      case 'standard': return 'from-blue-500 to-blue-700';
+      case 'comfort': return 'from-blue-600 to-blue-800';
+      case 'luxury': return 'from-blue-700 to-blue-900';
+      default: return 'from-blue-500 to-blue-700';
+    }
+  };
 
   const includes = [
     "3 nights of accommodation in standard hotels with breakfast",
@@ -393,12 +413,12 @@ const KandyFourDayTourPackage = () => {
                 <CardTitle>Package Rates (USD)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {rates.map((rate, index) => (
-                  <div key={index} className="border rounded-lg p-4 space-y-2">
-                    <h4 className="font-semibold text-lg">{rate.package} Package</h4>
+                {Object.entries(packageRates).map(([pkg, rates]) => (
+                  <div key={pkg} className="border rounded-lg p-4 space-y-2">
+                    <h4 className="font-semibold text-lg capitalize">{pkg} Package</h4>
                     <div className="space-y-1">
-                      <p className="text-sm">Twin sharing: <span className="font-bold text-primary">${rate.twin} p.p</span></p>
-                      <p className="text-sm">Single rate: <span className="font-bold text-primary">${rate.single}</span></p>
+                      <p className="text-sm">Twin sharing: <span className="font-bold text-primary">${rates.double} p.p</span></p>
+                      <p className="text-sm">Single rate: <span className="font-bold text-primary">${rates.single}</span></p>
                     </div>
                   </div>
                 ))}
