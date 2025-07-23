@@ -176,7 +176,7 @@ const Itinerary = () => {
       description: 'Discover echoes of Sri Lanka\'s sacred history, from the towering rock fortress of Sigiriya to the ancient ruins of Anuradhapura. On this 6-day journey, uncover breathtaking blends of nature and human ingenuity as you explore vibrant cities, lush jungles, and mysterious caves.',
       duration: 6,
       price: 'From $690',
-      image: newTourGallery1,
+      image: "https://preview--seerendipitytours.lovable.app/assets/cocktail-tour-1-DX3AXVUf.avif",
       path: '/Sri-Lanka-cocktail-tour',
       highlights: ['Ancient Wonders', 'Sigiriya Rock Fortress', 'Cultural Heart of Kandy', 'Spice Gardens & Wildlife'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
