@@ -511,11 +511,9 @@ const CocktailTourPackage = () => {
             {/* Booking Form */}
             <div className="mt-6">
               <BookingForm 
-                tourPackage="Sri Lanka 6-Day Cocktail Tour"
                 packageType={selectedPackage}
                 travelers={travelers}
                 totalCost={getTotalPrice()}
-                duration="6 days"
                 initialComments={comments}
               />
             </div>
