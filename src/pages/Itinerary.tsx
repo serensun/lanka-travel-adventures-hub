@@ -181,6 +181,18 @@ const Itinerary = () => {
       highlights: ['Ancient Wonders', 'Sigiriya Rock Fortress', 'Cultural Heart of Kandy', 'Spice Gardens & Wildlife'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
       destinations: ['Sigiriya', 'Anuradhapura', 'Polonnaruwa', 'Kandy', 'Colombo']
+    },
+    {
+      id: 'kandy-one-day-tour',
+      title: 'Full-Day Kandy Cultural & Nature Tour',
+      description: 'This Full-Day Kandy Cultural & Nature Tour from Colombo, Bentota, Kalutara, and other west coast resorts includes visits to the Pinnawala Elephant Orphanage, the sacred Temple of the Tooth in Kandy, the Peradeniya Botanical Gardens, and a tea factory.',
+      duration: 1,
+      price: 'From $99',
+      image: "https://serendipitypvt.com/wp-content/uploads/2025/05/15.avif",
+      path: '/Full-Day-andy-ultural-ature-our-from-Colombo',
+      highlights: ['Pinnawala Elephant Orphanage', 'Temple of the Tooth', 'Peradeniya Botanical Gardens', 'Tea Factory Visit'],
+      activities: ['Cultural', 'Nature', 'Wildlife', 'Photography'],
+      destinations: ['Colombo', 'Pinnawala', 'Kandy', 'Peradeniya', 'Matale']
     }
   ];
 

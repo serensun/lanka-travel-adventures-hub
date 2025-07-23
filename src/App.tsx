@@ -20,6 +20,7 @@ import NewFourDayTour from "./pages/NewFourDayTour";
 import KandyFourDayTour from "./pages/KandyFourDayTour";
 import TwoDayCulturalTour from "./pages/TwoDayCulturalTour";
 import CocktailTour from "./pages/CocktailTour";
+import KandyOneDayTour from "./pages/KandyOneDayTour";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ function App() {
               <Route path="kandy-4-day-sri-lanka-full-circle-private-tour-to-colombo" element={<KandyFourDayTour />} />
               <Route path="sri-lanka-green-bless-2-day-cultural-tour" element={<TwoDayCulturalTour />} />
               <Route path="Sri-Lanka-cocktail-tour" element={<CocktailTour />} />
+              <Route path="Full-Day-andy-ultural-ature-our-from-Colombo" element={<KandyOneDayTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
