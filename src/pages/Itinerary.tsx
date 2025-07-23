@@ -193,6 +193,18 @@ const Itinerary = () => {
       highlights: ['Pinnawala Elephant Orphanage', 'Temple of the Tooth', 'Peradeniya Botanical Gardens', 'Tea Factory Visit'],
       activities: ['Cultural', 'Nature', 'Wildlife', 'Photography'],
       destinations: ['Colombo', 'Pinnawala', 'Kandy', 'Peradeniya', 'Matale']
+    },
+    {
+      id: 'full-circle-tour',
+      title: '4-Day Sri Lanka Full Circle Private Tour To Colombo',
+      description: 'This 4-day tour packs in the highlights of an 8-day Sri Lanka classic tour, covering nearly the same route and key destinations in half the time. You\'ll experience the best of the country\'s must-see sights, just like on the longer itinerary.',
+      duration: 4,
+      price: 'From $595',
+      image: "https://serendipitypvt.com/wp-content/uploads/2025/05/17.avif",
+      path: '/4-Day-Sri-Lanka-Full-Circle-Private-Tour-To-Colombo',
+      highlights: ['Complete Sri Lanka Experience', 'UNESCO World Heritage Sites', 'Hill Country Train', 'Wildlife Safari', 'Beach Relaxation'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach', 'Sightseeing'],
+      destinations: ['Colombo', 'Sigiriya', 'Dambulla', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'Galle', 'Bentota']
     }
   ];
 
