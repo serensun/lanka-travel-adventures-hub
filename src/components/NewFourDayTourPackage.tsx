@@ -383,128 +383,131 @@ const NewFourDayTourPackage = () => {
             </Card>
           </div>
 
-          {/* Package Selection */}
-          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-8">
-            <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              {Object.entries(packageRates).map(([pkg, rates]) => (
-                <button
-                  key={pkg}
-                  onClick={() => setSelectedPackage(pkg)}
-                  className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
-                    selectedPackage === pkg
-                      ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
-                      : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
-                  }`}
-                >
-                  <div className="font-semibold capitalize mb-2">{pkg} Package</div>
-                  <div className="text-sm">
-                    <div>${rates.double} p.p (twin sharing)</div>
-                    <div>${rates.single} (single rate)</div>
-                  </div>
-                </button>
-              ))}
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Package Selection */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {Object.entries(packageRates).map(([pkg, rates]) => (
+                  <button
+                    key={pkg}
+                    onClick={() => setSelectedPackage(pkg)}
+                    className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
+                      selectedPackage === pkg
+                        ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
+                        : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
+                    }`}
+                  >
+                    <div className="font-semibold capitalize mb-2">{pkg} Package</div>
+                    <div className="text-sm">
+                      <div>${rates.double} p.p (twin sharing)</div>
+                      <div>${rates.single} (single rate)</div>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Travelers */}
-          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-8">
-            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
-              <Users className="w-5 h-5 mr-2" />
-              Number of Travelers (1-10)
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <label htmlFor="travelers" className="text-blue-900 font-medium">
-                  Travelers:
-                </label>
-                <input
-                  id="travelers"
-                  type="number"
-                  min="1"
-                  max="10"
-                  value={travelers}
-                  onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
-                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
+            {/* Travelers */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <Users className="w-5 h-5 mr-2" />
+                Number of Travelers (1-10)
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <label htmlFor="travelers" className="text-blue-900 font-medium">
+                    Travelers:
+                  </label>
+                  <input
+                    id="travelers"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value={travelers}
+                    onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
+                    className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
+                  />
+                </div>
+                <div className="text-blue-700 text-sm">
+                  {travelers === 1 ? (
+                    <p>Single traveler rate applies</p>
+                  ) : (
+                    <p>Twin sharing rate: ${packageRates[selectedPackage].double} per person</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Comments Section */}
+            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
+              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                <MessageSquare className="w-5 h-5 mr-2" />
+                Comments & Special Requests
+              </h3>
+              <div className="space-y-4">
+                <Label htmlFor="comments" className="text-blue-900 font-medium">
+                  Tell us about your preferences, dietary requirements, or any special requests:
+                </Label>
+                <Textarea
+                  id="comments"
+                  value={comments}
+                  onChange={(e) => setComments(e.target.value)}
+                  placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
+                  rows={4}
+                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
+                />
+                <p className="text-blue-700 text-sm">
+                  This information will help us customize your tour experience to better suit your needs.
+                </p>
+              </div>
+            </div>
+
+            {/* Booking Summary */}
+            <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <Camera className="w-5 h-5 mr-2" />
+                Book Your Adventure
+              </h3>
+
+              <div className="space-y-4">
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-blue-700">Duration</span>
+                    <span className="font-semibold flex items-center text-blue-900">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      4 days
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-blue-700">Travelers</span>
+                    <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-700">Package</span>
+                    <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
+                  </div>
+                </div>
+
+                <div className="border-t border-blue-200 pt-4">
+                  <div className="flex justify-between items-center text-xl font-bold">
+                    <span className="text-gray-800">Total Cost</span>
+                    <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
+                  </div>
+                  <p className="text-blue-600 text-sm mt-1">
+                    {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
+                  </p>
+                </div>
+
+                <BookingForm 
+                  packageType={`new-4-day-tour-18-places-${selectedPackage}`}
+                  travelers={travelers}
+                  totalCost={getTotalPrice()}
+                  initialComments={comments}
                 />
               </div>
-              <div className="text-blue-700 text-sm">
-                {travelers === 1 ? (
-                  <p>Single traveler rate applies</p>
-                ) : (
-                  <p>Twin sharing rate: ${packageRates[selectedPackage].double} per person</p>
-                )}
-              </div>
             </div>
-          </div>
-
-          {/* Comments Section */}
-          <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-8">
-            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
-              <MessageSquare className="w-5 h-5 mr-2" />
-              Comments & Special Requests
-            </h3>
-            <div className="space-y-4">
-              <Label htmlFor="comments" className="text-blue-900 font-medium">
-                Tell us about your preferences, dietary requirements, or any special requests:
-              </Label>
-              <Textarea
-                id="comments"
-                value={comments}
-                onChange={(e) => setComments(e.target.value)}
-                placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
-                rows={4}
-                className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
-              />
-              <p className="text-blue-700 text-sm">
-                This information will help us customize your tour experience to better suit your needs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Booking Summary */}
-        <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-            <Camera className="w-5 h-5 mr-2" />
-            Book Your Adventure
-          </h3>
-
-          <div className="space-y-4">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-blue-700">Duration</span>
-                <span className="font-semibold flex items-center text-blue-900">
-                  <Calendar className="w-4 h-4 mr-1" />
-                  4 days
-                </span>
-              </div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-blue-700">Travelers</span>
-                <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-blue-700">Package</span>
-                <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
-              </div>
-            </div>
-
-            <div className="border-t border-blue-200 pt-4">
-              <div className="flex justify-between items-center text-xl font-bold">
-                <span className="text-gray-800">Total Cost</span>
-                <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
-              </div>
-              <p className="text-blue-600 text-sm mt-1">
-                {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
-              </p>
-            </div>
-
-            <BookingForm 
-              packageType={`new-4-day-tour-18-places-${selectedPackage}`}
-              travelers={travelers}
-              totalCost={getTotalPrice()}
-              initialComments={comments}
-            />
           </div>
         </div>
       </div>
