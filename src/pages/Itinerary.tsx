@@ -21,6 +21,7 @@ import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
 import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
 import culturalTriangleWilpattuHero from '../assets/cultural-triangle-wilpattu-hero.avif';
+import kandyTourHero from '../assets/kandy-tour-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -231,6 +232,18 @@ const Itinerary = () => {
       highlights: ['Ancient Capitals', 'Wilpattu Safari', 'UNESCO Sites', 'Sacred Temples', 'Wildlife Encounters'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Heritage'],
       destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Wilpattu']
+    },
+    {
+      id: 'kandy-sigiriya-ella-tour',
+      title: '4-Day Kandy, Sigiriya, Ella and Nuwara Eliya Tour',
+      description: 'Unforgettable 4-day exploration of Sri Lanka\'s diverse landscapes and wildlife. This expertly guided tour takes you from the historic streets to the heart of the island\'s most breathtaking natural attractions.',
+      duration: 4,
+      price: 'From $585',
+      image: kandyTourHero,
+      path: '/4-Day-andy-Sigiriya-Ella-Nuwara-Eliya-Tour',
+      highlights: ['Elephant Encounters', 'Botanical Wonders', 'Wildlife Safari', 'Mountain Magic', 'River Excitement'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
+      destinations: ['Kandy', 'Sigiriya', 'Ella', 'Nuwara Eliya', 'Minneriya', 'Kitulgala']
     }
   ];
 
