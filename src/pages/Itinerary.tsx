@@ -20,6 +20,7 @@ import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
 import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
+import culturalTriangleWilpattuHero from '../assets/cultural-triangle-wilpattu-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -218,6 +219,18 @@ const Itinerary = () => {
       highlights: ['Mangrove Safari', 'Sea Turtle Conservation', 'Buddhist Temple Visit', 'Bentota Beach', 'Spice Garden Tour'],
       activities: ['Wildlife', 'Nature', 'Cultural', 'Beach', 'Boat Tour'],
       destinations: ['Bentota', 'Madu River', 'Galle']
+    },
+    {
+      id: 'cultural-triangle-wilpattu-tour',
+      title: '4-Day Cultural Triangle Tour with Wilpattu Safari',
+      description: 'Embark on an unforgettable journey through Sri Lanka\'s legendary Cultural Triangle and explore the fascinating wildlife at Wilpattu national park. This immersive 4-day experience takes you to three magnificent ancient capitals.',
+      duration: 4,
+      price: 'From $590',
+      image: culturalTriangleWilpattuHero,
+      path: '/4-Day-Cultural-Triangle-Tour-with-Wilpattu-Safari',
+      highlights: ['Ancient Capitals', 'Wilpattu Safari', 'UNESCO Sites', 'Sacred Temples', 'Wildlife Encounters'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Heritage'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Wilpattu']
     }
   ];
 
