@@ -19,6 +19,7 @@ import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
 import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
+import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -205,6 +206,18 @@ const Itinerary = () => {
       highlights: ['Complete Sri Lanka Experience', 'UNESCO World Heritage Sites', 'Hill Country Train', 'Wildlife Safari', 'Beach Relaxation'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach', 'Sightseeing'],
       destinations: ['Colombo', 'Sigiriya', 'Dambulla', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'Galle', 'Bentota']
+    },
+    {
+      id: 'west-coast-mangroves-tour',
+      title: 'West coast Beach, River Mangroves lagoon, Wildlife boat Tour',
+      description: 'Mangrove forests are rapidly disappearing, making this perhaps the final chance to experience these extraordinary ecological treasures. Home to a rich diversity of trees, plants, vines, wildlife, and bird species, they offer a unique natural wonder.',
+      duration: 6,
+      price: 'From $90',
+      image: westCoastMangrovesHero,
+      path: '/West-coast-Beach-River-Mangroves-lagoon-Wildlife-boat-Tour',
+      highlights: ['Mangrove Safari', 'Sea Turtle Conservation', 'Buddhist Temple Visit', 'Bentota Beach', 'Spice Garden Tour'],
+      activities: ['Wildlife', 'Nature', 'Cultural', 'Beach', 'Boat Tour'],
+      destinations: ['Bentota', 'Madu River', 'Galle']
     }
   ];
 
