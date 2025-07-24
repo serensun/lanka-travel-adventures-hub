@@ -244,6 +244,18 @@ const Itinerary = () => {
       highlights: ['Elephant Encounters', 'Botanical Wonders', 'Wildlife Safari', 'Mountain Magic', 'River Excitement'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
       destinations: ['Kandy', 'Sigiriya', 'Ella', 'Nuwara Eliya', 'Minneriya', 'Kitulgala']
+    },
+    {
+      id: 'bentota-galle-tour',
+      title: '1 Day Tour Bentota, Galle, Mangrove Lagoon and Sea Turtles',
+      description: 'On a day excursion from Colombo, explore the Cinnamon Island, boat in a mangrove lagoon and observe birds, monkeys, and crocodiles up close, and enjoy the picturesque beaches of Mirissa and Galle on the south coast.',
+      duration: 1,
+      price: 'From $90',
+      image: "https://serendipitypvt.com/wp-content/uploads/2025/07/8.avif",
+      path: '/1-Day-Tour-Bentota-Galle-Mangrove-Lagoon-Sea-Turtles',
+      highlights: ['Swimming in Hikkadwa Beach', 'Kosgoda Turtle Hatchery', 'Bentota lagoon exploration', 'Historic Galle Fort'],
+      activities: ['Cultural', 'Nature', 'Wildlife', 'Beach'],
+      destinations: ['Bentota', 'Galle', 'Hikkadwa', 'Kosgoda']
     }
   ];
 
