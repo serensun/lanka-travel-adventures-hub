@@ -7,6 +7,11 @@ const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
     "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Max-Age": "86400",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "X-XSS-Protection": "1; mode=block",
+  "Referrer-Policy": "strict-origin-when-cross-origin"
 };
 
 interface EnquiryEmailRequest {
@@ -34,7 +39,7 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { fullName, email, contactNumber, enquiryMessage }: EnquiryEmailRequest = await req.json();
 
-    // Input validation
+    // Enhanced input validation
     if (!fullName?.trim() || !email?.trim() || !enquiryMessage?.trim()) {
       console.log('Missing required fields in enquiry request');
       return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -43,8 +48,25 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Enhanced validation checks
+    if (fullName.length > 100 || email.length > 254 || enquiryMessage.length > 2000) {
+      console.log('Field length validation failed');
+      return new Response(JSON.stringify({ error: 'Invalid field lengths' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    if (contactNumber && contactNumber.length > 20) {
+      console.log('Contact number too long');
+      return new Response(JSON.stringify({ error: 'Contact number too long' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Enhanced email validation with stricter pattern
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     if (!emailRegex.test(email)) {
       console.log('Invalid email format:', email);
       return new Response(JSON.stringify({ error: 'Invalid email format' }), {
@@ -53,12 +75,27 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
-    // Sanitize inputs to prevent XSS
+    // Enhanced sanitization to prevent XSS and injection attacks
+    const sanitizeInput = (input: string) => {
+      return input
+        .replace(/[<>'"&]/g, (match) => {
+          const entityMap: { [key: string]: string } = {
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#x27;',
+            '&': '&amp;'
+          };
+          return entityMap[match];
+        })
+        .trim();
+    };
+
     const sanitizedData = {
-      fullName: fullName.replace(/[<>]/g, ''),
-      email: email.trim(),
-      contactNumber: contactNumber?.replace(/[<>]/g, '') || '',
-      enquiryMessage: enquiryMessage.replace(/[<>]/g, '')
+      fullName: sanitizeInput(fullName),
+      email: email.trim().toLowerCase(),
+      contactNumber: contactNumber ? sanitizeInput(contactNumber) : '',
+      enquiryMessage: sanitizeInput(enquiryMessage)
     };
 
     console.log("Received enquiry from:", sanitizedData.email);
