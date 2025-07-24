@@ -24,7 +24,9 @@ const Index = () => {
     fullName: '',
     email: '',
     enquiryMessage: '',
-    agreeToTerms: false
+    agreeToTerms: false,
+    // Honeypot field (hidden from users, visible to bots)
+    website: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -33,6 +35,22 @@ const Index = () => {
       ...prev,
       [name]: value
     }));
+  };
+
+  // Security: Add delay and validation for form submission
+  const validateAndSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Check honeypot field (should be empty)
+    if (formData.website) {
+      console.log('Bot detected via honeypot field');
+      return; // Silently fail for bots
+    }
+    
+    // Add artificial delay to slow down automated submissions
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    await handleSubmit(e);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,9 +95,9 @@ const Index = () => {
         fullName: '',
         email: '',
         enquiryMessage: '',
-        agreeToTerms: false
+        agreeToTerms: false,
+        website: ''
       });
-
     } catch (error: any) {
       console.error('Error sending enquiry:', error);
       toast({
@@ -269,7 +287,18 @@ const Index = () => {
         {/* Section 5: Contact Form */}
         <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">{t('homepage.planYourTrip')}</h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={validateAndSubmit} className="space-y-6">
+            {/* Honeypot field - hidden from users but visible to bots */}
+            <div style={{ position: 'absolute', left: '-9999px', visibility: 'hidden' }}>
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleInputChange}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-blue-900 mb-2">
                 {t('homepage.fullName')} *

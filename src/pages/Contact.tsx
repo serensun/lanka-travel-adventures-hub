@@ -21,6 +21,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypotField, setHoneypotField] = useState('');
   
   const {
     register,
@@ -52,6 +53,7 @@ const Contact = () => {
       });
       
       reset();
+      setHoneypotField(''); // Reset honeypot field
     } catch (error: any) {
       console.error('Error submitting contact form:', error);
       toast({
@@ -62,6 +64,20 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // Security: Add delay and validation
+  const validateAndSubmit = async (data: ContactFormData) => {
+    // Check honeypot field (should be empty)
+    if (honeypotField) {
+      console.log('Bot detected via honeypot field');
+      return; // Silently fail for bots
+    }
+    
+    // Add artificial delay to slow down automated submissions
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    await onSubmit(data);
   };
 
   return (
@@ -83,7 +99,17 @@ const Contact = () => {
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
                 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={handleSubmit(validateAndSubmit)} className="space-y-6">
+                  {/* Honeypot field - hidden from users but visible to bots */}
+                  <div style={{ position: 'absolute', left: '-9999px', visibility: 'hidden' }}>
+                    <input
+                      type="text"
+                      value={honeypotField}
+                      onChange={(e) => setHoneypotField(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   <div>
                     <Label htmlFor="fullName">Full Name *</Label>
                     <Input

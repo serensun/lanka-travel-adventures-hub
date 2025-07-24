@@ -119,6 +119,33 @@ export type Database = {
         }
         Relationships: []
       }
+      security_logs: {
+        Row: {
+          client_ip: string
+          created_at: string
+          details: Json | null
+          event_type: string
+          id: string
+          timestamp: string
+        }
+        Insert: {
+          client_ip: string
+          created_at?: string
+          details?: Json | null
+          event_type: string
+          id?: string
+          timestamp?: string
+        }
+        Update: {
+          client_ip?: string
+          created_at?: string
+          details?: Json | null
+          event_type?: string
+          id?: string
+          timestamp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -133,6 +160,10 @@ export type Database = {
         Returns: number
       }
       cleanup_old_client_details: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      cleanup_old_security_logs: {
         Args: Record<PropertyKey, never>
         Returns: number
       }

@@ -26,7 +26,11 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
     country: '',
     preferredDate: '',
     numberOfTravelers: travelers,
-    specialRequests: initialComments
+    specialRequests: initialComments,
+    // Honeypot fields (hidden from users, visible to bots)
+    website: '',
+    url: '',
+    honeypot: ''
   });
 
   // Parse package type to get tour details
@@ -70,6 +74,22 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
       specialRequests: initialComments
     }));
   }, [initialComments]);
+
+  // Security: Add delay to prevent rapid submissions
+  const validateAndSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Check honeypot fields (should be empty)
+    if (formData.website || formData.url || formData.honeypot) {
+      console.log('Bot detected via honeypot fields');
+      return; // Silently fail for bots
+    }
+    
+    // Add artificial delay to slow down automated submissions
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    await handleSubmit(e);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -148,7 +168,10 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
         country: '',
         preferredDate: '',
         numberOfTravelers: travelers,
-        specialRequests: initialComments
+        specialRequests: initialComments,
+        website: '',
+        url: '',
+        honeypot: ''
       });
 
     } catch (error) {
@@ -193,7 +216,34 @@ const BookingForm = ({ packageType, travelers, totalCost, initialComments = '' }
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={validateAndSubmit} className="space-y-4">
+          {/* Honeypot fields - hidden from users but visible to bots */}
+          <div style={{ position: 'absolute', left: '-9999px', visibility: 'hidden' }}>
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+            <input
+              type="url"
+              name="url"
+              value={formData.url}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+            <input
+              type="text"
+              name="honeypot"
+              value={formData.honeypot}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="fullName" className="flex items-center gap-2">
