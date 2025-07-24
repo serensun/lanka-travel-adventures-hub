@@ -256,6 +256,18 @@ const Itinerary = () => {
       highlights: ['Swimming in Hikkadwa Beach', 'Kosgoda Turtle Hatchery', 'Bentota lagoon exploration', 'Historic Galle Fort'],
       activities: ['Cultural', 'Nature', 'Wildlife', 'Beach'],
       destinations: ['Bentota', 'Galle', 'Hikkadwa', 'Kosgoda']
+    },
+    {
+      id: 'yala-safari-tour',
+      title: '3-Day southern Sri Lanka Yala Safari, Galle Fort, Whale Watching Tour',
+      description: 'On this guided tour, spend three days lounging on the south coast beach of Sri Lanka. See whales swimming in the water, have a guided walking tour of Galle Fort, and go on a full-day Yala safari.',
+      duration: 3,
+      price: 'From $390',
+      image: "https://serendipitypvt.com/wp-content/uploads/2025/07/5.avif",
+      path: '/3-day-southern-sri-lanka-yala-safari-galle-fort-whale-watching-tour',
+      highlights: ['Wild buffaloes, bears, elephants, crocs, and leopards', 'Mirissa beach relaxation', 'Ancient temple boat safari', 'Herbal message and Sri Lankan Ayurveda', 'Galle Fort exploration'],
+      activities: ['Wildlife', 'Beach', 'Cultural', 'Adventure'],
+      destinations: ['Mirissa', 'Yala', 'Galle', 'Bentota', 'Colombo']
     }
   ];
 

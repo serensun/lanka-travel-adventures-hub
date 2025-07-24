@@ -27,6 +27,7 @@ import WestCoastMangrovesTour from "./pages/WestCoastMangrovesTour";
 import CulturalTriangleWilpattuTour from "./pages/CulturalTriangleWilpattuTour";
 import KandySigiriyaEllaTour from "./pages/KandySigiriyaEllaTour";
 import BentotaGalleTour from "./pages/BentotaGalleTour";
+import YalaSafariTour from "./pages/YalaSafariTour";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +62,7 @@ function App() {
               <Route path="4-Day-Cultural-Triangle-Tour-with-Wilpattu-Safari" element={<CulturalTriangleWilpattuTour />} />
               <Route path="4-Day-andy-Sigiriya-Ella-Nuwara-Eliya-Tour" element={<KandySigiriyaEllaTour />} />
               <Route path="1-Day-Tour-Bentota-Galle-Mangrove-Lagoon-Sea-Turtles" element={<BentotaGalleTour />} />
+              <Route path="3-day-southern-sri-lanka-yala-safari-galle-fort-whale-watching-tour" element={<YalaSafariTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
