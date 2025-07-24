@@ -51,8 +51,10 @@ const handler = async (req: Request): Promise<Response> => {
     console.log('Processing booking email request...');
     const bookingData: BookingEmailRequest = await req.json();
     
-    // Input validation
-    if (!bookingData.fullName?.trim() || !bookingData.email?.trim() || !bookingData.packageType?.trim()) {
+    // Enhanced input validation
+    if (!bookingData.fullName?.trim() || !bookingData.email?.trim() || !bookingData.packageType?.trim() || 
+        !bookingData.phone?.trim() || !bookingData.country?.trim() || !bookingData.preferredDate || 
+        !bookingData.numberOfTravelers || !bookingData.totalCost) {
       console.log('Missing required fields in booking request');
       return new Response(JSON.stringify({ error: 'Missing required fields' }), {
         status: 400,
@@ -60,8 +62,36 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Enhanced validation checks
+    if (bookingData.fullName.length > 100 || bookingData.email.length > 254 || 
+        bookingData.phone.length > 20 || bookingData.country.length > 50 || 
+        bookingData.packageType.length > 100) {
+      console.log('Field length validation failed');
+      return new Response(JSON.stringify({ error: 'Invalid field lengths' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    if (bookingData.numberOfTravelers < 1 || bookingData.numberOfTravelers > 50 || 
+        bookingData.totalCost < 0 || bookingData.totalCost > 1000000) {
+      console.log('Invalid numeric values');
+      return new Response(JSON.stringify({ error: 'Invalid numeric values' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    if (bookingData.specialRequests && bookingData.specialRequests.length > 1000) {
+      console.log('Special requests too long');
+      return new Response(JSON.stringify({ error: 'Special requests too long' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Enhanced email validation with stricter pattern
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     if (!emailRegex.test(bookingData.email)) {
       console.log('Invalid email format:', bookingData.email);
       return new Response(JSON.stringify({ error: 'Invalid email format' }), {
@@ -70,13 +100,33 @@ const handler = async (req: Request): Promise<Response> => {
       });
     }
 
-    // Sanitize inputs to prevent XSS
+    // Enhanced sanitization to prevent XSS and injection attacks
+    const sanitizeInput = (input: string) => {
+      return input
+        .replace(/[<>'"&]/g, (match) => {
+          const entityMap: { [key: string]: string } = {
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#x27;',
+            '&': '&amp;'
+          };
+          return entityMap[match];
+        })
+        .trim();
+    };
+
     const sanitizedData = {
       ...bookingData,
-      fullName: bookingData.fullName.replace(/[<>]/g, ''),
-      phone: bookingData.phone?.replace(/[<>]/g, '') || '',
-      country: bookingData.country?.replace(/[<>]/g, '') || '',
-      specialRequests: bookingData.specialRequests?.replace(/[<>]/g, '') || ''
+      fullName: sanitizeInput(bookingData.fullName),
+      email: bookingData.email.trim().toLowerCase(),
+      phone: sanitizeInput(bookingData.phone || ''),
+      country: sanitizeInput(bookingData.country || ''),
+      packageType: sanitizeInput(bookingData.packageType),
+      tourName: sanitizeInput(bookingData.tourName || ''),
+      duration: sanitizeInput(bookingData.duration || ''),
+      packageLevel: sanitizeInput(bookingData.packageLevel || ''),
+      specialRequests: bookingData.specialRequests ? sanitizeInput(bookingData.specialRequests) : ''
     };
 
     console.log('Received booking data from:', sanitizedData.email, 'for package:', sanitizedData.packageType);
