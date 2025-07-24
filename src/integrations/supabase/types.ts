@@ -124,7 +124,27 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      anonymize_old_bookings: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      cleanup_old_booking_submissions: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      cleanup_old_client_details: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
+      get_data_retention_stats: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          table_name: string
+          total_records: number
+          records_older_than_1_year: number
+          records_older_than_2_years: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
