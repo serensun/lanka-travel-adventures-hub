@@ -46,6 +46,7 @@ function App() {
               <Route path="sri-lanka-rare-3-day-tour" element={<ThreeDayTour />} />
               <Route path="sri-lanka-rare-4-day-tour" element={<FourDayTour />} />
               <Route path="sri-lanka-rare-5-day-tour" element={<FiveDayTour />} />
+              <Route path="Sri-Lanka-5-Day-Private-Country-Side-Tour-Car-Hotels-Food" element={<FiveDayTour />} />
               <Route path="sri-lanka-rare-6-day-tour" element={<SixDayTour />} />
               <Route path="sri-lanka-rare-7-day-tour" element={<SevenDayTour />} />
               <Route path="sri-lanka-rare-8-day-tour" element={<EightDayTour />} />
