@@ -22,16 +22,52 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    console.log('Method not allowed:', req.method);
+    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+      status: 405,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+    });
+  }
+
   try {
     const { fullName, email, contactNumber, enquiryMessage }: EnquiryEmailRequest = await req.json();
 
-    console.log("Received enquiry from:", { fullName, email, contactNumber });
+    // Input validation
+    if (!fullName?.trim() || !email?.trim() || !enquiryMessage?.trim()) {
+      console.log('Missing required fields in enquiry request');
+      return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.log('Invalid email format:', email);
+      return new Response(JSON.stringify({ error: 'Invalid email format' }), {
+        status: 400,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      });
+    }
+
+    // Sanitize inputs to prevent XSS
+    const sanitizedData = {
+      fullName: fullName.replace(/[<>]/g, ''),
+      email: email.trim(),
+      contactNumber: contactNumber?.replace(/[<>]/g, '') || '',
+      enquiryMessage: enquiryMessage.replace(/[<>]/g, '')
+    };
+
+    console.log("Received enquiry from:", sanitizedData.email);
 
     // Send email to reservations@serendipitypvt.com
     const emailResponse = await resend.emails.send({
       from: "Sri Lanka Tours <reservations@serendipitypvt.com>",
       to: ["reservations@serendipitypvt.com", "enquiries@serendipitypvt.com"],
-      subject: `New Enquiry from ${fullName}`,
+      subject: `New Enquiry from ${sanitizedData.fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 30px; border-radius: 10px 10px 0 0;">
@@ -42,15 +78,15 @@ const handler = async (req: Request): Promise<Response> => {
           <div style="background: white; padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
             <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
               <h2 style="color: #1e40af; margin: 0 0 15px; font-size: 20px;">Customer Information</h2>
-              <p style="margin: 8px 0; color: #374151;"><strong>Name:</strong> ${fullName}</p>
-              <p style="margin: 8px 0; color: #374151;"><strong>Email:</strong> ${email}</p>
-              ${contactNumber ? `<p style="margin: 8px 0; color: #374151;"><strong>Contact Number:</strong> ${contactNumber}</p>` : ''}
+              <p style="margin: 8px 0; color: #374151;"><strong>Name:</strong> ${sanitizedData.fullName}</p>
+              <p style="margin: 8px 0; color: #374151;"><strong>Email:</strong> ${sanitizedData.email}</p>
+              ${sanitizedData.contactNumber ? `<p style="margin: 8px 0; color: #374151;"><strong>Contact Number:</strong> ${sanitizedData.contactNumber}</p>` : ''}
             </div>
             
             <div style="margin-bottom: 25px;">
               <h3 style="color: #1e40af; margin: 0 0 15px; font-size: 18px;">Enquiry Message</h3>
               <div style="background: #f9fafb; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 4px;">
-                <p style="margin: 0; color: #374151; line-height: 1.6;">${enquiryMessage || 'No specific message provided.'}</p>
+                <p style="margin: 0; color: #374151; line-height: 1.6;">${sanitizedData.enquiryMessage || 'No specific message provided.'}</p>
               </div>
             </div>
             
