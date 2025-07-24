@@ -211,7 +211,7 @@ const Itinerary = () => {
       id: 'west-coast-mangroves-tour',
       title: 'West coast Beach, River Mangroves lagoon, Wildlife boat Tour',
       description: 'Mangrove forests are rapidly disappearing, making this perhaps the final chance to experience these extraordinary ecological treasures. Home to a rich diversity of trees, plants, vines, wildlife, and bird species, they offer a unique natural wonder.',
-      duration: 6,
+      duration: 1,
       price: 'From $90',
       image: westCoastMangrovesHero,
       path: '/West-coast-Beach-River-Mangroves-lagoon-Wildlife-boat-Tour',
