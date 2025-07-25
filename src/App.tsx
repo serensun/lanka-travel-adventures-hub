@@ -72,6 +72,7 @@ function App() {
               <Route path="All-in-Sri-Lanka-7-days-tour-history-culture-nature" element={<AllInSriLankaSevenDayTour />} />
               <Route path="blog" element={<Blog />} />
               <Route path="blog/:slug" element={<BlogPost />} />
+              <Route path="8-places-to-visit-in-anuradhapura" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

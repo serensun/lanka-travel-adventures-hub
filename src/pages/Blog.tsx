@@ -70,7 +70,7 @@ const Blog = () => {
                 ))}
               </div>
               <Link
-                to={`/blog/${post.id}`}
+                to={`/${post.id}`}
                 className="inline-flex items-center text-primary hover:text-primary/80 font-medium"
               >
                 Read More →

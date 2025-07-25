@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, MapPin, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -18,6 +18,10 @@ import anuradhapura8 from '@/assets/anuradhapura-8.avif';
 
 const BlogPost = () => {
   const { slug } = useParams();
+  const location = useLocation();
+  
+  // Handle both /blog/:slug and direct /:slug routes
+  const postSlug = slug || location.pathname.replace('/', '');
 
   // Table of Contents
   const tableOfContents = [
@@ -51,7 +55,7 @@ const BlogPost = () => {
   ];
 
   // Only show the Anuradhapura post for now
-  if (slug !== '8-places-to-visit-in-anuradhapura') {
+  if (postSlug !== '8-places-to-visit-in-anuradhapura') {
     return (
       <div className="max-w-4xl mx-auto px-4 py-8 text-center">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">Post Not Found</h1>
