@@ -15,6 +15,16 @@ const Blog = () => {
       readTime: '15 min read',
       location: 'Anuradhapura',
       tags: ['Culture', 'History', 'Ancient Sites', 'UNESCO']
+    },
+    {
+      id: 'cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island',
+      title: 'Cultural Heritage Tours in Sri Lanka: Explore the Soul of the Island',
+      description: 'Embark on a journey through Sri Lanka\'s rich cultural heritage. From ancient temples and colonial architecture to vibrant traditions, discover the soul of this beautiful island.',
+      image: '/src/assets/cultural-heritage-3.avif',
+      date: '2025-01-15',
+      readTime: '12 min read',
+      location: 'Sri Lanka',
+      tags: ['Culture', 'Heritage', 'Travel Guide', 'Ancient Sites']
     }
   ];
 
