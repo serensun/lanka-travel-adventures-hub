@@ -8,7 +8,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Calendar, Clock, Users, MapPin, Shield, ChevronLeft, ChevronRight, Star, CheckCircle, XCircle, AlertTriangle, Car, Check, X, MessageSquare } from 'lucide-react';
 import BookingForm from './BookingForm';
 
-// Import existing gallery images as placeholders
+// Import hero image and gallery images
+import heroImage from '@/assets/kandy-tour-hero.avif';
 import gallery1 from '@/assets/new-tour-gallery-1.avif';
 import gallery2 from '@/assets/new-tour-gallery-2.avif';
 import gallery3 from '@/assets/new-tour-gallery-3.avif';
@@ -26,6 +27,7 @@ const KandyFourDayTourPackage = () => {
   const [showExpandedItinerary, setShowExpandedItinerary] = useState(false);
 
   const galleryImages = [
+    { src: heroImage, alt: "Kandy 4-Day Tour - Cultural Heritage" },
     { src: gallery1, alt: "Ancient temple architecture" },
     { src: gallery2, alt: "Scenic hill country landscapes" },
     { src: gallery3, alt: "Wildlife safari experience" },
