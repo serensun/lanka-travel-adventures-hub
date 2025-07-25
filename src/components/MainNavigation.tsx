@@ -15,6 +15,7 @@ const MainNavigation = () => {
   const navigationItems = [
     { id: 'home', label: t('navigation.home'), icon: Home, path: '/' },
     { id: 'itinerary', label: t('navigation.tourPackages'), icon: MapPin, path: '/itinerary' },
+    { id: 'blog', label: 'Blog', icon: FileText, path: '/blog' },
     { id: 'about', label: t('navigation.aboutUs'), icon: Users, path: 'https://serendipitypvt.com/about-serendipity-tours-private-limited/' },
     { id: 'contact', label: t('navigation.contactUs'), icon: Phone, path: '/contact' },
     { id: 'terms', label: t('navigation.termsConditions'), icon: FileText, path: '/?section=terms' },
