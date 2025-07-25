@@ -18,6 +18,7 @@ import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
 import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
+import sevenDayTourHero from '../assets/seven-day-tour-hero.avif';
 import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
 import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
 import culturalTriangleWilpattuHero from '../assets/cultural-triangle-wilpattu-hero.avif';
@@ -160,6 +161,18 @@ const Itinerary = () => {
       highlights: ['5 UNESCO World Heritage Sites', 'Wildlife safaris in Yala National Park', 'Scenic train through tea country', 'Ancient cities & cultural experiences', 'Beach relaxation on southern coast'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
       destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Bentota', 'Colombo']
+    },
+    {
+      id: '7day-private-tour',
+      title: 'Sri Lanka Private 7-day Tour: Transport, Guide, Hotels, Food',
+      description: 'Discover Sri Lanka\'s vibrant cultural heritage, tour its ancient landmarks, unwind on serene beaches, and experience the thrill of a wildlife safari. Enjoy personalized, flexible journeys with the convenience of a private vehicle.',
+      duration: 7,
+      price: 'From $750',
+      image: sevenDayTourHero,
+      path: '/Sri-Lanka-Private-7-day-Tour-Transport-Guide-Hotels-Food',
+      highlights: ['Ancient Temples & Palaces', 'Sigiriya Rock Fortress', 'Scenic Train to Ella', 'Yala Wildlife Safari', 'Cultural Shows'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Sightseeing'],
+      destinations: ['Colombo', 'Sigiriya', 'Dambulla', 'Kandy', 'Ella', 'Yala', 'Bentota']
     },
     {
       id: '11day-tour',
