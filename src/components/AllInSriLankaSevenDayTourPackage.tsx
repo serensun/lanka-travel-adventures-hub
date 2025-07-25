@@ -17,7 +17,7 @@ import gallery5 from '@/assets/sri-lanka-7-day-5.avif';
 import gallery6 from '@/assets/sri-lanka-7-day-6.avif';
 import gallery7 from '@/assets/sri-lanka-7-day-7.avif';
 import gallery8 from '@/assets/sri-lanka-7-day-8.avif';
-import heroImage from '@/assets/sri-lanka-7-day-hero.avif';
+import heroImage from '@/assets/sri-lanka-7-day-new-hero.avif';
 
 const AllInSriLankaSevenDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
