@@ -187,6 +187,18 @@ const Itinerary = () => {
       destinations: ['Negombo', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Unawatuna', 'Galle', 'Colombo']
     },
     {
+      id: 'all-in-sri-lanka-7-day-tour',
+      title: 'All in Sri Lanka 7-days tour, history, culture, nature',
+      description: 'Immerse yourself in Sri Lanka\'s living heritage with ancient ruins, beaches, and wildlife safaris.',
+      duration: 7,
+      price: 'From $820',
+      image: sriLanka7DayHero,
+      path: '/All-in-Sri-Lanka-7-days-tour-history-culture-nature',
+      highlights: ['Cultural Triangle', 'Wildlife Safaris', 'Beach Paradise', 'Train Journey'],
+      activities: ['Cultural', 'Wildlife', 'Beach', 'Adventure'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Kandy', 'Ella', 'Yala', 'Bentota', 'Galle']
+    },
+    {
       id: 'cocktail-tour',
       title: 'Sri Lanka 6-days tour, Sri Lanka cocktail tour with a mix of history and culture of Sri Lanka',
       description: 'Discover echoes of Sri Lanka\'s sacred history, from the towering rock fortress of Sigiriya to the ancient ruins of Anuradhapura. On this 6-day journey, uncover breathtaking blends of nature and human ingenuity as you explore vibrant cities, lush jungles, and mysterious caves.',

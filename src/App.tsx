@@ -29,6 +29,7 @@ import KandySigiriyaEllaTour from "./pages/KandySigiriyaEllaTour";
 import BentotaGalleTour from "./pages/BentotaGalleTour";
 import YalaSafariTour from "./pages/YalaSafariTour";
 import SevenDayPrivateTour from "./pages/SevenDayPrivateTour";
+import AllInSriLankaSevenDayTour from "./pages/AllInSriLankaSevenDayTour";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -66,6 +67,7 @@ function App() {
               <Route path="1-Day-Tour-Bentota-Galle-Mangrove-Lagoon-Sea-Turtles" element={<BentotaGalleTour />} />
               <Route path="3-day-southern-sri-lanka-yala-safari-galle-fort-whale-watching-tour" element={<YalaSafariTour />} />
               <Route path="Sri-Lanka-Private-7-day-Tour-Transport-Guide-Hotels-Food" element={<SevenDayPrivateTour />} />
+              <Route path="All-in-Sri-Lanka-7-days-tour-history-culture-nature" element={<AllInSriLankaSevenDayTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
