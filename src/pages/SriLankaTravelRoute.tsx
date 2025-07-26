@@ -305,13 +305,193 @@ const SriLankaTravelRoute = () => {
           <li>Kataragama: Yala wildlife reserve, Kataragama temple</li>
         </ul>
 
-        {/* Add remaining content sections here... */}
-        
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8">
           <h4 className="font-semibold text-blue-900">
             If you wish to book any Sri Lanka trip, please do get in touch with Seerendipity Tours by sending an email to admin@seerendipitytours.com or Call us/WhatsApp us at 0094774440977.
           </h4>
         </div>
+
+        <h2 id="colombo-matara">2. Sri Lanka travel route: Colombo to Matara Expressway</h2>
+        
+        <p>
+          This is a very convenient weekend gateway from Colombo. A road trip from Sri Lanka to Matara is an activity that most local residents are fond of, which provides a perfect setting for a peaceful beach tour of Sri Lanka. Don't forget to go whale- and dolphin-watching in Mirissa and beach-hopping on the beaches. The picturesque palm-fringed beaches and shallow-torque waters of the Indian Ocean calm those jittery nerves.
+        </p>
+        
+        <p>
+          Drop into a beach restaurant and sample a fresh seafood dish while admiring the perfect sunset on the horizon. So if you are near Colombo or somewhere on the west coast, pack yourself and set off on this memorable journey.
+        </p>
+        
+        <p>
+          Road Trip Condition: The expressway spans 158 km from Colombo to Matara, with a total driving time of 2 hours, not including the time required to reach the expressway entrance. The expressway prohibits the use of two-wheelers and only permits a maximum speed of 100 km per hour. The best time to visit is from November to April.
+        </p>
+        
+        <p>Some of the places to stop on this Sri Lanka travel route are:</p>
+        
+        <ul className="list-disc list-inside space-y-2 my-6">
+          <li>Matara: Star Fort, Hummany/natural fountain, Whale watching in Mirissa</li>
+        </ul>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8">
+          <h4 className="font-semibold text-blue-900">
+            If you wish to book a Sri Lanka trip, please get in touch with Seerendipity Tours by sending an email to admin@seerendipitytours.com or by calling/WhatsApping us at 0094774440977.
+          </h4>
+        </div>
+
+        <h2 id="colombo-nuwara-eliya">3. Sri Lanka travel route Colombo to Nuwara Eliya via Kitulgala</h2>
+        
+        <p>
+          A perfect travel route for a Sri Lanka 3-day tour through the tea country. The graceful blend of Sri Lanka's hill country's beautifully landscaped tea garden and cascading waterfalls of perennial waterways in Nuwara Eliya is a sight to behold.
+        </p>
+        
+        <p>
+          The city's sheer beauty surprises the newcomers. The breathtaking scenery along the trip from Nuwara Eliya to Kandy completely mystifies the travelers.
+        </p>
+        
+        <p>
+          The winding roads, high elevation, and healing climate of the hills make it a fantastic road tour of Sri Lanka that will etch a permanent spot in your heart for an eternity.
+        </p>
+        
+        <p>
+          You traverse the mountain terrain, and it is a challenging ride that requires your best attention, but the beauty of this Sri Lanka trip hides the uncertainty of the terrain. If you drive to Nuwara Eliya from the airport or from Colombo, this is the most convenient way of reaching your destination. The drive is long; however, it is very enjoyable as you drive along with the lush green vegetation.
+        </p>
+        
+        <p>
+          Road trip conditions: The road spans 176 km through the mountains. A sharp increase in the road's elevation starts in Awissawella and ends at an altitude of 1800 meters above sea level in Nuwara Eliya. The journey will take around a day with sightseeing stops. The best time to visit is from November to April.
+        </p>
+        
+        <p>Some of the places to stop on this Sri Lanka travel route are:</p>
+        
+        <ul className="list-disc list-inside space-y-2 my-6">
+          <li>Kitulgala: Adventure sports centre for water rafting, trekking, bird watching, etc</li>
+          <li>Talawakele: Devon Fall, St. Clares Falls</li>
+          <li>Nanuoya: Horton plains national park</li>
+          <li>Nuwara Eliya: Ambewela farm, strawberry farm, Seetha Amman temple, Haggala gardens</li>
+        </ul>
+
+        <h2 id="colombo-arugam-bay">4. Sri Lanka travel route: Colombo to Arugam Bay via Kandy</h2>
+        
+        <p>
+          This road is currently one of the best on the island, and I highly recommend embarking on a trip along this wonderful route. You start your journey on the west coast and end your tour on the east coast of Sri Lanka, at the country's widest point. Arugambay is a popular beach resort in Sri Lanka; perhaps it is the most popular on the east coast. The pristine beaches in Arugam Bay are ideal for beachcombing and surfing. However, Aru Gam Bay is a seasonal beach resort, and the best time of year to visit Aru Gam Bay is in May, June, July, and October. Arugam Bay is considered one of the best places to visit in Sri Lanka in July due to the dry and sunny weather.
+        </p>
+        
+        <p>
+          The journey will take around 8 hours without stopping, so calculate the time required for the tour with all the stops for sightseeing and other breaks along the way. The trek to Arugambe from Colombo is one of the most popular activities among road trip lovers in Sri Lanka. If you have good driving stamina, you will be able to reach Arugam Bay within 2 days with excursions to significant tourist places.
+        </p>
+        
+        <p>
+          This will be a highly gorgeous and experience-rich road trip to Sri Lanka. You will meet mountains, escapements, pockets of forests, beaches and any other geographical conditions possible on the island.
+        </p>
+        
+        <p>
+          This road from Kandy to Arugambe via Bibile is one of the most magnificent trips through forests in Sri Lanka that you will ever take. Plan your motorbike road trip so that you can enjoy the refreshing, unpolluted air in this greenish area.
+        </p>
+        
+        <p>
+          Road trip conditions: The road covers 329 km through the middle mountain range. You start the journey from lower, raised parts on the west coast and end the excursion at the east coast beaches, while halfway along the track you will touch the point, which is 500 meters above sea level.
+        </p>
+
+        <h3>Some of the places to stop on this Sri Lanka travel route are:</h3>
+        
+        <ul className="list-disc list-inside space-y-2 my-6">
+          <li>Kandy: tooth relic temple, Peradeniya botanical garden</li>
+          <li>Kegalle: Pinnawala elephant orphanage</li>
+          <li>Arugam Bay: beach hopping</li>
+        </ul>
+
+        <h3>Visiting tooth relic temple: what you need to Know</h3>
+        
+        <p>
+          To respect their religious beliefs, all visitors to these important sites are expected to dress appropriately. Every visitor to religious sites in Sri Lanka follows a set of norms when visiting sacred locations. If you're wondering what these regulations are, check out this article: "{' '}
+          <a href="https://www.urlaub-sr-lanka.info/9-rules-you-break-when-visiting-sri-lanka-buddhist-temple/" className="text-primary hover:underline">
+            13 RULES TO OBSERVE WHILE VISITING SRI LANKA BUDDHIST TEMPLE, SRI LANKA TEMPLE DRESS CODE, TEMPLE OF THE TOOTH DRESS CODE
+          </a>."
+        </p>
+
+        <h2 id="colombo-anuradhapura">5. Sri Lanka travel route: Colombo to Anuradhapura via Puttalam</h2>
+        
+        <p>
+          Travelers can't picture a wonderful road trip of this sort via stunning beaches and through the untamed environment. This road trip will be a great experience due to the fascinating blend of wildlife, marine, cultural and historical events. So much in a one-road drive! So, prepare yourself and take the road.
+        </p>
+        
+        <p>
+          However, we propose combining your vacation on this route with a cultural triangle tour to explore several important cities in{' '}
+          <a href="https://seerendipitytours.com/cultural-triangle-of-sri-lanka" className="text-primary hover:underline">
+            Sri Lanka's culture triangle
+          </a>, including Sigiriya.
+        </p>
+        
+        <p>
+          This is a highly attractive Sri Lanka travel route through some of the least populated places in the central province. You drive a big part of your trip through the wildlife reserve, and there is a strong probability of witnessing wild elephants as you travel from Puttalam to Saliyawewa.
+        </p>
+        
+        <p>
+          Route travel conditions: The route stretches 207 km in northwest Sri Lanka and makes an abrupt turn inland at Puttalam. The journey takes roughly 4 hours. You can meet modest traffic between Colombo and Puttalam, after which the route becomes empty. Be careful, as you will have to travel through the forested areas after Puttalam. It is best to avoid traveling at night on this Sri Lanka travel route because of the wild elephants.
+        </p>
+
+        <h3>Some of the places to stop on this Sri Lanka travel route are:</h3>
+        
+        <ul className="list-disc list-inside space-y-2 my-6">
+          <li>
+            <strong>
+              Wilpattu: For a{' '}
+              <a href="https://www.urlaub-sr-lanka.info/sri-lanka-safari-and-beach-holiday/" className="text-primary hover:underline">
+                safari tour at the national park
+              </a>
+            </strong>
+          </li>
+          <li><strong>Negombo: For beach hopping</strong></li>
+          <li><strong>Puttalam: Munneswarama and Manawari temple</strong></li>
+          <li>
+            <strong>
+              Anuradhapura:{' '}
+              <a href="https://www.urlaub-sr-lanka.info/historical-places-sri-lanka/" className="text-primary hover:underline">
+                Historical monuments
+              </a>
+            </strong>
+          </li>
+        </ul>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8">
+          <h4 className="font-semibold text-blue-900">
+            If you wish to book any Sri Lanka trip, please do get in touch with Seerendipity Tours by sending an email to admin@seerendipitytours.com or Call us/WhatsApp us at 0094774440977.
+          </h4>
+        </div>
+
+        <h2 id="colombo-trincomalee">6. Sri Lanka tour from Colombo to Trincomalee via Dambulla</h2>
+        
+        <p>
+          This is another popular Sri Lankan travel route from Colombo to the east coast of Sri Lanka. This is the most convenient way to reach Trincomalee from Colombo. On this road trip, the travelers avoid going through the central mountain range, and their destination is located more to the northeast of Sri Lanka.
+        </p>
+        
+        <p>
+          The reason this is a well-liked route for foreign visitors is that a lot of people visit the beaches of Trincomalee in July, August, September, and October each year. One of the busiest roads in Sri Lanka, it passes through several densely populated cities, including Kurunegala and Dambulla.
+        </p>
+        
+        <p>
+          This travel itinerary takes you to the cultural triangle of Sri Lanka; a brief detour enables you to visit numerous significant sites within the triangle. The Cultural Triangle mini-tour and the Sigiriya Dambulla tour from Colombo are two well-liked tours that make use of this route to explore Sri Lanka's historical sites.
+        </p>
+        
+        <p>
+          Thus, taking this route from Colombo to the east coast of Sri Lanka will take about six hours. You will pass through Gal Oya National Park's densely forested area after Habarana. As you make your way through the forest, there's a good chance you'll come across a family of wild elephants. This road trip to Sri Lanka will require you to travel 268 km in total, and it should take you about 6 hours.
+        </p>
+
+        <h3>Some places to stop on the travel route are:</h3>
+        
+        <ul className="list-disc list-inside space-y-2 my-6">
+          <li>Dambulla: Temple of the Golden Cave</li>
+          <li>Kegalle: Elephant Orphanage, Pinnawala</li>
+          <li>Habarana: Safari Minneriya</li>
+          <li>Sigiriya: See the rock fortress there</li>
+          <li>Paintings of Sigiriya rock fortress</li>
+        </ul>
+
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-8">
+          <h4 className="font-semibold text-blue-900">
+            Please email admin@seerendipitytours.com to contact Seerendipity Tours if you would like to make any travel arrangements to Sri Lanka, or give us a call at 0094774440977, or send us a WhatsApp message.
+          </h4>
+        </div>
+
+        <h2 id="colombo-kandy">7. Travel route through Sri Lanka: Kegalle to Kandy from Colombo</h2>
       </div>
 
       {/* Back to Blog */}
