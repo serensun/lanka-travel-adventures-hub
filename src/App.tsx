@@ -33,6 +33,7 @@ import AllInSriLankaSevenDayTour from "./pages/AllInSriLankaSevenDayTour";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import CulturalHeritageTour from "./pages/CulturalHeritageTour";
+import SriLankaTravelRoute from "./pages/SriLankaTravelRoute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -77,6 +78,8 @@ function App() {
               <Route path="8-places-to-visit-in-anuradhapura/" element={<BlogPost />} />
               <Route path="cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island" element={<CulturalHeritageTour />} />
               <Route path="cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island/" element={<CulturalHeritageTour />} />
+              <Route path="sri-lanka-travel-route" element={<SriLankaTravelRoute />} />
+              <Route path="sri-lanka-travel-route/" element={<SriLankaTravelRoute />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

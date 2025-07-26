@@ -7,6 +7,16 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'sri-lanka-travel-route',
+      title: 'Sri Lanka Travel Route',
+      description: 'Discover the best travel routes in Sri Lanka for your perfect vacation. From coastal drives to mountain paths, learn how to plan the most efficient routes for your Sri Lankan adventure.',
+      image: '/src/assets/cultural-heritage-2.avif',
+      date: '2025-01-26',
+      readTime: '25 min read',
+      location: 'Sri Lanka',
+      tags: ['Travel Planning', 'Routes', 'Transportation', 'Guide']
+    },
+    {
       id: '8-places-to-visit-in-anuradhapura',
       title: '8 PLACES TO VISIT IN ANURADHAPURA',
       description: '8 Places to visit in Anuradhapura are Sri Maha Bodhi, Ruwanweli Stupa, Thuparama, Jetawanarama, Lovamahapaya, Abhayagiri, Mirisaweti, Lankarama.',
