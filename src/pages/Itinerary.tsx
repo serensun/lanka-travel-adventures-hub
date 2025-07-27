@@ -23,6 +23,7 @@ import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
 import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
 import culturalTriangleWilpattuHero from '../assets/cultural-triangle-wilpattu-hero.avif';
 import kandyTourHero from '../assets/kandy-tour-hero.avif';
+import fiveDayCountrysideHero from '../assets/5-day-countryside-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -89,6 +90,18 @@ const Itinerary = () => {
       highlights: ['Cultural Heritage', 'Nature Exploration', 'Scenic Landscapes'],
       activities: ['Cultural', 'Nature', 'Photography'],
       destinations: ['Kandy', 'Sigiriya', 'Nuwara Eliya']
+    },
+    {
+      id: '5day-countryside-tour',
+      title: '5-Day Private Country Side Tour with Ella, Udawalawe',
+      description: 'Experience the scenic beauty of Sri Lanka\'s countryside from Kandy. Wander through charming hill towns, wildlife reserves, coastal beaches, and heritage sites, and enjoy a memorable train ride across the scenic hill country.',
+      duration: 5,
+      price: 'From $620',
+      image: fiveDayCountrysideHero,
+      path: '/5-Day-Private-Country-Side-Tour-Ella-Udawalawe',
+      highlights: ['Heritage Sites', 'Wildlife Safari', 'Hill Country Train', 'Coastal Beaches'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature'],
+      destinations: ['Kandy', 'Sigiriya', 'Ella', 'Udawalawe', 'Galle', 'Bentota']
     },
     {
       id: '10day-tour',

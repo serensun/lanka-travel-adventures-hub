@@ -30,6 +30,7 @@ import BentotaGalleTour from "./pages/BentotaGalleTour";
 import YalaSafariTour from "./pages/YalaSafariTour";
 import SevenDayPrivateTour from "./pages/SevenDayPrivateTour";
 import AllInSriLankaSevenDayTour from "./pages/AllInSriLankaSevenDayTour";
+import FiveDayCountrysideTour from "./pages/FiveDayCountrysideTour";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import CulturalHeritageTour from "./pages/CulturalHeritageTour";
@@ -72,6 +73,7 @@ function App() {
               <Route path="3-day-southern-sri-lanka-yala-safari-galle-fort-whale-watching-tour" element={<YalaSafariTour />} />
               <Route path="Sri-Lanka-Private-7-day-Tour-Transport-Guide-Hotels-Food" element={<SevenDayPrivateTour />} />
               <Route path="All-in-Sri-Lanka-7-days-tour-history-culture-nature" element={<AllInSriLankaSevenDayTour />} />
+              <Route path="5-Day-Private-Country-Side-Tour-Ella-Udawalawe" element={<FiveDayCountrysideTour />} />
               <Route path="blog" element={<Blog />} />
               <Route path="blog/:slug" element={<BlogPost />} />
               <Route path="8-places-to-visit-in-anuradhapura" element={<BlogPost />} />
