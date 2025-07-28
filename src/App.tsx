@@ -28,6 +28,7 @@ import CulturalTriangleWilpattuTour from "./pages/CulturalTriangleWilpattuTour";
 import KandySigiriyaEllaTour from "./pages/KandySigiriyaEllaTour";
 import BentotaGalleTour from "./pages/BentotaGalleTour";
 import YalaSafariTour from "./pages/YalaSafariTour";
+import JungleAdventureTour from "./pages/JungleAdventureTour";
 import SevenDayPrivateTour from "./pages/SevenDayPrivateTour";
 import AllInSriLankaSevenDayTour from "./pages/AllInSriLankaSevenDayTour";
 import FiveDayCountrysideTour from "./pages/FiveDayCountrysideTour";
@@ -82,6 +83,7 @@ function App() {
               <Route path="cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island/" element={<CulturalHeritageTour />} />
               <Route path="sri-lanka-travel-route" element={<SriLankaTravelRoute />} />
               <Route path="sri-lanka-travel-route/" element={<SriLankaTravelRoute />} />
+              <Route path="4-Day-Jungle-Adventure-Sri-Lanka–Explore-Lush-Rainforests-and-Thrilling-National-Parks" element={<JungleAdventureTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

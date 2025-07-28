@@ -56,6 +56,18 @@ const Itinerary = () => {
       destinations: ['Polonnaruwa', 'Anuradhapura', 'Minneriya']
     },
     {
+      id: 'jungle-adventure-tour',
+      title: '4-Day Jungle Adventure in Sri Lanka – Explore Lush Rainforests and Thrilling National Parks',
+      description: 'This guided Sri Lanka wildlife tour packs in the best of the island\'s biodiversity—explore 2 national parks, 2 rainforests, a mangrove lagoon, misty hill country, and the scenic south & west coasts—all in one unforgettable journey!',
+      duration: 4,
+      price: 'From $475',
+      image: tourGallery3,
+      path: '/4-Day-Jungle-Adventure-Sri-Lanka–Explore-Lush-Rainforests-and-Thrilling-National-Parks',
+      highlights: ['Rainforest Exploration', 'Wildlife Safari', 'Whale Watching', 'Cultural Sites'],
+      activities: ['Wildlife', 'Adventure', 'Nature'],
+      destinations: ['Sinharaja', 'Yala', 'Udawalawe', 'Mirissa', 'Galle']
+    },
+    {
       id: '4day-new-tour',
       title: 'Sri Lanka 4-Day Private Tour With 18 Amazing Places',
       description: 'An intensive 4-day journey covering 18 spectacular destinations across Sri Lanka.',
