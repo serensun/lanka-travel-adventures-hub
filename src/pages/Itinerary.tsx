@@ -68,6 +68,18 @@ const Itinerary = () => {
       destinations: ['Sinharaja', 'Yala', 'Udawalawe', 'Mirissa', 'Galle']
     },
     {
+      id: 'majical-sri-lanka-18-days-tour',
+      title: 'Majical Sri Lanka 18 days tour',
+      description: 'Embark on an 18-day journey blending culture, adventure, and wildlife in perfect harmony. Discover ancient wonders, conquer legendary peaks, and track majestic leopards in their natural habitat - all while enjoying well-paced moments of relaxation',
+      duration: 18,
+      price: 'From $1975',
+      image: 'https://serendipitypvt.com/wp-content/uploads/2025/05/158.avif',
+      path: '/Majical-Sri-Lanka-18-days-tour',
+      highlights: ['Ancient Wonders', 'Wildlife Safari', 'Highland Treks', 'Beach Relaxation', 'Cultural Heritage'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
+      destinations: ['Sigiriya', 'Kandy', 'Ella', 'Yala', 'Mirissa', 'Galle', 'Polonnaruwa', 'Horton Plains']
+    },
+    {
       id: '4day-new-tour',
       title: 'Sri Lanka 4-Day Private Tour With 18 Amazing Places',
       description: 'An intensive 4-day journey covering 18 spectacular destinations across Sri Lanka.',
