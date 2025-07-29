@@ -152,6 +152,18 @@ const Itinerary = () => {
       destinations: ['Anuradhapura', 'Sigiriya', 'Kandy', 'Ella', 'Yala']
     },
     {
+      id: '8day-private-tour',
+      title: 'Sri Lanka 8-Day Private Tour-:25 Amazing Places+Activities',
+      description: 'Explore the highlights of Sri Lanka on an 8-day journey with included stays. Experience 25 incredible destinations, featuring historic sites, wildlife reserves, picturesque highlands, untouched beaches, and charming rural towns.',
+      duration: 8,
+      price: 'From $759',
+      image: sriLanka8DayHero,
+      path: '/Sri-Lanka-8-Day-Private-Tour-25-Amazing-Places-Activities',
+      highlights: ['Cultural Triangle', 'Sigiriya Rock Fortress', 'Yala Safari', 'Hill Country Train', '25 Destinations'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
+      destinations: ['Anuradhapura', 'Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle', 'Mirissa']
+    },
+    {
       id: '2day-cultural-triangle',
       title: 'Private 2-Day Cultural Triangle + Wildlife Tour of Sri Lanka',
       description: 'Awaken Your Spirit: 2-Day Sacred Journey Through Sri Lanka\'s Cultural Heart with UNESCO World Heritage sites.',

@@ -1,294 +1,345 @@
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Clock, Users, Globe, Calendar, CheckCircle, XCircle, AlertCircle, ZoomIn, ChevronLeft, ChevronRight, Car, MapPin, Camera, MessageSquare } from "lucide-react";
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
-import BookingForm from "./BookingForm";
+import { Calendar, Clock, Users, Star, MapPin, Camera, Binoculars } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import BookingForm from './BookingForm';
 
-// Gallery images
-import gallery1 from "@/assets/sri-lanka-8-day-1.avif";
-import gallery2 from "@/assets/sri-lanka-8-day-2.avif";
-import gallery3 from "@/assets/sri-lanka-8-day-3.avif";
+// Import images
 import heroImage from "@/assets/sri-lanka-8-day-hero.avif";
+import image1 from "@/assets/sri-lanka-8-day-1.avif";
+import image2 from "@/assets/sri-lanka-8-day-2.avif";
+import image3 from "@/assets/sri-lanka-8-day-3.avif";
+import image4 from "@/assets/sri-lanka-8-day-4.avif";
+import image5 from "@/assets/sri-lanka-8-day-5.avif";
+import image6 from "@/assets/sri-lanka-8-day-6.avif";
+import image7 from "@/assets/sri-lanka-8-day-7.avif";
+import image8 from "@/assets/sri-lanka-8-day-8.avif";
+import image9 from "@/assets/sri-lanka-8-day-9.avif";
+import image10 from "@/assets/sri-lanka-8-day-10.avif";
 
 const EightDayTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
   const [travelers, setTravelers] = useState(2);
   const [comments, setComments] = useState('');
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
+  const packageRates = {
+    standard: { twin: 759.00, single: 1190.00 },
+    comfort: { twin: 999.00, single: 1490.00 }
+  };
+
   const galleryImages = [
-    heroImage, gallery1, gallery2, gallery3
-  ];
-
-  const itineraryData = [
-    { 
-      day: 1, 
-      title: "Colombo/Anuradhapura/Sigiriya", 
-      time: "Full Day",
-      highlights: "Anuradhapura Historic City",
-      description: "Meet and greet a representative of Seerendipity Tours, then drive to a hotel in Sigiriya. En route, visit the historic city of Anuradhapura. Stay overnight in Sigiriya."
-    },
-    { 
-      day: 2, 
-      title: "Sigiriya/Polonnaruwa/Sigiriya", 
-      time: "Full Day",
-      highlights: "Sigiriya Rock Fortress, Polonnaruwa, Pidurangala Temple",
-      description: "Breakfast at the hotel and climb the iconic Sigiriya rock fortress; later, drive to Pollonnaruwa, an ancient city, to see many dozens of ancient religious monuments. Later, visit the ancient Pidurangala temple. Stay overnight in Sigiriya."
-    },
-    { 
-      day: 3, 
-      title: "Sigiriya/Kandy", 
-      time: "Full Day",
-      highlights: "Dambulla Golden Temple, Spice Garden, Hindu Temple",
-      description: "After breakfast, leave for the hotel in Kandy. En route, stop at Dambulla Golden Temple, the spice and herbal garden in Matale. Later, see the beautiful Hindu temple in Matale. Check in at the hotel and enjoy. Overnight stays in Kandy"
-    },
-    { 
-      day: 4, 
-      title: "Kandy", 
-      time: "Full Day",
-      highlights: "Tooth Relic Temple, Royal Botanical Garden, Kandyan Cultural Show",
-      description: "Today, explore the beautiful city of Kandy after breakfast. Visit the Tooth Relic Temple, the Royal Botanical Garden, Bahirawakande Temple, Downtown Kandy, the Gem Museum, the Kandyan Cultural Show, the World War II Commonwealth War Cemetery, Kandy Lake, Kandy Upper Lake, and the Kandy Museum. Overnight stays in Kandy"
-    },
-    { 
-      day: 5, 
-      title: "Kandy/Nuwara Eliya/Ella", 
-      time: "Full Day",
-      highlights: "Tea Factories, Ramboda Waterfall, Hill Country Train",
-      description: "After breakfast, leave for the hill country resort of Nuwara Eliya. En route, stop at tea factories, tea plantations and the Ramboda waterfall. Later in the day, take a sightseeing tour of Nuwara Eliya. In the afternoon, board the Ella-bound hill country train from Nuwara Eliya and experience one of the world's most scenic train trips. Overnight stay in Ella"
-    },
-    { 
-      day: 6, 
-      title: "Ella/Yala", 
-      time: "Full Day",
-      highlights: "Mini-Adams Peak, Ella Rock, Nine Arch Bridge, Ravana Waterfall",
-      description: "Early in the morning, climb the mini-Adams to see the picturesque sunrise. Later, visit Ella Rock and its nine arch bridges. After breakfast, leave for the hotel in Yala. Make stops at the Sita Amman Temple and the Ravan Waterfall en route. check-in and leisure. Overnight stay in Yala"
-    },
-    { 
-      day: 7, 
-      title: "Yala/West Coast", 
-      time: "Full Day",
-      highlights: "Yala Safari, Galle Fort, Mirissa Beach, Hikkaduwa",
-      description: "Early morning leave for a Yala safari; later drive to the beach hotel on the southwest coast. En route, stop at Galle Fort, Mirissa Beach, Hikkaduwa and the Bentota River. Stay overnight in a hotel in Galle, Bentota or Kalutara"
-    },
-    { 
-      day: 8, 
-      title: "Southwest Coast/Colombo", 
-      time: "Full Day",
-      highlights: "Departure",
-      description: "After breakfast, leave for the Colombo airport or hotel of your choice."
-    }
-  ];
-
-  const itinerary = [
-    { day: 1, title: 'Colombo/Anuradhapura/Sigiriya', activities: ['Meet & Greet', 'Drive to Sigiriya', 'Anuradhapura Historic City Visit', 'Check-in Sigiriya Hotel'] },
-    { day: 2, title: 'Sigiriya/Polonnaruwa/Sigiriya', activities: ['Sigiriya Rock Fortress Climb', 'Polonnaruwa Ancient City', 'Pidurangala Temple Visit', 'Return to Sigiriya'] },
-    { day: 3, title: 'Sigiriya/Kandy', activities: ['Dambulla Golden Temple', 'Matale Spice Garden', 'Hindu Temple Visit', 'Check-in Kandy Hotel'] },
-    { day: 4, title: 'Kandy City Tour', activities: ['Tooth Relic Temple', 'Royal Botanical Garden', 'Kandyan Cultural Show', 'Kandy Lake & Museums'] },
-    { day: 5, title: 'Kandy/Nuwara Eliya/Ella', activities: ['Tea Factory Tour', 'Ramboda Waterfall', 'Nuwara Eliya Sightseeing', 'Hill Country Train to Ella'] },
-    { day: 6, title: 'Ella/Yala', activities: ['Mini-Adams Peak Sunrise', 'Ella Rock Hike', 'Nine Arch Bridge', 'Drive to Yala via Ravana Falls'] },
-    { day: 7, title: 'Yala/West Coast', activities: ['Yala National Park Safari', 'Galle Fort Tour', 'Beach Stops - Mirissa & Hikkaduwa', 'Coastal Hotel Check-in'] },
-    { day: 8, title: 'Departure', activities: ['Transfer to Colombo Airport', 'Tour Conclusion'] }
+    { src: heroImage, alt: "Sri Lanka 8-Day Tour" },
+    { src: image1, alt: "Cultural Triangle" },
+    { src: image2, alt: "Sigiriya Rock Fortress" },
+    { src: image3, alt: "Tea Plantations" },
+    { src: image4, alt: "Wildlife Safari" },
+    { src: image5, alt: "Kandy Temple" },
+    { src: image6, alt: "Hill Country" },
+    { src: image7, alt: "Ancient Ruins" },
+    { src: image8, alt: "Beach Paradise" },
+    { src: image9, alt: "Train Journey" },
+    { src: image10, alt: "Local Culture" }
   ];
 
   const highlights = [
-    "Discover Sri Lanka's legendary Cultural Triangle - explore the ancient wonders of Anuradhapura, Polonnaruwa and Dambulla's cave temples.",
-    "Scale the iconic Sigiriya Rock Fortress for panoramic views.",
-    "Encounter leopards and elephants on an exhilarating Yala safari.",
-    "Complete your journey with a scenic train ride through tea-clad hills to Ella, showcasing the island's stunning diversity from mountains to golden coasts."
+    "Discover Sri Lanka's rich heritage as you explore ancient temples, stupas, and royal palaces in the Cultural Triangle.",
+    "Ascend the legendary Sigiriya Rock Fortress to admire its historic frescoes and breathtaking views.",
+    "Embark on a thrilling Yala National Park safari, where you might spot leopards, sloth bears, elephants, and crocodiles.",
+    "Relax on stunning coastal beaches and take a refreshing dip in the warm ocean waters.",
+    "Journey through Sri Lanka's scenic hill country on the famous blue train, soaking in the picturesque landscapes."
   ];
 
-  const packageRates = {
-    standard: { double: 750, single: 1200 },
-    comfort: { double: 950, single: 1599 },
-    luxury: { double: 1399, single: 1799 }
-  };
+  const inclusions = [
+    "8 days accommodation in standard tourist hotels",
+    "7 Breakfasts and Dinners",
+    "Guided Sigiriya rock tour",
+    "Dambulla temple tour",
+    "Exploring ancient monuments in Anuradhapura",
+    "Exploring ancient monuments in Polonnaruwa",
+    "Kandy sightseeing tour",
+    "Tooth relic temple tour",
+    "Yala National Park safari",
+    "Royal botanical garden tour",
+    "Herbal garden tour",
+    "Nuwara Eliya sightseeing tour",
+    "All-inclusive hill country blue train trip",
+    "Ella sightseeing tour with nine arch bridge and mini-adams peak",
+    "Minneriya National Park safari",
+    "Air-conditioned vehicles and private transportation",
+    "Local tourist driver cum guide",
+    "Daily breakfast and dinner at hotel",
+    "Fuel charges, Parking Fees and Highway Charges",
+    "Chauffeur guide",
+    "Hotel or Airport Pick-up & Drop-Off"
+  ];
+
+  const exclusions = [
+    "Lunch and refreshments",
+    "Expenses of Personal Nature",
+    "Entry/Admission - Sigiriya The Ancient Rock Fortress",
+    "Entry/Admission - Anuradhapura",
+    "Entry/Admission - Polonnaruwa",
+    "Entry/Admission - Minneriya and Yala National Park",
+    "Jeeps for safaris",
+    "Entry/Admission - Dambulla Royal Cave Temple",
+    "Entry/Admission - Temple of the Sacred Tooth Relic",
+    "Entry/Admission - Royal Botanical Gardens",
+    "Entry/Admission - Kosgoda Sea Turtle Conservation Project"
+  ];
+
+  const itineraryData = [
+    {
+      day: "Day 1",
+      title: "Colombo → Anuradhapura → Sigiriya",
+      details: [
+        "Meet your Seerendipity Tours representative and travel to Sigiriya.",
+        "En route, explore the ancient ruins of Anuradhapura, a UNESCO-listed historic city.",
+        "Overnight stay in Sigiriya."
+      ]
+    },
+    {
+      day: "Day 2",
+      title: "Sigiriya → Polonnaruwa → Minneriya Safari",
+      details: [
+        "After breakfast, conquer the legendary Sigiriya Rock Fortress with its ancient frescoes and panoramic views.",
+        "Discover the archaeological wonders of Polonnaruwa, another UNESCO World Heritage Site.",
+        "Embark on an exciting Minneriya National Park safari (famous for elephant gatherings).",
+        "Overnight stay in Sigiriya."
+      ]
+    },
+    {
+      day: "Day 3",
+      title: "Sigiriya → Dambulla → Kandy",
+      details: [
+        "Visit the Dambulla Cave Temple, a stunning complex of rock temples.",
+        "Stop at a spice garden in Matale and explore a vibrant Hindu temple.",
+        "Arrive in Kandy, the cultural heart of Sri Lanka.",
+        "Overnight stay in Kandy."
+      ]
+    },
+    {
+      day: "Day 4",
+      title: "Kandy Sightseeing",
+      details: [
+        "Discover Kandy's highlights:",
+        "• Temple of the Sacred Tooth Relic",
+        "• Royal Botanical Gardens (Peradeniya)",
+        "• Bahirawakanda Temple (for panoramic city views)",
+        "• Kandy Lake & Upper Lake",
+        "• Gem Museum & Cultural Show",
+        "Overnight stay in Kandy."
+      ]
+    },
+    {
+      day: "Day 5",
+      title: "Kandy → Nuwara Eliya → Ella (Scenic Train Ride)",
+      details: [
+        "Journey through tea country, visiting plantations & Ramboda Falls.",
+        "Explore Nuwara Eliya (\"Little England\") with its colonial charm.",
+        "Board the picturesque Ella-bound train (one of the world's most beautiful rides).",
+        "Overnight stay in Ella."
+      ]
+    },
+    {
+      day: "Day 6",
+      title: "Ella → Yala",
+      details: [
+        "Sunrise hike up Little Adam's Peak for breathtaking views.",
+        "Visit Ella Rock & Nine Arch Bridge.",
+        "Stop at Ravana Falls & Sita Amman Temple en route to Yala.",
+        "Overnight stay in Yala."
+      ]
+    },
+    {
+      day: "Day 7",
+      title: "Yala Safari → South Coast",
+      details: [
+        "Morning Yala National Park safari (leopards, elephants & more!).",
+        "Travel to the southwest coast for beach relaxation.",
+        "Overnight stay at a beachside hotel."
+      ]
+    },
+    {
+      day: "Day 8",
+      title: "South Coast → Colombo (Coastal Highlights)",
+      details: [
+        "Scenic drive back to Colombo, stopping at:",
+        "• Galle Fort (Dutch-colonial heritage)",
+        "• Mirissa Beach (optional whale watching)",
+        "• Hikkaduwa & Bentota River (optional boat ride)",
+        "Drop-off at Colombo airport/hotel."
+      ]
+    }
+  ];
 
   const getTotalPrice = () => {
-    if (travelers === 1) {
-      return packageRates[selectedPackage].single;
-    } else {
-      return packageRates[selectedPackage].double * travelers;
-    }
+    const rate = packageRates[selectedPackage as keyof typeof packageRates];
+    return travelers === 1 ? rate.single : rate.twin * travelers;
   };
 
   const getPackageColor = (pkg: string) => {
     switch (pkg) {
-      case 'standard': return 'from-blue-500 to-blue-700';
-      case 'comfort': return 'from-blue-600 to-blue-800';
-      case 'luxury': return 'from-blue-700 to-blue-900';
-      default: return 'from-blue-500 to-blue-700';
+      case 'standard': return 'bg-blue-500 hover:bg-blue-600';
+      case 'comfort': return 'bg-green-500 hover:bg-green-600';
+      default: return 'bg-gray-500 hover:bg-gray-600';
     }
   };
 
-  const includes = [
-    "8 days accommodation in chosen category of hotels",
-    "7 Breakfasts",
-    "Guided Sigiriya rock tour",
-    "Exploring ancient monuments in Anuradhapura",
-    "Exploring ancient monuments in Polonnaruwa",
-    "Guided Dambulla temple tour",
-    "Tooth relic temple tour",
-    "Kandy sightseeing tour",
-    "Herbal garden tour",
-    "Nuwara Eliya sightseeing tour",
-    "All-inclusive hill country blue train trip",
-    "Ella sightseeing tour with nine Arches bridge and Mini adams peak hike",
-    "Air-conditioned vehicles and private transportation",
-    "Local tourist driver cum guide",
-    "Fuel charges, Parking Fees and Highway Charges",
-    "Hotel or Airport Pick-up & Drop-Off",
-    "Breakfast and dinner (depending on option selected)"
-  ];
-
-  const excludes = [
-    "Lunch and refreshments",
-    "Expenses of Personal Nature",
-    "Entry/Admission – Sigiriya, The Ancient Rock Fortress",
-    "Entry/Admission – Anuradhapura",
-    "Entry/Admission – Polonnaruwa",
-    "Entry/Admission – Minneriya and Yala National Park",
-    "Jeeps for safaris",
-    "Entry/Admission – Dambulla Royal Cave Temple",
-    "Entry/Admission – Temple of the Sacred Tooth Relic",
-    "Entry/Admission – Royal Botanical Gardens",
-    "Entry/Admission – Kosgoda Sea Turtle Conservation Project"
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
-            Sri Lanka Private 8-day Tour; Transport, Guide, Hotels, Food
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Explore ancient wonders of Sri Lanka's Cultural Triangle with your personal guide. Marvel at misty mountain vistas, 
-            untouched golden beaches, and cascading waterfalls as you discover heritage gems like sacred Kandy. Cap off your 
-            journey with an unforgettable wildlife safari adventure.
-          </p>
-        </div>
-
-        {/* Gallery Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">Gallery</h2>
-          <div className="relative">
-            <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
-              {galleryImages.slice(0, 3).map((image, index) => (
-                <Dialog key={index}>
-                  <DialogTrigger asChild>
-                    <div 
-                      className="flex-none w-80 aspect-video overflow-hidden rounded-lg shadow-lg snap-start cursor-pointer group relative"
-                      onClick={() => setCurrentImageIndex(index)}
-                    >
-                      <img 
-                        src={image} 
-                        alt={`Tour gallery ${index + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-125"
-                      />
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <ZoomIn className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl w-full max-h-[90vh] p-2">
-                    <div className="relative">
-                      <img 
-                        src={galleryImages[currentImageIndex]} 
-                        alt={`Tour gallery ${currentImageIndex + 1} - Enlarged view`}
-                        className="w-full h-auto object-contain max-h-[80vh] rounded-lg"
-                      />
-                      
-                      {/* Previous Arrow */}
-                      <button
-                        onClick={() => setCurrentImageIndex(prev => prev > 0 ? prev - 1 : galleryImages.length - 1)}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
-                        aria-label="Previous image"
-                      >
-                        <ChevronLeft className="h-6 w-6" />
-                      </button>
-                      
-                      {/* Next Arrow */}
-                      <button
-                        onClick={() => setCurrentImageIndex(prev => prev < galleryImages.length - 1 ? prev + 1 : 0)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
-                        aria-label="Next image"
-                      >
-                        <ChevronRight className="h-6 w-6" />
-                      </button>
-                      
-                      {/* Image Counter */}
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                        {currentImageIndex + 1} / {galleryImages.length}
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
-            <div className="text-center mt-4 text-sm text-muted-foreground">
-              Showing 3 images - scroll horizontally to view more
+    <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
+      {/* Hero Section */}
+      <div className="relative h-96 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }}>
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              Sri Lanka 8-Day Private Tour-:25 Amazing Places+Activities
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Explore the highlights of Sri Lanka on an 8-day journey with included stays. Experience 25 incredible destinations, featuring historic sites, wildlife reserves, picturesque highlands, untouched beaches, and charming rural towns.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Badge variant="secondary" className="text-sm py-2 px-4">
+                <Calendar className="w-4 h-4 mr-2" />
+                8 Days
+              </Badge>
+              <Badge variant="secondary" className="text-sm py-2 px-4">
+                <Users className="w-4 h-4 mr-2" />
+                Private Tour
+              </Badge>
+              <Badge variant="secondary" className="text-sm py-2 px-4">
+                <MapPin className="w-4 h-4 mr-2" />
+                25 Destinations
+              </Badge>
+              <Badge variant="secondary" className="text-sm py-2 px-4">
+                <Star className="w-4 h-4 mr-2" />
+                Free Cancellation
+              </Badge>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Tour Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          <div className="lg:col-span-2">
-            {/* Key Features */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <CheckCircle className="h-6 w-6 text-green-600" />
-                  Tour Features
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-primary" />
-                    <span>Free cancellation: Cancel up to 24-hours in advance for a full refund</span>
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Quick Facts */}
+            <Card>
+              <CardContent className="p-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="text-center">
+                    <Clock className="w-8 h-8 mx-auto mb-2 text-primary" />
+                    <p className="font-semibold">Duration</p>
+                    <p className="text-sm text-muted-foreground">8 Days</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-primary" />
-                    <span>Reserve now & pay later: Keep your travel plans flexible</span>
+                  <div className="text-center">
+                    <Users className="w-8 h-8 mx-auto mb-2 text-primary" />
+                    <p className="font-semibold">Group Size</p>
+                    <p className="text-sm text-muted-foreground">Private</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-primary" />
-                    <span>Duration: 8 days</span>
+                  <div className="text-center">
+                    <Camera className="w-8 h-8 mx-auto mb-2 text-primary" />
+                    <p className="font-semibold">Photography</p>
+                    <p className="text-sm text-muted-foreground">Unlimited</p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Globe className="h-5 w-5 text-primary" />
-                    <span>Live tour guide: English, Italy, French</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="h-5 w-5 text-primary" />
-                    <span>Small group: Private tour participants</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary" />
-                    <span>Pickup included: Please provide us the name of the hotel or address</span>
+                  <div className="text-center">
+                    <Binoculars className="w-8 h-8 mx-auto mb-2 text-primary" />
+                    <p className="font-semibold">Wildlife</p>
+                    <p className="text-sm text-muted-foreground">Safaris</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Highlights */}
-            <Card className="mb-8">
+            {/* Tour Gallery */}
+            <Card>
               <CardHeader>
-                <CardTitle>Highlights</CardTitle>
+                <CardTitle>Tour Gallery</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4">
+                  {galleryImages.slice(0, 6).map((image, index) => (
+                    <Dialog key={index}>
+                      <DialogTrigger asChild>
+                        <div className="cursor-pointer overflow-hidden rounded-lg aspect-square">
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl">
+                        <Carousel className="w-full">
+                          <CarouselContent>
+                            {galleryImages.map((img, imgIndex) => (
+                              <CarouselItem key={imgIndex}>
+                                <div className="flex items-center justify-center p-6">
+                                  <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    className="max-w-full max-h-[70vh] object-contain"
+                                  />
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious />
+                          <CarouselNext />
+                        </Carousel>
+                      </DialogContent>
+                    </Dialog>
+                  ))}
+                </div>
+                {galleryImages.length > 6 && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full mt-4">
+                        View All {galleryImages.length} Photos
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl">
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {galleryImages.map((img, imgIndex) => (
+                            <CarouselItem key={imgIndex}>
+                              <div className="flex items-center justify-center p-6">
+                                <img
+                                  src={img.src}
+                                  alt={img.alt}
+                                  className="max-w-full max-h-[70vh] object-contain"
+                                />
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                      </Carousel>
+                    </DialogContent>
+                  </Dialog>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Tour Highlights */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Tour Highlights</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   {highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                    <li key={index} className="flex items-start space-x-3">
+                      <Star className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -296,275 +347,175 @@ const EightDayTourPackage = () => {
               </CardContent>
             </Card>
 
-            {/* Itinerary with Tabs */}
-            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-8">
-              <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center">
-                <Car className="w-5 h-5 mr-2 text-orange-500" />
-                8-Day Detailed Itinerary
-              </h3>
-              
-              <Tabs defaultValue="overview" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-6">
-                  <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="detailed">Detailed Day-by-Day</TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="overview" className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {itinerary.map((day) => (
-                      <div key={day.day} className="bg-white/60 rounded-lg p-4 border border-blue-100">
-                        <div className="flex items-center space-x-3 mb-2">
-                          <div className="bg-orange-400 text-white w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs">
-                            {day.day}
-                          </div>
-                          <h4 className="text-blue-900 font-medium text-sm">{day.title}</h4>
-                        </div>
-                        <p className="text-blue-700 text-xs">{day.activities.length} activities planned</p>
-                      </div>
-                    ))}
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="detailed" className="space-y-6">
-                  {itineraryData.map((day) => (
-                    <div key={day.day} className="border-l-4 border-orange-400 pl-6">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="bg-orange-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
-                          {day.day}
-                        </div>
-                        <h4 className="text-blue-900 font-semibold text-lg">{day.title}</h4>
-                      </div>
-                      <div className="mb-2">
-                        <Badge variant="outline" className="text-xs">{day.highlights}</Badge>
-                      </div>
-                      <p className="text-blue-800 text-sm">{day.description}</p>
-                    </div>
-                  ))}
-                </TabsContent>
-              </Tabs>
-            </div>
-
-            {/* Includes & Excludes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-green-600">
-                    <CheckCircle className="h-6 w-6" />
-                    Includes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {includes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-600 mt-1 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-red-600">
-                    <XCircle className="h-6 w-6" />
-                    Excludes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {excludes.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <XCircle className="h-4 w-4 text-red-600 mt-1 flex-shrink-0" />
-                        <span className="text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Important Information */}
-            <Card className="mb-8">
+            {/* Tour Details */}
+            <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <AlertCircle className="h-6 w-6 text-amber-600" />
-                  Important Information
-                </CardTitle>
+                <CardTitle>Tour Details</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">What to bring:</h4>
-                  <p className="text-muted-foreground">Comfortable shoes, Hat, Camera, Sunscreen, Water</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Know before you go:</h4>
-                  <ul className="text-muted-foreground space-y-1 text-sm">
-                    <li>• Wear comfortable walking shoes as there is a moderate amount of walking involved</li>
-                    <li>• It is recommended to bring a hat, sunscreen, and a camera</li>
-                    <li>• Smoking and consuming food and drinks are not allowed inside the historical sites</li>
-                    <li>• Please be ready at your hotel lobby 15 minutes before the pickup time</li>
-                    <li>• Children under 8 years are not recommended to participate in this tour</li>
-                    <li>• Wheelchair and stroller access is not available</li>
-                    <li>• In case of bad weather, some outdoor activities may be cancelled</li>
-                  </ul>
-                </div>
+              <CardContent>
+                <Tabs defaultValue="overview" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="itinerary">Detailed Itinerary</TabsTrigger>
+                  </TabsList>
+                  
+                  <TabsContent value="overview" className="space-y-6">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-3">What's Included</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {inclusions.map((item, index) => (
+                          <div key={index} className="flex items-center space-x-2">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span className="text-sm">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-lg font-semibold mb-3">What's Not Included</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {exclusions.map((item, index) => (
+                          <div key={index} className="flex items-center space-x-2">
+                            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                            <span className="text-sm">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </TabsContent>
+                  
+                  <TabsContent value="itinerary" className="space-y-4">
+                    {itineraryData.map((day, index) => (
+                      <Card key={index}>
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg text-primary">{day.day}: {day.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="space-y-2">
+                            {day.details.map((detail, detailIndex) => (
+                              <li key={detailIndex} className="text-sm">{detail}</li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </TabsContent>
+                </Tabs>
               </CardContent>
             </Card>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Rates Table */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Tour Rates</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Package Type</TableHead>
-                      <TableHead>Twin Sharing</TableHead>
-                      <TableHead>Single Rate</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {Object.entries(packageRates).map(([pkg, rates]) => (
-                      <TableRow key={pkg}>
-                        <TableCell className="font-medium capitalize">{pkg} Package</TableCell>
-                        <TableCell>${rates.double} p.p</TableCell>
-                        <TableCell>${rates.single}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
+          {/* Booking Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-4 space-y-6">
+              {/* Package Selection */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Select Package Type</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-3">
+                    <Button
+                      variant={selectedPackage === 'standard' ? 'default' : 'outline'}
+                      className={`w-full justify-start ${selectedPackage === 'standard' ? getPackageColor('standard') : ''}`}
+                      onClick={() => setSelectedPackage('standard')}
+                    >
+                      <div className="text-left">
+                        <div className="font-semibold">Standard Package</div>
+                        <div className="text-sm opacity-90">
+                          ${packageRates.standard.twin} PP (Twin) | ${packageRates.standard.single} (Single)
+                        </div>
+                      </div>
+                    </Button>
+                    
+                    <Button
+                      variant={selectedPackage === 'comfort' ? 'default' : 'outline'}
+                      className={`w-full justify-start ${selectedPackage === 'comfort' ? getPackageColor('comfort') : ''}`}
+                      onClick={() => setSelectedPackage('comfort')}
+                    >
+                      <div className="text-left">
+                        <div className="font-semibold">Comfort Package</div>
+                        <div className="text-sm opacity-90">
+                          ${packageRates.comfort.twin} PP (Twin) | ${packageRates.comfort.single} (Single)
+                        </div>
+                      </div>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
 
-            {/* Package Selection */}
-            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-6">
-              <h3 className="text-xl font-bold text-blue-900 mb-4">Select Package Type</h3>
-              <div className="grid md:grid-cols-1 gap-4">
-                {Object.entries(packageRates).map(([pkg, rates]) => (
-                  <button
-                    key={pkg}
-                    onClick={() => setSelectedPackage(pkg)}
-                    className={`p-4 rounded-lg text-left transition-all transform hover:scale-105 ${
-                      selectedPackage === pkg
-                        ? `bg-gradient-to-r ${getPackageColor(pkg)} text-white shadow-lg`
-                        : 'bg-white/70 text-blue-800 hover:bg-white/90 border border-blue-200'
-                    }`}
-                  >
-                    <div className="font-semibold capitalize mb-2">{pkg} Package</div>
-                    <div className="text-sm">
-                      <div>${rates.double} p.p (twin sharing)</div>
-                      <div>${rates.single} (single rate)</div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+              {/* Travelers Input */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Number of Travelers</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <Label htmlFor="travelers">How many people?</Label>
+                    <Input
+                      id="travelers"
+                      type="number"
+                      min="1"
+                      max="20"
+                      value={travelers}
+                      onChange={(e) => setTravelers(parseInt(e.target.value) || 1)}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
 
-            {/* Travelers */}
-            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-6">
-              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
-                <Users className="w-5 h-5 mr-2" />
-                Number of Travelers (1-10)
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <label htmlFor="travelers" className="text-blue-900 font-medium">
-                    Travelers:
-                  </label>
-                  <input
-                    id="travelers"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value={travelers}
-                    onChange={(e) => setTravelers(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
-                    className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-20 text-center"
+              {/* Comments */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Special Requests</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Textarea
+                    placeholder="Any special requests or dietary requirements?"
+                    value={comments}
+                    onChange={(e) => setComments(e.target.value)}
+                    className="min-h-[100px]"
                   />
-                </div>
-                <div className="text-blue-700 text-sm">
-                  {travelers === 1 ? (
-                    <p>Single traveler rate applies</p>
-                  ) : (
-                    <p>Twin sharing rate: ${packageRates[selectedPackage].double} per person</p>
-                  )}
-                </div>
-              </div>
-            </div>
+                </CardContent>
+              </Card>
 
-            {/* Comments Section */}
-            <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200 mb-6">
-              <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
-                <MessageSquare className="w-5 h-5 mr-2" />
-                Comments & Special Requests
-              </h3>
-              <div className="space-y-4">
-                <Label htmlFor="comments" className="text-blue-900 font-medium">
-                  Tell us about your preferences, dietary requirements, or any special requests:
-                </Label>
-                <Textarea
-                  id="comments"
-                  value={comments}
-                  onChange={(e) => setComments(e.target.value)}
-                  placeholder="e.g., vegetarian meals, accessibility needs, celebration occasions, preferred activities..."
-                  rows={4}
-                  className="bg-white/70 text-blue-900 placeholder-blue-500 border border-blue-300 focus:ring-2 focus:ring-blue-500 resize-none"
-                />
-                <p className="text-blue-700 text-sm">
-                  This information will help us customize your tour experience to better suit your needs.
-                </p>
-              </div>
-            </div>
-
-            {/* Booking Summary */}
-            <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                <Camera className="w-5 h-5 mr-2" />
-                Book Your Adventure
-              </h3>
-
-              <div className="space-y-4">
-                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-blue-700">Duration</span>
-                    <span className="font-semibold flex items-center text-blue-900">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      8 days
-                    </span>
+              {/* Booking Summary */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Booking Summary</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Duration:</span>
+                      <span>8 Days</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Travelers:</span>
+                      <span>{travelers} {travelers === 1 ? 'person' : 'people'}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Package:</span>
+                      <span className="capitalize">{selectedPackage}</span>
+                    </div>
+                    <div className="border-t pt-2">
+                      <div className="flex justify-between font-semibold text-lg">
+                        <span>Total:</span>
+                        <span>${getTotalPrice().toFixed(2)}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-blue-700">Travelers</span>
-                    <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-blue-700">Package</span>
-                    <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
-                  </div>
-                </div>
+                </CardContent>
+              </Card>
 
-                <div className="border-t border-blue-200 pt-4">
-                  <div className="flex justify-between items-center text-xl font-bold">
-                    <span className="text-gray-800">Total Cost</span>
-                    <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
-                  </div>
-                  <p className="text-blue-600 text-sm mt-1">
-                    {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
-                  </p>
-                </div>
-
-                <BookingForm 
-                  packageType={`8-day-sri-lanka-tour-${selectedPackage}`}
-                  travelers={travelers}
-                  totalCost={getTotalPrice()}
-                  initialComments={comments}
-                />
-              </div>
+              {/* Booking Form */}
+              <BookingForm 
+                packageType={`8-day-${selectedPackage}`}
+                travelers={travelers}
+                totalCost={getTotalPrice()}
+                initialComments={comments}
+              />
             </div>
           </div>
         </div>
