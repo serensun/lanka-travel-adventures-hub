@@ -87,6 +87,7 @@ function App() {
               <Route path="4-Day-Jungle-Adventure-Sri-Lanka–Explore-Lush-Rainforests-and-Thrilling-National-Parks" element={<JungleAdventureTour />} />
               <Route path="Majical-Sri-Lanka-18-days-tour" element={<EighteenDayTour />} />
               <Route path="Sri-Lanka-8-Day-Private-Tour-25-Amazing-Places-Activities" element={<EightDayTour />} />
+              <Route path="Explore-Sri Lanka-with-tourist-hot-spots-6-days" element={<SixDayTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

@@ -92,6 +92,18 @@ const Itinerary = () => {
       destinations: ['Colombo', 'Kandy', 'Nuwara Eliya', 'Ella']
     },
     {
+      id: 'explore-sri-lanka-6-days',
+      title: 'Explore Great Sri Lanka with tourist hot spots in 6 days',
+      description: 'Discover Sri Lanka\'s top destinations on this exclusive six-day private tour. Sit back and take in the sights while your personal guide handles all the arrangements, including private transportation for a seamless experience.',
+      duration: 6,
+      price: 'From $650',
+      image: sriLanka6DayHero,
+      path: '/Explore-Sri Lanka-with-tourist-hot-spots-6-days',
+      highlights: ['Cultural Triangle', 'Hill Country', 'Wildlife Safaris', 'Coastal Beaches'],
+      activities: ['Cultural', 'Wildlife', 'Nature', 'Beach'],
+      destinations: ['Sigiriya', 'Polonnaruwa', 'Kandy', 'Yala', 'Mirissa', 'Galle']
+    },
+    {
       id: '4day-kandy-tour',
       title: '4-Day Sri Lanka Full Circle Private Tour To Colombo',
       description: 'Why take weeks when you can see it all in just 4 action-packed days? This carefully crafted itinerary delivers Sri Lanka\'s greatest hits - from ancient kingdoms and wildlife safaris to beach bliss and cultural treasures.',
