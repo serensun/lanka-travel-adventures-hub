@@ -104,6 +104,18 @@ const Itinerary = () => {
       destinations: ['Sigiriya', 'Polonnaruwa', 'Kandy', 'Yala', 'Mirissa', 'Galle']
     },
     {
+      id: '8-day-adventure',
+      title: 'Sri Lanka 8-Day Tour with Adventure, Wildlife, ancient Temples, hill country and beaches',
+      description: 'Embark on an 8-day adventure across Sri Lanka, beginning in Colombo. Tour UNESCO World Heritage Sites, embark on a wildlife safari, visit the cultural city of Kandy, and enjoy leisure time on the beautiful South Coast.',
+      duration: 8,
+      price: 'From $790',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80',
+      path: '/Sri-Lanka-8-Day-Tour-with-Adventure-Wildlife-ancient-Temples-hill-country-beaches',
+      highlights: ['UNESCO Sites', 'Wildlife Safari', 'Cultural Heritage', 'Coastal Relaxation'],
+      activities: ['Adventure', 'Wildlife', 'Cultural', 'Beach'],
+      destinations: ['Colombo', 'Sigiriya', 'Kandy', 'Ella', 'South Coast']
+    },
+    {
       id: '4day-kandy-tour',
       title: '4-Day Sri Lanka Full Circle Private Tour To Colombo',
       description: 'Why take weeks when you can see it all in just 4 action-packed days? This carefully crafted itinerary delivers Sri Lanka\'s greatest hits - from ancient kingdoms and wildlife safaris to beach bliss and cultural treasures.',

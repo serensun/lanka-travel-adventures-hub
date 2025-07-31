@@ -1,5 +1,5 @@
 import React from 'react';
-import TenDayTourPackage from '@/components/TenDayTourPackage';
+import TenDayTourPackage from '../components/TenDayTourPackage';
 
 const TenDayTour = () => {
   return (

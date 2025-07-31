@@ -61,6 +61,7 @@ function App() {
               <Route path="sri-lanka-rare-8-day-tour" element={<EightDayTour />} />
               <Route path="sri-lanka-rare-11-day-tour" element={<ElevenDayTour />} />
               <Route path="sri-lanka-rare-10-day-tour" element={<TenDayTour />} />
+              <Route path="Sri-Lanka-8-Day-Tour-with-Adventure-Wildlife-ancient-Temples-hill-country-beaches" element={<TenDayTour />} />
               <Route path="sri-lanka-rare-2-day-tour" element={<TwoDayTour />} />
               <Route path="sri-lanka-rare-new-4-day-tour" element={<NewFourDayTour />} />
               <Route path="kandy-4-day-sri-lanka-full-circle-private-tour-to-colombo" element={<KandyFourDayTour />} />
