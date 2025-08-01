@@ -92,6 +92,10 @@ function App() {
               <Route path="Explore-Sri Lanka-with-tourist-hot-spots-6-days" element={<SixDayTour />} />
               <Route path="Sri-Lanka-grand-tour-14-days" element={<FourteenDayTour />} />
               <Route path="colombo-sri-lanka-4-day-private-tour-with-18-amazing-places" element={<EighteenDayTour />} />
+              <Route path="6-day-sri-lanka-tour" element={<SixDayTour />} />
+              <Route path="beaten-path-sri-lanka-7-day-tour" element={<SevenDayTour />} />
+              <Route path="sri-lanka-private-8-day-tour-transport-guide-hotels-food" element={<EightDayTour />} />
+              <Route path="Sri-Lanka-11-days-tour" element={<ElevenDayTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
