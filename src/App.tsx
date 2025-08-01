@@ -91,6 +91,7 @@ function App() {
               <Route path="Sri-Lanka-8-Day-Private-Tour-25-Amazing-Places-Activities" element={<EightDayTour />} />
               <Route path="Explore-Sri Lanka-with-tourist-hot-spots-6-days" element={<SixDayTour />} />
               <Route path="Sri-Lanka-grand-tour-14-days" element={<FourteenDayTour />} />
+              <Route path="colombo-sri-lanka-4-day-private-tour-with-18-amazing-places" element={<EighteenDayTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
