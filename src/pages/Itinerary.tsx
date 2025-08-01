@@ -30,6 +30,8 @@ const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
   const [destinationFilter, setDestinationFilter] = useState('all');
   const [durationFilter, setDurationFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const tourPackages = [
     {
@@ -399,6 +401,13 @@ const Itinerary = () => {
     }).sort((a, b) => a.duration - b.duration);
   }, [activityFilter, destinationFilter, durationFilter]);
 
+  const paginatedTourPackages = useMemo(() => {
+    const endIndex = currentPage * itemsPerPage;
+    return filteredTourPackages.slice(0, endIndex);
+  }, [filteredTourPackages, currentPage]);
+
+  const hasMore = paginatedTourPackages.length < filteredTourPackages.length;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -482,8 +491,8 @@ const Itinerary = () => {
         </Card>
 
         <div className="grid gap-8 md:gap-6">
-          {filteredTourPackages.length > 0 ? (
-            filteredTourPackages.map((tour) => (
+          {paginatedTourPackages.length > 0 ? (
+            paginatedTourPackages.map((tour) => (
               <Card key={tour.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
                 <div className="md:flex">
                   <div className="md:w-1/3">
@@ -551,6 +560,18 @@ const Itinerary = () => {
             </Card>
           )}
         </div>
+
+        {hasMore && (
+          <div className="text-center mt-8">
+            <Button 
+              onClick={() => setCurrentPage(currentPage + 1)}
+              variant="outline" 
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
+            >
+              Show More Tours ({filteredTourPackages.length - paginatedTourPackages.length} remaining)
+            </Button>
+          </div>
+        )}
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">
