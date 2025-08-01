@@ -12,6 +12,7 @@ import tourGallery3 from '../assets/tour-gallery-3.avif';
 import newTourGallery1 from '../assets/new-tour-gallery-1.avif';
 import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
 import culturalTriangleWildlifeHero from '../assets/cultural-triangle-wildlife-hero.avif';
+import twoDayWildlifeHero from '../assets/2-day-wildlife-hero.avif';
 import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
 import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
@@ -381,6 +382,18 @@ const Itinerary = () => {
       highlights: ['Wild buffaloes, bears, elephants, crocs, and leopards', 'Mirissa beach relaxation', 'Ancient temple boat safari', 'Herbal message and Sri Lankan Ayurveda', 'Galle Fort exploration'],
       activities: ['Wildlife', 'Beach', 'Cultural', 'Adventure'],
       destinations: ['Mirissa', 'Yala', 'Galle', 'Bentota', 'Colombo']
+    },
+    {
+      id: '2-day-wildlife-tour',
+      title: '2-Day wildlife tour; rainforest and National park',
+      description: 'Embark on an unforgettable wildlife adventure with an off-road jeep safari through Udawalawe National Park. Explore Sri Lanka\'s rich biodiversity during a guided rainforest walk with our expert naturalist.',
+      duration: 2,
+      price: 'From $350',
+      image: twoDayWildlifeHero,
+      path: '/2-Day-wildlife-tour-rainforest-National-park',
+      highlights: ['Sinharaja Rainforest Trek', 'Udawalawe Safari', 'Blue Train Journey', 'Tea Country Exploration'],
+      activities: ['Wildlife', 'Nature', 'Adventure', 'Scenic'],
+      destinations: ['Sinharaja', 'Udawalawe', 'Ella', 'Nuwara Eliya']
     }
   ];
 

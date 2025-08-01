@@ -17,6 +17,7 @@ import EightDayTour from "./pages/EightDayTour";
 import ElevenDayTour from "./pages/ElevenDayTour";
 import TenDayTour from "./pages/TenDayTour";
 import TwoDayTour from "./pages/TwoDayTour";
+import TwoDayWildlifeTour from "./pages/TwoDayWildlifeTour";
 import NewFourDayTour from "./pages/NewFourDayTour";
 import KandyFourDayTour from "./pages/KandyFourDayTour";
 import TwoDayCulturalTour from "./pages/TwoDayCulturalTour";
@@ -96,6 +97,7 @@ function App() {
               <Route path="beaten-path-sri-lanka-7-day-tour" element={<SevenDayTour />} />
               <Route path="sri-lanka-private-8-day-tour-transport-guide-hotels-food" element={<EightDayTour />} />
               <Route path="Sri-Lanka-11-days-tour" element={<ElevenDayTour />} />
+              <Route path="2-Day-wildlife-tour-rainforest-National-park" element={<TwoDayWildlifeTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
