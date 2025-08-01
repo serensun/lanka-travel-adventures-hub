@@ -227,7 +227,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-2">Website</h3>
                       <p className="text-gray-600">
-                        Web: www.serendipitypvt.com<br />
+                        Web: www.seerendipitytours.com<br />
                         Blog: www.urlaub-sr-lanka.info
                       </p>
                     </div>
