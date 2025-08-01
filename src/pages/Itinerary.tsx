@@ -220,7 +220,7 @@ const Itinerary = () => {
       description: 'Experience the best of Sri Lanka in just 6 days with this perfectly balanced itinerary combining thrilling wildlife encounters, ancient cultural treasures, and tropical beach relaxation.',
       duration: 6,
       price: 'From $599',
-      image: sriLanka6DayHero,
+      image: culturalTriangleWildlifeHero,
       path: '/6-day-sri-lanka-tour',
       highlights: ['Yala National Park Safari', 'Cultural Triangle Exploration', 'West Coast Beach Escape', 'Tea Country & Botanic Gardens'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
