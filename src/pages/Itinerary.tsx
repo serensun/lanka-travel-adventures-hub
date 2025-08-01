@@ -20,6 +20,7 @@ import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 import sevenDayTourHero from '../assets/seven-day-tour-hero.avif';
 import sriLanka11DayHero from '../assets/sri-lanka-11-day-hero.avif';
+import sriLanka14DayHero from '../assets/sri-lanka-14-day-hero.avif';
 import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
 import culturalTriangleWilpattuHero from '../assets/cultural-triangle-wilpattu-hero.avif';
 import kandyTourHero from '../assets/kandy-tour-hero.avif';
@@ -354,6 +355,18 @@ const Itinerary = () => {
       highlights: ['Swimming in Hikkadwa Beach', 'Kosgoda Turtle Hatchery', 'Bentota lagoon exploration', 'Historic Galle Fort'],
       activities: ['Cultural', 'Nature', 'Wildlife', 'Beach'],
       destinations: ['Bentota', 'Galle', 'Hikkadwa', 'Kosgoda']
+    },
+    {
+      id: '14day-grand-tour',
+      title: 'Sri Lanka grand tour 14 days',
+      description: 'Enjoy a 14-day guided tour visiting highlights such as Sigiriya, Dambulla, Polonnaruwa, and Kandy. Discover ancient cave temples, historic royal palaces, scenic tea trails, lush botanical gardens, stunning waterfalls, and unwind at Bentota Beach.',
+      duration: 14,
+      price: 'From $1190',
+      image: sriLanka14DayHero,
+      path: '/Sri-Lanka-grand-tour-14-days',
+      highlights: ['Cultural Triangle', 'Wildlife Safaris', 'Hill Country Train', 'Beach Relaxation', 'Ancient Temples'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
+      destinations: ['Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Ella', 'Yala', 'Bentota', 'Galle']
     },
     {
       id: 'yala-safari-tour',

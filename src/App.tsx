@@ -37,6 +37,7 @@ import BlogPost from "./pages/BlogPost";
 import CulturalHeritageTour from "./pages/CulturalHeritageTour";
 import SriLankaTravelRoute from "./pages/SriLankaTravelRoute";
 import EighteenDayTour from "./pages/EighteenDayTour";
+import FourteenDayTour from "./pages/FourteenDayTour";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -89,6 +90,7 @@ function App() {
               <Route path="Majical-Sri-Lanka-18-days-tour" element={<EighteenDayTour />} />
               <Route path="Sri-Lanka-8-Day-Private-Tour-25-Amazing-Places-Activities" element={<EightDayTour />} />
               <Route path="Explore-Sri Lanka-with-tourist-hot-spots-6-days" element={<SixDayTour />} />
+              <Route path="Sri-Lanka-grand-tour-14-days" element={<FourteenDayTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
