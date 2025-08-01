@@ -26,6 +26,7 @@ import westCoastMangrovesHero from '../assets/west-coast-mangroves-hero.avif';
 import culturalTriangleWilpattuHero from '../assets/cultural-triangle-wilpattu-hero.avif';
 import kandyTourHero from '../assets/kandy-tour-hero.avif';
 import fiveDayCountrysideHero from '../assets/5-day-countryside-hero.avif';
+import tenDayRoundTourHero from '../assets/10-day-round-tour-hero.avif';
 
 const Itinerary = () => {
   const [activityFilter, setActivityFilter] = useState('all');
@@ -166,6 +167,18 @@ const Itinerary = () => {
       highlights: ['Complete Island Tour', 'All Major Attractions', 'Cultural Immersion'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
       destinations: ['Colombo', 'Kandy', 'Sigiriya', 'Ella', 'Yala', 'Galle', 'Bentota']
+    },
+    {
+      id: '10day-round-tour',
+      title: 'Sri Lanka Private 10-Day Round Tour Car, Guide, Hotels, Food',
+      description: 'Experience the island\'s breathtaking diversity as you embark on a picturesque train ride through emerald tea plantations in the hill country, spot magnificent leopards and elephants during an exciting jeep safari in Yala National Park, then unwind on palm-fringed golden beaches where turquoise waters meet powdery soft sand.',
+      duration: 10,
+      price: 'From $790',
+      image: tenDayRoundTourHero,
+      path: '/Sri-Lanka-Private-10-Day-Round-Tour-Car-Guide-Hotels-Food',
+      highlights: ['Cultural Triangle', 'Train Journey', 'Wildlife Safari', 'Beach Relaxation'],
+      activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
+      destinations: ['Colombo', 'Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle', 'Bentota']
     },
     {
       id: '8day-tour',
