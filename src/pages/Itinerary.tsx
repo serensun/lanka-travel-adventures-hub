@@ -41,7 +41,7 @@ const Itinerary = () => {
       duration: 2,
       price: 'From $180',
       image: tourGallery1,
-      path: '/2-day-tour',
+      path: '/sri-lanka-green-bless-2-day-cultural-tour',
       highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Cultural Triangle'],
       activities: ['Cultural', 'Sightseeing'],
       destinations: ['Sigiriya', 'Dambulla']
@@ -137,7 +137,7 @@ const Itinerary = () => {
       duration: 5,
       price: 'From $500',
       image: tourGallery3,
-      path: '/5-Day-Sri-Lanka-Cultural-Nature-Tour',
+      path: '/sri-lanka-rare-5-day-tour',
       highlights: ['Cultural Heritage', 'Nature Exploration', 'Scenic Landscapes'],
       activities: ['Cultural', 'Nature', 'Photography'],
       destinations: ['Kandy', 'Sigiriya', 'Nuwara Eliya']
@@ -161,7 +161,7 @@ const Itinerary = () => {
       duration: 10,
       price: 'From $1200',
       image: sriLanka10DayHero,
-      path: '/Sri-Lanka-Private-10-Day-Round-Tour',
+      path: '/sri-lanka-rare-10-day-tour',
       highlights: ['Complete Island Tour', 'All Major Attractions', 'Cultural Immersion'],
       activities: ['Cultural', 'Wildlife', 'Adventure', 'Nature', 'Beach'],
       destinations: ['Colombo', 'Kandy', 'Sigiriya', 'Ella', 'Yala', 'Galle', 'Bentota']

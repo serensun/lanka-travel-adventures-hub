@@ -22,11 +22,11 @@ const MainNavigation = () => {
   ];
 
   const tourPackageItems = [
-    { id: '2day-tour', label: '2-Day Green Bless Tour', icon: Calendar, path: '/2-day-tour' },
+    { id: '2day-tour', label: '2-Day Green Bless Tour', icon: Calendar, path: '/sri-lanka-green-bless-2-day-cultural-tour' },
     { id: '4day-tour', label: 'Sri Lanka Rare 4-Day Tour', icon: Calendar, path: '/sri-lanka-rare-4-day-tour' },
     { id: '4day-new-tour', label: 'Sri Lanka 4-Day Private Tour With 18 Amazing Places', icon: Calendar, path: '/colombo-sri-lanka-4-day-private-tour-with-18-amazing-places' },
-    { id: '5day-tour', label: '5-Day Sri Lanka Cultural & Nature Tour', icon: Calendar, path: '/5-Day-Sri-Lanka-Cultural-Nature-Tour' },
-    { id: '10day-tour', label: 'Sri Lanka Private 10-Day Round Tour', icon: Calendar, path: '/Sri-Lanka-Private-10-Day-Round-Tour' },
+    { id: '5day-tour', label: '5-Day Sri Lanka Cultural & Nature Tour', icon: Calendar, path: '/sri-lanka-rare-5-day-tour' },
+    { id: '10day-tour', label: 'Sri Lanka Private 10-Day Round Tour', icon: Calendar, path: '/sri-lanka-rare-10-day-tour' },
   ];
 
   const isActive = (path: string) => {

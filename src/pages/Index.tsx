@@ -139,7 +139,7 @@ const Index = () => {
       duration: 2,
       price: 'From $180',
       image: tourGallery1,
-      path: '/2-day-tour',
+      path: '/sri-lanka-green-bless-2-day-cultural-tour',
       highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Cultural Triangle']
     }
   ];
