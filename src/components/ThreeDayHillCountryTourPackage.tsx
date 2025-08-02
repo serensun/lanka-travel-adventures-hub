@@ -35,14 +35,14 @@ const ThreeDayHillCountryTourPackage = () => {
   };
 
   const galleryImages = [
-    { src: heroImage, alt: "Sri Lanka Hill Country scenic landscape" },
-    { src: gallery1, alt: "Tea plantations and colonial architecture" },
-    { src: gallery2, alt: "Traditional Sri Lankan cultural sites" },
-    { src: gallery3, alt: "Hill country scenic views" },
-    { src: gallery4, alt: "Colonial heritage buildings" },
-    { src: gallery5, alt: "Mountain landscapes and tea estates" },
-    { src: gallery6, alt: "Cultural landmarks and temples" },
-    { src: gallery7, alt: "Natural beauty of hill country" }
+    { src: gallery1, alt: "Tea plantations and colonial architecture" }, // 71.avif
+    { src: gallery2, alt: "Traditional Sri Lankan cultural sites" }, // 10-1.avif
+    { src: gallery3, alt: "Hill country scenic views" }, // 20.avif
+    { src: gallery4, alt: "Colonial heritage buildings" }, // 12.avif
+    { src: heroImage, alt: "Sri Lanka Hill Country scenic landscape" }, // 22.avif (main)
+    { src: gallery5, alt: "Mountain landscapes and tea estates" }, // 11.avif
+    { src: gallery6, alt: "Cultural landmarks and temples" }, // 147.avif
+    { src: gallery7, alt: "Natural beauty of hill country" } // 40.avif
   ];
 
   const highlights = [
