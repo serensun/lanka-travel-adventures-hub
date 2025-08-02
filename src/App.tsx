@@ -17,6 +17,7 @@ import EightDayTour from "./pages/EightDayTour";
 import ElevenDayTour from "./pages/ElevenDayTour";
 import TenDayTour from "./pages/TenDayTour";
 import TenDayRoundTour from "./pages/TenDayRoundTour";
+import ThreeDayHillCountryTour from "./pages/ThreeDayHillCountryTour";
 import TwoDayTour from "./pages/TwoDayTour";
 import TwoDayWildlifeTour from "./pages/TwoDayWildlifeTour";
 import NewFourDayTour from "./pages/NewFourDayTour";
@@ -66,6 +67,7 @@ function App() {
               <Route path="sri-lanka-rare-10-day-tour" element={<TenDayTour />} />
               <Route path="Sri-Lanka-8-Day-Tour-with-Adventure-Wildlife-ancient-Temples-hill-country-beaches" element={<TenDayTour />} />
               <Route path="Sri-Lanka-Private-10-Day-Round-Tour-Car-Guide-Hotels-Food" element={<TenDayRoundTour />} />
+              <Route path="Sri-Lanka-Private-3-Day-Hill-Country-Tour-with-Train-Ride" element={<ThreeDayHillCountryTour />} />
               <Route path="sri-lanka-rare-2-day-tour" element={<TwoDayTour />} />
               <Route path="sri-lanka-rare-new-4-day-tour" element={<NewFourDayTour />} />
               <Route path="kandy-4-day-sri-lanka-full-circle-private-tour-to-colombo" element={<KandyFourDayTour />} />

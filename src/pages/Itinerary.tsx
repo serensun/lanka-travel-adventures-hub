@@ -17,6 +17,7 @@ import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
 import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
+import sriLanka3DayHillCountryHero from '../assets/sri-lanka-3-day-hero.avif';
 import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 import sevenDayTourHero from '../assets/seven-day-tour-hero.avif';
@@ -227,6 +228,18 @@ const Itinerary = () => {
       highlights: ['UNESCO Treasures', 'Sigiriya Rock Fortress', 'Sacred Kandy', 'Dambulla Cave Temple'],
       activities: ['Cultural', 'Heritage', 'Sightseeing'],
       destinations: ['Anuradhapura', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Dambulla']
+    },
+    {
+      id: '3day-hill-country-tour',
+      title: 'Sri Lanka Private 3-Day Hill Country Tour with Train Ride',
+      description: 'Discover Sri Lanka\'s picturesque hill region and the charming town of Ella on a three-day excursion from Colombo. Highlights include a stop at the Pinnawala Elephant Orphanage, a visit to the revered Temple of the Sacred Tooth Relic, and a breathtaking train journey through stunning landscapes.',
+      duration: 3,
+      price: 'From $390',
+      image: sriLanka3DayHillCountryHero,
+      path: '/Sri-Lanka-Private-3-Day-Hill-Country-Tour-with-Train-Ride',
+      highlights: ['Pinnawala Elephant Orphanage', 'Temple of the Sacred Tooth Relic', 'Nine Arch Bridge', 'Scenic Train Ride', 'Hill Country Tea Plantations'],
+      activities: ['Cultural', 'Nature', 'Sightseeing', 'Adventure'],
+      destinations: ['Kandy', 'Nuwara Eliya', 'Ella', 'Pinnawala']
     },
     {
       id: '6day-tour',
