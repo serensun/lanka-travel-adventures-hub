@@ -17,7 +17,7 @@ import sriLanka10DayHero from '../assets/sri-lanka-10-day-hero.avif';
 import sriLankaAuthentic18Places from '../assets/sri-lanka-authentic-18-places.avif';
 import sriLanka8DayHero from '../assets/sri-lanka-8-day-hero.avif';
 import sriLanka3DayHero from '../assets/sri-lanka-3-day-hero.avif';
-import sriLanka3DayHillCountryHero from '../assets/sri-lanka-3-day-hero.avif';
+import sriLanka3DayHillCountryHero from '../assets/sri-lanka-3-day-new-hero.avif';
 import sriLanka6DayHero from '../assets/sri-lanka-6-day-hero.avif';
 import sriLanka7DayHero from '../assets/sri-lanka-7-day-hero.avif';
 import sevenDayTourHero from '../assets/seven-day-tour-hero.avif';
