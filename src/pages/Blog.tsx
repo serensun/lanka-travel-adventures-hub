@@ -7,6 +7,16 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
+      id: '12-temples-in-sri-lanka-amazing-locations-you-must-see-while-travelling',
+      title: '12 Temples in Sri Lanka: Amazing Locations You Must See While Travelling',
+      description: 'Explore the most sacred and beautiful temples across Sri Lanka, from ancient Buddhist sites to stunning Hindu temples with rich cultural heritage.',
+      image: '/src/assets/temples-sri-lanka-hero.avif',
+      date: '2025-01-02',
+      readTime: '15 min read',
+      location: 'Sri Lanka',
+      tags: ['Temples', 'Religion', 'Culture', 'Travel Guide']
+    },
+    {
       id: 'sri-lanka-travel-route',
       title: 'Sri Lanka Travel Route',
       description: 'Discover the best travel routes in Sri Lanka for your perfect vacation. From coastal drives to mountain paths, learn how to plan the most efficient routes for your Sri Lankan adventure.',

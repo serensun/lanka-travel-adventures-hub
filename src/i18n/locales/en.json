@@ -1,4 +1,11 @@
 {
+  "nav": {
+    "home": "Home",
+    "itinerary": "Itinerary",
+    "blog": "Blog",
+    "contact": "Contact",
+    "tours": "Tours"
+  },
   "navigation": {
     "home": "Home",
     "tourPackages": "Tour Packages",

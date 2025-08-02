@@ -37,6 +37,7 @@ import AllInSriLankaSevenDayTour from "./pages/AllInSriLankaSevenDayTour";
 import FiveDayCountrysideTour from "./pages/FiveDayCountrysideTour";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import TwelveTemplesPost from "./pages/TwelveTemplesPost";
 import CulturalHeritageTour from "./pages/CulturalHeritageTour";
 import SriLankaTravelRoute from "./pages/SriLankaTravelRoute";
 import EighteenDayTour from "./pages/EighteenDayTour";
@@ -87,6 +88,8 @@ function App() {
               <Route path="blog/:slug" element={<BlogPost />} />
               <Route path="8-places-to-visit-in-anuradhapura" element={<BlogPost />} />
               <Route path="8-places-to-visit-in-anuradhapura/" element={<BlogPost />} />
+              <Route path="12-temples-in-sri-lanka-amazing-locations-you-must-see-while-travelling" element={<TwelveTemplesPost />} />
+              <Route path="12-temples-in-sri-lanka-amazing-locations-you-must-see-while-travelling/" element={<TwelveTemplesPost />} />
               <Route path="cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island" element={<CulturalHeritageTour />} />
               <Route path="cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island/" element={<CulturalHeritageTour />} />
               <Route path="sri-lanka-travel-route" element={<SriLankaTravelRoute />} />
