@@ -12,14 +12,14 @@ import EnhancedGallery from '@/components/ui/enhanced-gallery';
 import BookingForm from '@/components/BookingForm';
 
 // Import images
-import heroImage from '@/assets/sri-lanka-3-day-hero.avif';
-import gallery1 from '@/assets/sri-lanka-3-day-1.avif';
-import gallery2 from '@/assets/sri-lanka-3-day-2.avif';
-import gallery3 from '@/assets/sri-lanka-3-day-3.avif';
-import gallery4 from '@/assets/sri-lanka-3-day-4.avif';
-import gallery5 from '@/assets/sri-lanka-3-day-5.avif';
-import gallery6 from '@/assets/sri-lanka-3-day-6.avif';
-import gallery7 from '@/assets/sri-lanka-3-day-7.avif';
+import heroImage from '@/assets/sri-lanka-3-day-new-hero.avif';
+import gallery1 from '@/assets/sri-lanka-3-day-new-1.avif';
+import gallery2 from '@/assets/sri-lanka-3-day-new-2.avif';
+import gallery3 from '@/assets/sri-lanka-3-day-new-3.avif';
+import gallery4 from '@/assets/sri-lanka-3-day-new-4.avif';
+import gallery5 from '@/assets/sri-lanka-3-day-new-5.avif';
+import gallery6 from '@/assets/sri-lanka-3-day-new-6.avif';
+import gallery7 from '@/assets/sri-lanka-3-day-new-7.avif';
 
 const ThreeDayHillCountryTourPackage = () => {
   const [selectedPackage, setSelectedPackage] = useState('standard');
@@ -36,13 +36,13 @@ const ThreeDayHillCountryTourPackage = () => {
 
   const galleryImages = [
     { src: heroImage, alt: "Sri Lanka Hill Country scenic landscape" },
-    { src: gallery1, alt: "Pinnawala Elephant Orphanage" },
-    { src: gallery2, alt: "Temple of the Sacred Tooth Relic in Kandy" },
-    { src: gallery3, alt: "Tea plantations in hill country" },
-    { src: gallery4, alt: "Ramboda Falls waterfall" },
-    { src: gallery5, alt: "Nuwara Eliya Little England charm" },
-    { src: gallery6, alt: "Mini Adam's Peak hiking trail" },
-    { src: gallery7, alt: "Nine Arch Bridge colonial architecture" }
+    { src: gallery1, alt: "Tea plantations and colonial architecture" },
+    { src: gallery2, alt: "Traditional Sri Lankan cultural sites" },
+    { src: gallery3, alt: "Hill country scenic views" },
+    { src: gallery4, alt: "Colonial heritage buildings" },
+    { src: gallery5, alt: "Mountain landscapes and tea estates" },
+    { src: gallery6, alt: "Cultural landmarks and temples" },
+    { src: gallery7, alt: "Natural beauty of hill country" }
   ];
 
   const highlights = [
