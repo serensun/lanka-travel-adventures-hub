@@ -4,13 +4,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 
+// Import images
+import sriLankaPrivateToursHero from '@/assets/sri-lanka-private-tours-hero.avif';
+import templesHero from '@/assets/temples-sri-lanka-hero.avif';
+import culturalHeritage2 from '@/assets/cultural-heritage-2.avif';
+import anuradhapura1 from '@/assets/anuradhapura-1.avif';
+import culturalHeritage3 from '@/assets/cultural-heritage-3.avif';
+
 const Blog = () => {
   const blogPosts = [
     {
       id: 'Sri-Lanka-private-tours',
       title: 'Sri Lanka private tours',
       description: 'Sri Lanka private tours presents a once-in-a-lifetime chance to see this varied and stunning nation on your own terms. From ancient towns to pristine beaches, experience luxury travel.',
-      image: '/src/assets/sri-lanka-private-tours-hero.avif',
+      image: sriLankaPrivateToursHero,
       date: '2025-01-28',
       readTime: '25 min read',
       location: 'Sri Lanka',
@@ -20,7 +27,7 @@ const Blog = () => {
       id: '12-temples-in-sri-lanka-amazing-locations-you-must-see-while-travelling',
       title: '12 Temples in Sri Lanka: Amazing Locations You Must See While Travelling',
       description: 'Explore the most sacred and beautiful temples across Sri Lanka, from ancient Buddhist sites to stunning Hindu temples with rich cultural heritage.',
-      image: '/src/assets/temples-sri-lanka-hero.avif',
+      image: templesHero,
       date: '2025-01-02',
       readTime: '15 min read',
       location: 'Sri Lanka',
@@ -30,7 +37,7 @@ const Blog = () => {
       id: 'sri-lanka-travel-route',
       title: 'Sri Lanka Travel Route',
       description: 'Discover the best travel routes in Sri Lanka for your perfect vacation. From coastal drives to mountain paths, learn how to plan the most efficient routes for your Sri Lankan adventure.',
-      image: '/src/assets/cultural-heritage-2.avif',
+      image: culturalHeritage2,
       date: '2025-01-26',
       readTime: '25 min read',
       location: 'Sri Lanka',
@@ -40,7 +47,7 @@ const Blog = () => {
       id: '8-places-to-visit-in-anuradhapura',
       title: '8 PLACES TO VISIT IN ANURADHAPURA',
       description: '8 Places to visit in Anuradhapura are Sri Maha Bodhi, Ruwanweli Stupa, Thuparama, Jetawanarama, Lovamahapaya, Abhayagiri, Mirisaweti, Lankarama.',
-      image: '/src/assets/anuradhapura-1.avif',
+      image: anuradhapura1,
       date: '2025-01-25',
       readTime: '15 min read',
       location: 'Anuradhapura',
@@ -50,7 +57,7 @@ const Blog = () => {
       id: 'cultural-heritage-tours-in-sri-lanka-explore-the-soul-of-the-island',
       title: 'Cultural Heritage Tours in Sri Lanka: Explore the Soul of the Island',
       description: 'Embark on a journey through Sri Lanka\'s rich cultural heritage. From ancient temples and colonial architecture to vibrant traditions, discover the soul of this beautiful island.',
-      image: '/src/assets/cultural-heritage-3.avif',
+      image: culturalHeritage3,
       date: '2025-01-15',
       readTime: '12 min read',
       location: 'Sri Lanka',
