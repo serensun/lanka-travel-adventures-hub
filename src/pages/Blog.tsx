@@ -7,6 +7,16 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'Sri-Lanka-private-tours',
+      title: 'Sri Lanka private tours',
+      description: 'Sri Lanka private tours presents a once-in-a-lifetime chance to see this varied and stunning nation on your own terms. From ancient towns to pristine beaches, experience luxury travel.',
+      image: '/src/assets/sri-lanka-private-tours-hero.avif',
+      date: '2025-01-28',
+      readTime: '25 min read',
+      location: 'Sri Lanka',
+      tags: ['Private Tours', 'Luxury Travel', 'Travel Planning', 'Guide']
+    },
+    {
       id: '12-temples-in-sri-lanka-amazing-locations-you-must-see-while-travelling',
       title: '12 Temples in Sri Lanka: Amazing Locations You Must See While Travelling',
       description: 'Explore the most sacred and beautiful temples across Sri Lanka, from ancient Buddhist sites to stunning Hindu temples with rich cultural heritage.',
