@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import LazyImage from '@/components/LazyImage';
 
 interface GalleryImage {
   src: string;
@@ -58,10 +59,11 @@ const EnhancedGallery: React.FC<EnhancedGalleryProps> = ({ images, className = "
               className="flex-1 aspect-[4/3] cursor-pointer group"
               onClick={() => openDialog(startIndex + index)}
             >
-              <img
+              <LazyImage
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+                priority={startIndex + index < 3}
               />
             </div>
           ))}
@@ -111,10 +113,11 @@ const EnhancedGallery: React.FC<EnhancedGalleryProps> = ({ images, className = "
           <div className="relative flex items-center justify-center h-full">
             {selectedImageIndex !== null && (
               <>
-                <img
+                <LazyImage
                   src={images[selectedImageIndex].src}
                   alt={images[selectedImageIndex].alt}
                   className="max-w-full max-h-full object-contain"
+                  priority={true}
                 />
                 
                 {/* Navigation arrows within the image dialog */}

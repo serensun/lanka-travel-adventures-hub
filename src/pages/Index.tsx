@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import LazyImage from '@/components/LazyImage';
 import sanjeewaImage from '../assets/sanjeewa.jpg';
 import tourGallery1 from '../assets/tour-gallery-1.avif';
 import newTourGallery5 from '../assets/new-tour-gallery-5.avif';
@@ -169,10 +170,13 @@ const Index = () => {
         <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">{t('homepage.weAreHereToHelp')}</h2>
           <div className="flex items-start space-x-6">
-            <img 
+            <LazyImage
               src={sanjeewaImage} 
               alt="Sanjeewa - Travel Expert" 
               className="w-24 h-24 rounded-full object-cover flex-shrink-0"
+              width={96}
+              height={96}
+              priority={true}
             />
             <div className="space-y-4 text-blue-800 leading-relaxed">
               <p>
@@ -377,10 +381,13 @@ const Index = () => {
           {featuredTourPackages.map((tour) => (
             <Card key={tour.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
               <div className="relative">
-                <img
+                <LazyImage
                   src={tour.image}
                   alt={tour.title}
                   className="w-full h-48 object-cover"
+                  width={400}
+                  height={192}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <Badge className="absolute top-4 left-4 bg-blue-600 text-white">
                   <Calendar className="w-3 h-3 mr-1" />
