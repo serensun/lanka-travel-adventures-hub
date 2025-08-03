@@ -120,7 +120,7 @@ const Index = () => {
       duration: 2,
       price: 'From $299',
       image: culturalTriangleWildlifeHero,
-      path: '/Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka',
+      path: '/sri-lanka-green-bless-2-day-cultural-tour',
       highlights: ['UNESCO World Heritage Sites', 'Wildlife Safari', 'Buddhist Temples']
     },
     {
