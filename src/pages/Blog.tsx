@@ -12,9 +12,20 @@ import anuradhapura1 from '@/assets/anuradhapura-1.avif';
 import culturalHeritage3 from '@/assets/cultural-heritage-3.avif';
 import galleDayTripHero from '@/assets/galle-day-trip-hero.avif';
 import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
+import buddhistPilgrimageHero from '@/assets/buddhist-pilgrimage-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'Sri-Lanka-Buddhist-pilgrimage-routes',
+      title: 'Sri Lanka Buddhist Pilgrimage Routes',
+      description: 'Discover sacred Buddhist sites and ancient pilgrimage paths across the island. Explore over 2,300 years of Buddhist heritage through temples, stupas, and sacred mountains.',
+      image: buddhistPilgrimageHero,
+      date: '2025-01-31',
+      readTime: '22 min read',
+      location: 'Sri Lanka',
+      tags: ['Buddhist Sites', 'Pilgrimage', 'Sacred Places', 'Temples']
+    },
     {
       id: 'Hidden-historical-sites-Sri-Lanka',
       title: 'Hidden Historical Sites Sri Lanka',
