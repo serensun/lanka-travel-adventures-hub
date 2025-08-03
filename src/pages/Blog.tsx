@@ -10,9 +10,20 @@ import templesHero from '@/assets/temples-sri-lanka-hero.avif';
 import culturalHeritage2 from '@/assets/cultural-heritage-2.avif';
 import anuradhapura1 from '@/assets/anuradhapura-1.avif';
 import culturalHeritage3 from '@/assets/cultural-heritage-3.avif';
+import galleDayTripHero from '@/assets/galle-day-trip-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'One-Day-Trip-to-Galle-from-Colombo',
+      title: 'One-Day Trip to Galle from Colombo',
+      description: 'One-Day Trip to Galle from Colombo lats about 8 hours, you can explore many interesting places on this trip along the west coast such as Bentota, Hikkaduwa, Galle, as well as few places on the south coast.',
+      image: galleDayTripHero,
+      date: '2025-01-29',
+      readTime: '25 min read',
+      location: 'Galle, Sri Lanka',
+      tags: ['Day Tours', 'West Coast', 'Galle Fort', 'Beaches']
+    },
     {
       id: 'Sri-Lanka-private-tours',
       title: 'Sri Lanka private tours',
