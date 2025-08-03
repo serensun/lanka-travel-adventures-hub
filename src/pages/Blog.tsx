@@ -16,6 +16,16 @@ import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
 const Blog = () => {
   const blogPosts = [
     {
+      id: '4-Days-in-Sri-Lanka',
+      title: '4 Days in Sri Lanka',
+      description: 'A four-day tour of Sri Lanka provides an enticing look into the many attractions of this stunning island country. You will undoubtedly leave with priceless memories and a strong want to go back and explore more.',
+      image: culturalHeritage2,
+      date: '2025-01-31',
+      readTime: '20 min read',
+      location: 'Sri Lanka',
+      tags: ['Travel Planning', 'Itinerary', '4-Day Tours', 'Cultural Sites']
+    },
+    {
       id: 'Visit-Dambulla-Sigiriya-and-Polonnaruwa-single-day',
       title: 'Visit Dambulla, Sigiriya, and Polonnaruwa in a single day',
       description: 'Visit Dambulla, Sigiriya, and Polonnaruwa in a single day is possible, however, completing the trip successfully is depend on the starting point. It is crucial to commence the tour from Dambulla or Sigiriya in order to visit all 3 places in a single day.',

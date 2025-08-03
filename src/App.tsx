@@ -46,6 +46,7 @@ import CulturalTriangleSingleDayPost from "./pages/CulturalTriangleSingleDayPost
 import EighteenDayTour from "./pages/EighteenDayTour";
 import FourteenDayTour from "./pages/FourteenDayTour";
 import NotFound from "./pages/NotFound";
+import FourDaysInSriLanka from "./pages/FourDaysInSriLanka";
 
 const queryClient = new QueryClient();
 
@@ -114,6 +115,7 @@ function App() {
               <Route path="sri-lanka-private-8-day-tour-transport-guide-hotels-food" element={<EightDayTour />} />
               <Route path="Sri-Lanka-11-days-tour" element={<ElevenDayTour />} />
               <Route path="2-Day-wildlife-tour-rainforest-National-park" element={<TwoDayWildlifeTour />} />
+              <Route path="4-Days-in-Sri-Lanka" element={<FourDaysInSriLanka />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
