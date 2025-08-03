@@ -16,6 +16,16 @@ import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'Hidden-historical-sites-Sri-Lanka',
+      title: 'Hidden Historical Sites Sri Lanka',
+      description: 'While Sri Lanka\'s famous historical sites like Sigiriya and Anuradhapura draw millions of visitors, the island harbors countless hidden historical treasures waiting to be discovered.',
+      image: culturalHeritage3,
+      date: '2025-01-31',
+      readTime: '18 min read',
+      location: 'Sri Lanka',
+      tags: ['Historical Sites', 'Hidden Gems', 'Ancient Architecture', 'Cultural Heritage']
+    },
+    {
       id: '4-Days-in-Sri-Lanka',
       title: '4 Days in Sri Lanka',
       description: 'A four-day tour of Sri Lanka provides an enticing look into the many attractions of this stunning island country. You will undoubtedly leave with priceless memories and a strong want to go back and explore more.',
