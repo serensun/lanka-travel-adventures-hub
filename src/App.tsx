@@ -42,6 +42,7 @@ import SriLankaPrivateToursPost from "./pages/SriLankaPrivateToursPost";
 import CulturalHeritageTour from "./pages/CulturalHeritageTour";
 import SriLankaTravelRoute from "./pages/SriLankaTravelRoute";
 import OneDayTripToGallePost from "./pages/OneDayTripToGallePost";
+import CulturalTriangleSingleDayPost from "./pages/CulturalTriangleSingleDayPost";
 import EighteenDayTour from "./pages/EighteenDayTour";
 import FourteenDayTour from "./pages/FourteenDayTour";
 import NotFound from "./pages/NotFound";
@@ -100,6 +101,8 @@ function App() {
               <Route path="sri-lanka-travel-route/" element={<SriLankaTravelRoute />} />
               <Route path="One-Day-Trip-to-Galle-from-Colombo" element={<OneDayTripToGallePost />} />
               <Route path="One-Day-Trip-to-Galle-from-Colombo/" element={<OneDayTripToGallePost />} />
+              <Route path="Visit-Dambulla-Sigiriya-and-Polonnaruwa-single-day" element={<CulturalTriangleSingleDayPost />} />
+              <Route path="Visit-Dambulla-Sigiriya-and-Polonnaruwa-single-day/" element={<CulturalTriangleSingleDayPost />} />
               <Route path="4-Day-Jungle-Adventure-Sri-Lanka–Explore-Lush-Rainforests-and-Thrilling-National-Parks" element={<JungleAdventureTour />} />
               <Route path="Majical-Sri-Lanka-18-days-tour" element={<EighteenDayTour />} />
               <Route path="Sri-Lanka-8-Day-Private-Tour-25-Amazing-Places-Activities" element={<EightDayTour />} />

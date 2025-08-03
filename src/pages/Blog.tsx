@@ -11,9 +11,20 @@ import culturalHeritage2 from '@/assets/cultural-heritage-2.avif';
 import anuradhapura1 from '@/assets/anuradhapura-1.avif';
 import culturalHeritage3 from '@/assets/cultural-heritage-3.avif';
 import galleDayTripHero from '@/assets/galle-day-trip-hero.avif';
+import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'Visit-Dambulla-Sigiriya-and-Polonnaruwa-single-day',
+      title: 'Visit Dambulla, Sigiriya, and Polonnaruwa in a single day',
+      description: 'Visit Dambulla, Sigiriya, and Polonnaruwa in a single day is possible, however, completing the trip successfully is depend on the starting point. It is crucial to commence the tour from Dambulla or Sigiriya in order to visit all 3 places in a single day.',
+      image: culturalTriangleHero,
+      date: '2025-01-30',
+      readTime: '12 min read',
+      location: 'Cultural Triangle, Sri Lanka',
+      tags: ['Cultural Sites', 'Day Tours', 'UNESCO Heritage', 'Ancient Sites']
+    },
     {
       id: 'One-Day-Trip-to-Galle-from-Colombo',
       title: 'One-Day Trip to Galle from Colombo',
