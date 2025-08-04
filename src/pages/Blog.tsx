@@ -13,6 +13,7 @@ import culturalHeritage3 from '@/assets/cultural-heritage-3.avif';
 import galleDayTripHero from '@/assets/galle-day-trip-hero.avif';
 import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
 import buddhistPilgrimageHero from '@/assets/buddhist-pilgrimage-hero.avif';
+import hikingTrailsHero from '@/assets/hiking-trails-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
@@ -25,6 +26,16 @@ const Blog = () => {
       readTime: '22 min read',
       location: 'Sri Lanka',
       tags: ['Buddhist Sites', 'Pilgrimage', 'Sacred Places', 'Temples']
+    },
+    {
+      id: 'unknown-hiking-trails',
+      title: 'Unknown Hiking Trails in Sri Lanka',
+      description: 'Escape the crowds and discover hidden hiking trails that offer serenity, untouched beauty, and thrilling adventures across Sri Lanka\'s diverse landscapes.',
+      image: hikingTrailsHero,
+      date: '2025-01-31',
+      readTime: '8 min read',
+      location: 'Sri Lanka',
+      tags: ['Hiking', 'Adventure', 'Nature', 'Hidden Gems']
     },
     {
       id: 'Hidden-historical-sites-Sri-Lanka',

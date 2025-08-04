@@ -49,6 +49,7 @@ import NotFound from "./pages/NotFound";
 import FourDaysInSriLanka from "./pages/FourDaysInSriLanka";
 import HiddenHistoricalSites from "./pages/HiddenHistoricalSites";
 import BuddhistPilgrimageRoutes from "./pages/BuddhistPilgrimageRoutes";
+import UnknownHikingTrails from "./pages/UnknownHikingTrails";
 
 const queryClient = new QueryClient();
 
@@ -120,6 +121,7 @@ function App() {
               <Route path="4-Days-in-Sri-Lanka" element={<FourDaysInSriLanka />} />
               <Route path="Hidden-historical-sites-Sri-Lanka" element={<HiddenHistoricalSites />} />
               <Route path="Sri-Lanka-Buddhist-pilgrimage-routes" element={<BuddhistPilgrimageRoutes />} />
+              <Route path="unknown-hiking-trails" element={<UnknownHikingTrails />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
