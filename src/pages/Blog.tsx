@@ -14,9 +14,20 @@ import galleDayTripHero from '@/assets/galle-day-trip-hero.avif';
 import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
 import buddhistPilgrimageHero from '@/assets/buddhist-pilgrimage-hero.avif';
 import hikingTrailsHero from '@/assets/hiking-trails-hero.avif';
+import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'wildlife-seasonal-guide',
+      title: 'Best Time to Visit Sri Lanka for Wildlife',
+      description: 'A comprehensive seasonal guide to maximize your wildlife viewing experience in Sri Lanka\'s national parks and reserves.',
+      image: wildlifeGuideHero,
+      date: '2025-02-01',
+      readTime: '10 min read',
+      location: 'Sri Lanka',
+      tags: ['Wildlife', 'Safari', 'National Parks', 'Travel Guide']
+    },
     {
       id: 'Sri-Lanka-Buddhist-pilgrimage-routes',
       title: 'Sri Lanka Buddhist Pilgrimage Routes',
