@@ -250,18 +250,7 @@ const WildlifeSeasonalGuide = () => {
                 </div>
               </div>
 
-              {/* Final Thoughts */}
-              <div className="prose prose-lg max-w-none">
-                <h3 className="text-2xl font-bold">Final Thoughts</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Sri Lanka's wildlife is spectacular year-round, but visiting during the dry seasons maximizes your 
-                  chances of unforgettable encounters. Whether you're tracking leopards in Yala, witnessing the 
-                  Great Elephant Gathering, or birdwatching in Sinharaja, timing is key!
-                </p>
-                <p className="text-lg font-semibold mt-6">
-                  Have you been on a Sri Lankan safari? Share your best wildlife moments in the comments!
-                </p>
-              </div>
+             
 
               {/* Sri Lanka Wildlife Viewing Section */}
               <section className="space-y-6">
@@ -348,6 +337,19 @@ const WildlifeSeasonalGuide = () => {
                     Along the shore, there are numerous lodging options ranging from five-star luxury beach resorts to low-cost homestays. Most tourists, however, choose to stay in the ubiquitous chain hotels that are crammed along the palm-fringed beaches, which are the most popular type of tourist accommodation.
                   </p>
                 </div>
+
+                 {/* Final Thoughts */}
+              <div className="prose prose-lg max-w-none">
+                <h3 className="text-2xl font-bold">Final Thoughts</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Sri Lanka's wildlife is spectacular year-round, but visiting during the dry seasons maximizes your 
+                  chances of unforgettable encounters. Whether you're tracking leopards in Yala, witnessing the 
+                  Great Elephant Gathering, or birdwatching in Sinharaja, timing is key!
+                </p>
+                <p className="text-lg font-semibold mt-6">
+                  Have you been on a Sri Lankan safari? Share your best wildlife moments in the comments!
+                </p>
+              </div>
               </section>
             </div>
           </div>
