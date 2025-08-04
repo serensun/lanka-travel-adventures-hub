@@ -260,7 +260,7 @@ const UnknownHikingTrails = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="/sri-lanka-jungle-adventure-tour-package"
+                  href="/4-Day-Jungle-Adventure-Sri-Lanka–Explore-Lush-Rainforests-and-Thrilling-National-Parks"
                   className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   Jungle Adventure Tours
