@@ -19,7 +19,7 @@ import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
 const Blog = () => {
   const blogPosts = [
     {
-      id: 'wildlife-seasonal-guide',
+      id: 'Sri-lanka-wildlife-seasonal-guide',
       title: 'Best Time to Visit Sri Lanka for Wildlife',
       description: 'A comprehensive seasonal guide to maximize your wildlife viewing experience in Sri Lanka\'s national parks and reserves.',
       image: wildlifeGuideHero,

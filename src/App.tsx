@@ -123,7 +123,7 @@ function App() {
               <Route path="Hidden-historical-sites-Sri-Lanka" element={<HiddenHistoricalSites />} />
               <Route path="Sri-Lanka-Buddhist-pilgrimage-routes" element={<BuddhistPilgrimageRoutes />} />
               <Route path="unknown-hiking-trails" element={<UnknownHikingTrails />} />
-              <Route path="wildlife-seasonal-guide" element={<WildlifeSeasonalGuide />} />
+              <Route path="Sri-lanka-wildlife-seasonal-guide" element={<WildlifeSeasonalGuide />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
