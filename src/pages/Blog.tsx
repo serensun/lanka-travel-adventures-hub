@@ -22,6 +22,16 @@ import localFoodMarketsHero from '@/assets/local-food-markets-hero.avif';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'sri-lanka-family-tour-packages',
+      title: 'Sri Lanka Family Tour Packages - Perfect for Fun-Loving Families',
+      description: 'Discover the best Sri Lanka family tour packages with wildlife safaris, cultural tours, beach activities, and adventures perfect for families. Safe, affordable, and unforgettable experiences.',
+      image: '/src/assets/sri-lanka-family-packages-hero.avif',
+      date: '2025-02-05',
+      readTime: '15 min read',
+      location: 'Sri Lanka',
+      tags: ['Family Tours', 'Wildlife Safari', 'Cultural Tours', 'Beach Holidays']
+    },
+    {
       id: 'local-food-markets-sri-lanka',
       title: 'Local Food Markets Sri Lanka',
       description: 'Discover vibrant local food markets across Sri Lanka and explore authentic flavors, fresh spices, tropical fruits, and traditional street food.',
