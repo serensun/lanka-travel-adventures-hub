@@ -297,9 +297,9 @@ const TraditionalVillageTours = () => {
             </div>
 
             <div className="bg-orange-50 border-l-4 border-orange-400 p-6">
-              <h3 className="text-lg font-semibold mb-3">Booking Your Tour</h3>
+              <h3 className="text-lg font-semibold mb-3">Booking Your Village Tour in Sri Lanka</h3>
               <p>
-                Choose reputable tour operators who work directly with village communities to ensure authentic experiences and fair compensation for locals. Look for tours that emphasize sustainable tourism practices and cultural preservation.
+                Choose reputable tour operator like <a href="https://serendipitypvt.com/">serendipity Tours (Pvt) limited</a> who work directly with village communities to ensure authentic experiences and fair compensation for locals. Look for tours that emphasize sustainable tourism practices and cultural preservation.
               </p>
             </div>
           </section>
