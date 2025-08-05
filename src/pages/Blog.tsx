@@ -16,9 +16,20 @@ import buddhistPilgrimageHero from '@/assets/buddhist-pilgrimage-hero.avif';
 import hikingTrailsHero from '@/assets/hiking-trails-hero.avif';
 import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
 import untouchedRainforestsHero from '@/assets/untouched-rainforests-hero.avif';
+import traditionalVillageToursHero from '@/assets/traditional-village-tours-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'traditional-village-tours-Sri-Lanka',
+      title: 'Traditional Village Tours Sri Lanka',
+      description: 'Experience authentic rural life and immerse yourself in Sri Lanka\'s timeless traditions through traditional village tours that showcase local crafts, farming, and cultural heritage.',
+      image: traditionalVillageToursHero,
+      date: '2025-02-03',
+      readTime: '15 min read',
+      location: 'Sri Lanka',
+      tags: ['Traditional Villages', 'Cultural Tours', 'Authentic Experiences', 'Rural Tourism']
+    },
     {
       id: 'untouched-rainforests-Sri-Lanka',
       title: 'Exploring Sri Lanka\'s Untouched Rainforests: A Hidden Paradise',
