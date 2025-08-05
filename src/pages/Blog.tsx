@@ -15,6 +15,7 @@ import culturalTriangleHero from '@/assets/cultural-triangle-hero.avif';
 import buddhistPilgrimageHero from '@/assets/buddhist-pilgrimage-hero.avif';
 import hikingTrailsHero from '@/assets/hiking-trails-hero.avif';
 import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
+import untouchedRainforestsHero from '@/assets/untouched-rainforests-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
@@ -22,7 +23,7 @@ const Blog = () => {
       id: 'untouched-rainforests-Sri-Lanka',
       title: 'Exploring Sri Lanka\'s Untouched Rainforests: A Hidden Paradise',
       description: 'Discover Sri Lanka\'s pristine untouched rainforests including Sinharaja, Knuckles Range, and KDN Forest. A complete guide to biodiversity hotspots and eco-tourism.',
-      image: require('@/assets/untouched-rainforests-hero.avif'),
+      image: untouchedRainforestsHero,
       date: '2025-02-02',
       readTime: '18 min read',
       location: 'Sri Lanka',
