@@ -290,13 +290,13 @@ export default function LocalFoodMarkets() {
               Exploring **local food markets Sri Lanka** offers is one of the most authentic ways to experience the island's rich culinary heritage. From the bustling streets of Pettah to the aromatic spice markets of Kandy, each market provides unique insights into local life, traditions, and flavors that have shaped Sri Lankan cuisine for generations.
             </p>
             <p className="text-lg leading-relaxed mb-6">
-              To make the most of your culinary journey, consider combining market visits with comprehensive island exploration. The <a href="https://serendipitypvt.com/itinerary/beaten-path-sri-lanka-7-day-tour/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">beaten path Sri Lanka 7-day tour</a> offers an excellent opportunity to discover hidden food markets and local eateries away from tourist crowds, providing authentic experiences that showcase the true heart of Sri Lankan cuisine.
+              To make the most of your culinary journey, consider combining market visits with comprehensive island exploration. The <a href="https://serendipitypvt.com/itinerary/beaten-path-sri-lanka-7-day-tour/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 font-medium underline">beaten path Sri Lanka 7-day tour</a> offers an excellent opportunity to discover hidden food markets and local eateries away from tourist crowds, providing authentic experiences that showcase the true heart of Sri Lankan cuisine.
             </p>
             
             <div className="bg-primary/10 rounded-lg p-8 text-center">
               <h3 className="text-2xl font-semibold mb-4">Ready to Explore Sri Lanka's Food Markets?</h3>
               <p className="text-lg mb-6">
-                Contact <a href="https://serendipitypvt.com/">Serendipity Tours</a>for an unforgettable culinary adventure through Sri Lanka's most vibrant food markets and discover the authentic flavors that make this island paradise a food lover's dream destination.
+                Contact <a href="https://serendipitypvt.com/" className="text-primary hover:text-primary/80 font-medium underline">Serendipity Tours</a> for an unforgettable culinary adventure through Sri Lanka's most vibrant food markets and discover the authentic flavors that make this island paradise a food lover's dream destination.
               </p>
               
             </div>
