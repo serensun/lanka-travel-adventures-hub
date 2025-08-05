@@ -51,6 +51,7 @@ import HiddenHistoricalSites from "./pages/HiddenHistoricalSites";
 import BuddhistPilgrimageRoutes from "./pages/BuddhistPilgrimageRoutes";
 import UnknownHikingTrails from "./pages/UnknownHikingTrails";
 import WildlifeSeasonalGuide from "./pages/WildlifeSeasonalGuide";
+import UntouchedRainforests from "./pages/UntouchedRainforests";
 
 const queryClient = new QueryClient();
 
@@ -124,6 +125,7 @@ function App() {
               <Route path="Sri-Lanka-Buddhist-pilgrimage-routes" element={<BuddhistPilgrimageRoutes />} />
               <Route path="unknown-hiking-trails" element={<UnknownHikingTrails />} />
               <Route path="Sri-lanka-wildlife-seasonal-guide" element={<WildlifeSeasonalGuide />} />
+              <Route path="untouched-rainforests-Sri-Lanka" element={<UntouchedRainforests />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

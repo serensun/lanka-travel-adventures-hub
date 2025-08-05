@@ -19,6 +19,16 @@ import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'untouched-rainforests-Sri-Lanka',
+      title: 'Exploring Sri Lanka\'s Untouched Rainforests: A Hidden Paradise',
+      description: 'Discover Sri Lanka\'s pristine untouched rainforests including Sinharaja, Knuckles Range, and KDN Forest. A complete guide to biodiversity hotspots and eco-tourism.',
+      image: require('@/assets/untouched-rainforests-hero.avif'),
+      date: '2025-02-02',
+      readTime: '18 min read',
+      location: 'Sri Lanka',
+      tags: ['Rainforests', 'Eco-tourism', 'Biodiversity', 'Wildlife', 'Conservation']
+    },
+    {
       id: 'Sri-lanka-wildlife-seasonal-guide',
       title: 'Best Time to Visit Sri Lanka for Wildlife',
       description: 'A comprehensive seasonal guide to maximize your wildlife viewing experience in Sri Lanka\'s national parks and reserves.',
