@@ -17,9 +17,20 @@ import hikingTrailsHero from '@/assets/hiking-trails-hero.avif';
 import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
 import untouchedRainforestsHero from '@/assets/untouched-rainforests-hero.avif';
 import traditionalVillageToursHero from '@/assets/traditional-village-tours-hero.avif';
+import localFoodMarketsHero from '@/assets/local-food-markets-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'local-food-markets-sri-lanka',
+      title: 'Local Food Markets Sri Lanka',
+      description: 'Discover vibrant local food markets across Sri Lanka and explore authentic flavors, fresh spices, tropical fruits, and traditional street food.',
+      image: localFoodMarketsHero,
+      date: '2025-02-04',
+      readTime: '20 min read',
+      location: 'Sri Lanka',
+      tags: ['Food Markets', 'Culinary Tours', 'Street Food', 'Local Culture']
+    },
     {
       id: 'traditional-village-tours-Sri-Lanka',
       title: 'Traditional Village Tours Sri Lanka',

@@ -53,6 +53,7 @@ import UnknownHikingTrails from "./pages/UnknownHikingTrails";
 import WildlifeSeasonalGuide from "./pages/WildlifeSeasonalGuide";
 import UntouchedRainforests from "./pages/UntouchedRainforests";
 import TraditionalVillageTours from "./pages/TraditionalVillageTours";
+import LocalFoodMarkets from "./pages/LocalFoodMarkets";
 
 const queryClient = new QueryClient();
 
@@ -128,6 +129,7 @@ function App() {
               <Route path="Sri-lanka-wildlife-seasonal-guide" element={<WildlifeSeasonalGuide />} />
               <Route path="untouched-rainforests-Sri-Lanka" element={<UntouchedRainforests />} />
               <Route path="traditional-village-tours-Sri-Lanka" element={<TraditionalVillageTours />} />
+              <Route path="local-food-markets-sri-lanka" element={<LocalFoodMarkets />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
