@@ -115,7 +115,7 @@ const TraditionalVillageTours = () => {
               <div className="border-l-4 border-primary pl-6">
                 <h3 className="text-2xl font-semibold mb-3">1. Hiriwadunna Village</h3>
                 <p>
-                  Located near Dambulla, Hiriwadunna offers an authentic village experience with catamaran rides across the lake, traditional cooking demonstrations, and bullock cart rides through paddy fields.
+                  Located near Dambulla, Hiriwadunna offers an authentic village experience with catamaran rides across the lake, traditional cooking demonstrations, and bullock cart rides through paddy fields. There is no other word that comes into once mined other than Sigiriya rock fortress upon hearing the word “Sigiriya” because Sigiriya is popular on the island due to the iconic tourist attraction, Sigiriya rock fortress. However, Sigiriya is home to a thriving agricultural community with deep routed the traditions an customs. Therefore, Sigiriya village tour is one of the most interesting activities available for travellers, who visit Sighiriya rock fortress and Dambulla cave temple. The village tour Sigiriya, allows the visitors to see the breathtaking scenery in this remote village and experience the traditional village life as well as take part in a cooking class.
                 </p>
               </div>
 
