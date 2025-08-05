@@ -296,7 +296,7 @@ export default function LocalFoodMarkets() {
             <div className="bg-primary/10 rounded-lg p-8 text-center">
               <h3 className="text-2xl font-semibold mb-4">Ready to Explore Sri Lanka's Food Markets?</h3>
               <p className="text-lg mb-6">
-                Contact<a href="https://serendipitypvt.com/">Serendipity Tours</a>for an unforgettable culinary adventure through Sri Lanka's most vibrant food markets and discover the authentic flavors that make this island paradise a food lover's dream destination.
+                Contact <a href="https://serendipitypvt.com/">Serendipity Tours</a>for an unforgettable culinary adventure through Sri Lanka's most vibrant food markets and discover the authentic flavors that make this island paradise a food lover's dream destination.
               </p>
               
             </div>
