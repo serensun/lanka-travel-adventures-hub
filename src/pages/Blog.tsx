@@ -18,9 +18,20 @@ import wildlifeGuideHero from '@/assets/wildlife-guide-hero.avif';
 import untouchedRainforestsHero from '@/assets/untouched-rainforests-hero.avif';
 import traditionalVillageToursHero from '@/assets/traditional-village-tours-hero.avif';
 import localFoodMarketsHero from '@/assets/local-food-markets-hero.avif';
+import wildlifeSafariHero from '@/assets/sri-lanka-wildlife-safari-packages-hero.avif';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 'sri-lanka-wildlife-safari-packages',
+      title: 'Sri Lanka Wildlife Safari Packages',
+      description: 'Discover Sri Lanka wildlife safari packages with leopards, elephants & exotic birds. Book your wildlife adventure in Yala, Udawalawe & Wilpattu National Parks.',
+      image: wildlifeSafariHero,
+      date: '2025-02-06',
+      readTime: '15 min read',
+      location: 'National Parks',
+      tags: ['Wildlife', 'Safari', 'Photography']
+    },
     {
       id: 'sri-lanka-family-tour-packages',
       title: 'Sri Lanka Family Tour Packages - Perfect for Fun-Loving Families',
