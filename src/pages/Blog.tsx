@@ -23,6 +23,16 @@ import wildlifeSafariHero from '@/assets/sri-lanka-wildlife-safari-packages-hero
 const Blog = () => {
   const blogPosts = [
     {
+      id: '3-days-sri-lanka-short-tour-package',
+      title: '3 Days Sri Lanka Short Tour Package - Your Perfect Gateway to Paradise',
+      description: 'Discover the essence of Sri Lanka in just 3 days with our comprehensive short tour packages featuring cultural treasures, wildlife adventures, and pristine beaches.',
+      image: '/src/assets/3-days-sri-lanka-short-tour-package-hero.avif',
+      date: '2025-02-07',
+      readTime: '18 min read',
+      location: 'Sri Lanka',
+      tags: ['Short Tours', 'Cultural Sites', 'Wildlife Safari', 'Beach Tours', 'Adventure']
+    },
+    {
       id: 'sri-lanka-wildlife-safari-packages',
       title: 'Sri Lanka Wildlife Safari Packages',
       description: 'Discover Sri Lanka wildlife safari packages with leopards, elephants & exotic birds. Book your wildlife adventure in Yala, Udawalawe & Wilpattu National Parks.',
