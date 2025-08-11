@@ -136,6 +136,8 @@ function App() {
               <Route path="sri-lanka-family-tour-packages" element={<SriLankaFamilyPackages />} />
               <Route path="sri-lanka-wildlife-safari-packages" element={<SriLankaWildlifeSafariPackages />} />
               <Route path="3-days-sri-lanka-short-tour-package" element={<ThreeDaysSriLankaShortTourPackage />} />
+              <Route path="Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri%20Lanka" element={<TwoDayCulturalTour />} />
+              <Route path="Private-2-Day-Cultural-Triangle-Wildlife-Tour-of-Sri Lanka" element={<TwoDayCulturalTour />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
