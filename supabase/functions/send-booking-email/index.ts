@@ -298,8 +298,8 @@ const handler = async (req: Request): Promise<Response> => {
     console.log('Sending email with Resend...');
     
     const emailResponse = await resend.emails.send({
-      from: "Sri Lanka Tours <reservations@serendipitypvt.com>",
-      to: ["admin@seerendipitytours.com", "enquiries@serendipitypvt.com"],
+      from: "Sri Lanka Tours <onboarding@resend.dev>",
+      to: ["admin@seerendipitytours.com"],
       subject: `New Booking Request - ${bookingData.tourName}`,
       html: emailContent,
     });

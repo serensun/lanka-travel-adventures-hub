@@ -227,10 +227,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Received enquiry from:", sanitizedData.email);
 
-    // Send email to reservations@sirilaktours.com
+    // Send email using verified Resend domain
     const emailResponse = await resend.emails.send({
-      from: "Sri Lanka Tours <reservations@sirilaktours.com>",
-      to: ["reservations@sirilaktours.com", "enquiries@sirilaktours.com"],
+      from: "Sri Lanka Tours <onboarding@resend.dev>",
+      to: ["admin@seerendipitytours.com"],
       subject: `New Enquiry from ${sanitizedData.fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
