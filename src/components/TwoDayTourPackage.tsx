@@ -496,6 +496,51 @@ const TwoDayTourPackage = () => {
             </div>
           </div>
 
+          {/* Booking Summary */}
+          <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
+            <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+              <Camera className="w-5 h-5 mr-2" />
+              Book Your Adventure
+            </h3>
+
+            <div className="space-y-4">
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-blue-700">Duration</span>
+                  <span className="font-semibold flex items-center text-blue-900">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    2 days
+                  </span>
+                </div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-blue-700">Travelers</span>
+                  <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-blue-700">Package</span>
+                  <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
+                </div>
+              </div>
+
+              <div className="border-t border-blue-200 pt-4">
+                <div className="flex justify-between items-center text-xl font-bold">
+                  <span className="text-gray-800">Total Cost</span>
+                  <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
+                </div>
+                <p className="text-blue-600 text-sm mt-1">
+                  {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
+                </p>
+              </div>
+
+              <BookingForm 
+                packageType={`2-day-cultural-triangle-wildlife-tour-${selectedPackage}`}
+                travelers={travelers}
+                totalCost={getTotalPrice()}
+                initialComments={comments}
+              />
+            </div>
+          </div>
+
           {/* Comments Section */}
           <div className="bg-blue-50/70 backdrop-blur-sm rounded-xl p-6 border border-blue-200">
             <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
@@ -518,51 +563,6 @@ const TwoDayTourPackage = () => {
                 This information will help us customize your tour experience to better suit your needs.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Booking Summary */}
-        <div className="bg-white rounded-xl shadow-lg p-6 h-fit border border-blue-200">
-          <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-            <Camera className="w-5 h-5 mr-2" />
-            Book Your Adventure
-          </h3>
-
-          <div className="space-y-4">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-blue-700">Duration</span>
-                <span className="font-semibold flex items-center text-blue-900">
-                  <Calendar className="w-4 h-4 mr-1" />
-                  2 days
-                </span>
-              </div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-blue-700">Travelers</span>
-                <span className="font-semibold text-blue-900">{travelers} person{travelers > 1 ? 's' : ''}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-blue-700">Package</span>
-                <span className="font-semibold capitalize text-blue-900">{selectedPackage}</span>
-              </div>
-            </div>
-
-            <div className="border-t border-blue-200 pt-4">
-              <div className="flex justify-between items-center text-xl font-bold">
-                <span className="text-gray-800">Total Cost</span>
-                <span className="text-green-600">${getTotalPrice().toLocaleString()}</span>
-              </div>
-              <p className="text-blue-600 text-sm mt-1">
-                {travelers === 1 ? 'Single rate' : `$${packageRates[selectedPackage].double} per person`}
-              </p>
-            </div>
-
-            <BookingForm 
-              packageType={`2-day-cultural-triangle-wildlife-tour-${selectedPackage}`}
-              travelers={travelers}
-              totalCost={getTotalPrice()}
-              initialComments={comments}
-            />
           </div>
         </div>
         </div>
