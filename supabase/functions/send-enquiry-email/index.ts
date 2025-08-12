@@ -227,9 +227,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Received enquiry from:", sanitizedData.email);
 
-    // Send email using verified Resend domain
+    // Send email using verified Resend domain - Change this to your verified domain
+    const fromEmail = Deno.env.get("FROM_EMAIL") || "info@yourdomain.com";
     const emailResponse = await resend.emails.send({
-      from: "Sri Lanka Tours <onboarding@resend.dev>",
+      from: `Sri Lanka Tours <${fromEmail}>`,
       to: ["admin@seerendipitytours.com"],
       subject: `New Enquiry from ${sanitizedData.fullName}`,
       html: `
