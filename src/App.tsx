@@ -57,6 +57,7 @@ import LocalFoodMarkets from "./pages/LocalFoodMarkets";
 import SriLankaFamilyPackages from "./pages/SriLankaFamilyPackages";
 import SriLankaWildlifeSafariPackages from "./pages/SriLankaWildlifeSafariPackages";
 import ThreeDaysSriLankaShortTourPackage from "./pages/ThreeDaysSriLankaShortTourPackage";
+import SriLankaVacationPackagesFromFrance from "./pages/SriLankaVacationPackagesFromFrance";
 
 const queryClient = new QueryClient();
 
@@ -125,7 +126,7 @@ function App() {
               <Route path="sri-lanka-private-8-day-tour-transport-guide-hotels-food" element={<EightDayTour />} />
               <Route path="Sri-Lanka-11-days-tour" element={<ElevenDayTour />} />
               <Route path="2-Day-wildlife-tour-rainforest-National-park" element={<TwoDayWildlifeTour />} />
-              <Route path="4-Days-in-Sri-Lanka" element={<FourDaysInSriLanka />} />
+              <Route path="4-Days-in-Sri-Lanka" element={<SriLankaVacationPackagesFromFrance />} />
               <Route path="Hidden-historical-sites-Sri-Lanka" element={<HiddenHistoricalSites />} />
               <Route path="Sri-Lanka-Buddhist-pilgrimage-routes" element={<BuddhistPilgrimageRoutes />} />
               <Route path="unknown-hiking-trails" element={<UnknownHikingTrails />} />

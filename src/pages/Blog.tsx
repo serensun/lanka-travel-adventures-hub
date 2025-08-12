@@ -21,7 +21,17 @@ import localFoodMarketsHero from '@/assets/local-food-markets-hero.avif';
 import wildlifeSafariHero from '@/assets/sri-lanka-wildlife-safari-packages-hero.avif';
 
 const Blog = () => {
-  const blogPosts = [
+const blogPosts = [
+    {
+      id: '4-Days-in-Sri-Lanka',
+      title: 'Sri Lanka Vacation Packages from France | Expert French Travel Guide',
+      description: 'Discover exclusive Sri Lanka vacation packages from France. Expert-designed tours featuring cultural sites, wildlife safaris, and tropical beaches. French-speaking guides available.',
+      image: '/src/assets/sri-lanka-france-packages-hero.avif',
+      date: '2025-01-12',
+      readTime: '15 min read',
+      location: 'Sri Lanka',
+      tags: ['Vacation Packages', 'France Travel', 'Cultural Tours', 'Wildlife Safari', 'Beach Holidays']
+    },
     {
       id: '3-days-sri-lanka-short-tour-package',
       title: '3 Days Sri Lanka Short Tour Package - Your Perfect Gateway to Paradise',
