@@ -23,7 +23,7 @@ import wildlifeSafariHero from '@/assets/sri-lanka-wildlife-safari-packages-hero
 const Blog = () => {
 const blogPosts = [
     {
-      id: '4-Days-in-Sri-Lanka',
+      id: 'Sri-Lanka-vacation-packages-from-France',
       title: 'Sri Lanka Vacation Packages from France | Expert French Travel Guide',
       description: 'Discover exclusive Sri Lanka vacation packages from France. Expert-designed tours featuring cultural sites, wildlife safaris, and tropical beaches. French-speaking guides available.',
       image: '/src/assets/sri-lanka-france-packages-hero.avif',
@@ -133,8 +133,8 @@ const blogPosts = [
       tags: ['Historical Sites', 'Hidden Gems', 'Ancient Architecture', 'Cultural Heritage']
     },
     {
-      id: '4-Days-in-Sri-Lanka',
-      title: '4 Days in Sri Lanka',
+      id: 'Sri-Lanka-vacation-packages-from-France',
+      title: 'Sri Lanka vacation packages from France',
       description: 'A four-day tour of Sri Lanka provides an enticing look into the many attractions of this stunning island country. You will undoubtedly leave with priceless memories and a strong want to go back and explore more.',
       image: culturalHeritage2,
       date: '2025-01-31',
