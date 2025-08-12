@@ -297,11 +297,11 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Sending email with Resend...');
     
-    // Use verified domain - Change this to your verified domain
-    const fromEmail = Deno.env.get("FROM_EMAIL") || "info@yourdomain.com";
+    // Use verified domain
+    const fromEmail = Deno.env.get("FROM_EMAIL") || "admin@sirilaktours.com";
     const emailResponse = await resend.emails.send({
       from: `Sri Lanka Tours <${fromEmail}>`,
-      to: ["admin@seerendipitytours.com"],
+      to: ["admin@sirilaktours.com"],
       subject: `New Booking Request - ${bookingData.tourName}`,
       html: emailContent,
     });
