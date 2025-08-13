@@ -35,17 +35,17 @@ const TwoDayTourPackage = () => {
   const itineraryData = [
     { 
       day: 1, 
-      title: "DAMBULLA, SIGIRIYA, COLOMBO", 
+      title: "COLOMBO, DAMBULLA, SIGIRIYA", 
       time: "Full Day",
       highlights: "Dambulla Cave Temple, Sigiriya Rock, Minneriya Safari",
-      description: "Early in the morning, depart from your west coast accommodation and stop by Sigiriya's Dambulla Cave Temple. Visit the Golden Cave Temple where a South Indian invasion forced the king of Anuradhapura to flee in the first century BC. Climb the mighty Sigiriya Rock, a 5th-century patricide perpetrator's hiding place. End the day with an exhilarating 3-hour private Jeep safari at Minneriya National Park to see wild elephants."
+      description: "Early in the morning, depart from your west coast accommodation and stop by Sigiriya's Dambulla Cave Temple. Visit the Golden Cave Temple where a South Indian invasion forced the king of Anuradhapura to flee in the first century BC. Climb the mighty Sigiriya Rock, a 5th-century patricide perpetrator's hiding place. End the day with memorable 3-hour private Jeep safari at Minneriya National Park to see wild elephants. Overnight stay in Habarana."
     },
     { 
       day: 2, 
-      title: "COLOMBO, KANDY, AND SIGIRIYA", 
+      title: "SIGIRIYA, KANDY, AND COLOMBO", 
       time: "Full Day",
       highlights: "Polonnaruwa, Herbal Garden, Kandy, Botanical Garden, Temple of Tooth, Tea Factory",
-      description: "After breakfast, travel via Kandy to Colombo. Visit Polonnaruwa, the second capital of Sri Lanka with Buddhist structures. See the Matale spice garden with herbs and spices used in Sri Lankan medicine. Explore Kandy and visit the Temple of the Sacred Tooth of the Buddha. Tour the Botanical Garden of Peradeniya and stop by a tea mill and plantation."
+      description: "After breakfast, travel to Colombo via Kandy. Visit Polonnaruwa, the second capital of Sri Lanka with Buddhist structures. See the Matale spice garden with herbs and spices used in Sri Lankan medicine. Explore Kandy and visit the Temple of the Sacred Tooth of the Buddha. Tour the Botanical Garden of Peradeniya and stop by a tea mill and plantation."
     }
   ];
 
