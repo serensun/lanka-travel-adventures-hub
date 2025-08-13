@@ -63,10 +63,21 @@ const TwoDayTourPackage = () => {
   ];
   
   const packageRates = {
-    standard: { double: 299, single: 499}, 
-    comfort: { double: 399, single: 599 }, 
-    luxury: { double: 499, single: 699 }
-    
+    standard: { 
+      double: 299, 
+      single: 499,
+      hotels: "3-star standard hotels (Lily Resort Habarana or similar)"
+    }, 
+    comfort: { 
+      double: 399, 
+      single: 599,
+      hotels: "4-star standard hotels (Elephas Resort or similar)"
+    }, 
+    luxury: { 
+      double: 499, 
+      single: 699,
+      hotels: "5-star standard hotels (Aliya Resort & Spa or similar)"
+    }
   };
 
   const getTotalPrice = () => {
@@ -457,9 +468,12 @@ const TwoDayTourPackage = () => {
                   }`}
                 >
                   <div className="font-semibold capitalize mb-2">{pkg} Package</div>
-                  <div className="text-sm">
+                  <div className="text-sm mb-2">
                     <div>${rates.double} p.p (twin sharing)</div>
                     <div>${rates.single} (single rate)</div>
+                  </div>
+                  <div className="text-xs opacity-80 italic">
+                    {rates.hotels}
                   </div>
                 </button>
               ))}
