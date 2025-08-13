@@ -19,9 +19,20 @@ import untouchedRainforestsHero from '@/assets/untouched-rainforests-hero.avif';
 import traditionalVillageToursHero from '@/assets/traditional-village-tours-hero.avif';
 import localFoodMarketsHero from '@/assets/local-food-markets-hero.avif';
 import wildlifeSafariHero from '@/assets/sri-lanka-wildlife-safari-packages-hero.avif';
+import sriLankaGermanyHero from '@/assets/sri-lanka-germany-packages-hero.avif';
 
 const Blog = () => {
 const blogPosts = [
+    {
+      id: 'Sri-Lanka-tour-packages-from-Germany',
+      title: 'Sri Lanka Tour Packages from Germany: Your Ultimate Travel Guide',
+      description: 'Discover the perfect Sri Lanka tour packages designed specifically for German travelers. From ancient temples to pristine beaches, explore the Pearl of the Indian Ocean with our comprehensive travel guide.',
+      image: sriLankaGermanyHero,
+      date: '2025-02-08',
+      readTime: '12 min read',
+      location: 'Sri Lanka',
+      tags: ['Tour Packages', 'Germany Travel', 'Cultural Tours', 'Wildlife Safari', 'Beach Holidays']
+    },
     {
       id: 'Sri-Lanka-vacation-packages-from-France',
       title: 'Sri Lanka Vacation Packages from France | Expert French Travel Guide',
