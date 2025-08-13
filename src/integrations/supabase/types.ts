@@ -99,6 +99,7 @@ export type Database = {
           created_at: string
           display_name: string | null
           id: string
+          role: string | null
           updated_at: string
         }
         Insert: {
@@ -107,6 +108,7 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id: string
+          role?: string | null
           updated_at?: string
         }
         Update: {
@@ -115,6 +117,7 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          role?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -175,6 +178,14 @@ export type Database = {
           records_older_than_1_year: number
           records_older_than_2_years: number
         }[]
+      }
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      promote_user_to_admin: {
+        Args: { user_email: string }
+        Returns: boolean
       }
     }
     Enums: {
