@@ -231,7 +231,7 @@ const handler = async (req: Request): Promise<Response> => {
     const fromEmail = Deno.env.get("FROM_EMAIL") || "admin@sirilaktours.com";
     const emailResponse = await resend.emails.send({
       from: `Sri Lanka Tours <${fromEmail}>`,
-      to: ["admin@sirilaktours.com"],
+      to: ["seerendipitytourslk@gmail.com"],
       subject: `New Enquiry from ${sanitizedData.fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
