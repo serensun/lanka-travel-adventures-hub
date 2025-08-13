@@ -61,14 +61,12 @@ const TwoDayTourPackage = () => {
     "Sip a typical Ceylon tea while touring a tea factory and garden.",
     "Enjoy the vibrant flavours of Sri Lankan cuisine at a neighborhood eatery."
   ];
-
+  
   const packageRates = {
-    standard: { double: 299, single: 499 }, 
-    Hotels: {Lily Resort Habarana},
+    standard: { double: 299, single: 499}, 
     comfort: { double: 399, single: 599 }, 
-    Hotels: {Elephas resort},
     luxury: { double: 499, single: 699 }
-    Hotels: {Aliya resort & Spa},
+    
   };
 
   const getTotalPrice = () => {
