@@ -63,9 +63,12 @@ const TwoDayTourPackage = () => {
   ];
 
   const packageRates = {
-    standard: { double: 299, single: 499 },
-    comfort: { double: 399, single: 599 },
+    standard: { double: 299, single: 499 }, 
+    Hotels: {Lily Resort Habarana},
+    comfort: { double: 399, single: 599 }, 
+    Hotels: {Elephas resort},
     luxury: { double: 499, single: 699 }
+    Hotels: {Aliya resort & Spa},
   };
 
   const getTotalPrice = () => {
